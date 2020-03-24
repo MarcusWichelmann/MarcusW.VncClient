@@ -7,9 +7,35 @@ ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2CB2F0BD-AABA-4047-AAEE-E3AA512EFE47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcusW.VncClient", "src\MarcusW.VncClient\MarcusW.VncClient.csproj", "{90137400-5377-4EB1-AD8A-E200F9006B7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1FC9632E-AA75-4DDB-8CAD-332CA3EFA62D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcusW.VncClient.Tests", "tests\MarcusW.VncClient.Tests\MarcusW.VncClient.Tests.csproj", "{17267552-3363-4060-A52B-C5F1ACA558AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7E5D1011-F3AB-4B7E-A015-58B5A910EBA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F24C1D8F-7ADE-4900-BB9B-817D0AD10C50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90137400-5377-4EB1-AD8A-E200F9006B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90137400-5377-4EB1-AD8A-E200F9006B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90137400-5377-4EB1-AD8A-E200F9006B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90137400-5377-4EB1-AD8A-E200F9006B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17267552-3363-4060-A52B-C5F1ACA558AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17267552-3363-4060-A52B-C5F1ACA558AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17267552-3363-4060-A52B-C5F1ACA558AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17267552-3363-4060-A52B-C5F1ACA558AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90137400-5377-4EB1-AD8A-E200F9006B7D} = {2CB2F0BD-AABA-4047-AAEE-E3AA512EFE47}
+		{17267552-3363-4060-A52B-C5F1ACA558AB} = {1FC9632E-AA75-4DDB-8CAD-332CA3EFA62D}
 	EndGlobalSection
 EndGlobal
