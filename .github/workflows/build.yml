@@ -4,7 +4,7 @@ on:
 
 jobs:
   test:
-    name: Tests
+    name: Test
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -32,7 +32,7 @@ jobs:
         run: dotnet test --no-restore --verbosity normal
 
   apidoc:
-    name: API documentation
+    name: API Documentation
     runs-on: ubuntu-latest
 
     if: github.ref == 'refs/heads/master'
@@ -48,7 +48,7 @@ jobs:
           args: docs/docfx.json
 
       - name: Debug
-        run: tree
+        run: sudo apt install tree && tree
 
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
