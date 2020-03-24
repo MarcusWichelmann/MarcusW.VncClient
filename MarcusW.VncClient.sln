@@ -5,6 +5,7 @@ ProjectSection(SolutionItems) = preProject
 	.editorconfig = .editorconfig
 	.gitignore = .gitignore
 	README.md = README.md
+	LICENSE = LICENSE
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2CB2F0BD-AABA-4047-AAEE-E3AA512EFE47}"
@@ -18,6 +19,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7E5D1011-F3AB-4B7E-A015-58B5A910EBA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F24C1D8F-7ADE-4900-BB9B-817D0AD10C50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", "{678728BC-1F28-4C65-894B-545C62739E73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{90137400-5377-4EB1-AD8A-E200F9006B7D} = {2CB2F0BD-AABA-4047-AAEE-E3AA512EFE47}
 		{17267552-3363-4060-A52B-C5F1ACA558AB} = {1FC9632E-AA75-4DDB-8CAD-332CA3EFA62D}
+		{678728BC-1F28-4C65-894B-545C62739E73} = {1FC9632E-AA75-4DDB-8CAD-332CA3EFA62D}
 	EndGlobalSection
 EndGlobal
