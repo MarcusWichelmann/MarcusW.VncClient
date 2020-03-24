@@ -47,15 +47,11 @@ jobs:
         with:
           args: docs/docfx.json
 
-      - name: Debug
-        run: sudo apt install tree && tree
-
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs/_site
-          GIT_CONFIG_NAME: DocFX Generator
           TARGET_FOLDER: apidoc
           CLEAN: true
