@@ -51,11 +51,11 @@ jobs:
         run: tree
 
       - name: Deploy to GitHub pages
-          uses: JamesIves/github-pages-deploy-action@releases/v3
-          with:
-            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-            BRANCH: gh-pages
-            FOLDER: docs/_site
-            GIT_CONFIG_NAME: DocFX Generator
-            TARGET_FOLDER: apidoc
-            CLEAN: true
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/_site
+          GIT_CONFIG_NAME: DocFX Generator
+          TARGET_FOLDER: apidoc
+          CLEAN: true
