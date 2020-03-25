@@ -1,3 +1,3 @@
 # VNC-Client API Documentation
 
-[Go to documentation](api/index.md)
+#### [Go to documentation](api/index.md)
