@@ -16,13 +16,13 @@
     "content": [
       {
         "files": [
-          "api/**.yml"
+          "api/**.yml",
+          "api/index.md"
         ]
       },
       {
         "files": [
-          "toc.yml",
-          "*.md"
+          "toc.yml"
         ]
       }
     ],
@@ -52,9 +52,6 @@
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    "noLangKeyword": false
   }
 }
