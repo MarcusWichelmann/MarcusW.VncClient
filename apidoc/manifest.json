@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "JKewFgHjVyltOewYiuwXDg=="
+          "hash": "636YfPN/n6XcGUOVrmAqNA=="
         }
       },
       "is_incremental": false,
@@ -46,6 +46,18 @@
         ".html": {
           "relative_path": "api/toc.html",
           "hash": "HRtMUTQhL5aMt7liV5dq6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "tJa441MNqXl4r22ssgmm2g=="
         }
       },
       "is_incremental": false,
@@ -85,7 +97,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 1,
+          "total_file_count": 2,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
