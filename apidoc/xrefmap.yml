@@ -1,3 +1,15 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: MarcusW.VncClient
+  name: MarcusW.VncClient
+  href: api/MarcusW.VncClient.html
+  commentId: N:MarcusW.VncClient
+  fullName: MarcusW.VncClient
+  nameWithType: MarcusW.VncClient
+- uid: MarcusW.VncClient.Class1
+  name: Class1
+  href: api/MarcusW.VncClient.Class1.html
+  commentId: T:MarcusW.VncClient.Class1
+  fullName: MarcusW.VncClient.Class1
+  nameWithType: Class1

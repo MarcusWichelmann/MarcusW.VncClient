@@ -4,6 +4,42 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Class1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Class1.html",
+          "hash": "BrOUuPKWGXHj4//7YH+LJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.html",
+          "hash": "BWoEBpYpQ22qsUv76xPXnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "HRtMUTQhL5aMt7liV5dq6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -24,7 +60,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "SDm0uIhYQ688xjyk6r5obA=="
+          "hash": "Yg7rpOdfH3YwYCEmmOmI9w=="
         }
       },
       "is_incremental": false,
@@ -42,6 +78,12 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 0
+        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
