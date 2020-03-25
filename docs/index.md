@@ -1,5 +1,3 @@
-# API Documentation
+# VNC-Client API Documentation
 
-Please select one of the namespaces on the left to start browsing.
-
-Have fun!
+[Go to documentation](api/index.md)

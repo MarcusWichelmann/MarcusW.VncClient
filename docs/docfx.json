@@ -16,12 +16,13 @@
     "content": [
       {
         "files": [
-          "api/**.yml"
-        ],
-        "dest": "."
+          "api/**.yml",
+          "api/index.md"
+        ]
       },
       {
         "files": [
+          "toc.yml",
           "index.md"
         ]
       }
