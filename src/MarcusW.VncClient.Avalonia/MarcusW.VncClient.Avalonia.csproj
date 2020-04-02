@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <RootNamespace>MarcusW.VncClient.Avalonia</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.9.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MarcusW.VncClient\MarcusW.VncClient.csproj" />
+    </ItemGroup>
+
+</Project>
