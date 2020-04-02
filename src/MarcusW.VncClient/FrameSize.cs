@@ -21,8 +21,8 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Initializes a new instance of the <see cref="FrameSize"/> structure.
         /// </summary>
-        /// <param name="width">The width.</param>
-        /// <param name="height">The height.</param>
+        /// <param name="width">The width</param>
+        /// <param name="height">The height</param>
         public FrameSize(int width, int height)
         {
             Width = width;
