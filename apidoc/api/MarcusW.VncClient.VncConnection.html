@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IFramebufferSource
+    <title>Class VncConnection
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IFramebufferSource
+    <meta name="title" content="Class VncConnection
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,60 +68,74 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Rendering.IFramebufferSource">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.VncConnection">
   
   
-  <h1 id="MarcusW_VncClient_Rendering_IFramebufferSource" data-uid="MarcusW.VncClient.Rendering.IFramebufferSource" class="text-break">Interface IFramebufferSource
+  <h1 id="MarcusW_VncClient_VncConnection" data-uid="MarcusW.VncClient.VncConnection" class="text-break">Class VncConnection
   </h1>
-  <div class="markdown level0 summary"><p>Provides access to the target framebuffer for rendering frames.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Rendering.html">MarcusW.VncClient.Rendering</a></h6>
-  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Rendering_IFramebufferSource_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IFramebufferSource</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">VncConnection</span></div>
   </div>
-  <h5 id="MarcusW_VncClient_Rendering_IFramebufferSource_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>This is an abstraction around the different framebuffer access methods for rendering backends like Avalonia (Skia, Direct2D, ...) and others.</p>
-</div>
-  <h3 id="methods">Methods
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.html">MarcusW.VncClient</a></h6>
+  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
+  <h5 id="MarcusW_VncClient_VncConnection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class VncConnection : object</code></pre>
+  </div>
+  <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_MarcusW_VncClient_FrameSize_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(MarcusW.VncClient.FrameSize)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncConnection_LoggerFactory.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncConnection.LoggerFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferSource.cs/#L16">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncConnection.cs/#L11">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_" data-uid="MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference*"></a>
-  <h4 id="MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_MarcusW_VncClient_FrameSize_" data-uid="MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(MarcusW.VncClient.FrameSize)">GrabReference(FrameSize)</h4>
-  <div class="markdown level1 summary"><p>Locks the native framebuffer in memory and returns a reference to it. The returned object should be disposed after rendering is finished.</p>
+  <a id="MarcusW_VncClient_VncConnection_LoggerFactory_" data-uid="MarcusW.VncClient.VncConnection.LoggerFactory*"></a>
+  <h4 id="MarcusW_VncClient_VncConnection_LoggerFactory" data-uid="MarcusW.VncClient.VncConnection.LoggerFactory">LoggerFactory</h4>
+  <div class="markdown level1 summary"><p>Gets the logger factory implementation that should be used for creating new loggers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IFramebufferReference GrabReference(FrameSize frameSize)</code></pre>
+    <pre><code class="lang-csharp hljs">public ILoggerFactory LoggerFactory { get; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.FrameSize.html">FrameSize</a></td>
-        <td><span class="parametername">frameSize</span></td>
-        <td><p>The required frame size.</p>
-</td>
+        <td><span class="xref">ILoggerFactory</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncConnection_RenderTarget.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncConnection.RenderTarget%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncConnection.cs/#L16">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_VncConnection_RenderTarget_" data-uid="MarcusW.VncClient.VncConnection.RenderTarget*"></a>
+  <h4 id="MarcusW_VncClient_VncConnection_RenderTarget" data-uid="MarcusW.VncClient.VncConnection.RenderTarget">RenderTarget</h4>
+  <div class="markdown level1 summary"><p>Gets the target received frames should be rendered to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRenderTarget RenderTarget { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -131,9 +145,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.Rendering.IFramebufferReference.html">IFramebufferReference</a></td>
-        <td><p>Framebuffer reference</p>
-</td>
+        <td><a class="xref" href="MarcusW.VncClient.Rendering.IRenderTarget.html">IRenderTarget</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -145,10 +158,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferSource.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferSource%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncConnection.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferSource.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncConnection.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

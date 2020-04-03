@@ -13,154 +13,330 @@ references:
   commentId: N:MarcusW.VncClient.Avalonia
   fullName: MarcusW.VncClient.Avalonia
   nameWithType: MarcusW.VncClient.Avalonia
-- uid: MarcusW.VncClient.Avalonia.Conversions
+- uid: MarcusW.VncClient.Avalonia.Adapters
+  name: MarcusW.VncClient.Avalonia.Adapters
+  href: api/MarcusW.VncClient.Avalonia.Adapters.html
+  commentId: N:MarcusW.VncClient.Avalonia.Adapters
+  fullName: MarcusW.VncClient.Avalonia.Adapters
+  nameWithType: MarcusW.VncClient.Avalonia.Adapters
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions
   name: Conversions
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html
-  commentId: T:MarcusW.VncClient.Avalonia.Conversions
-  fullName: MarcusW.VncClient.Avalonia.Conversions
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html
+  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Conversions
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions
   nameWithType: Conversions
-- uid: MarcusW.VncClient.Avalonia.Conversions.GetFrameSize(PixelSize)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize(PixelSize)
   name: GetFrameSize(PixelSize)
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetFrameSize_PixelSize_
-  commentId: M:MarcusW.VncClient.Avalonia.Conversions.GetFrameSize(PixelSize)
-  fullName: MarcusW.VncClient.Avalonia.Conversions.GetFrameSize(PixelSize)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetFrameSize_PixelSize_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize(PixelSize)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize(PixelSize)
   nameWithType: Conversions.GetFrameSize(PixelSize)
-- uid: MarcusW.VncClient.Avalonia.Conversions.GetFrameSize*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize*
   name: GetFrameSize
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetFrameSize_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Conversions.GetFrameSize
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetFrameSize_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Conversions.GetFrameSize
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize
   nameWithType: Conversions.GetFrameSize
-- uid: MarcusW.VncClient.Avalonia.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
   name: GetPixelFormat(Avalonia.Platform.PixelFormat)
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetPixelFormat_Avalonia_Platform_PixelFormat_
-  commentId: M:MarcusW.VncClient.Avalonia.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
-  fullName: MarcusW.VncClient.Avalonia.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelFormat_Avalonia_Platform_PixelFormat_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
   nameWithType: Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
-- uid: MarcusW.VncClient.Avalonia.Conversions.GetPixelFormat*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat*
   name: GetPixelFormat
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetPixelFormat_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Conversions.GetPixelFormat
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelFormat_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Conversions.GetPixelFormat
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat
   nameWithType: Conversions.GetPixelFormat
-- uid: MarcusW.VncClient.Avalonia.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
   name: GetPixelSize(FrameSize)
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetPixelSize_MarcusW_VncClient_FrameSize_
-  commentId: M:MarcusW.VncClient.Avalonia.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
-  fullName: MarcusW.VncClient.Avalonia.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelSize_MarcusW_VncClient_FrameSize_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
   nameWithType: Conversions.GetPixelSize(FrameSize)
-- uid: MarcusW.VncClient.Avalonia.Conversions.GetPixelSize*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize*
   name: GetPixelSize
-  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetPixelSize_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Conversions.GetPixelSize
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelSize_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Conversions.GetPixelSize
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize
   nameWithType: Conversions.GetPixelSize
-- uid: MarcusW.VncClient.Avalonia.Rendering
-  name: MarcusW.VncClient.Avalonia.Rendering
-  href: api/MarcusW.VncClient.Avalonia.Rendering.html
-  commentId: N:MarcusW.VncClient.Avalonia.Rendering
-  fullName: MarcusW.VncClient.Avalonia.Rendering
-  nameWithType: MarcusW.VncClient.Avalonia.Rendering
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference
-  name: AvaloniaFramebufferReference
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html
-  commentId: T:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference
-  nameWithType: AvaloniaFramebufferReference
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Address
-  name: Address
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Address
-  commentId: P:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Address
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Address
-  nameWithType: AvaloniaFramebufferReference.Address
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Address*
-  name: Address
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Address_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Address
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging
+  name: MarcusW.VncClient.Avalonia.Adapters.Logging
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.html
+  commentId: N:MarcusW.VncClient.Avalonia.Adapters.Logging
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging
+  nameWithType: MarcusW.VncClient.Avalonia.Adapters.Logging
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger
+  name: AvaloniaLogger
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html
+  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger
+  nameWithType: AvaloniaLogger
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope*
+  name: BeginScope
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_BeginScope_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Address
-  nameWithType: AvaloniaFramebufferReference.Address
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Dispose
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope
+  nameWithType: AvaloniaLogger.BeginScope
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope``1(``0)
+  name: BeginScope<TState>(TState)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_BeginScope__1___0_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope``1(``0)
+  name.vb: BeginScope(Of TState)(TState)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope<TState>(TState)
+  fullName.vb: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.BeginScope(Of TState)(TState)
+  nameWithType: AvaloniaLogger.BeginScope<TState>(TState)
+  nameWithType.vb: AvaloniaLogger.BeginScope(Of TState)(TState)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.IsEnabled(LogLevel)
+  name: IsEnabled(LogLevel)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_IsEnabled_LogLevel_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.IsEnabled(LogLevel)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.IsEnabled(LogLevel)
+  nameWithType: AvaloniaLogger.IsEnabled(LogLevel)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.IsEnabled*
+  name: IsEnabled
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_IsEnabled_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.IsEnabled
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.IsEnabled
+  nameWithType: AvaloniaLogger.IsEnabled
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log*
+  name: Log
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_Log_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log
+  nameWithType: AvaloniaLogger.Log
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log``1(LogLevel,EventId,``0,Exception,Func{``0,Exception,System.String})
+  name: Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_Log__1_LogLevel_EventId___0_Exception_Func___0_Exception_System_String__
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log``1(LogLevel,EventId,``0,Exception,Func{``0,Exception,System.String})
+  name.vb: Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, System.String>)
+  fullName.vb: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, System.String))
+  nameWithType: AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
+  nameWithType.vb: AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider
+  name: AvaloniaLoggerProvider
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html
+  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider
+  nameWithType: AvaloniaLoggerProvider
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.CreateLogger(System.String)
+  name: CreateLogger(String)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLoggerProvider_CreateLogger_System_String_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.CreateLogger(System.String)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.CreateLogger(System.String)
+  nameWithType: AvaloniaLoggerProvider.CreateLogger(String)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.CreateLogger*
+  name: CreateLogger
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLoggerProvider_CreateLogger_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.CreateLogger
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.CreateLogger
+  nameWithType: AvaloniaLoggerProvider.CreateLogger
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose
   name: Dispose()
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Dispose
-  commentId: M:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Dispose
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Dispose()
-  nameWithType: AvaloniaFramebufferReference.Dispose()
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Dispose*
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLoggerProvider_Dispose
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose()
+  nameWithType: AvaloniaLoggerProvider.Dispose()
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose*
   name: Dispose
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Dispose_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Dispose
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLoggerProvider_Dispose_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Dispose
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose
+  nameWithType: AvaloniaLoggerProvider.Dispose
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope
+  name: NullScope
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html
+  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope
+  nameWithType: NullScope
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Dispose
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose()
+  nameWithType: NullScope.Dispose()
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Dispose_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
+  nameWithType: NullScope.Dispose
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
+  name: Instance
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Instance
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
+  nameWithType: NullScope.Instance
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance*
+  name: Instance
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Instance_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
+  nameWithType: NullScope.Instance
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering
+  name: MarcusW.VncClient.Avalonia.Adapters.Rendering
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.html
+  commentId: N:MarcusW.VncClient.Avalonia.Adapters.Rendering
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering
+  nameWithType: MarcusW.VncClient.Avalonia.Adapters.Rendering
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference
+  name: AvaloniaFramebufferReference
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html
+  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference
+  nameWithType: AvaloniaFramebufferReference
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Address
+  name: Address
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Address
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Address
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Address
+  nameWithType: AvaloniaFramebufferReference.Address
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Address*
+  name: Address
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Address_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Address
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Address
+  nameWithType: AvaloniaFramebufferReference.Address
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Dispose
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Dispose
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Dispose()
+  nameWithType: AvaloniaFramebufferReference.Dispose()
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Dispose_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Dispose
   nameWithType: AvaloniaFramebufferReference.Dispose
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Format
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Format
   name: Format
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Format
-  commentId: P:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Format
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Format
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Format
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Format
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Format
   nameWithType: AvaloniaFramebufferReference.Format
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Format*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Format*
   name: Format
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Format_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Format
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Format_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Format
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Format
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Format
   nameWithType: AvaloniaFramebufferReference.Format
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.HorizontalDpi
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.HorizontalDpi
   name: HorizontalDpi
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_HorizontalDpi
-  commentId: P:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.HorizontalDpi
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.HorizontalDpi
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_HorizontalDpi
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.HorizontalDpi
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.HorizontalDpi
   nameWithType: AvaloniaFramebufferReference.HorizontalDpi
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.HorizontalDpi*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.HorizontalDpi*
   name: HorizontalDpi
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_HorizontalDpi_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.HorizontalDpi
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_HorizontalDpi_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.HorizontalDpi
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.HorizontalDpi
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.HorizontalDpi
   nameWithType: AvaloniaFramebufferReference.HorizontalDpi
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.RowBytes
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.RowBytes
   name: RowBytes
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_RowBytes
-  commentId: P:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.RowBytes
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.RowBytes
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_RowBytes
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.RowBytes
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.RowBytes
   nameWithType: AvaloniaFramebufferReference.RowBytes
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.RowBytes*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.RowBytes*
   name: RowBytes
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_RowBytes_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.RowBytes
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_RowBytes_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.RowBytes
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.RowBytes
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.RowBytes
   nameWithType: AvaloniaFramebufferReference.RowBytes
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Size
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Size
   name: Size
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Size
-  commentId: P:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Size
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Size
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Size
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Size
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Size
   nameWithType: AvaloniaFramebufferReference.Size
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Size*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Size*
   name: Size
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_Size_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Size
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_Size_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Size
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.Size
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.Size
   nameWithType: AvaloniaFramebufferReference.Size
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.VerticalDpi
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
   name: VerticalDpi
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_VerticalDpi
-  commentId: P:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.VerticalDpi
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.VerticalDpi
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_VerticalDpi
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
   nameWithType: AvaloniaFramebufferReference.VerticalDpi
-- uid: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.VerticalDpi*
+- uid: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi*
   name: VerticalDpi
-  href: api/MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Rendering_AvaloniaFramebufferReference_VerticalDpi_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.VerticalDpi
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.html#MarcusW_VncClient_Avalonia_Adapters_Rendering_AvaloniaFramebufferReference_VerticalDpi_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Rendering.AvaloniaFramebufferReference.VerticalDpi
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
   nameWithType: AvaloniaFramebufferReference.VerticalDpi
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget
+  name: VncRenderTarget
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html
+  commentId: T:MarcusW.VncClient.Avalonia.VncRenderTarget
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget
+  nameWithType: VncRenderTarget
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Dispose
+  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose()
+  nameWithType: VncRenderTarget.Dispose()
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Dispose_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
+  nameWithType: VncRenderTarget.Dispose
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  name: IRenderTarget.GrabFramebufferReference(FrameSize)
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_
+  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  name.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(FrameSize)
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  nameWithType: VncRenderTarget.IRenderTarget.GrabFramebufferReference(FrameSize)
+  nameWithType.vb: VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(FrameSize)
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference*
+  name: IRenderTarget.GrabFramebufferReference
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference
+  isSpec: "True"
+  name.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+  nameWithType: VncRenderTarget.IRenderTarget.GrabFramebufferReference
+  nameWithType.vb: VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
+  name: Render(DrawingContext)
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_DrawingContext_
+  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
+  nameWithType: VncRenderTarget.Render(DrawingContext)
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Render*
+  name: Render
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.Render
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Render
+  nameWithType: VncRenderTarget.Render
 - uid: MarcusW.VncClient.Avalonia.VncView
   name: VncView
   href: api/MarcusW.VncClient.Avalonia.VncView.html
@@ -173,6 +349,12 @@ references:
   commentId: M:MarcusW.VncClient.Avalonia.VncView.#ctor
   fullName: MarcusW.VncClient.Avalonia.VncView.VncView()
   nameWithType: VncView.VncView()
+- uid: MarcusW.VncClient.Avalonia.VncView.#ctor(MarcusW.VncClient.VncClient)
+  name: VncView(VncClient)
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor_MarcusW_VncClient_VncClient_
+  commentId: M:MarcusW.VncClient.Avalonia.VncView.#ctor(MarcusW.VncClient.VncClient)
+  fullName: MarcusW.VncClient.Avalonia.VncView.VncView(MarcusW.VncClient.VncClient)
+  nameWithType: VncView.VncView(VncClient)
 - uid: MarcusW.VncClient.Avalonia.VncView.#ctor*
   name: VncView
   href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor_
@@ -180,49 +362,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.VncView.VncView
   nameWithType: VncView.VncView
-- uid: MarcusW.VncClient.Avalonia.VncView.Dispose
-  name: Dispose()
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Dispose
-  commentId: M:MarcusW.VncClient.Avalonia.VncView.Dispose
-  fullName: MarcusW.VncClient.Avalonia.VncView.Dispose()
-  nameWithType: VncView.Dispose()
-- uid: MarcusW.VncClient.Avalonia.VncView.Dispose*
-  name: Dispose
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Dispose_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.Dispose
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.VncView.Dispose
-  nameWithType: VncView.Dispose
-- uid: MarcusW.VncClient.Avalonia.VncView.MarcusW#VncClient#Rendering#IFramebufferSource#GrabReference(MarcusW.VncClient.FrameSize)
-  name: IFramebufferSource.GrabReference(FrameSize)
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_MarcusW_VncClient_FrameSize_
-  commentId: M:MarcusW.VncClient.Avalonia.VncView.MarcusW#VncClient#Rendering#IFramebufferSource#GrabReference(MarcusW.VncClient.FrameSize)
-  name.vb: MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(FrameSize)
-  fullName: MarcusW.VncClient.Avalonia.VncView.MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(MarcusW.VncClient.FrameSize)
-  nameWithType: VncView.IFramebufferSource.GrabReference(FrameSize)
-  nameWithType.vb: VncView.MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(FrameSize)
-- uid: MarcusW.VncClient.Avalonia.VncView.MarcusW#VncClient#Rendering#IFramebufferSource#GrabReference*
-  name: IFramebufferSource.GrabReference
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.MarcusW#VncClient#Rendering#IFramebufferSource#GrabReference
-  isSpec: "True"
-  name.vb: MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference
-  fullName: MarcusW.VncClient.Avalonia.VncView.MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference
-  nameWithType: VncView.IFramebufferSource.GrabReference
-  nameWithType.vb: VncView.MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference
-- uid: MarcusW.VncClient.Avalonia.VncView.Render(DrawingContext)
-  name: Render(DrawingContext)
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Render_DrawingContext_
-  commentId: M:MarcusW.VncClient.Avalonia.VncView.Render(DrawingContext)
-  fullName: MarcusW.VncClient.Avalonia.VncView.Render(DrawingContext)
-  nameWithType: VncView.Render(DrawingContext)
-- uid: MarcusW.VncClient.Avalonia.VncView.Render*
-  name: Render
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Render_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.Render
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.VncView.Render
-  nameWithType: VncView.Render
 - uid: MarcusW.VncClient.FrameSize
   name: FrameSize
   href: api/MarcusW.VncClient.FrameSize.html
@@ -387,18 +526,6 @@ references:
   commentId: F:MarcusW.VncClient.FrameSize.Zero
   fullName: MarcusW.VncClient.FrameSize.Zero
   nameWithType: FrameSize.Zero
-- uid: MarcusW.VncClient.Input
-  name: MarcusW.VncClient.Input
-  href: api/MarcusW.VncClient.Input.html
-  commentId: N:MarcusW.VncClient.Input
-  fullName: MarcusW.VncClient.Input
-  nameWithType: MarcusW.VncClient.Input
-- uid: MarcusW.VncClient.Input.IInputSource
-  name: IInputSource
-  href: api/MarcusW.VncClient.Input.IInputSource.html
-  commentId: T:MarcusW.VncClient.Input.IInputSource
-  fullName: MarcusW.VncClient.Input.IInputSource
-  nameWithType: IInputSource
 - uid: MarcusW.VncClient.Rendering
   name: MarcusW.VncClient.Rendering
   href: api/MarcusW.VncClient.Rendering.html
@@ -489,25 +616,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Rendering.IFramebufferReference.VerticalDpi
   nameWithType: IFramebufferReference.VerticalDpi
-- uid: MarcusW.VncClient.Rendering.IFramebufferSource
-  name: IFramebufferSource
-  href: api/MarcusW.VncClient.Rendering.IFramebufferSource.html
-  commentId: T:MarcusW.VncClient.Rendering.IFramebufferSource
-  fullName: MarcusW.VncClient.Rendering.IFramebufferSource
-  nameWithType: IFramebufferSource
-- uid: MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(MarcusW.VncClient.FrameSize)
-  name: GrabReference(FrameSize)
-  href: api/MarcusW.VncClient.Rendering.IFramebufferSource.html#MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_MarcusW_VncClient_FrameSize_
-  commentId: M:MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(MarcusW.VncClient.FrameSize)
-  fullName: MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference(MarcusW.VncClient.FrameSize)
-  nameWithType: IFramebufferSource.GrabReference(FrameSize)
-- uid: MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference*
-  name: GrabReference
-  href: api/MarcusW.VncClient.Rendering.IFramebufferSource.html#MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_
-  commentId: Overload:MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference
+- uid: MarcusW.VncClient.Rendering.IRenderTarget
+  name: IRenderTarget
+  href: api/MarcusW.VncClient.Rendering.IRenderTarget.html
+  commentId: T:MarcusW.VncClient.Rendering.IRenderTarget
+  fullName: MarcusW.VncClient.Rendering.IRenderTarget
+  nameWithType: IRenderTarget
+- uid: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  name: GrabFramebufferReference(FrameSize)
+  href: api/MarcusW.VncClient.Rendering.IRenderTarget.html#MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_
+  commentId: M:MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  fullName: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  nameWithType: IRenderTarget.GrabFramebufferReference(FrameSize)
+- uid: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference*
+  name: GrabFramebufferReference
+  href: api/MarcusW.VncClient.Rendering.IRenderTarget.html#MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_
+  commentId: Overload:MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
   isSpec: "True"
-  fullName: MarcusW.VncClient.Rendering.IFramebufferSource.GrabReference
-  nameWithType: IFramebufferSource.GrabReference
+  fullName: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+  nameWithType: IRenderTarget.GrabFramebufferReference
 - uid: MarcusW.VncClient.Rendering.PixelFormat
   name: PixelFormat
   href: api/MarcusW.VncClient.Rendering.PixelFormat.html
@@ -532,3 +659,79 @@ references:
   commentId: F:MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
   fullName: MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
   nameWithType: PixelFormat.Rgba8888
+- uid: MarcusW.VncClient.Security
+  name: MarcusW.VncClient.Security
+  href: api/MarcusW.VncClient.Security.html
+  commentId: N:MarcusW.VncClient.Security
+  fullName: MarcusW.VncClient.Security
+  nameWithType: MarcusW.VncClient.Security
+- uid: MarcusW.VncClient.Security.IAuthenticationHandler
+  name: IAuthenticationHandler
+  href: api/MarcusW.VncClient.Security.IAuthenticationHandler.html
+  commentId: T:MarcusW.VncClient.Security.IAuthenticationHandler
+  fullName: MarcusW.VncClient.Security.IAuthenticationHandler
+  nameWithType: IAuthenticationHandler
+- uid: MarcusW.VncClient.VncClient
+  name: VncClient
+  href: api/MarcusW.VncClient.VncClient.html
+  commentId: T:MarcusW.VncClient.VncClient
+  fullName: MarcusW.VncClient.VncClient
+  nameWithType: VncClient
+- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory)
+  name: VncClient(ILoggerFactory)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_
+  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory)
+  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory)
+  nameWithType: VncClient.VncClient(ILoggerFactory)
+- uid: MarcusW.VncClient.VncClient.#ctor*
+  name: VncClient
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_
+  commentId: Overload:MarcusW.VncClient.VncClient.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncClient.VncClient
+  nameWithType: VncClient.VncClient
+- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)
+  name: ConnectAsync(IRenderTarget)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Rendering_IRenderTarget_
+  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)
+  nameWithType: VncClient.ConnectAsync(IRenderTarget)
+- uid: MarcusW.VncClient.VncClient.ConnectAsync*
+  name: ConnectAsync
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_
+  commentId: Overload:MarcusW.VncClient.VncClient.ConnectAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync
+  nameWithType: VncClient.ConnectAsync
+- uid: MarcusW.VncClient.VncConnection
+  name: VncConnection
+  href: api/MarcusW.VncClient.VncConnection.html
+  commentId: T:MarcusW.VncClient.VncConnection
+  fullName: MarcusW.VncClient.VncConnection
+  nameWithType: VncConnection
+- uid: MarcusW.VncClient.VncConnection.LoggerFactory
+  name: LoggerFactory
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_LoggerFactory
+  commentId: P:MarcusW.VncClient.VncConnection.LoggerFactory
+  fullName: MarcusW.VncClient.VncConnection.LoggerFactory
+  nameWithType: VncConnection.LoggerFactory
+- uid: MarcusW.VncClient.VncConnection.LoggerFactory*
+  name: LoggerFactory
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_LoggerFactory_
+  commentId: Overload:MarcusW.VncClient.VncConnection.LoggerFactory
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncConnection.LoggerFactory
+  nameWithType: VncConnection.LoggerFactory
+- uid: MarcusW.VncClient.VncConnection.RenderTarget
+  name: RenderTarget
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_RenderTarget
+  commentId: P:MarcusW.VncClient.VncConnection.RenderTarget
+  fullName: MarcusW.VncClient.VncConnection.RenderTarget
+  nameWithType: VncConnection.RenderTarget
+- uid: MarcusW.VncClient.VncConnection.RenderTarget*
+  name: RenderTarget
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_RenderTarget_
+  commentId: Overload:MarcusW.VncClient.VncConnection.RenderTarget
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncConnection.RenderTarget
+  nameWithType: VncConnection.RenderTarget

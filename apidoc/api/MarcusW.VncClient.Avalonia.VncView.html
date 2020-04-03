@@ -79,19 +79,31 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">VncView</span></div>
+    <div class="level1"><a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html">VncRenderTarget</a></div>
+    <div class="level2"><span class="xref">VncView</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="MarcusW.VncClient.Rendering.IFramebufferSource.html">IFramebufferSource</a></div>
-    <div><a class="xref" href="MarcusW.VncClient.Input.IInputSource.html">IInputSource</a></div>
+    <div><a class="xref" href="MarcusW.VncClient.Rendering.IRenderTarget.html">IRenderTarget</a></div>
     <div><span class="xref">IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_">VncRenderTarget.IRenderTarget.GrabFramebufferReference(FrameSize)</a>
+    </div>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_DrawingContext_">VncRenderTarget.Render(DrawingContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Dispose">VncRenderTarget.Dispose()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Avalonia.html">MarcusW.VncClient.Avalonia</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.Avalonia.dll</h6>
   <h5 id="MarcusW_VncClient_Avalonia_VncView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class VncView : Control, IFramebufferSource, IInputSource, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class VncView : VncRenderTarget, IRenderTarget, IDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -100,7 +112,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Avalonia_VncView__ctor.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Avalonia.VncView.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L26">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L17">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Avalonia_VncView__ctor_" data-uid="MarcusW.VncClient.Avalonia.VncView.#ctor*"></a>
   <h4 id="MarcusW_VncClient_Avalonia_VncView__ctor" data-uid="MarcusW.VncClient.Avalonia.VncView.#ctor">VncView()</h4>
@@ -111,72 +123,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VncView()</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Avalonia_VncView_Dispose.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Avalonia.VncView.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Avalonia_VncView__ctor_MarcusW_VncClient_VncClient_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Avalonia.VncView.%23ctor(MarcusW.VncClient.VncClient)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L69">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L23">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Avalonia_VncView_Dispose_" data-uid="MarcusW.VncClient.Avalonia.VncView.Dispose*"></a>
-  <h4 id="MarcusW_VncClient_Avalonia_VncView_Dispose" data-uid="MarcusW.VncClient.Avalonia.VncView.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Avalonia_VncView_Render_DrawingContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Avalonia.VncView.Render(DrawingContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L58">View Source</a>
-  </span>
-  <a id="MarcusW_VncClient_Avalonia_VncView_Render_" data-uid="MarcusW.VncClient.Avalonia.VncView.Render*"></a>
-  <h4 id="MarcusW_VncClient_Avalonia_VncView_Render_DrawingContext_" data-uid="MarcusW.VncClient.Avalonia.VncView.Render(DrawingContext)">Render(DrawingContext)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Render(DrawingContext context)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DrawingContext</span></td>
-        <td><span class="parametername">context</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Avalonia_VncView_MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_MarcusW_VncClient_FrameSize_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Avalonia.VncView.MarcusW%23VncClient%23Rendering%23IFramebufferSource%23GrabReference(MarcusW.VncClient.FrameSize)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L29">View Source</a>
-  </span>
-  <a id="MarcusW_VncClient_Avalonia_VncView_MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_" data-uid="MarcusW.VncClient.Avalonia.VncView.MarcusW#VncClient#Rendering#IFramebufferSource#GrabReference*"></a>
-  <h4 id="MarcusW_VncClient_Avalonia_VncView_MarcusW_VncClient_Rendering_IFramebufferSource_GrabReference_MarcusW_VncClient_FrameSize_" data-uid="MarcusW.VncClient.Avalonia.VncView.MarcusW#VncClient#Rendering#IFramebufferSource#GrabReference(MarcusW.VncClient.FrameSize)">IFramebufferSource.GrabReference(FrameSize)</h4>
-  <div class="markdown level1 summary"><p>Locks the native framebuffer in memory and returns a reference to it. The returned object should be disposed after rendering is finished.</p>
+  <a id="MarcusW_VncClient_Avalonia_VncView__ctor_" data-uid="MarcusW.VncClient.Avalonia.VncView.#ctor*"></a>
+  <h4 id="MarcusW_VncClient_Avalonia_VncView__ctor_MarcusW_VncClient_VncClient_" data-uid="MarcusW.VncClient.Avalonia.VncView.#ctor(MarcusW.VncClient.VncClient)">VncView(VncClient)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MarcusW.VncClient.Avalonia.VncView.html">VncView</a> control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IFramebufferReference IFramebufferSource.GrabReference(FrameSize frameSize)</code></pre>
+    <pre><code class="lang-csharp hljs">public VncView(VncClient vncClient)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -189,35 +150,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.FrameSize.html">FrameSize</a></td>
-        <td><span class="parametername">frameSize</span></td>
-        <td><p>The required frame size.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.Rendering.IFramebufferReference.html">IFramebufferReference</a></td>
-        <td><p>Framebuffer reference</p>
+        <td><a class="xref" href="MarcusW.VncClient.VncClient.html">VncClient</a></td>
+        <td><span class="parametername">vncClient</span></td>
+        <td><p>The configured VNC client that should be used for establishing new connections.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="MarcusW.VncClient.Rendering.IFramebufferSource.html">IFramebufferSource</a>
-  </div>
-  <div>
-      <a class="xref" href="MarcusW.VncClient.Input.IInputSource.html">IInputSource</a>
+      <a class="xref" href="MarcusW.VncClient.Rendering.IRenderTarget.html">IRenderTarget</a>
   </div>
   <div>
       <span class="xref">IDisposable</span>
@@ -233,7 +175,7 @@
                     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Avalonia_VncView.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Avalonia.VncView%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient.Avalonia/VncView.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
