@@ -1,9 +1,8 @@
-using System;
 using System.ComponentModel;
 using Avalonia;
 using MarcusW.VncClient.Rendering;
 
-namespace MarcusW.VncClient.Avalonia
+namespace MarcusW.VncClient.Avalonia.Adapters
 {
     /// <summary>
     /// Helper functions for converting Avalonia specific types to their more abstract pendants.
@@ -13,7 +12,7 @@ namespace MarcusW.VncClient.Avalonia
         /// <summary>
         /// Converts a Avalonia PixelSize to a <see cref="FrameSize"/>.
         /// </summary>
-        /// <param name="avaloniaPixelSize">Value to convert</param>
+        /// <param name="avaloniaPixelSize">Value to convert.</param>
         /// <returns>Conversion result</returns>
         public static FrameSize GetFrameSize(PixelSize avaloniaPixelSize)
             => new FrameSize(avaloniaPixelSize.Width, avaloniaPixelSize.Height);
@@ -21,15 +20,14 @@ namespace MarcusW.VncClient.Avalonia
         /// <summary>
         /// Converts a <see cref="FrameSize"/> to a Avalonia PixelSize.
         /// </summary>
-        /// <param name="frameSize">Value to convert</param>
+        /// <param name="frameSize">Value to convert.</param>
         /// <returns>Conversion result</returns>
-        public static PixelSize GetPixelSize(FrameSize frameSize)
-            => new PixelSize(frameSize.Width, frameSize.Height);
+        public static PixelSize GetPixelSize(FrameSize frameSize) => new PixelSize(frameSize.Width, frameSize.Height);
 
         /// <summary>
         /// Converts a Avalonia PixelFormat to a <see cref="PixelFormat"/>.
         /// </summary>
-        /// <param name="avaloniaPixelFormat">Value to convert</param>
+        /// <param name="avaloniaPixelFormat">Value to convert.</param>
         /// <returns>Conversion result</returns>
         public static PixelFormat GetPixelFormat(global::Avalonia.Platform.PixelFormat avaloniaPixelFormat)
             => avaloniaPixelFormat switch {

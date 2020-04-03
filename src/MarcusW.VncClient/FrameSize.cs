@@ -21,8 +21,8 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Initializes a new instance of the <see cref="FrameSize"/> structure.
         /// </summary>
-        /// <param name="width">The width</param>
-        /// <param name="height">The height</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
         public FrameSize(int width, int height)
         {
             Width = width;
@@ -47,30 +47,30 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Checks for equality between two <see cref="FrameSize"/>s.
         /// </summary>
-        /// <param name="left">The first size</param>
-        /// <param name="right">The second size</param>
+        /// <param name="left">The first size.</param>
+        /// <param name="right">The second size.</param>
         /// <returns>True if the sizes are equal, otherwise false.</returns>
         public static bool operator ==(FrameSize left, FrameSize right) => left.Equals(right);
 
         /// <summary>
         /// Checks for inequality between two <see cref="Size"/>s.
         /// </summary>
-        /// <param name="left">The first size</param>
-        /// <param name="right">The second size</param>
+        /// <param name="left">The first size.</param>
+        /// <param name="right">The second size.</param>
         /// <returns>True if the sizes are unequal, otherwise false.</returns>
         public static bool operator !=(FrameSize left, FrameSize right) => !(left == right);
 
         /// <summary>
         /// Returns a boolean indicating whether the size is equal to the other given size.
         /// </summary>
-        /// <param name="other">The other size to test equality against</param>
+        /// <param name="other">The other size to test equality against.</param>
         /// <returns>True if this size is equal to other, False otherwise.</returns>
         public bool Equals(FrameSize other) => Width == other.Width && Height == other.Height;
 
         /// <summary>
         /// Checks for equality between a size and an object.
         /// </summary>
-        /// <param name="obj">The object</param>
+        /// <param name="obj">The object.</param>
         /// <returns>
         /// True if <paramref name="obj"/> is a size that equals the current size.
         /// </returns>
@@ -94,14 +94,14 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Returns a new <see cref="FrameSize"/> with the same height and the specified width.
         /// </summary>
-        /// <param name="width">The width</param>
+        /// <param name="width">The width.</param>
         /// <returns>The new <see cref="FrameSize"/></returns>
         public FrameSize WithWidth(int width) => new FrameSize(width, Height);
 
         /// <summary>
         /// Returns a new <see cref="FrameSize"/> with the same width and the specified height.
         /// </summary>
-        /// <param name="height">The height</param>
+        /// <param name="height">The height.</param>
         /// <returns>The new <see cref="FrameSize"/></returns>
         public FrameSize WithHeight(int height) => new FrameSize(Width, height);
 

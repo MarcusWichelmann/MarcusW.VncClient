@@ -1,10 +1,9 @@
 using System;
-using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using MarcusW.VncClient.Rendering;
 using PixelFormat = MarcusW.VncClient.Rendering.PixelFormat;
 
-namespace MarcusW.VncClient.Avalonia.Rendering
+namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
 {
     /// <inheritdoc />
     public class AvaloniaFramebufferReference : IFramebufferReference
