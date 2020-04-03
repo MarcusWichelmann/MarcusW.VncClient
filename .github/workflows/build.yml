@@ -11,7 +11,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         # Static version numbering because of https://github.com/actions/setup-dotnet/issues/23
         # See https://github.com/dotnet/core/blob/master/release-notes/releases-index.json
-        dotnet: [3.0.103, 3.1.201]
+        dotnet: [3.1.201]
 
     steps:
       - name: Checkout
