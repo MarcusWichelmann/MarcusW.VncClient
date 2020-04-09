@@ -24,7 +24,7 @@ namespace MarcusW.VncClient
         /// Tries to connect to a VNC server and initializes a new connection object.
         /// </summary>
         /// <param name="renderTarget">The target where received frames should be rendered to.</param>
-        /// <returns>An initialized <see cref="VncConnection"/> instance</returns>
+        /// <returns>An initialized <see cref="VncConnection"/> instance.</returns>
         public async Task<VncConnection> ConnectAsync(IRenderTarget renderTarget)
         {
             var vncConnection = new VncConnection(_loggerFactory, renderTarget);

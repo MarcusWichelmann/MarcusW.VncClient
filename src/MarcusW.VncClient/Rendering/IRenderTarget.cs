@@ -12,7 +12,7 @@ namespace MarcusW.VncClient.Rendering
         /// Locks the native framebuffer in memory and returns a reference to it. The returned object should be disposed after rendering is finished.
         /// </summary>
         /// <param name="frameSize">The required frame size.</param>
-        /// <returns>Framebuffer reference</returns>
+        /// <returns>The framebuffer reference.</returns>
         IFramebufferReference GrabFramebufferReference(FrameSize frameSize);
     }
 }

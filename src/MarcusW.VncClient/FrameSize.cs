@@ -79,7 +79,7 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Returns a hash code for a <see cref="FrameSize"/>.
         /// </summary>
-        /// <returns>The hash code</returns>
+        /// <returns>The hash code.</returns>
         public override int GetHashCode()
         {
             unchecked
@@ -95,20 +95,20 @@ namespace MarcusW.VncClient
         /// Returns a new <see cref="FrameSize"/> with the same height and the specified width.
         /// </summary>
         /// <param name="width">The width.</param>
-        /// <returns>The new <see cref="FrameSize"/></returns>
+        /// <returns>The new <see cref="FrameSize"/>.</returns>
         public FrameSize WithWidth(int width) => new FrameSize(width, Height);
 
         /// <summary>
         /// Returns a new <see cref="FrameSize"/> with the same width and the specified height.
         /// </summary>
         /// <param name="height">The height.</param>
-        /// <returns>The new <see cref="FrameSize"/></returns>
+        /// <returns>The new <see cref="FrameSize"/>.</returns>
         public FrameSize WithHeight(int height) => new FrameSize(Width, height);
 
         /// <summary>
         /// Returns the string representation of the size.
         /// </summary>
-        /// <returns>The string representation of the size</returns>
+        /// <returns>The string representation of the size.</returns>
         public override string ToString() => string.Format(CultureInfo.InvariantCulture, "{0}, {1}", Width, Height);
     }
 }
