@@ -114,12 +114,10 @@ namespace MarcusW.VncClient.Utils
             if (_disposed)
                 return;
 
-            Debug.Assert(_stopCts != null, nameof(_stopCts) + " != null");
-
             try
             {
                 // Ensure the thread is stopped
-                _stopCts.Cancel();
+                _stopCts?.Cancel();
                 if (_thread.IsAlive)
                 {
                     // Block and wait for completion or hard-kill the thread after 3 seconds
