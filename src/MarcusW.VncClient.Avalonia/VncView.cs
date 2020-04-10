@@ -1,4 +1,5 @@
 using MarcusW.VncClient.Avalonia.Adapters.Logging;
+using MarcusW.VncClient.Protocol.Encodings;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
@@ -31,7 +32,7 @@ namespace MarcusW.VncClient.Avalonia
             var loggerFactory = new LoggerFactory();
             loggerFactory.AddProvider(new AvaloniaLoggerProvider());
 
-            return new VncClient(loggerFactory);
+            return new VncClient(loggerFactory, Defaults.GetEncodingsCollection());
         }
     }
 }
