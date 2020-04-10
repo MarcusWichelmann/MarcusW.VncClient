@@ -362,6 +362,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.VncView.VncView
   nameWithType: VncView.VncView
+- uid: MarcusW.VncClient.Defaults
+  name: Defaults
+  href: api/MarcusW.VncClient.Defaults.html
+  commentId: T:MarcusW.VncClient.Defaults
+  fullName: MarcusW.VncClient.Defaults
+  nameWithType: Defaults
+- uid: MarcusW.VncClient.Defaults.GetEncodingsCollection
+  name: GetEncodingsCollection()
+  href: api/MarcusW.VncClient.Defaults.html#MarcusW_VncClient_Defaults_GetEncodingsCollection
+  commentId: M:MarcusW.VncClient.Defaults.GetEncodingsCollection
+  fullName: MarcusW.VncClient.Defaults.GetEncodingsCollection()
+  nameWithType: Defaults.GetEncodingsCollection()
+- uid: MarcusW.VncClient.Defaults.GetEncodingsCollection*
+  name: GetEncodingsCollection
+  href: api/MarcusW.VncClient.Defaults.html#MarcusW_VncClient_Defaults_GetEncodingsCollection_
+  commentId: Overload:MarcusW.VncClient.Defaults.GetEncodingsCollection
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Defaults.GetEncodingsCollection
+  nameWithType: Defaults.GetEncodingsCollection
 - uid: MarcusW.VncClient.FrameSize
   name: FrameSize
   href: api/MarcusW.VncClient.FrameSize.html
@@ -526,6 +545,61 @@ references:
   commentId: F:MarcusW.VncClient.FrameSize.Zero
   fullName: MarcusW.VncClient.FrameSize.Zero
   nameWithType: FrameSize.Zero
+- uid: MarcusW.VncClient.Protocol
+  name: MarcusW.VncClient.Protocol
+  href: api/MarcusW.VncClient.Protocol.html
+  commentId: N:MarcusW.VncClient.Protocol
+  fullName: MarcusW.VncClient.Protocol
+  nameWithType: MarcusW.VncClient.Protocol
+- uid: MarcusW.VncClient.Protocol.Encodings
+  name: MarcusW.VncClient.Protocol.Encodings
+  href: api/MarcusW.VncClient.Protocol.Encodings.html
+  commentId: N:MarcusW.VncClient.Protocol.Encodings
+  fullName: MarcusW.VncClient.Protocol.Encodings
+  nameWithType: MarcusW.VncClient.Protocol.Encodings
+- uid: MarcusW.VncClient.Protocol.Encodings.IEncoding
+  name: IEncoding
+  href: api/MarcusW.VncClient.Protocol.Encodings.IEncoding.html
+  commentId: T:MarcusW.VncClient.Protocol.Encodings.IEncoding
+  fullName: MarcusW.VncClient.Protocol.Encodings.IEncoding
+  nameWithType: IEncoding
+- uid: MarcusW.VncClient.Protocol.Encodings.IFrameEncoding
+  name: IFrameEncoding
+  href: api/MarcusW.VncClient.Protocol.Encodings.IFrameEncoding.html
+  commentId: T:MarcusW.VncClient.Protocol.Encodings.IFrameEncoding
+  fullName: MarcusW.VncClient.Protocol.Encodings.IFrameEncoding
+  nameWithType: IFrameEncoding
+- uid: MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding
+  name: IPseudoEncoding
+  href: api/MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding.html
+  commentId: T:MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding
+  fullName: MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding
+  nameWithType: IPseudoEncoding
+- uid: MarcusW.VncClient.Protocol.RfbMessageReceiver
+  name: RfbMessageReceiver
+  href: api/MarcusW.VncClient.Protocol.RfbMessageReceiver.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbMessageReceiver
+  fullName: MarcusW.VncClient.Protocol.RfbMessageReceiver
+  nameWithType: RfbMessageReceiver
+- uid: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker(CancellationToken)
+  name: ThreadWorker(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.RfbMessageReceiver.html#MarcusW_VncClient_Protocol_RfbMessageReceiver_ThreadWorker_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker(CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker(CancellationToken)
+  nameWithType: RfbMessageReceiver.ThreadWorker(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker*
+  name: ThreadWorker
+  href: api/MarcusW.VncClient.Protocol.RfbMessageReceiver.html#MarcusW_VncClient_Protocol_RfbMessageReceiver_ThreadWorker_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker
+  nameWithType: RfbMessageReceiver.ThreadWorker
+- uid: MarcusW.VncClient.Protocol.RfbMessageSender
+  name: RfbMessageSender
+  href: api/MarcusW.VncClient.Protocol.RfbMessageSender.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbMessageSender
+  fullName: MarcusW.VncClient.Protocol.RfbMessageSender
+  nameWithType: RfbMessageSender
 - uid: MarcusW.VncClient.Rendering
   name: MarcusW.VncClient.Rendering
   href: api/MarcusW.VncClient.Rendering.html
@@ -671,18 +745,98 @@ references:
   commentId: T:MarcusW.VncClient.Security.IAuthenticationHandler
   fullName: MarcusW.VncClient.Security.IAuthenticationHandler
   nameWithType: IAuthenticationHandler
+- uid: MarcusW.VncClient.Utils
+  name: MarcusW.VncClient.Utils
+  href: api/MarcusW.VncClient.Utils.html
+  commentId: N:MarcusW.VncClient.Utils
+  fullName: MarcusW.VncClient.Utils
+  nameWithType: MarcusW.VncClient.Utils
+- uid: MarcusW.VncClient.Utils.BackgroundThread
+  name: BackgroundThread
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html
+  commentId: T:MarcusW.VncClient.Utils.BackgroundThread
+  fullName: MarcusW.VncClient.Utils.BackgroundThread
+  nameWithType: BackgroundThread
+- uid: MarcusW.VncClient.Utils.BackgroundThread.#ctor(System.String)
+  name: BackgroundThread(String)
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread__ctor_System_String_
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.#ctor(System.String)
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.BackgroundThread(System.String)
+  nameWithType: BackgroundThread.BackgroundThread(String)
+- uid: MarcusW.VncClient.Utils.BackgroundThread.#ctor*
+  name: BackgroundThread
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread__ctor_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.BackgroundThread
+  nameWithType: BackgroundThread.BackgroundThread
+- uid: MarcusW.VncClient.Utils.BackgroundThread.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Dispose
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.Dispose
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.Dispose()
+  nameWithType: BackgroundThread.Dispose()
+- uid: MarcusW.VncClient.Utils.BackgroundThread.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Dispose_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.Dispose
+  nameWithType: BackgroundThread.Dispose
+- uid: MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
+  name: Start(CancellationToken)
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Start_CancellationToken_
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
+  nameWithType: BackgroundThread.Start(CancellationToken)
+- uid: MarcusW.VncClient.Utils.BackgroundThread.Start*
+  name: Start
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Start_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.Start
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.Start
+  nameWithType: BackgroundThread.Start
+- uid: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
+  name: StopAndWaitAsync()
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_StopAndWaitAsync
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync()
+  nameWithType: BackgroundThread.StopAndWaitAsync()
+- uid: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync*
+  name: StopAndWaitAsync
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_StopAndWaitAsync_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
+  nameWithType: BackgroundThread.StopAndWaitAsync
+- uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
+  name: ThreadWorker(CancellationToken)
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_ThreadWorker_CancellationToken_
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
+  nameWithType: BackgroundThread.ThreadWorker(CancellationToken)
+- uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker*
+  name: ThreadWorker
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_ThreadWorker_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker
+  nameWithType: BackgroundThread.ThreadWorker
 - uid: MarcusW.VncClient.VncClient
   name: VncClient
   href: api/MarcusW.VncClient.VncClient.html
   commentId: T:MarcusW.VncClient.VncClient
   fullName: MarcusW.VncClient.VncClient
   nameWithType: VncClient
-- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory)
-  name: VncClient(ILoggerFactory)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_
-  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory)
-  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory)
-  nameWithType: VncClient.VncClient(ILoggerFactory)
+- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding})
+  name: VncClient(ILoggerFactory, IEnumerable<IEncoding>)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding__
+  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding})
+  name.vb: VncClient(ILoggerFactory, IEnumerable(Of IEncoding))
+  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, IEnumerable<MarcusW.VncClient.Protocol.Encodings.IEncoding>)
+  fullName.vb: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, IEnumerable(Of MarcusW.VncClient.Protocol.Encodings.IEncoding))
+  nameWithType: VncClient.VncClient(ILoggerFactory, IEnumerable<IEncoding>)
+  nameWithType.vb: VncClient.VncClient(ILoggerFactory, IEnumerable(Of IEncoding))
 - uid: MarcusW.VncClient.VncClient.#ctor*
   name: VncClient
   href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_
@@ -690,12 +844,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncClient.VncClient
   nameWithType: VncClient.VncClient
-- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)
-  name: ConnectAsync(IRenderTarget)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Rendering_IRenderTarget_
-  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)
-  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)
-  nameWithType: VncClient.ConnectAsync(IRenderTarget)
+- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,MarcusW.VncClient.Rendering.IRenderTarget,CancellationToken)
+  name: ConnectAsync(IAuthenticationHandler, IRenderTarget, CancellationToken)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_MarcusW_VncClient_Rendering_IRenderTarget_CancellationToken_
+  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,MarcusW.VncClient.Rendering.IRenderTarget,CancellationToken)
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler, MarcusW.VncClient.Rendering.IRenderTarget, CancellationToken)
+  nameWithType: VncClient.ConnectAsync(IAuthenticationHandler, IRenderTarget, CancellationToken)
 - uid: MarcusW.VncClient.VncClient.ConnectAsync*
   name: ConnectAsync
   href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_
@@ -709,6 +863,32 @@ references:
   commentId: T:MarcusW.VncClient.VncConnection
   fullName: MarcusW.VncClient.VncConnection
   nameWithType: VncConnection
+- uid: MarcusW.VncClient.VncConnection.AuthenticationHandler
+  name: AuthenticationHandler
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_AuthenticationHandler
+  commentId: P:MarcusW.VncClient.VncConnection.AuthenticationHandler
+  fullName: MarcusW.VncClient.VncConnection.AuthenticationHandler
+  nameWithType: VncConnection.AuthenticationHandler
+- uid: MarcusW.VncClient.VncConnection.AuthenticationHandler*
+  name: AuthenticationHandler
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_AuthenticationHandler_
+  commentId: Overload:MarcusW.VncClient.VncConnection.AuthenticationHandler
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncConnection.AuthenticationHandler
+  nameWithType: VncConnection.AuthenticationHandler
+- uid: MarcusW.VncClient.VncConnection.CloseAsync
+  name: CloseAsync()
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_CloseAsync
+  commentId: M:MarcusW.VncClient.VncConnection.CloseAsync
+  fullName: MarcusW.VncClient.VncConnection.CloseAsync()
+  nameWithType: VncConnection.CloseAsync()
+- uid: MarcusW.VncClient.VncConnection.CloseAsync*
+  name: CloseAsync
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_CloseAsync_
+  commentId: Overload:MarcusW.VncClient.VncConnection.CloseAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncConnection.CloseAsync
+  nameWithType: VncConnection.CloseAsync
 - uid: MarcusW.VncClient.VncConnection.LoggerFactory
   name: LoggerFactory
   href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_LoggerFactory
@@ -735,3 +915,16 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncConnection.RenderTarget
   nameWithType: VncConnection.RenderTarget
+- uid: MarcusW.VncClient.VncConnection.SupportedEncodings
+  name: SupportedEncodings
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_SupportedEncodings
+  commentId: P:MarcusW.VncClient.VncConnection.SupportedEncodings
+  fullName: MarcusW.VncClient.VncConnection.SupportedEncodings
+  nameWithType: VncConnection.SupportedEncodings
+- uid: MarcusW.VncClient.VncConnection.SupportedEncodings*
+  name: SupportedEncodings
+  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_SupportedEncodings_
+  commentId: Overload:MarcusW.VncClient.VncConnection.SupportedEncodings
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncConnection.SupportedEncodings
+  nameWithType: VncConnection.SupportedEncodings

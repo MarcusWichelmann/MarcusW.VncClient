@@ -73,7 +73,7 @@
   
   <h1 id="MarcusW_VncClient_VncClient" data-uid="MarcusW.VncClient.VncClient" class="text-break">Class VncClient
   </h1>
-  <div class="markdown level0 summary"><p>Client for the VNC protocol which allows connecting to remote VNC servers.</p>
+  <div class="markdown level0 summary"><p>Client for the RFB protocol which allows connecting to remote VNC servers.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -91,19 +91,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient__ctor_ILoggerFactory_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient.%23ctor(ILoggerFactory)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient__ctor_ILoggerFactory_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding__.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient.%23ctor(ILoggerFactory%2CIEnumerable%7BMarcusW.VncClient.Protocol.Encodings.IEncoding%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L18">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L26">View Source</a>
   </span>
   <a id="MarcusW_VncClient_VncClient__ctor_" data-uid="MarcusW.VncClient.VncClient.#ctor*"></a>
-  <h4 id="MarcusW_VncClient_VncClient__ctor_ILoggerFactory_" data-uid="MarcusW.VncClient.VncClient.#ctor(ILoggerFactory)">VncClient(ILoggerFactory)</h4>
+  <h4 id="MarcusW_VncClient_VncClient__ctor_ILoggerFactory_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding__" data-uid="MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding})">VncClient(ILoggerFactory, IEnumerable&lt;IEncoding&gt;)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MarcusW.VncClient.VncClient.html">VncClient</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VncClient(ILoggerFactory loggerFactory)</code></pre>
+    <pre><code class="lang-csharp hljs">public VncClient(ILoggerFactory loggerFactory, IEnumerable&lt;IEncoding&gt; supportedEncodings)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -121,25 +121,31 @@
         <td><p>The logger factory implementation that should be used for creating new loggers.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Encodings.IEncoding.html">IEncoding</a>&gt;</td>
+        <td><span class="parametername">supportedEncodings</span></td>
+        <td><p>The collection of supported encodings.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Rendering_IRenderTarget_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_MarcusW_VncClient_Rendering_IRenderTarget_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler%2CMarcusW.VncClient.Rendering.IRenderTarget%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L28">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L41">View Source</a>
   </span>
   <a id="MarcusW_VncClient_VncClient_ConnectAsync_" data-uid="MarcusW.VncClient.VncClient.ConnectAsync*"></a>
-  <h4 id="MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Rendering_IRenderTarget_" data-uid="MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Rendering.IRenderTarget)">ConnectAsync(IRenderTarget)</h4>
+  <h4 id="MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_MarcusW_VncClient_Rendering_IRenderTarget_CancellationToken_" data-uid="MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,MarcusW.VncClient.Rendering.IRenderTarget,CancellationToken)">ConnectAsync(IAuthenticationHandler, IRenderTarget, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Tries to connect to a VNC server and initializes a new connection object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;VncConnection&gt; ConnectAsync(IRenderTarget renderTarget)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;VncConnection&gt; ConnectAsync(IAuthenticationHandler authenticationHandler, IRenderTarget renderTarget, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -152,9 +158,21 @@
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Security.IAuthenticationHandler.html">IAuthenticationHandler</a></td>
+        <td><span class="parametername">authenticationHandler</span></td>
+        <td><p>The <a class="xref" href="MarcusW.VncClient.Security.IAuthenticationHandler.html">IAuthenticationHandler</a> implementation to authenticate against the server.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="MarcusW.VncClient.Rendering.IRenderTarget.html">IRenderTarget</a></td>
         <td><span class="parametername">renderTarget</span></td>
         <td><p>The target where received frames should be rendered to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
 </td>
       </tr>
     </tbody>
@@ -186,7 +204,7 @@
                     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
