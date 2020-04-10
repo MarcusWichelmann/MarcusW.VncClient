@@ -52,7 +52,7 @@ namespace MarcusW.VncClient.Utils
                 if (_started)
                     throw new InvalidOperationException("Thread already started.");
 
-                // Thread can either be canceled using the token passed to this method or by calling the stop method.
+                // Thread can either be canceled using the token passed to this method or by calling the stop method
                 _stopCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
 
                 _thread.Start(_stopCts.Token);
@@ -77,6 +77,7 @@ namespace MarcusW.VncClient.Utils
                     throw new InvalidOperationException("Thread has not been started.");
             }
 
+            // stopCts should not be null because _started was true
             Debug.Assert(_stopCts != null, nameof(_stopCts) + " != null");
 
             // Tell the thread to stop
