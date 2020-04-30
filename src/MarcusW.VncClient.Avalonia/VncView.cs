@@ -1,3 +1,4 @@
+using Avalonia;
 using MarcusW.VncClient.Avalonia.Adapters.Logging;
 using MarcusW.VncClient.Protocol.Encodings;
 using Microsoft.Extensions.Logging;
@@ -10,20 +11,37 @@ namespace MarcusW.VncClient.Avalonia
     /// </summary>
     public class VncView : VncRenderTarget
     {
-        private readonly VncClient _vncClient;
+        /// <summary>
+        /// Defines the <see cref="Connection"/> property.
+        /// </summary>
+        public static readonly DirectProperty<VncView, VncConnection?> ConnectionProperty =
+            AvaloniaProperty.RegisterDirect<VncView, VncConnection?>(nameof(Connection), o => o.Connection,
+                (o, v) => o.Connection = v);
+
+        private VncConnection? _connection;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VncView"/> control.
+        /// Gets or sets the connection that is shown in this VNC view.
         /// </summary>
-        public VncView() : this(InitializeDefaultVncClient()) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VncView"/> control.
-        /// </summary>
-        /// <param name="vncClient">The configured VNC client that should be used for establishing new connections.</param>
-        public VncView(VncClient vncClient)
+        /// <remarks>
+        /// Interactions with this control will be forwarded to the selected <see cref="VncConnection"/>.
+        /// In case this property is set to <see langword="null"/>, no connection will be attached to this view.
+        /// </remarks>
+        public VncConnection? Connection
         {
-            _vncClient = vncClient;
+            get => _connection;
+            set
+            {
+                // Detach view from previous connection
+                if (_connection != null && ReferenceEquals(_connection.RenderTarget, this))
+                    _connection.RenderTarget = null;
+
+                // Attach view to new connection
+                if (value != null)
+                    value.RenderTarget = this;
+
+                SetAndRaise(ConnectionProperty, ref _connection, value);
+            }
         }
 
         private static VncClient InitializeDefaultVncClient()

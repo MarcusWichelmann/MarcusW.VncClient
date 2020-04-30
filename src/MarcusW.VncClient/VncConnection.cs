@@ -10,6 +10,9 @@ using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient
 {
+    /// <summary>
+    /// Connection to a remote server using the VNC protocol.
+    /// </summary>
     public class VncConnection
     {
         private RfbMessageReceiver? _messageReceiver;
@@ -30,19 +33,19 @@ namespace MarcusW.VncClient
         public IAuthenticationHandler AuthenticationHandler { get; }
 
         /// <summary>
-        /// Gets the target where received frames should be rendered to.
+        /// Gets or sets the target where received frames should be rendered to.
         /// </summary>
-        public IRenderTarget RenderTarget { get; }
+        public IRenderTarget? RenderTarget { get; set; }
 
         // TODO: ConnectionState property and event (informs about reconnects)
 
         internal VncConnection(ILoggerFactory loggerFactory, IReadOnlyCollection<IEncoding> supportedEncodings,
-            IAuthenticationHandler authenticationHandler, IRenderTarget renderTarget)
+            IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null)
         {
             LoggerFactory = loggerFactory;
             SupportedEncodings = supportedEncodings;
             AuthenticationHandler = authenticationHandler;
-            RenderTarget = renderTarget;
+            RenderTarget = initialRenderTarget;
         }
 
         internal async Task StartAsync(CancellationToken cancellationToken = default)

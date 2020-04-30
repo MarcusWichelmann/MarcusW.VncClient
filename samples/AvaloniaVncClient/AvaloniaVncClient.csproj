@@ -19,4 +19,7 @@
         <PackageReference Include="Avalonia.Desktop" Version="0.9.7" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.7" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\MarcusW.VncClient.Avalonia\MarcusW.VncClient.Avalonia.csproj" />
+    </ItemGroup>
 </Project>

@@ -34,7 +34,12 @@ namespace MarcusW.VncClient.Protocol
 
         protected override void ThreadWorker(CancellationToken cancellationToken)
         {
-            while (!cancellationToken.IsCancellationRequested) { }
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                // TODO
+                _logger.LogDebug("LOOP");
+                Thread.Sleep(1000);
+            }
         }
     }
 }
