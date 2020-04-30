@@ -43,14 +43,5 @@ namespace MarcusW.VncClient.Avalonia
                 SetAndRaise(ConnectionProperty, ref _connection, value);
             }
         }
-
-        private static VncClient InitializeDefaultVncClient()
-        {
-            // Create and populate default logger factory for logging to Avalonia logging sinks
-            var loggerFactory = new LoggerFactory();
-            loggerFactory.AddProvider(new AvaloniaLoggerProvider());
-
-            return new VncClient(loggerFactory, Defaults.GetEncodingsCollection());
-        }
     }
 }

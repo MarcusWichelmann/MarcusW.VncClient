@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -25,7 +26,11 @@ namespace MarcusW.VncClient
         /// <param name="supportedEncodings">The collection of supported encodings.</param>
         public VncClient(ILoggerFactory loggerFactory, IEnumerable<IEncoding> supportedEncodings)
         {
-            _loggerFactory = loggerFactory;
+            _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
+
+            if (supportedEncodings == null)
+                throw new ArgumentNullException(nameof(supportedEncodings));
+
             _supportedEncodings =
                 supportedEncodings.ToList()
                     .AsReadOnly(); // TODO: Some other data type that allows faster lookup by encoding type? Array?
@@ -41,6 +46,9 @@ namespace MarcusW.VncClient
         public async Task<VncConnection> ConnectAsync(IAuthenticationHandler authenticationHandler,
             IRenderTarget? initialRenderTarget = null, CancellationToken cancellationToken = default)
         {
+            if (authenticationHandler == null)
+                throw new ArgumentNullException(nameof(authenticationHandler));
+
             var vncConnection = new VncConnection(_loggerFactory, _supportedEncodings, authenticationHandler,
                 initialRenderTarget);
             await vncConnection.StartAsync(cancellationToken).ConfigureAwait(false);

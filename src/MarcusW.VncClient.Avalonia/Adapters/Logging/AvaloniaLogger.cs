@@ -18,8 +18,8 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
         }
 
         /// <inheritdoc />
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception,
-            Func<TState, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception,
+            Func<TState, Exception?, string> formatter)
         {
             LogEventLevel? logEventLevel = GetLogEventLevel(logLevel);
             if (logEventLevel == null)

@@ -27,6 +27,9 @@ namespace MarcusW.VncClient.Utils
         /// <param name="name">The thread name.</param>
         protected BackgroundThread(string name)
         {
+            if (name == null)
+                throw new ArgumentNullException(nameof(name));
+
             _thread = new Thread(ThreadStart) {
                 Name = name,
                 IsBackground = true

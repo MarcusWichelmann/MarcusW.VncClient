@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Concurrent;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Logging
@@ -13,7 +15,12 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
 
         /// <inheritdoc />
         public ILogger CreateLogger(string categoryName)
-            => _loggers.GetOrAdd(categoryName, loggerName => new AvaloniaLogger(categoryName));
+        {
+            if (categoryName == null)
+                throw new ArgumentNullException(nameof(categoryName));
+
+            return _loggers.GetOrAdd(categoryName, loggerName => new AvaloniaLogger(categoryName));
+        }
 
         public void Dispose() { }
     }
