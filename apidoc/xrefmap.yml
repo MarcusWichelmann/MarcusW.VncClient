@@ -343,25 +343,25 @@ references:
   commentId: T:MarcusW.VncClient.Avalonia.VncView
   fullName: MarcusW.VncClient.Avalonia.VncView
   nameWithType: VncView
-- uid: MarcusW.VncClient.Avalonia.VncView.#ctor
-  name: VncView()
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor
-  commentId: M:MarcusW.VncClient.Avalonia.VncView.#ctor
-  fullName: MarcusW.VncClient.Avalonia.VncView.VncView()
-  nameWithType: VncView.VncView()
-- uid: MarcusW.VncClient.Avalonia.VncView.#ctor(MarcusW.VncClient.VncClient)
-  name: VncView(VncClient)
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor_MarcusW_VncClient_VncClient_
-  commentId: M:MarcusW.VncClient.Avalonia.VncView.#ctor(MarcusW.VncClient.VncClient)
-  fullName: MarcusW.VncClient.Avalonia.VncView.VncView(MarcusW.VncClient.VncClient)
-  nameWithType: VncView.VncView(VncClient)
-- uid: MarcusW.VncClient.Avalonia.VncView.#ctor*
-  name: VncView
-  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.#ctor
+- uid: MarcusW.VncClient.Avalonia.VncView.Connection
+  name: Connection
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Connection
+  commentId: P:MarcusW.VncClient.Avalonia.VncView.Connection
+  fullName: MarcusW.VncClient.Avalonia.VncView.Connection
+  nameWithType: VncView.Connection
+- uid: MarcusW.VncClient.Avalonia.VncView.Connection*
+  name: Connection
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Connection_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.Connection
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.VncView.VncView
-  nameWithType: VncView.VncView
+  fullName: MarcusW.VncClient.Avalonia.VncView.Connection
+  nameWithType: VncView.Connection
+- uid: MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
+  name: ConnectionProperty
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_ConnectionProperty
+  commentId: F:MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
+  fullName: MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
+  nameWithType: VncView.ConnectionProperty
 - uid: MarcusW.VncClient.Defaults
   name: Defaults
   href: api/MarcusW.VncClient.Defaults.html
@@ -844,12 +844,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncClient.VncClient
   nameWithType: VncClient.VncClient
-- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,MarcusW.VncClient.Rendering.IRenderTarget,CancellationToken)
-  name: ConnectAsync(IAuthenticationHandler, IRenderTarget, CancellationToken)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_MarcusW_VncClient_Rendering_IRenderTarget_CancellationToken_
-  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,MarcusW.VncClient.Rendering.IRenderTarget,CancellationToken)
-  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler, MarcusW.VncClient.Rendering.IRenderTarget, CancellationToken)
-  nameWithType: VncClient.ConnectAsync(IAuthenticationHandler, IRenderTarget, CancellationToken)
+- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
+  name: ConnectAsync(IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_
+  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
+  name.vb: ConnectAsync(IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable<MarcusW.VncClient.Rendering.IRenderTarget>, CancellationToken)
+  fullName.vb: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable(Of MarcusW.VncClient.Rendering.IRenderTarget), CancellationToken)
+  nameWithType: VncClient.ConnectAsync(IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
+  nameWithType.vb: VncClient.ConnectAsync(IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
 - uid: MarcusW.VncClient.VncClient.ConnectAsync*
   name: ConnectAsync
   href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_
