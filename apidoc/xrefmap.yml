@@ -112,15 +112,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log
   nameWithType: AvaloniaLogger.Log
-- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log``1(LogLevel,EventId,``0,Exception,Func{``0,Exception,System.String})
-  name: Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_Log__1_LogLevel_EventId___0_Exception_Func___0_Exception_System_String__
-  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log``1(LogLevel,EventId,``0,Exception,Func{``0,Exception,System.String})
-  name.vb: Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, System.String>)
-  fullName.vb: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, System.String))
-  nameWithType: AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
-  nameWithType.vb: AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log``1(LogLevel,EventId,``0,System.Nullable{Exception},Func{``0,System.Nullable{Exception},System.String})
+  name: Log<TState>(LogLevel, EventId, TState, Nullable<Exception>, Func<TState, Nullable<Exception>, String>)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_Log__1_LogLevel_EventId___0_System_Nullable_Exception__Func___0_System_Nullable_Exception__System_String__
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log``1(LogLevel,EventId,``0,System.Nullable{Exception},Func{``0,System.Nullable{Exception},System.String})
+  name.vb: Log(Of TState)(LogLevel, EventId, TState, Nullable(Of Exception), Func(Of TState, Nullable(Of Exception), String))
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, System.Nullable<Exception>, Func<TState, System.Nullable<Exception>, System.String>)
+  fullName.vb: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, System.Nullable(Of Exception), Func(Of TState, System.Nullable(Of Exception), System.String))
+  nameWithType: AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, Nullable<Exception>, Func<TState, Nullable<Exception>, String>)
+  nameWithType.vb: AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, Nullable(Of Exception), Func(Of TState, Nullable(Of Exception), String))
 - uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider
   name: AvaloniaLoggerProvider
   href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html

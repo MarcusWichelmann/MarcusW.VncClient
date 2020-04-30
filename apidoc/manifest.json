@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html",
-          "hash": "2m00gcQx6AIOP0qVGIdwUQ=="
+          "hash": "+/s7N0OF8Lyaaxj9AjzV6A=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html",
-          "hash": "QX9o/xhC99o2bgY0x9fFfQ=="
+          "hash": "l2xqrwnHWyShiL14DE3ipA=="
         }
       },
       "is_incremental": false,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Utils.BackgroundThread.html",
-          "hash": "qy5HpmRRMVEST/hBjWSPLg=="
+          "hash": "XSjHCWLg2BTGQWQmHgXcog=="
         }
       },
       "is_incremental": false,
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.VncClient.html",
-          "hash": "ydc0F3QQZ05FbNgguUqjPA=="
+          "hash": "GE7prkk5L/y1gVdlV2HIyA=="
         }
       },
       "is_incremental": false,
@@ -435,13 +435,6 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
@@ -452,6 +445,13 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 31,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
           "skipped_file_count": 0
         }
       }
