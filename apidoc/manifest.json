@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html",
-          "hash": "l2xqrwnHWyShiL14DE3ipA=="
+          "hash": "AJz5ke0wQ3wD+Qe+qQcHxw=="
         }
       },
       "is_incremental": false,
@@ -130,18 +130,6 @@
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.html",
           "hash": "OhZWXp5jSd5CpPEZK8C3Pw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/MarcusW.VncClient.Defaults.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/MarcusW.VncClient.Defaults.html",
-          "hash": "HpO4PmdhQnOA2FEZvu/a3Q=="
         }
       },
       "is_incremental": false,
@@ -357,7 +345,19 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.VncConnection.html",
-          "hash": "A7v3blFRXsmffLNc1E7VGg=="
+          "hash": "Aspqp7OxQinxhiY6aJyAnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.VncDefaults.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.VncDefaults.html",
+          "hash": "MFbj8jFbsIIjoGz7hdxoyw=="
         }
       },
       "is_incremental": false,
@@ -369,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.html",
-          "hash": "O6LpjWqHMdVTnVvv3QaPpA=="
+          "hash": "nlMbkKZ6XSvBCP/skUer3Q=="
         }
       },
       "is_incremental": false,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "Qn5akHxCxeRMatmM1COZwA=="
+          "hash": "R4Ghmp5zMqaNFxooHWef4A=="
         }
       },
       "is_incremental": false,
@@ -435,16 +435,16 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 2,
-          "skipped_file_count": 0
-        },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 31,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

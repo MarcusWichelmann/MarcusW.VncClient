@@ -362,25 +362,6 @@ references:
   commentId: F:MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   fullName: MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   nameWithType: VncView.ConnectionProperty
-- uid: MarcusW.VncClient.Defaults
-  name: Defaults
-  href: api/MarcusW.VncClient.Defaults.html
-  commentId: T:MarcusW.VncClient.Defaults
-  fullName: MarcusW.VncClient.Defaults
-  nameWithType: Defaults
-- uid: MarcusW.VncClient.Defaults.GetEncodingsCollection
-  name: GetEncodingsCollection()
-  href: api/MarcusW.VncClient.Defaults.html#MarcusW_VncClient_Defaults_GetEncodingsCollection
-  commentId: M:MarcusW.VncClient.Defaults.GetEncodingsCollection
-  fullName: MarcusW.VncClient.Defaults.GetEncodingsCollection()
-  nameWithType: Defaults.GetEncodingsCollection()
-- uid: MarcusW.VncClient.Defaults.GetEncodingsCollection*
-  name: GetEncodingsCollection
-  href: api/MarcusW.VncClient.Defaults.html#MarcusW_VncClient_Defaults_GetEncodingsCollection_
-  commentId: Overload:MarcusW.VncClient.Defaults.GetEncodingsCollection
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Defaults.GetEncodingsCollection
-  nameWithType: Defaults.GetEncodingsCollection
 - uid: MarcusW.VncClient.FrameSize
   name: FrameSize
   href: api/MarcusW.VncClient.FrameSize.html
@@ -931,3 +912,22 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncConnection.SupportedEncodings
   nameWithType: VncConnection.SupportedEncodings
+- uid: MarcusW.VncClient.VncDefaults
+  name: VncDefaults
+  href: api/MarcusW.VncClient.VncDefaults.html
+  commentId: T:MarcusW.VncClient.VncDefaults
+  fullName: MarcusW.VncClient.VncDefaults
+  nameWithType: VncDefaults
+- uid: MarcusW.VncClient.VncDefaults.GetEncodingsCollection
+  name: GetEncodingsCollection()
+  href: api/MarcusW.VncClient.VncDefaults.html#MarcusW_VncClient_VncDefaults_GetEncodingsCollection
+  commentId: M:MarcusW.VncClient.VncDefaults.GetEncodingsCollection
+  fullName: MarcusW.VncClient.VncDefaults.GetEncodingsCollection()
+  nameWithType: VncDefaults.GetEncodingsCollection()
+- uid: MarcusW.VncClient.VncDefaults.GetEncodingsCollection*
+  name: GetEncodingsCollection
+  href: api/MarcusW.VncClient.VncDefaults.html#MarcusW_VncClient_VncDefaults_GetEncodingsCollection_
+  commentId: Overload:MarcusW.VncClient.VncDefaults.GetEncodingsCollection
+  isSpec: "True"
+  fullName: MarcusW.VncClient.VncDefaults.GetEncodingsCollection
+  nameWithType: VncDefaults.GetEncodingsCollection
