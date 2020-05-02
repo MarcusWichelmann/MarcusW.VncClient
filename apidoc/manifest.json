@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Utils.BackgroundThread.html",
-          "hash": "XSjHCWLg2BTGQWQmHgXcog=="
+          "hash": "g8HxTZrAi9rUCZBUhYyltw=="
         }
       },
       "is_incremental": false,
@@ -435,16 +435,16 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 31,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 31,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
