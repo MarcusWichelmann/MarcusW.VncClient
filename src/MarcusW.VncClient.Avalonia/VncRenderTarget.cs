@@ -47,7 +47,7 @@ namespace MarcusW.VncClient.Avalonia
 
             // Lock framebuffer and return as converted reference
             // ReSharper disable once InconsistentlySynchronizedField
-            ILockedFramebuffer lockedFramebuffer = _bitmap.Lock();
+            ILockedFramebuffer lockedFramebuffer = _bitmap!.Lock();
 
             return new AvaloniaFramebufferReference(lockedFramebuffer, () => Dispatcher.UIThread.Post(() => {
                 if (sizeChanged)

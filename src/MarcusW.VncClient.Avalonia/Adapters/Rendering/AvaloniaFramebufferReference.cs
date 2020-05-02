@@ -54,7 +54,6 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
             lockedFramebuffer.Dispose();
 
             // Dispose gets called, when rendering is finished, so invalidate the visual now
-            // TODO: What happens when leaving this out?
             _invalidateVisual();
         }
     }
