@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using Avalonia.Logging;
+using Avalonia.Logging.Serilog;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Logging
@@ -10,6 +12,8 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
     /// </summary>
     public class AvaloniaLogger : ILogger
     {
+        private const string AreaName = "VncClient";
+
         private readonly string _categoryName;
 
         internal AvaloniaLogger(string categoryName)
@@ -28,9 +32,9 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
             if (!Logger.TryGet(logEventLevel.Value, out ParametrizedLogger outLogger))
                 return;
 
-            string message = formatter(state, exception);
+            string message = $"{_categoryName}: {formatter(state, exception)}";
 
-            outLogger.Log(_categoryName, null, message);
+            outLogger.Log(AreaName, this, message);
         }
 
         /// <inheritdoc />
@@ -48,15 +52,14 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
 
         private LogEventLevel? GetLogEventLevel(LogLevel logLevel)
             => logLevel switch {
-                LogLevel.Trace       => LogEventLevel.Verbose,
-                LogLevel.Debug       => LogEventLevel.Debug,
+                LogLevel.Trace => LogEventLevel.Verbose,
+                LogLevel.Debug => LogEventLevel.Debug,
                 LogLevel.Information => LogEventLevel.Information,
-                LogLevel.Warning     => LogEventLevel.Warning,
-                LogLevel.Error       => LogEventLevel.Error,
-                LogLevel.Critical    => LogEventLevel.Fatal,
-                LogLevel.None        => null,
-                _ => throw new InvalidEnumArgumentException(nameof(logLevel), (int)logLevel,
-                    typeof(LogLevel))
+                LogLevel.Warning => LogEventLevel.Warning,
+                LogLevel.Error => LogEventLevel.Error,
+                LogLevel.Critical => LogEventLevel.Fatal,
+                LogLevel.None => null,
+                _ => throw new InvalidEnumArgumentException(nameof(logLevel), (int)logLevel, typeof(LogLevel))
             };
 
         /// <summary>
