@@ -28,7 +28,9 @@ namespace MarcusW.VncClient.Avalonia
 
             // Creation of a new buffer necessary?
             // ReSharper disable once InconsistentlySynchronizedField
-            if (_bitmap == null || _bitmap.PixelSize != requiredPixelSize)
+            bool sizeChanged = _bitmap == null || _bitmap.PixelSize != requiredPixelSize;
+
+            if (sizeChanged)
             {
                 // Create new bitmap with required size
                 // TODO: Bgra8888 is device-native and much faster?
@@ -46,8 +48,12 @@ namespace MarcusW.VncClient.Avalonia
             // Lock framebuffer and return as converted reference
             // ReSharper disable once InconsistentlySynchronizedField
             ILockedFramebuffer lockedFramebuffer = _bitmap.Lock();
-            return new AvaloniaFramebufferReference(lockedFramebuffer,
-                () => Dispatcher.UIThread.Post(InvalidateVisual));
+
+            return new AvaloniaFramebufferReference(lockedFramebuffer, () => Dispatcher.UIThread.Post(() => {
+                if (sizeChanged)
+                    InvalidateMeasure();
+                InvalidateVisual();
+            }));
         }
 
         /// <inheritdoc />
@@ -58,8 +64,26 @@ namespace MarcusW.VncClient.Avalonia
             {
                 if (_bitmap == null)
                     return;
-                context.DrawImage(_bitmap, 1, new Rect(_bitmap.Size), new Rect(Bounds.Size));
+
+                var rect = new Rect(_bitmap.Size);
+                context.DrawImage(_bitmap, 1, rect, rect);
             }
+        }
+
+        /// <inheritdoc />
+        protected override Size MeasureOverride(Size availableSize)
+        {
+            // Retrieve bitmap size
+            Size? bitmapSize;
+            lock (_bitmapReplacementLock)
+                bitmapSize = _bitmap?.Size;
+
+            // Has any bitmap been rendered yet?
+            if (!bitmapSize.HasValue)
+                return Size.Empty;
+
+            // Request the size of the current bitmap
+            return bitmapSize.Value;
         }
 
         public void Dispose()
