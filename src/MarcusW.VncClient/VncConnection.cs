@@ -59,7 +59,6 @@ namespace MarcusW.VncClient
             _logger.LogInformation("Connecting to VNC-Server XXX...");
 
             // TODO: Connect and authenticate
-            await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).ConfigureAwait(false);
 
             _messageReceiver = new RfbMessageReceiver(this);
             _messageReceiver.StartReceiveLoop(cancellationToken);

@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Rendering;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging;
 
@@ -34,11 +35,47 @@ namespace MarcusW.VncClient.Protocol
 
         protected override void ThreadWorker(CancellationToken cancellationToken)
         {
+            byte offset = 0;
+            bool sign = false;
+
             while (!cancellationToken.IsCancellationRequested)
             {
-                // TODO
-                _logger.LogDebug("LOOP");
-                Thread.Sleep(1000);
+                // TODO: Just some testing code...
+
+                IRenderTarget? renderTarget = _connection.RenderTarget;
+                if (renderTarget != null)
+                {
+                    using var framebuffer = renderTarget.GrabFramebufferReference(new FrameSize(256, 256));
+                    unsafe
+                    {
+                        var ptr = (byte*)framebuffer.Address;
+                        for (int row = 0; row < 256; row++)
+                        for (int col = 0; col < 256; col++)
+                        {
+                            *ptr++ = (byte)row; // blue
+                            *ptr++ = offset; // green
+                            *ptr++ = (byte)col; // red
+                            *ptr++ = 0xFF; // alpha
+                        }
+                    }
+                }
+
+                if (sign)
+                {
+                    if (offset == 0)
+                        sign = false;
+                    else
+                        offset--;
+                }
+                else
+                {
+                    if (offset == 255)
+                        sign = true;
+                    else
+                        offset++;
+                }
+
+                Thread.Sleep(1000 / 60);
             }
         }
     }
