@@ -324,6 +324,19 @@ references:
   fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
   nameWithType: VncRenderTarget.IRenderTarget.GrabFramebufferReference
   nameWithType.vb: VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride(Size)
+  name: MeasureOverride(Size)
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MeasureOverride_Size_
+  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride(Size)
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride(Size)
+  nameWithType: VncRenderTarget.MeasureOverride(Size)
+- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride*
+  name: MeasureOverride
+  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MeasureOverride_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride
+  nameWithType: VncRenderTarget.MeasureOverride
 - uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
   name: Render(DrawingContext)
   href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_DrawingContext_

@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.VncRenderTarget.html",
-          "hash": "hVWlmoRkxSD6MVTcMplGDg=="
+          "hash": "T5UxvgPwPaOgHNrknW4GLg=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.VncView.html",
-          "hash": "LPJ8QGkgmWU5fbgUwJoS7Q=="
+          "hash": "2yMOvyNooibZHPHOpqqiRA=="
         }
       },
       "is_incremental": false,
