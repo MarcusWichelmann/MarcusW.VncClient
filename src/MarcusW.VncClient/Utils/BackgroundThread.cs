@@ -12,11 +12,10 @@ namespace MarcusW.VncClient.Utils
     {
         private readonly Thread _thread;
 
-        private CancellationTokenSource? _stopCts;
-
         private bool _started;
         private readonly object _startLock = new object();
 
+        private readonly CancellationTokenSource _stopCts = new CancellationTokenSource();
         private readonly TaskCompletionSource<object?> _completedTcs = new TaskCompletionSource<object?>();
 
         private bool _disposed;
@@ -42,7 +41,7 @@ namespace MarcusW.VncClient.Utils
         /// <remarks>
         /// The thread can only be started once.
         /// </remarks>
-        /// <param name="cancellationToken">The cancellation token to cancel the thread during startup.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         protected void Start(CancellationToken cancellationToken = default)
         {
             if (_disposed)
@@ -54,9 +53,6 @@ namespace MarcusW.VncClient.Utils
             {
                 if (_started)
                     throw new InvalidOperationException("Thread already started.");
-
-                // Thread can either be canceled using the token passed to this method or by calling the stop method
-                _stopCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
 
                 _thread.Start(_stopCts.Token);
                 _started = true;
@@ -79,9 +75,6 @@ namespace MarcusW.VncClient.Utils
                 if (!_started)
                     throw new InvalidOperationException("Thread has not been started.");
             }
-
-            // stopCts should not be null because _started was true
-            Debug.Assert(_stopCts != null, nameof(_stopCts) + " != null");
 
             // Tell the thread to stop
             _stopCts.Cancel();
@@ -121,7 +114,7 @@ namespace MarcusW.VncClient.Utils
             try
             {
                 // Ensure the thread is stopped
-                _stopCts?.Cancel();
+                _stopCts.Cancel();
                 if (_thread.IsAlive)
                 {
                     // Block and wait for completion or hard-kill the thread after 3 seconds
@@ -137,7 +130,7 @@ namespace MarcusW.VncClient.Utils
             // Just to be sure...
             _completedTcs.SetResult(null);
 
-            _stopCts?.Dispose();
+            _stopCts.Dispose();
 
             _disposed = true;
         }
