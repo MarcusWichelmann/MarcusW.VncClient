@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Concurrent;
-using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Logging

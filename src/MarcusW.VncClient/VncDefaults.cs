@@ -3,7 +3,7 @@ using MarcusW.VncClient.Protocol.Encodings;
 
 namespace MarcusW.VncClient
 {
-    public static class Defaults
+    public static class VncDefaults
     {
         public static IEnumerable<IEncoding> GetEncodingsCollection()
         {

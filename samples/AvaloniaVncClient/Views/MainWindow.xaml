@@ -7,15 +7,15 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaVncClient.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="AvaloniaVncClient">
+        Title="Avalonia VNC Client">
 
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
     <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
-        <Button Content="Connect" />
-        <vnc:VncView />
+        <Button Name="connectButton" Command="{Binding ConnectCommand}" />
+        <vnc:VncView Connection="{Binding VncConnection, Mode=OneWay}" />
     </StackPanel>
 
 </Window>

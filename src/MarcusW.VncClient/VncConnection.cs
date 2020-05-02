@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
@@ -15,6 +16,8 @@ namespace MarcusW.VncClient
     /// </summary>
     public class VncConnection
     {
+        private readonly ILogger<VncConnection> _logger;
+
         private RfbMessageReceiver? _messageReceiver;
 
         /// <summary>
@@ -46,11 +49,17 @@ namespace MarcusW.VncClient
             SupportedEncodings = supportedEncodings;
             AuthenticationHandler = authenticationHandler;
             RenderTarget = initialRenderTarget;
+
+            _logger = loggerFactory.CreateLogger<VncConnection>();
         }
 
         internal async Task StartAsync(CancellationToken cancellationToken = default)
         {
+            // TODO: Add server address to log output
+            _logger.LogInformation("Connecting to VNC-Server XXX...");
+
             // TODO: Connect and authenticate
+            await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).ConfigureAwait(false);
 
             _messageReceiver = new RfbMessageReceiver(this);
             _messageReceiver.StartReceiveLoop(cancellationToken);
@@ -65,6 +74,9 @@ namespace MarcusW.VncClient
         public Task CloseAsync()
         {
             // TODO: Throw if connection establishment not finished (using ConnectionState).
+
+            // TODO: Add server address to log output
+            _logger.LogInformation("Closing connection to XXX...");
 
             Debug.Assert(_messageReceiver != null, nameof(_messageReceiver) + " != null");
             return _messageReceiver.StopReceiveLoopAsync();
