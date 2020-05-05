@@ -12,22 +12,22 @@ namespace AvaloniaVncClient.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private readonly VncConnectionManager _vncConnectionManager;
+        private readonly ConnectionManager _connectionManager;
 
-        private VncConnection? _vncConnection;
+        private RfbConnection? _rfbConnection;
 
-        public VncConnection? VncConnection
+        public RfbConnection? RfbConnection
         {
-            get => _vncConnection;
-            private set => this.RaiseAndSetIfChanged(ref _vncConnection, value);
+            get => _rfbConnection;
+            private set => this.RaiseAndSetIfChanged(ref _rfbConnection, value);
         }
 
         public ReactiveCommand<Unit, Unit> ConnectCommand { get; }
 
-        public MainWindowViewModel(VncConnectionManager? vncConnectionManager = null)
+        public MainWindowViewModel(ConnectionManager? connectionManager = null)
         {
-            _vncConnectionManager = vncConnectionManager ?? Locator.Current.GetService<VncConnectionManager>()
-                ?? throw new ArgumentNullException(nameof(vncConnectionManager));
+            _connectionManager = connectionManager ?? Locator.Current.GetService<ConnectionManager>()
+                ?? throw new ArgumentNullException(nameof(connectionManager));
 
             ConnectCommand = ReactiveCommand.CreateFromTask(ConnectAsync);
         }
@@ -35,7 +35,7 @@ namespace AvaloniaVncClient.ViewModels
         private async Task ConnectAsync(CancellationToken cancellationToken = default)
         {
             // Try to connect and set the connection
-            VncConnection = await _vncConnectionManager.ConnectAsync(cancellationToken).ConfigureAwait(true);
+            RfbConnection = await _connectionManager.ConnectAsync(cancellationToken).ConfigureAwait(true);
         }
     }
 }

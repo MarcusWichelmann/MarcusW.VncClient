@@ -15,7 +15,7 @@ namespace AvaloniaVncClient
             AvaloniaXamlLoader.Load(this);
 
             // Register dependencies
-            Locator.CurrentMutable.RegisterLazySingleton(() => new VncConnectionManager());
+            Locator.CurrentMutable.RegisterLazySingleton(() => new ConnectionManager());
             Locator.CurrentMutable.RegisterLazySingleton(() => new InteractiveAuthenticationHandler());
         }
 

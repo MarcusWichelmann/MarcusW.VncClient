@@ -16,7 +16,7 @@ namespace MarcusW.VncClient.Avalonia
     /// <summary>
     /// A control that provides access to a target framebuffer for rendering frames onto it.
     /// </summary>
-    public class VncRenderTarget : Control, IRenderTarget, IDisposable
+    public class RfbRenderTarget : Control, IRenderTarget, IDisposable
     {
         private WriteableBitmap? _bitmap;
         private readonly object _bitmapReplacementLock = new object();

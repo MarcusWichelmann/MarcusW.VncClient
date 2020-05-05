@@ -7,27 +7,27 @@ using Microsoft.Extensions.Logging.Abstractions;
 namespace MarcusW.VncClient.Avalonia
 {
     /// <summary>
-    /// Displays a remote screen using the VNC protocol.
+    /// Displays a remote screen using the RFB protocol.
     /// </summary>
-    public class VncView : VncRenderTarget
+    public class VncView : RfbRenderTarget
     {
         /// <summary>
         /// Defines the <see cref="Connection"/> property.
         /// </summary>
-        public static readonly DirectProperty<VncView, VncConnection?> ConnectionProperty =
-            AvaloniaProperty.RegisterDirect<VncView, VncConnection?>(nameof(Connection), o => o.Connection,
+        public static readonly DirectProperty<VncView, RfbConnection?> ConnectionProperty =
+            AvaloniaProperty.RegisterDirect<VncView, RfbConnection?>(nameof(Connection), o => o.Connection,
                 (o, v) => o.Connection = v);
 
-        private VncConnection? _connection;
+        private RfbConnection? _connection;
 
         /// <summary>
         /// Gets or sets the connection that is shown in this VNC view.
         /// </summary>
         /// <remarks>
-        /// Interactions with this control will be forwarded to the selected <see cref="VncConnection"/>.
+        /// Interactions with this control will be forwarded to the selected <see cref="RfbConnection"/>.
         /// In case this property is set to <see langword="null"/>, no connection will be attached to this view.
         /// </remarks>
-        public VncConnection? Connection
+        public RfbConnection? Connection
         {
             get => _connection;
             set

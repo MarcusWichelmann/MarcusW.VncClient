@@ -12,10 +12,10 @@ namespace MarcusW.VncClient.Protocol
     /// </summary>
     public sealed class RfbMessageReceiver : BackgroundThread
     {
-        private readonly VncConnection _connection;
+        private readonly RfbConnection _connection;
         private readonly ILogger<RfbMessageReceiver> _logger;
 
-        internal RfbMessageReceiver(VncConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
+        internal RfbMessageReceiver(RfbConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
         {
             _connection = connection;
             _logger = connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();

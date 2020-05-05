@@ -12,11 +12,11 @@ using Microsoft.Extensions.Logging;
 namespace MarcusW.VncClient
 {
     /// <summary>
-    /// Connection to a remote server using the VNC protocol.
+    /// Connection to a remote server using the RFB protocol.
     /// </summary>
-    public class VncConnection
+    public class RfbConnection
     {
-        private readonly ILogger<VncConnection> _logger;
+        private readonly ILogger<RfbConnection> _logger;
 
         private RfbMessageReceiver? _messageReceiver;
 
@@ -42,7 +42,7 @@ namespace MarcusW.VncClient
 
         // TODO: ConnectionState property and event (informs about reconnects)
 
-        internal VncConnection(ILoggerFactory loggerFactory, IReadOnlyCollection<IEncoding> supportedEncodings,
+        internal RfbConnection(ILoggerFactory loggerFactory, IReadOnlyCollection<IEncoding> supportedEncodings,
             IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null)
         {
             LoggerFactory = loggerFactory;
@@ -50,7 +50,7 @@ namespace MarcusW.VncClient
             AuthenticationHandler = authenticationHandler;
             RenderTarget = initialRenderTarget;
 
-            _logger = loggerFactory.CreateLogger<VncConnection>();
+            _logger = loggerFactory.CreateLogger<RfbConnection>();
         }
 
         internal async Task StartAsync(CancellationToken cancellationToken = default)

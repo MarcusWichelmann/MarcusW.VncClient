@@ -8,13 +8,13 @@ using Splat;
 
 namespace AvaloniaVncClient.Services
 {
-    public class VncConnectionManager
+    public class ConnectionManager
     {
         private readonly InteractiveAuthenticationHandler _interactiveAuthenticationHandler;
 
         private readonly VncClient _vncClient;
 
-        public VncConnectionManager(InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
+        public ConnectionManager(InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
         {
             _interactiveAuthenticationHandler = interactiveAuthenticationHandler
                 ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()
@@ -27,7 +27,7 @@ namespace AvaloniaVncClient.Services
             _vncClient = new VncClient(loggerFactory, VncDefaults.GetEncodingsCollection());
         }
 
-        public Task<VncConnection> ConnectAsync(CancellationToken cancellationToken = default)
+        public Task<RfbConnection> ConnectAsync(CancellationToken cancellationToken = default)
         {
             return _vncClient.ConnectAsync(_interactiveAuthenticationHandler, null, cancellationToken);
         }
