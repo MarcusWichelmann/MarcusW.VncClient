@@ -288,68 +288,68 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
   nameWithType: AvaloniaFramebufferReference.VerticalDpi
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget
-  name: VncRenderTarget
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html
-  commentId: T:MarcusW.VncClient.Avalonia.VncRenderTarget
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget
-  nameWithType: VncRenderTarget
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget
+  name: RfbRenderTarget
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html
+  commentId: T:MarcusW.VncClient.Avalonia.RfbRenderTarget
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget
+  nameWithType: RfbRenderTarget
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose
   name: Dispose()
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Dispose
-  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose()
-  nameWithType: VncRenderTarget.Dispose()
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose*
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Dispose
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose()
+  nameWithType: RfbRenderTarget.Dispose()
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose*
   name: Dispose
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Dispose_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Dispose_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Dispose
-  nameWithType: VncRenderTarget.Dispose
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose
+  nameWithType: RfbRenderTarget.Dispose
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.FrameSize)
   name: IRenderTarget.GrabFramebufferReference(FrameSize)
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_
-  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.FrameSize)
   name.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(FrameSize)
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.FrameSize)
-  nameWithType: VncRenderTarget.IRenderTarget.GrabFramebufferReference(FrameSize)
-  nameWithType.vb: VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(FrameSize)
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference*
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.FrameSize)
+  nameWithType: RfbRenderTarget.IRenderTarget.GrabFramebufferReference(FrameSize)
+  nameWithType.vb: RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(FrameSize)
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference*
   name: IRenderTarget.GrabFramebufferReference
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference
   isSpec: "True"
   name.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
-  nameWithType: VncRenderTarget.IRenderTarget.GrabFramebufferReference
-  nameWithType.vb: VncRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride(Size)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+  nameWithType: RfbRenderTarget.IRenderTarget.GrabFramebufferReference
+  nameWithType.vb: RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride(Size)
   name: MeasureOverride(Size)
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MeasureOverride_Size_
-  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride(Size)
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride(Size)
-  nameWithType: VncRenderTarget.MeasureOverride(Size)
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride*
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MeasureOverride_Size_
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride(Size)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride(Size)
+  nameWithType: RfbRenderTarget.MeasureOverride(Size)
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride*
   name: MeasureOverride
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MeasureOverride_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MeasureOverride_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.MeasureOverride
-  nameWithType: VncRenderTarget.MeasureOverride
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride
+  nameWithType: RfbRenderTarget.MeasureOverride
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.Render(DrawingContext)
   name: Render(DrawingContext)
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_DrawingContext_
-  commentId: M:MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Render(DrawingContext)
-  nameWithType: VncRenderTarget.Render(DrawingContext)
-- uid: MarcusW.VncClient.Avalonia.VncRenderTarget.Render*
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Render_DrawingContext_
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.Render(DrawingContext)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Render(DrawingContext)
+  nameWithType: RfbRenderTarget.Render(DrawingContext)
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.Render*
   name: Render
-  href: api/MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_
-  commentId: Overload:MarcusW.VncClient.Avalonia.VncRenderTarget.Render
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Render_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.Render
   isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.VncRenderTarget.Render
-  nameWithType: VncRenderTarget.Render
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Render
+  nameWithType: RfbRenderTarget.Render
 - uid: MarcusW.VncClient.Avalonia.VncView
   name: VncView
   href: api/MarcusW.VncClient.Avalonia.VncView.html
@@ -727,6 +727,77 @@ references:
   commentId: F:MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
   fullName: MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
   nameWithType: PixelFormat.Rgba8888
+- uid: MarcusW.VncClient.RfbConnection
+  name: RfbConnection
+  href: api/MarcusW.VncClient.RfbConnection.html
+  commentId: T:MarcusW.VncClient.RfbConnection
+  fullName: MarcusW.VncClient.RfbConnection
+  nameWithType: RfbConnection
+- uid: MarcusW.VncClient.RfbConnection.AuthenticationHandler
+  name: AuthenticationHandler
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_AuthenticationHandler
+  commentId: P:MarcusW.VncClient.RfbConnection.AuthenticationHandler
+  fullName: MarcusW.VncClient.RfbConnection.AuthenticationHandler
+  nameWithType: RfbConnection.AuthenticationHandler
+- uid: MarcusW.VncClient.RfbConnection.AuthenticationHandler*
+  name: AuthenticationHandler
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_AuthenticationHandler_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.AuthenticationHandler
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.AuthenticationHandler
+  nameWithType: RfbConnection.AuthenticationHandler
+- uid: MarcusW.VncClient.RfbConnection.CloseAsync
+  name: CloseAsync()
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_CloseAsync
+  commentId: M:MarcusW.VncClient.RfbConnection.CloseAsync
+  fullName: MarcusW.VncClient.RfbConnection.CloseAsync()
+  nameWithType: RfbConnection.CloseAsync()
+- uid: MarcusW.VncClient.RfbConnection.CloseAsync*
+  name: CloseAsync
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_CloseAsync_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.CloseAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.CloseAsync
+  nameWithType: RfbConnection.CloseAsync
+- uid: MarcusW.VncClient.RfbConnection.LoggerFactory
+  name: LoggerFactory
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_LoggerFactory
+  commentId: P:MarcusW.VncClient.RfbConnection.LoggerFactory
+  fullName: MarcusW.VncClient.RfbConnection.LoggerFactory
+  nameWithType: RfbConnection.LoggerFactory
+- uid: MarcusW.VncClient.RfbConnection.LoggerFactory*
+  name: LoggerFactory
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_LoggerFactory_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.LoggerFactory
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.LoggerFactory
+  nameWithType: RfbConnection.LoggerFactory
+- uid: MarcusW.VncClient.RfbConnection.RenderTarget
+  name: RenderTarget
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RenderTarget
+  commentId: P:MarcusW.VncClient.RfbConnection.RenderTarget
+  fullName: MarcusW.VncClient.RfbConnection.RenderTarget
+  nameWithType: RfbConnection.RenderTarget
+- uid: MarcusW.VncClient.RfbConnection.RenderTarget*
+  name: RenderTarget
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RenderTarget_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.RenderTarget
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.RenderTarget
+  nameWithType: RfbConnection.RenderTarget
+- uid: MarcusW.VncClient.RfbConnection.SupportedEncodings
+  name: SupportedEncodings
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_SupportedEncodings
+  commentId: P:MarcusW.VncClient.RfbConnection.SupportedEncodings
+  fullName: MarcusW.VncClient.RfbConnection.SupportedEncodings
+  nameWithType: RfbConnection.SupportedEncodings
+- uid: MarcusW.VncClient.RfbConnection.SupportedEncodings*
+  name: SupportedEncodings
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_SupportedEncodings_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.SupportedEncodings
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.SupportedEncodings
+  nameWithType: RfbConnection.SupportedEncodings
 - uid: MarcusW.VncClient.Security
   name: MarcusW.VncClient.Security
   href: api/MarcusW.VncClient.Security.html
@@ -854,77 +925,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncClient.ConnectAsync
   nameWithType: VncClient.ConnectAsync
-- uid: MarcusW.VncClient.VncConnection
-  name: VncConnection
-  href: api/MarcusW.VncClient.VncConnection.html
-  commentId: T:MarcusW.VncClient.VncConnection
-  fullName: MarcusW.VncClient.VncConnection
-  nameWithType: VncConnection
-- uid: MarcusW.VncClient.VncConnection.AuthenticationHandler
-  name: AuthenticationHandler
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_AuthenticationHandler
-  commentId: P:MarcusW.VncClient.VncConnection.AuthenticationHandler
-  fullName: MarcusW.VncClient.VncConnection.AuthenticationHandler
-  nameWithType: VncConnection.AuthenticationHandler
-- uid: MarcusW.VncClient.VncConnection.AuthenticationHandler*
-  name: AuthenticationHandler
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_AuthenticationHandler_
-  commentId: Overload:MarcusW.VncClient.VncConnection.AuthenticationHandler
-  isSpec: "True"
-  fullName: MarcusW.VncClient.VncConnection.AuthenticationHandler
-  nameWithType: VncConnection.AuthenticationHandler
-- uid: MarcusW.VncClient.VncConnection.CloseAsync
-  name: CloseAsync()
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_CloseAsync
-  commentId: M:MarcusW.VncClient.VncConnection.CloseAsync
-  fullName: MarcusW.VncClient.VncConnection.CloseAsync()
-  nameWithType: VncConnection.CloseAsync()
-- uid: MarcusW.VncClient.VncConnection.CloseAsync*
-  name: CloseAsync
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_CloseAsync_
-  commentId: Overload:MarcusW.VncClient.VncConnection.CloseAsync
-  isSpec: "True"
-  fullName: MarcusW.VncClient.VncConnection.CloseAsync
-  nameWithType: VncConnection.CloseAsync
-- uid: MarcusW.VncClient.VncConnection.LoggerFactory
-  name: LoggerFactory
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_LoggerFactory
-  commentId: P:MarcusW.VncClient.VncConnection.LoggerFactory
-  fullName: MarcusW.VncClient.VncConnection.LoggerFactory
-  nameWithType: VncConnection.LoggerFactory
-- uid: MarcusW.VncClient.VncConnection.LoggerFactory*
-  name: LoggerFactory
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_LoggerFactory_
-  commentId: Overload:MarcusW.VncClient.VncConnection.LoggerFactory
-  isSpec: "True"
-  fullName: MarcusW.VncClient.VncConnection.LoggerFactory
-  nameWithType: VncConnection.LoggerFactory
-- uid: MarcusW.VncClient.VncConnection.RenderTarget
-  name: RenderTarget
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_RenderTarget
-  commentId: P:MarcusW.VncClient.VncConnection.RenderTarget
-  fullName: MarcusW.VncClient.VncConnection.RenderTarget
-  nameWithType: VncConnection.RenderTarget
-- uid: MarcusW.VncClient.VncConnection.RenderTarget*
-  name: RenderTarget
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_RenderTarget_
-  commentId: Overload:MarcusW.VncClient.VncConnection.RenderTarget
-  isSpec: "True"
-  fullName: MarcusW.VncClient.VncConnection.RenderTarget
-  nameWithType: VncConnection.RenderTarget
-- uid: MarcusW.VncClient.VncConnection.SupportedEncodings
-  name: SupportedEncodings
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_SupportedEncodings
-  commentId: P:MarcusW.VncClient.VncConnection.SupportedEncodings
-  fullName: MarcusW.VncClient.VncConnection.SupportedEncodings
-  nameWithType: VncConnection.SupportedEncodings
-- uid: MarcusW.VncClient.VncConnection.SupportedEncodings*
-  name: SupportedEncodings
-  href: api/MarcusW.VncClient.VncConnection.html#MarcusW_VncClient_VncConnection_SupportedEncodings_
-  commentId: Overload:MarcusW.VncClient.VncConnection.SupportedEncodings
-  isSpec: "True"
-  fullName: MarcusW.VncClient.VncConnection.SupportedEncodings
-  nameWithType: VncConnection.SupportedEncodings
 - uid: MarcusW.VncClient.VncDefaults
   name: VncDefaults
   href: api/MarcusW.VncClient.VncDefaults.html

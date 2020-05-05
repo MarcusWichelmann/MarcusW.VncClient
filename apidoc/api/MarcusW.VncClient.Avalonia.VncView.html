@@ -73,13 +73,13 @@
   
   <h1 id="MarcusW_VncClient_Avalonia_VncView" data-uid="MarcusW.VncClient.Avalonia.VncView" class="text-break">Class VncView
   </h1>
-  <div class="markdown level0 summary"><p>Displays a remote screen using the VNC protocol.</p>
+  <div class="markdown level0 summary"><p>Displays a remote screen using the RFB protocol.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html">VncRenderTarget</a></div>
+    <div class="level1"><a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html">RfbRenderTarget</a></div>
     <div class="level2"><span class="xref">VncView</span></div>
   </div>
   <div classs="implements">
@@ -90,23 +90,23 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_">VncRenderTarget.IRenderTarget.GrabFramebufferReference(FrameSize)</a>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_FrameSize_">RfbRenderTarget.IRenderTarget.GrabFramebufferReference(FrameSize)</a>
     </div>
     <div>
-      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Render_DrawingContext_">VncRenderTarget.Render(DrawingContext)</a>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Render_DrawingContext_">RfbRenderTarget.Render(DrawingContext)</a>
     </div>
     <div>
-      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_MeasureOverride_Size_">VncRenderTarget.MeasureOverride(Size)</a>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MeasureOverride_Size_">RfbRenderTarget.MeasureOverride(Size)</a>
     </div>
     <div>
-      <a class="xref" href="MarcusW.VncClient.Avalonia.VncRenderTarget.html#MarcusW_VncClient_Avalonia_VncRenderTarget_Dispose">VncRenderTarget.Dispose()</a>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Dispose">RfbRenderTarget.Dispose()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Avalonia.html">MarcusW.VncClient.Avalonia</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.Avalonia.dll</h6>
   <h5 id="MarcusW_VncClient_Avalonia_VncView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class VncView : VncRenderTarget, IRenderTarget, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class VncView : RfbRenderTarget, IRenderTarget, IDisposable</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
@@ -123,7 +123,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;VncView, VncConnection? &gt; ConnectionProperty</code></pre>
+    <pre><code class="lang-csharp hljs">public static readonly DirectProperty&lt;VncView, RfbConnection? &gt; ConnectionProperty</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -135,7 +135,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">DirectProperty</span>&lt;<a class="xref" href="MarcusW.VncClient.Avalonia.VncView.html">VncView</a>, <span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.VncConnection.html">VncConnection</a>&gt;&gt;</td>
+        <td><span class="xref">DirectProperty</span>&lt;<a class="xref" href="MarcusW.VncClient.Avalonia.VncView.html">VncView</a>, <span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.RfbConnection.html">RfbConnection</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -156,7 +156,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VncConnection? Connection { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public RfbConnection? Connection { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -168,13 +168,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.VncConnection.html">VncConnection</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.RfbConnection.html">RfbConnection</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 id="MarcusW_VncClient_Avalonia_VncView_Connection_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Interactions with this control will be forwarded to the selected <a class="xref" href="MarcusW.VncClient.VncConnection.html">VncConnection</a>.
+  <div class="markdown level1 remarks"><p>Interactions with this control will be forwarded to the selected <a class="xref" href="MarcusW.VncClient.RfbConnection.html">RfbConnection</a>.
 In case this property is set to <span class="xref">null</span>, no connection will be attached to this view.</p>
 </div>
   <h3 id="implements">Implements</h3>
