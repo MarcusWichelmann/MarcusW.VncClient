@@ -133,19 +133,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler%2CSystem.Nullable%7BMarcusW.VncClient.Rendering.IRenderTarget%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters%2CMarcusW.VncClient.Security.IAuthenticationHandler%2CSystem.Nullable%7BMarcusW.VncClient.Rendering.IRenderTarget%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L46">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncClient.cs/#L47">View Source</a>
   </span>
   <a id="MarcusW_VncClient_VncClient_ConnectAsync_" data-uid="MarcusW.VncClient.VncClient.ConnectAsync*"></a>
-  <h4 id="MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_" data-uid="MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)">ConnectAsync(IAuthenticationHandler, Nullable&lt;IRenderTarget&gt;, CancellationToken)</h4>
+  <h4 id="MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_" data-uid="MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)">ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable&lt;IRenderTarget&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Tries to connect to a VNC server and initializes a new connection object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;RfbConnection&gt; ConnectAsync(IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;RfbConnection&gt; ConnectAsync(ConnectParameters parameters, IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -157,6 +157,12 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.ConnectParameters.html">ConnectParameters</a></td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>The connect parameters.</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="MarcusW.VncClient.Security.IAuthenticationHandler.html">IAuthenticationHandler</a></td>
         <td><span class="parametername">authenticationHandler</span></td>

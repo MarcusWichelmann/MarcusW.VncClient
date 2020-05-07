@@ -375,6 +375,88 @@ references:
   commentId: F:MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   fullName: MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   nameWithType: VncView.ConnectionProperty
+- uid: MarcusW.VncClient.ConnectParameters
+  name: ConnectParameters
+  href: api/MarcusW.VncClient.ConnectParameters.html
+  commentId: T:MarcusW.VncClient.ConnectParameters
+  fullName: MarcusW.VncClient.ConnectParameters
+  nameWithType: ConnectParameters
+- uid: MarcusW.VncClient.ConnectParameters.Endpoint
+  name: Endpoint
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Endpoint
+  commentId: P:MarcusW.VncClient.ConnectParameters.Endpoint
+  fullName: MarcusW.VncClient.ConnectParameters.Endpoint
+  nameWithType: ConnectParameters.Endpoint
+- uid: MarcusW.VncClient.ConnectParameters.Endpoint*
+  name: Endpoint
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Endpoint_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.Endpoint
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.Endpoint
+  nameWithType: ConnectParameters.Endpoint
+- uid: MarcusW.VncClient.ConnectParameters.ReconnectDelay
+  name: ReconnectDelay
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_ReconnectDelay
+  commentId: P:MarcusW.VncClient.ConnectParameters.ReconnectDelay
+  fullName: MarcusW.VncClient.ConnectParameters.ReconnectDelay
+  nameWithType: ConnectParameters.ReconnectDelay
+- uid: MarcusW.VncClient.ConnectParameters.ReconnectDelay*
+  name: ReconnectDelay
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_ReconnectDelay_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.ReconnectDelay
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.ReconnectDelay
+  nameWithType: ConnectParameters.ReconnectDelay
+- uid: MarcusW.VncClient.ConnectParameters.Validate
+  name: Validate()
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Validate
+  commentId: M:MarcusW.VncClient.ConnectParameters.Validate
+  fullName: MarcusW.VncClient.ConnectParameters.Validate()
+  nameWithType: ConnectParameters.Validate()
+- uid: MarcusW.VncClient.ConnectParameters.Validate*
+  name: Validate
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Validate_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.Validate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.Validate
+  nameWithType: ConnectParameters.Validate
+- uid: MarcusW.VncClient.ConnectParametersValidationException
+  name: ConnectParametersValidationException
+  href: api/MarcusW.VncClient.ConnectParametersValidationException.html
+  commentId: T:MarcusW.VncClient.ConnectParametersValidationException
+  fullName: MarcusW.VncClient.ConnectParametersValidationException
+  nameWithType: ConnectParametersValidationException
+- uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor
+  name: ConnectParametersValidationException()
+  href: api/MarcusW.VncClient.ConnectParametersValidationException.html#MarcusW_VncClient_ConnectParametersValidationException__ctor
+  commentId: M:MarcusW.VncClient.ConnectParametersValidationException.#ctor
+  fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException()
+  nameWithType: ConnectParametersValidationException.ConnectParametersValidationException()
+- uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String})
+  name: ConnectParametersValidationException(Nullable<String>)
+  href: api/MarcusW.VncClient.ConnectParametersValidationException.html#MarcusW_VncClient_ConnectParametersValidationException__ctor_System_Nullable_System_String__
+  commentId: M:MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String})
+  name.vb: ConnectParametersValidationException(Nullable(Of String))
+  fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable<System.String>)
+  fullName.vb: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable(Of System.String))
+  nameWithType: ConnectParametersValidationException.ConnectParametersValidationException(Nullable<String>)
+  nameWithType.vb: ConnectParametersValidationException.ConnectParametersValidationException(Nullable(Of String))
+- uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  name: ConnectParametersValidationException(Nullable<String>, Nullable<Exception>)
+  href: api/MarcusW.VncClient.ConnectParametersValidationException.html#MarcusW_VncClient_ConnectParametersValidationException__ctor_System_Nullable_System_String__System_Nullable_Exception__
+  commentId: M:MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  name.vb: ConnectParametersValidationException(Nullable(Of String), Nullable(Of Exception))
+  fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable<System.String>, System.Nullable<Exception>)
+  fullName.vb: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable(Of System.String), System.Nullable(Of Exception))
+  nameWithType: ConnectParametersValidationException.ConnectParametersValidationException(Nullable<String>, Nullable<Exception>)
+  nameWithType.vb: ConnectParametersValidationException.ConnectParametersValidationException(Nullable(Of String), Nullable(Of Exception))
+- uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor*
+  name: ConnectParametersValidationException
+  href: api/MarcusW.VncClient.ConnectParametersValidationException.html#MarcusW_VncClient_ConnectParametersValidationException__ctor_
+  commentId: Overload:MarcusW.VncClient.ConnectParametersValidationException.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException
+  nameWithType: ConnectParametersValidationException.ConnectParametersValidationException
 - uid: MarcusW.VncClient.FrameSize
   name: FrameSize
   href: api/MarcusW.VncClient.FrameSize.html
@@ -545,6 +627,38 @@ references:
   commentId: N:MarcusW.VncClient.Protocol
   fullName: MarcusW.VncClient.Protocol
   nameWithType: MarcusW.VncClient.Protocol
+- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs
+  name: BackgroundThreadFailedEventArgs
+  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html
+  commentId: T:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs
+  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs
+  nameWithType: BackgroundThreadFailedEventArgs
+- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor(Exception)
+  name: BackgroundThreadFailedEventArgs(Exception)
+  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs__ctor_Exception_
+  commentId: M:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor(Exception)
+  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
+  nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
+- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor*
+  name: BackgroundThreadFailedEventArgs
+  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs
+  nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs
+- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
+  name: Exception
+  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs_Exception
+  commentId: P:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
+  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
+  nameWithType: BackgroundThreadFailedEventArgs.Exception
+- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception*
+  name: Exception
+  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs_Exception_
+  commentId: Overload:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
+  nameWithType: BackgroundThreadFailedEventArgs.Exception
 - uid: MarcusW.VncClient.Protocol.Encodings
   name: MarcusW.VncClient.Protocol.Encodings
   href: api/MarcusW.VncClient.Protocol.Encodings.html
@@ -772,6 +886,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.LoggerFactory
   nameWithType: RfbConnection.LoggerFactory
+- uid: MarcusW.VncClient.RfbConnection.Parameters
+  name: Parameters
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_Parameters
+  commentId: P:MarcusW.VncClient.RfbConnection.Parameters
+  fullName: MarcusW.VncClient.RfbConnection.Parameters
+  nameWithType: RfbConnection.Parameters
+- uid: MarcusW.VncClient.RfbConnection.Parameters*
+  name: Parameters
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_Parameters_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.Parameters
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.Parameters
+  nameWithType: RfbConnection.Parameters
 - uid: MarcusW.VncClient.RfbConnection.RenderTarget
   name: RenderTarget
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RenderTarget
@@ -848,6 +975,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Utils.BackgroundThread.Dispose
   nameWithType: BackgroundThread.Dispose
+- uid: MarcusW.VncClient.Utils.BackgroundThread.Failed
+  name: Failed
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Failed
+  commentId: E:MarcusW.VncClient.Utils.BackgroundThread.Failed
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.Failed
+  nameWithType: BackgroundThread.Failed
 - uid: MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
   name: Start(CancellationToken)
   href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Start_CancellationToken_
@@ -909,15 +1042,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncClient.VncClient
   nameWithType: VncClient.VncClient
-- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
-  name: ConnectAsync(IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_
-  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
-  name.vb: ConnectAsync(IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
-  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable<MarcusW.VncClient.Rendering.IRenderTarget>, CancellationToken)
-  fullName.vb: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable(Of MarcusW.VncClient.Rendering.IRenderTarget), CancellationToken)
-  nameWithType: VncClient.ConnectAsync(IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
-  nameWithType.vb: VncClient.ConnectAsync(IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
+- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
+  name: ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_
+  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
+  name.vb: ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable<MarcusW.VncClient.Rendering.IRenderTarget>, CancellationToken)
+  fullName.vb: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable(Of MarcusW.VncClient.Rendering.IRenderTarget), CancellationToken)
+  nameWithType: VncClient.ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
+  nameWithType.vb: VncClient.ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
 - uid: MarcusW.VncClient.VncClient.ConnectAsync*
   name: ConnectAsync
   href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_
