@@ -19,6 +19,9 @@ namespace MarcusW.VncClient.Protocol
         {
             _connection = connection;
             _logger = connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
+
+            // Log failure events from background thread base
+            Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception", args.Exception);
         }
 
         internal void StartReceiveLoop(CancellationToken cancellationToken = default)
@@ -33,6 +36,7 @@ namespace MarcusW.VncClient.Protocol
             return StopAndWaitAsync();
         }
 
+        // This method will not catch exceptions because the BackgroundThread base class will interpret them as "Failure" and trigger a reconnect.
         protected override void ThreadWorker(CancellationToken cancellationToken)
         {
             byte offset = 0;

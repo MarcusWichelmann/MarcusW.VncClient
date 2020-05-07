@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol;
 
 namespace MarcusW.VncClient.Utils
 {
@@ -20,11 +21,13 @@ namespace MarcusW.VncClient.Utils
 
         private bool _disposed;
 
+        public event EventHandler<BackgroundThreadFailedEventArgs>? Failed;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BackgroundThread"/>.
         /// </summary>
         /// <param name="name">The thread name.</param>
-        protected BackgroundThread(string name)
+        protected internal BackgroundThread(string name)
         {
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
@@ -98,6 +101,11 @@ namespace MarcusW.VncClient.Utils
             {
                 // Do your work...
                 ThreadWorker(cancellationToken);
+            }
+            catch (Exception exception) when (!(exception is OperationCanceledException
+                || exception is ThreadAbortException))
+            {
+                Failed?.Invoke(this, new BackgroundThreadFailedEventArgs(exception));
             }
             finally
             {
