@@ -27,9 +27,10 @@ namespace AvaloniaVncClient.Services
             _vncClient = new VncClient(loggerFactory, VncDefaults.GetEncodingsCollection());
         }
 
-        public Task<RfbConnection> ConnectAsync(CancellationToken cancellationToken = default)
+        public Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
+            CancellationToken cancellationToken = default)
         {
-            return _vncClient.ConnectAsync(_interactiveAuthenticationHandler, null, cancellationToken);
+            return _vncClient.ConnectAsync(parameters, _interactiveAuthenticationHandler, null, cancellationToken);
         }
     }
 }

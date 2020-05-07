@@ -39,18 +39,27 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Tries to connect to a VNC server and initializes a new connection object.
         /// </summary>
+        /// <param name="parameters">The connect parameters.</param>
         /// <param name="authenticationHandler">The <see cref="IAuthenticationHandler"/> implementation to authenticate against the server.</param>
         /// <param name="initialRenderTarget">The target where received frames should be rendered to, in case you want to set the target from the start on.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>An initialized <see cref="RfbConnection"/> instance.</returns>
-        public async Task<RfbConnection> ConnectAsync(IAuthenticationHandler authenticationHandler,
-            IRenderTarget? initialRenderTarget = null, CancellationToken cancellationToken = default)
+        public async Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
+            IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null,
+            CancellationToken cancellationToken = default)
         {
+            if (parameters == null)
+                throw new ArgumentNullException(nameof(parameters));
             if (authenticationHandler == null)
                 throw new ArgumentNullException(nameof(authenticationHandler));
 
-            var rfbConnection = new RfbConnection(_loggerFactory, _supportedEncodings, authenticationHandler,
-                initialRenderTarget);
+            parameters.Validate();
+
+            // Do a deep copy of the parameters object to make sure connection parameters cannot be changed afterwards.
+            var parametersCopy = parameters.DeepCopy();
+
+            var rfbConnection = new RfbConnection(_loggerFactory, _supportedEncodings, parametersCopy,
+                authenticationHandler, initialRenderTarget);
             await rfbConnection.StartAsync(cancellationToken).ConfigureAwait(false);
             return rfbConnection;
         }

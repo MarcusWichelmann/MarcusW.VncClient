@@ -31,6 +31,11 @@ namespace MarcusW.VncClient
         public IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
 
         /// <summary>
+        /// Gets the connect parameters used for establishing this connection.
+        /// </summary>
+        public ConnectParameters Parameters { get; }
+
+        /// <summary>
         /// Gets the authentication handler.
         /// </summary>
         public IAuthenticationHandler AuthenticationHandler { get; }
@@ -43,10 +48,12 @@ namespace MarcusW.VncClient
         // TODO: ConnectionState property and event (informs about reconnects)
 
         internal RfbConnection(ILoggerFactory loggerFactory, IReadOnlyCollection<IEncoding> supportedEncodings,
-            IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null)
+            ConnectParameters parameters, IAuthenticationHandler authenticationHandler,
+            IRenderTarget? initialRenderTarget = null)
         {
             LoggerFactory = loggerFactory;
             SupportedEncodings = supportedEncodings;
+            Parameters = parameters;
             AuthenticationHandler = authenticationHandler;
             RenderTarget = initialRenderTarget;
 
@@ -55,17 +62,14 @@ namespace MarcusW.VncClient
 
         internal async Task StartAsync(CancellationToken cancellationToken = default)
         {
-            // TODO: Add server address to log output
-            _logger.LogInformation("Connecting to VNC-Server XXX...");
-
-            // TODO: Connect and authenticate
+            _logger.LogInformation("Connecting to VNC-Server on {endpoint}...", Parameters.Endpoint);
 
             _messageReceiver = new RfbMessageReceiver(this);
             _messageReceiver.StartReceiveLoop(cancellationToken);
         }
 
         /// <summary>
-        /// Closes the running remote connection.
+        /// Closes the running remote connection or reconnect attempts.
         /// </summary>
         /// <remarks>
         /// To cancel the connection establishment please use the <see cref="CancellationToken"/> passed to <see cref="StartAsync"/> instead.

@@ -35,7 +35,7 @@ namespace AvaloniaVncClient.ViewModels
         private async Task ConnectAsync(CancellationToken cancellationToken = default)
         {
             // Try to connect and set the connection
-            RfbConnection = await _connectionManager.ConnectAsync(cancellationToken).ConfigureAwait(true);
+            //RfbConnection = await _connectionManager.ConnectAsync(cancellationToken).ConfigureAwait(true);
         }
     }
 }
