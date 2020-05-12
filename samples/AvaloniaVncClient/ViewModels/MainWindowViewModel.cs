@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading;
@@ -34,8 +35,12 @@ namespace AvaloniaVncClient.ViewModels
 
         private async Task ConnectAsync(CancellationToken cancellationToken = default)
         {
+            // TODO: Configure connect parameters
+            var parameters = new ConnectParameters { Endpoint = new IPEndPoint(IPAddress.IPv6Loopback, 5901) };
+
             // Try to connect and set the connection
-            //RfbConnection = await _connectionManager.ConnectAsync(cancellationToken).ConfigureAwait(true);
+            // TODO: Errors are not displayed.
+            RfbConnection = await _connectionManager.ConnectAsync(parameters, cancellationToken).ConfigureAwait(true);
         }
     }
 }

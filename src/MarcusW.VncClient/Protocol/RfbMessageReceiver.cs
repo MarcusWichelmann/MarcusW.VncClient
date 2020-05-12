@@ -36,7 +36,8 @@ namespace MarcusW.VncClient.Protocol
             return StopAndWaitAsync();
         }
 
-        // This method will not catch exceptions because the BackgroundThread base class will interpret them as "Failure" and trigger a reconnect.
+        // This method will not catch exceptions so the BackgroundThread base class will receive them,
+        // raise a "Failure" and trigger a reconnect.
         protected override void ThreadWorker(CancellationToken cancellationToken)
         {
             byte offset = 0;
