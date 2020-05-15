@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.ConnectParameters.html",
-          "hash": "xWK9lyCzk8ETEM41Wr3XpQ=="
+          "hash": "+8w2dB9b/u1BhemvSXe7Gw=="
         }
       },
       "is_incremental": false,
@@ -154,6 +154,18 @@
         ".html": {
           "relative_path": "api/MarcusW.VncClient.ConnectParametersValidationException.html",
           "hash": "DQ8rRt5meNF+cndOukXp2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.ConnectionState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.ConnectionState.html",
+          "hash": "ojpXcF5Oojf8ChYnggz8qg=="
         }
       },
       "is_incremental": false,
@@ -321,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.RfbConnection.html",
-          "hash": "avVINrLzkaR2BrSpaCDzBA=="
+          "hash": "co2bTxgd2s2jJSmwQ0WX9g=="
         }
       },
       "is_incremental": false,
@@ -405,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.html",
-          "hash": "ghB7TbQyC8+gKI0nch1aaA=="
+          "hash": "JzOprSNCyjUN0hYJG8f8iA=="
         }
       },
       "is_incremental": false,
@@ -429,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "dIPDiuEPehtSqBJ7c12eFg=="
+          "hash": "b86zPXx7iYdS0zLaDOlUVw=="
         }
       },
       "is_incremental": false,
@@ -478,16 +490,16 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 34,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 35,
           "skipped_file_count": 0
         }
       }

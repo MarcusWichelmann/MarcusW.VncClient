@@ -375,6 +375,48 @@ references:
   commentId: F:MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   fullName: MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   nameWithType: VncView.ConnectionProperty
+- uid: MarcusW.VncClient.ConnectionState
+  name: ConnectionState
+  href: api/MarcusW.VncClient.ConnectionState.html
+  commentId: T:MarcusW.VncClient.ConnectionState
+  fullName: MarcusW.VncClient.ConnectionState
+  nameWithType: ConnectionState
+- uid: MarcusW.VncClient.ConnectionState.Closed
+  name: Closed
+  href: api/MarcusW.VncClient.ConnectionState.html#MarcusW_VncClient_ConnectionState_Closed
+  commentId: F:MarcusW.VncClient.ConnectionState.Closed
+  fullName: MarcusW.VncClient.ConnectionState.Closed
+  nameWithType: ConnectionState.Closed
+- uid: MarcusW.VncClient.ConnectionState.Connected
+  name: Connected
+  href: api/MarcusW.VncClient.ConnectionState.html#MarcusW_VncClient_ConnectionState_Connected
+  commentId: F:MarcusW.VncClient.ConnectionState.Connected
+  fullName: MarcusW.VncClient.ConnectionState.Connected
+  nameWithType: ConnectionState.Connected
+- uid: MarcusW.VncClient.ConnectionState.Interrupted
+  name: Interrupted
+  href: api/MarcusW.VncClient.ConnectionState.html#MarcusW_VncClient_ConnectionState_Interrupted
+  commentId: F:MarcusW.VncClient.ConnectionState.Interrupted
+  fullName: MarcusW.VncClient.ConnectionState.Interrupted
+  nameWithType: ConnectionState.Interrupted
+- uid: MarcusW.VncClient.ConnectionState.ReconnectFailed
+  name: ReconnectFailed
+  href: api/MarcusW.VncClient.ConnectionState.html#MarcusW_VncClient_ConnectionState_ReconnectFailed
+  commentId: F:MarcusW.VncClient.ConnectionState.ReconnectFailed
+  fullName: MarcusW.VncClient.ConnectionState.ReconnectFailed
+  nameWithType: ConnectionState.ReconnectFailed
+- uid: MarcusW.VncClient.ConnectionState.Reconnecting
+  name: Reconnecting
+  href: api/MarcusW.VncClient.ConnectionState.html#MarcusW_VncClient_ConnectionState_Reconnecting
+  commentId: F:MarcusW.VncClient.ConnectionState.Reconnecting
+  fullName: MarcusW.VncClient.ConnectionState.Reconnecting
+  nameWithType: ConnectionState.Reconnecting
+- uid: MarcusW.VncClient.ConnectionState.Uninitialized
+  name: Uninitialized
+  href: api/MarcusW.VncClient.ConnectionState.html#MarcusW_VncClient_ConnectionState_Uninitialized
+  commentId: F:MarcusW.VncClient.ConnectionState.Uninitialized
+  fullName: MarcusW.VncClient.ConnectionState.Uninitialized
+  nameWithType: ConnectionState.Uninitialized
 - uid: MarcusW.VncClient.ConnectParameters
   name: ConnectParameters
   href: api/MarcusW.VncClient.ConnectParameters.html
@@ -394,6 +436,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParameters.Endpoint
   nameWithType: ConnectParameters.Endpoint
+- uid: MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts
+  name: MaxReconnectAttempts
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_MaxReconnectAttempts
+  commentId: P:MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts
+  fullName: MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts
+  nameWithType: ConnectParameters.MaxReconnectAttempts
+- uid: MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts*
+  name: MaxReconnectAttempts
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_MaxReconnectAttempts_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts
+  nameWithType: ConnectParameters.MaxReconnectAttempts
 - uid: MarcusW.VncClient.ConnectParameters.ReconnectDelay
   name: ReconnectDelay
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_ReconnectDelay
@@ -873,6 +928,32 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.CloseAsync
   nameWithType: RfbConnection.CloseAsync
+- uid: MarcusW.VncClient.RfbConnection.ConnectionState
+  name: ConnectionState
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_ConnectionState
+  commentId: P:MarcusW.VncClient.RfbConnection.ConnectionState
+  fullName: MarcusW.VncClient.RfbConnection.ConnectionState
+  nameWithType: RfbConnection.ConnectionState
+- uid: MarcusW.VncClient.RfbConnection.ConnectionState*
+  name: ConnectionState
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_ConnectionState_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.ConnectionState
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.ConnectionState
+  nameWithType: RfbConnection.ConnectionState
+- uid: MarcusW.VncClient.RfbConnection.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_Dispose
+  commentId: M:MarcusW.VncClient.RfbConnection.Dispose
+  fullName: MarcusW.VncClient.RfbConnection.Dispose()
+  nameWithType: RfbConnection.Dispose()
+- uid: MarcusW.VncClient.RfbConnection.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_Dispose_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.Dispose
+  nameWithType: RfbConnection.Dispose
 - uid: MarcusW.VncClient.RfbConnection.LoggerFactory
   name: LoggerFactory
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_LoggerFactory
@@ -899,6 +980,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.Parameters
   nameWithType: RfbConnection.Parameters
+- uid: MarcusW.VncClient.RfbConnection.PropertyChanged
+  name: PropertyChanged
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_PropertyChanged
+  commentId: E:MarcusW.VncClient.RfbConnection.PropertyChanged
+  fullName: MarcusW.VncClient.RfbConnection.PropertyChanged
+  nameWithType: RfbConnection.PropertyChanged
 - uid: MarcusW.VncClient.RfbConnection.RenderTarget
   name: RenderTarget
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RenderTarget

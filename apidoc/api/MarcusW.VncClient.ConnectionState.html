@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace MarcusW.VncClient
+    <title>Enum ConnectionState
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace MarcusW.VncClient
+    <meta name="title" content="Enum ConnectionState
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,38 +68,62 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.ConnectionState">
   
-  <h1 id="MarcusW_VncClient" data-uid="MarcusW.VncClient" class="text-break">Namespace MarcusW.VncClient
+  
+  <h1 id="MarcusW_VncClient_ConnectionState" data-uid="MarcusW.VncClient.ConnectionState" class="text-break">Enum ConnectionState
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>The different states of an active RFB connection.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.html">MarcusW.VncClient</a></h6>
+  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
+  <h5 id="MarcusW_VncClient_ConnectionState_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum ConnectionState : int</code></pre>
+  </div>
+  <h3 id="fields">Fields
   </h3>
-      <h4><a class="xref" href="MarcusW.VncClient.ConnectParameters.html">ConnectParameters</a></h4>
-      <section><p>Specifies the parameters for establishing a VNC connection.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.ConnectParametersValidationException.html">ConnectParametersValidationException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="MarcusW.VncClient.RfbConnection.html">RfbConnection</a></h4>
-      <section><p>Connection to a remote server using the RFB protocol.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.VncClient.html">VncClient</a></h4>
-      <section><p>Client for the RFB protocol which allows connecting to remote VNC servers.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.VncDefaults.html">VncDefaults</a></h4>
-      <section></section>
-    <h3 id="structs">Structs
-  </h3>
-      <h4><a class="xref" href="MarcusW.VncClient.FrameSize.html">FrameSize</a></h4>
-      <section><p>Represents a frame size in device pixels.</p>
-</section>
-    <h3 id="enums">Enums
-  </h3>
-      <h4><a class="xref" href="MarcusW.VncClient.ConnectionState.html">ConnectionState</a></h4>
-      <section><p>The different states of an active RFB connection.</p>
-</section>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="MarcusW_VncClient_ConnectionState_Closed">Closed</td>
+        <td><p>Connection was closed or gave up reconnecting.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_ConnectionState_Connected">Connected</td>
+        <td><p>Connection is established.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_ConnectionState_Interrupted">Interrupted</td>
+        <td><p>Connection was interrupted. Waiting for reconnect attempt after a short pause.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_ConnectionState_ReconnectFailed">ReconnectFailed</td>
+        <td><p>Reconnect attempt failed. Waiting for next reconnect attempt after a short pause.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_ConnectionState_Reconnecting">Reconnecting</td>
+        <td><p>Reconnect attempt is running.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_ConnectionState_Uninitialized">Uninitialized</td>
+        <td><p>Connection has not started yet.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
 </article>
           </div>
           
@@ -107,6 +131,12 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_ConnectionState.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.ConnectionState%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/ConnectionState.cs/#L6" class="contribution-link">View Source</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
