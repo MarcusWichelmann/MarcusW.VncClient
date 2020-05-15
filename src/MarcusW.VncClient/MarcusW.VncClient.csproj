@@ -10,4 +10,13 @@
       <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="RfbConnection.Helpers.cs">
+        <DependentUpon>RfbConnection.cs</DependentUpon>
+      </Compile>
+      <Compile Update="RfbConnection.Connection.cs">
+        <DependentUpon>RfbConnection.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
