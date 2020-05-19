@@ -676,44 +676,6 @@ references:
   commentId: F:MarcusW.VncClient.FrameSize.Zero
   fullName: MarcusW.VncClient.FrameSize.Zero
   nameWithType: FrameSize.Zero
-- uid: MarcusW.VncClient.Protocol
-  name: MarcusW.VncClient.Protocol
-  href: api/MarcusW.VncClient.Protocol.html
-  commentId: N:MarcusW.VncClient.Protocol
-  fullName: MarcusW.VncClient.Protocol
-  nameWithType: MarcusW.VncClient.Protocol
-- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs
-  name: BackgroundThreadFailedEventArgs
-  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html
-  commentId: T:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs
-  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs
-  nameWithType: BackgroundThreadFailedEventArgs
-- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor(Exception)
-  name: BackgroundThreadFailedEventArgs(Exception)
-  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs__ctor_Exception_
-  commentId: M:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor(Exception)
-  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
-  nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
-- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor*
-  name: BackgroundThreadFailedEventArgs
-  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs__ctor_
-  commentId: Overload:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.#ctor
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs
-  nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs
-- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
-  name: Exception
-  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs_Exception
-  commentId: P:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
-  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
-  nameWithType: BackgroundThreadFailedEventArgs.Exception
-- uid: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception*
-  name: Exception
-  href: api/MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Protocol_BackgroundThreadFailedEventArgs_Exception_
-  commentId: Overload:MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.BackgroundThreadFailedEventArgs.Exception
-  nameWithType: BackgroundThreadFailedEventArgs.Exception
 - uid: MarcusW.VncClient.Protocol.Encodings
   name: MarcusW.VncClient.Protocol.Encodings
   href: api/MarcusW.VncClient.Protocol.Encodings.html
@@ -738,31 +700,6 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding
   fullName: MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding
   nameWithType: IPseudoEncoding
-- uid: MarcusW.VncClient.Protocol.RfbMessageReceiver
-  name: RfbMessageReceiver
-  href: api/MarcusW.VncClient.Protocol.RfbMessageReceiver.html
-  commentId: T:MarcusW.VncClient.Protocol.RfbMessageReceiver
-  fullName: MarcusW.VncClient.Protocol.RfbMessageReceiver
-  nameWithType: RfbMessageReceiver
-- uid: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker(CancellationToken)
-  name: ThreadWorker(CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.RfbMessageReceiver.html#MarcusW_VncClient_Protocol_RfbMessageReceiver_ThreadWorker_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker(CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker(CancellationToken)
-  nameWithType: RfbMessageReceiver.ThreadWorker(CancellationToken)
-- uid: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker*
-  name: ThreadWorker
-  href: api/MarcusW.VncClient.Protocol.RfbMessageReceiver.html#MarcusW_VncClient_Protocol_RfbMessageReceiver_ThreadWorker_
-  commentId: Overload:MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.RfbMessageReceiver.ThreadWorker
-  nameWithType: RfbMessageReceiver.ThreadWorker
-- uid: MarcusW.VncClient.Protocol.RfbMessageSender
-  name: RfbMessageSender
-  href: api/MarcusW.VncClient.Protocol.RfbMessageSender.html
-  commentId: T:MarcusW.VncClient.Protocol.RfbMessageSender
-  fullName: MarcusW.VncClient.Protocol.RfbMessageSender
-  nameWithType: RfbMessageSender
 - uid: MarcusW.VncClient.Rendering
   name: MarcusW.VncClient.Rendering
   href: api/MarcusW.VncClient.Rendering.html
@@ -999,19 +936,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.RenderTarget
   nameWithType: RfbConnection.RenderTarget
-- uid: MarcusW.VncClient.RfbConnection.SupportedEncodings
-  name: SupportedEncodings
-  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_SupportedEncodings
-  commentId: P:MarcusW.VncClient.RfbConnection.SupportedEncodings
-  fullName: MarcusW.VncClient.RfbConnection.SupportedEncodings
-  nameWithType: RfbConnection.SupportedEncodings
-- uid: MarcusW.VncClient.RfbConnection.SupportedEncodings*
-  name: SupportedEncodings
-  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_SupportedEncodings_
-  commentId: Overload:MarcusW.VncClient.RfbConnection.SupportedEncodings
-  isSpec: "True"
-  fullName: MarcusW.VncClient.RfbConnection.SupportedEncodings
-  nameWithType: RfbConnection.SupportedEncodings
 - uid: MarcusW.VncClient.Security
   name: MarcusW.VncClient.Security
   href: api/MarcusW.VncClient.Security.html
@@ -1030,83 +954,38 @@ references:
   commentId: N:MarcusW.VncClient.Utils
   fullName: MarcusW.VncClient.Utils
   nameWithType: MarcusW.VncClient.Utils
-- uid: MarcusW.VncClient.Utils.BackgroundThread
-  name: BackgroundThread
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html
-  commentId: T:MarcusW.VncClient.Utils.BackgroundThread
-  fullName: MarcusW.VncClient.Utils.BackgroundThread
-  nameWithType: BackgroundThread
-- uid: MarcusW.VncClient.Utils.BackgroundThread.#ctor(System.String)
-  name: BackgroundThread(String)
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread__ctor_System_String_
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.#ctor(System.String)
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.BackgroundThread(System.String)
-  nameWithType: BackgroundThread.BackgroundThread(String)
-- uid: MarcusW.VncClient.Utils.BackgroundThread.#ctor*
-  name: BackgroundThread
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread__ctor_
-  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.#ctor
+- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs
+  name: BackgroundThreadFailedEventArgs
+  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html
+  commentId: T:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs
+  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs
+  nameWithType: BackgroundThreadFailedEventArgs
+- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor(Exception)
+  name: BackgroundThreadFailedEventArgs(Exception)
+  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Utils_BackgroundThreadFailedEventArgs__ctor_Exception_
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor(Exception)
+  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
+  nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
+- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor*
+  name: BackgroundThreadFailedEventArgs
+  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Utils_BackgroundThreadFailedEventArgs__ctor_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor
   isSpec: "True"
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.BackgroundThread
-  nameWithType: BackgroundThread.BackgroundThread
-- uid: MarcusW.VncClient.Utils.BackgroundThread.Dispose
-  name: Dispose()
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Dispose
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.Dispose
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.Dispose()
-  nameWithType: BackgroundThread.Dispose()
-- uid: MarcusW.VncClient.Utils.BackgroundThread.Dispose*
-  name: Dispose
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Dispose_
-  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.Dispose
+  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs
+  nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs
+- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception
+  name: Exception
+  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Utils_BackgroundThreadFailedEventArgs_Exception
+  commentId: P:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception
+  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception
+  nameWithType: BackgroundThreadFailedEventArgs.Exception
+- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception*
+  name: Exception
+  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Utils_BackgroundThreadFailedEventArgs_Exception_
+  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception
   isSpec: "True"
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.Dispose
-  nameWithType: BackgroundThread.Dispose
-- uid: MarcusW.VncClient.Utils.BackgroundThread.Failed
-  name: Failed
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Failed
-  commentId: E:MarcusW.VncClient.Utils.BackgroundThread.Failed
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.Failed
-  nameWithType: BackgroundThread.Failed
-- uid: MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
-  name: Start(CancellationToken)
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Start_CancellationToken_
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.Start(CancellationToken)
-  nameWithType: BackgroundThread.Start(CancellationToken)
-- uid: MarcusW.VncClient.Utils.BackgroundThread.Start*
-  name: Start
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_Start_
-  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.Start
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.Start
-  nameWithType: BackgroundThread.Start
-- uid: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
-  name: StopAndWaitAsync()
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_StopAndWaitAsync
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync()
-  nameWithType: BackgroundThread.StopAndWaitAsync()
-- uid: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync*
-  name: StopAndWaitAsync
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_StopAndWaitAsync_
-  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
-  nameWithType: BackgroundThread.StopAndWaitAsync
-- uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
-  name: ThreadWorker(CancellationToken)
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_ThreadWorker_CancellationToken_
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
-  nameWithType: BackgroundThread.ThreadWorker(CancellationToken)
-- uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker*
-  name: ThreadWorker
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_ThreadWorker_
-  commentId: Overload:MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker
-  nameWithType: BackgroundThread.ThreadWorker
+  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception
+  nameWithType: BackgroundThreadFailedEventArgs.Exception
 - uid: MarcusW.VncClient.VncClient
   name: VncClient
   href: api/MarcusW.VncClient.VncClient.html
