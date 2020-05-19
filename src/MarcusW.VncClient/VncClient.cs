@@ -41,18 +41,13 @@ namespace MarcusW.VncClient
         /// Tries to connect to a VNC server and initializes a new connection object.
         /// </summary>
         /// <param name="parameters">The connect parameters.</param>
-        /// <param name="authenticationHandler">The <see cref="IAuthenticationHandler"/> implementation to authenticate against the server.</param>
-        /// <param name="initialRenderTarget">The target where received frames should be rendered to, in case you want to set the target from the start on.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>An initialized <see cref="RfbConnection"/> instance.</returns>
         public async Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
-            IAuthenticationHandler authenticationHandler, IRenderTarget? initialRenderTarget = null,
             CancellationToken cancellationToken = default)
         {
             if (parameters == null)
                 throw new ArgumentNullException(nameof(parameters));
-            if (authenticationHandler == null)
-                throw new ArgumentNullException(nameof(authenticationHandler));
 
             parameters.Validate();
 
@@ -61,8 +56,7 @@ namespace MarcusW.VncClient
 
             var protocolImplementation = new RfbProtocol(_supportedEncodings);
 
-            var rfbConnection = new RfbConnection(protocolImplementation, _loggerFactory, parametersCopy,
-                authenticationHandler, initialRenderTarget);
+            var rfbConnection = new RfbConnection(protocolImplementation, _loggerFactory, parametersCopy);
             await rfbConnection.StartAsync(cancellationToken).ConfigureAwait(false);
             return rfbConnection;
         }

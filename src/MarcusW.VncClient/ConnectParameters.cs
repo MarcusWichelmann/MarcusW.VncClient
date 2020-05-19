@@ -1,7 +1,8 @@
 using System;
 using System.IO;
 using System.Net;
-using System.Runtime.Serialization.Formatters.Binary;
+using MarcusW.VncClient.Rendering;
+using MarcusW.VncClient.Security;
 
 namespace MarcusW.VncClient
 {
@@ -13,7 +14,7 @@ namespace MarcusW.VncClient
         /// <summary>
         /// Gets or sets the server address and port to connect to.
         /// </summary>
-        public IPEndPoint Endpoint { get; set; }
+        public IPEndPoint? Endpoint { get; set; }
 
         /// <summary>
         /// Gets or sets the delay between a connection being interrupted and a reconnect starting.
@@ -29,6 +30,16 @@ namespace MarcusW.VncClient
         public int MaxReconnectAttempts { get; set; }
 
         /// <summary>
+        /// Gets or sets the <see cref="IAuthenticationHandler"/> implementation to authenticate against the server.
+        /// </summary>
+        public IAuthenticationHandler? AuthenticationHandler { get; set; }
+
+        /// <summary>
+        /// Gets or sets the target where received frames should be rendered to, in case you want to set the target from the start on.
+        /// </summary>
+        public IRenderTarget? InitialRenderTarget { get; set; }
+
+        /// <summary>
         /// Validates the parameters and throws a <see cref="ConnectParametersValidationException"/> for the first error found.
         /// </summary>
         public void Validate()
@@ -38,14 +49,20 @@ namespace MarcusW.VncClient
             if (MaxReconnectAttempts < -1)
                 throw new ConnectParametersValidationException(
                     $"{nameof(MaxReconnectAttempts)} parameter must be set to a positive value, or -1 for no limit.");
+            if (AuthenticationHandler == null)
+                throw new ConnectParametersValidationException(
+                    $"{nameof(AuthenticationHandler)} parameter must not be null.");
         }
 
+        // Always Validate() the object beforehand. Otherwise this might fail.
         internal ConnectParameters DeepCopy()
             => new ConnectParameters {
-                Endpoint = new IPEndPoint(new IPAddress(Endpoint.Address.GetAddressBytes(), Endpoint.Address.ScopeId),
+                Endpoint = new IPEndPoint(new IPAddress(Endpoint!.Address.GetAddressBytes(), Endpoint.Address.ScopeId),
                     Endpoint.Port),
                 ReconnectDelay = ReconnectDelay,
-                MaxReconnectAttempts = MaxReconnectAttempts
+                MaxReconnectAttempts = MaxReconnectAttempts,
+                AuthenticationHandler = AuthenticationHandler,
+                InitialRenderTarget = InitialRenderTarget
             };
     }
 }

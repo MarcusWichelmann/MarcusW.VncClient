@@ -49,11 +49,6 @@ namespace MarcusW.VncClient
         public ConnectParameters Parameters { get; }
 
         /// <summary>
-        /// Gets the authentication handler.
-        /// </summary>
-        public IAuthenticationHandler AuthenticationHandler { get; }
-
-        /// <summary>
         /// Gets or sets the target where received frames should be rendered to.
         /// </summary>
         public IRenderTarget? RenderTarget
@@ -97,14 +92,12 @@ namespace MarcusW.VncClient
         public event PropertyChangedEventHandler? PropertyChanged;
 
         internal RfbConnection(IRfbProtocolImplementation protocolImplementation, ILoggerFactory loggerFactory,
-            ConnectParameters parameters, IAuthenticationHandler authenticationHandler,
-            IRenderTarget? initialRenderTarget = null)
+            ConnectParameters parameters)
         {
             _protocolImplementation = protocolImplementation;
             LoggerFactory = loggerFactory;
             Parameters = parameters;
-            AuthenticationHandler = authenticationHandler;
-            RenderTarget = initialRenderTarget;
+            RenderTarget = parameters.InitialRenderTarget;
 
             _logger = loggerFactory.CreateLogger<RfbConnection>();
         }
