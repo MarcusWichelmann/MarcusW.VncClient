@@ -18,6 +18,8 @@ namespace MarcusW.VncClient
     /// </summary>
     public partial class RfbConnection : INotifyPropertyChanged, IDisposable
     {
+        private readonly IRfbProtocolImplementation _protocolImplementation;
+
         private readonly ILogger<RfbConnection> _logger;
 
         private readonly object _renderTargetLock = new object();
@@ -40,11 +42,6 @@ namespace MarcusW.VncClient
         /// Gets the logger factory implementation that should be used for creating new loggers.
         /// </summary>
         public ILoggerFactory LoggerFactory { get; }
-
-        /// <summary>
-        /// Gets the collection of supported encodings.
-        /// </summary>
-        public IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
 
         /// <summary>
         /// Gets the connect parameters used for establishing this connection.
@@ -99,12 +96,12 @@ namespace MarcusW.VncClient
         /// <inheritdoc />
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        internal RfbConnection(ILoggerFactory loggerFactory, IReadOnlyCollection<IEncoding> supportedEncodings,
+        internal RfbConnection(IRfbProtocolImplementation protocolImplementation, ILoggerFactory loggerFactory,
             ConnectParameters parameters, IAuthenticationHandler authenticationHandler,
             IRenderTarget? initialRenderTarget = null)
         {
+            _protocolImplementation = protocolImplementation;
             LoggerFactory = loggerFactory;
-            SupportedEncodings = supportedEncodings;
             Parameters = parameters;
             AuthenticationHandler = authenticationHandler;
             RenderTarget = initialRenderTarget;

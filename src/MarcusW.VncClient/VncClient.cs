@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Rendering;
 using MarcusW.VncClient.Security;
@@ -55,10 +56,12 @@ namespace MarcusW.VncClient
 
             parameters.Validate();
 
-            // Do a deep copy of the parameters object to make sure connection parameters cannot be changed afterwards.
+            // Create a deep copy of the parameters object to make sure connection parameters cannot be changed afterwards.
             var parametersCopy = parameters.DeepCopy();
 
-            var rfbConnection = new RfbConnection(_loggerFactory, _supportedEncodings, parametersCopy,
+            var protocolImplementation = new RfbProtocol(_supportedEncodings);
+
+            var rfbConnection = new RfbConnection(protocolImplementation, _loggerFactory, parametersCopy,
                 authenticationHandler, initialRenderTarget);
             await rfbConnection.StartAsync(cancellationToken).ConfigureAwait(false);
             return rfbConnection;

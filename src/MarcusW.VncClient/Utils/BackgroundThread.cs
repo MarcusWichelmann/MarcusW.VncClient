@@ -9,7 +9,7 @@ namespace MarcusW.VncClient.Utils
     /// <summary>
     /// Base class for easier creation and clean cancellation of a background thread.
     /// </summary>
-    public abstract class BackgroundThread : IDisposable
+    internal abstract class BackgroundThread : IBackgroundThread
     {
         private readonly Thread _thread;
 
@@ -27,7 +27,7 @@ namespace MarcusW.VncClient.Utils
         /// Initializes a new instance of the <see cref="BackgroundThread"/>.
         /// </summary>
         /// <param name="name">The thread name.</param>
-        protected internal BackgroundThread(string name)
+        protected BackgroundThread(string name)
         {
             if (name == null)
                 throw new ArgumentNullException(nameof(name));

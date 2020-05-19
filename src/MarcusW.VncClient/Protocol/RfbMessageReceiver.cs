@@ -8,14 +8,14 @@ using Microsoft.Extensions.Logging;
 namespace MarcusW.VncClient.Protocol
 {
     /// <summary>
-    /// Receives and processes RFB protocol messages.
+    /// Background thread that receives and processes RFB protocol messages.
     /// </summary>
-    public sealed class RfbMessageReceiver : BackgroundThread
+    internal sealed class RfbMessageReceiver : BackgroundThread, IRfbMessageReceiver
     {
         private readonly RfbConnection _connection;
         private readonly ILogger<RfbMessageReceiver> _logger;
 
-        internal RfbMessageReceiver(RfbConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
+        public RfbMessageReceiver(RfbConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
         {
             _connection = connection;
             _logger = connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
@@ -24,13 +24,13 @@ namespace MarcusW.VncClient.Protocol
             Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception", args.Exception);
         }
 
-        internal void StartReceiveLoop(CancellationToken cancellationToken = default)
+        public void StartReceiveLoop(CancellationToken cancellationToken = default)
         {
             _logger.LogDebug("Starting receive loop...");
             Start(cancellationToken);
         }
 
-        internal Task StopReceiveLoopAsync()
+        public Task StopReceiveLoopAsync()
         {
             _logger.LogDebug("Stopping receive loop...");
             return StopAndWaitAsync();

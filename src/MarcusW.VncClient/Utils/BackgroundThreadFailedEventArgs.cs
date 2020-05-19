@@ -1,6 +1,6 @@
 using System;
 
-namespace MarcusW.VncClient.Protocol
+namespace MarcusW.VncClient.Utils
 {
     /// <summary>
     /// Provides data for an event that is raised when a background thread failes.
