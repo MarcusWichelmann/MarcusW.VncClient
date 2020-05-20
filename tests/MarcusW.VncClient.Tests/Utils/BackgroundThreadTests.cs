@@ -19,7 +19,7 @@ namespace MarcusW.VncClient.Tests.Utils
 
             // Call start method.
             typeof(BackgroundThread).GetMethod("Start", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(
-                mock.Object, new object[] { CancellationToken.None });
+                mock.Object, new object[] { });
 
             // Ensure the thread has started.
             Thread.Sleep(1000);
@@ -40,7 +40,7 @@ namespace MarcusW.VncClient.Tests.Utils
                 handler => mock.Object.Failed -= handler, () => {
                     // Call start method.
                     typeof(BackgroundThread).GetMethod("Start", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(
-                        mock.Object, new object[] { CancellationToken.None });
+                        mock.Object, new object[] { });
 
                     // Ensure the thread has started.
                     Thread.Sleep(1000);
