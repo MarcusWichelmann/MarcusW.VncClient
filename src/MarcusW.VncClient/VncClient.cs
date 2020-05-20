@@ -24,17 +24,13 @@ namespace MarcusW.VncClient
         /// Initializes a new instance of the <see cref="VncClient"/>.
         /// </summary>
         /// <param name="loggerFactory">The logger factory implementation that should be used for creating new loggers.</param>
-        /// <param name="supportedEncodings">The collection of supported encodings. See <see cref="VncDefaults.GetEncodingsCollection"/></param>
-        public VncClient(ILoggerFactory loggerFactory, IEnumerable<IEncoding> supportedEncodings)
+        /// <param name="supportedEncodings">The collection of supported encodings or <see langword="null"/> to use the default <see cref="VncDefaults.GetEncodingsCollection"/>.</param>
+        public VncClient(ILoggerFactory loggerFactory, IEnumerable<IEncoding>? supportedEncodings = null)
         {
             _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
 
-            if (supportedEncodings == null)
-                throw new ArgumentNullException(nameof(supportedEncodings));
-
-            _supportedEncodings =
-                supportedEncodings.ToList()
-                    .AsReadOnly(); // TODO: Some other data type that allows faster lookup by encoding type? Array?
+            // TODO: Some other data type that allows faster lookup by encoding type? Array?
+            _supportedEncodings = (supportedEncodings ?? VncDefaults.GetEncodingsCollection()).ToList().AsReadOnly();
         }
 
         /// <summary>

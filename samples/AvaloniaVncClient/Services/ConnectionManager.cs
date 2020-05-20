@@ -24,7 +24,7 @@ namespace AvaloniaVncClient.Services
             var loggerFactory = new LoggerFactory();
             loggerFactory.AddProvider(new AvaloniaLoggerProvider());
 
-            _vncClient = new VncClient(loggerFactory, VncDefaults.GetEncodingsCollection());
+            _vncClient = new VncClient(loggerFactory);
         }
 
         public Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
