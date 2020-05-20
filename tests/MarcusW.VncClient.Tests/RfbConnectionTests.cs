@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
+using MarcusW.VncClient.Protocol.Services.Communication;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;

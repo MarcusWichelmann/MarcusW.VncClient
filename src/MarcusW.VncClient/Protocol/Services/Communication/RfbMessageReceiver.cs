@@ -1,11 +1,10 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Rendering;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging;
 
-namespace MarcusW.VncClient.Protocol
+namespace MarcusW.VncClient.Protocol.Services.Communication
 {
     /// <summary>
     /// Background thread that receives and processes RFB protocol messages.

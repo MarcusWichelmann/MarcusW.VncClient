@@ -1,3 +1,5 @@
+using MarcusW.VncClient.Protocol.Services.Communication;
+
 namespace MarcusW.VncClient.Protocol
 {
     /// <summary>

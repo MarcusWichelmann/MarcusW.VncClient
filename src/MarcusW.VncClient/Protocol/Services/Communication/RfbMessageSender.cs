@@ -1,4 +1,4 @@
-namespace MarcusW.VncClient.Protocol
+namespace MarcusW.VncClient.Protocol.Services.Communication
 {
     /// <summary>
     /// Provides methods for sending RFB protocol messages.

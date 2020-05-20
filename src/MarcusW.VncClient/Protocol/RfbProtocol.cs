@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.Services.Communication;
 
 namespace MarcusW.VncClient.Protocol
 {
