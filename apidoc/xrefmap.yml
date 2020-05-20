@@ -423,6 +423,19 @@ references:
   commentId: T:MarcusW.VncClient.ConnectParameters
   fullName: MarcusW.VncClient.ConnectParameters
   nameWithType: ConnectParameters
+- uid: MarcusW.VncClient.ConnectParameters.AuthenticationHandler
+  name: AuthenticationHandler
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_AuthenticationHandler
+  commentId: P:MarcusW.VncClient.ConnectParameters.AuthenticationHandler
+  fullName: MarcusW.VncClient.ConnectParameters.AuthenticationHandler
+  nameWithType: ConnectParameters.AuthenticationHandler
+- uid: MarcusW.VncClient.ConnectParameters.AuthenticationHandler*
+  name: AuthenticationHandler
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_AuthenticationHandler_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.AuthenticationHandler
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.AuthenticationHandler
+  nameWithType: ConnectParameters.AuthenticationHandler
 - uid: MarcusW.VncClient.ConnectParameters.Endpoint
   name: Endpoint
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Endpoint
@@ -436,6 +449,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParameters.Endpoint
   nameWithType: ConnectParameters.Endpoint
+- uid: MarcusW.VncClient.ConnectParameters.InitialRenderTarget
+  name: InitialRenderTarget
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InitialRenderTarget
+  commentId: P:MarcusW.VncClient.ConnectParameters.InitialRenderTarget
+  fullName: MarcusW.VncClient.ConnectParameters.InitialRenderTarget
+  nameWithType: ConnectParameters.InitialRenderTarget
+- uid: MarcusW.VncClient.ConnectParameters.InitialRenderTarget*
+  name: InitialRenderTarget
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InitialRenderTarget_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.InitialRenderTarget
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.InitialRenderTarget
+  nameWithType: ConnectParameters.InitialRenderTarget
 - uid: MarcusW.VncClient.ConnectParameters.MaxReconnectAttempts
   name: MaxReconnectAttempts
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_MaxReconnectAttempts
@@ -839,19 +865,6 @@ references:
   commentId: T:MarcusW.VncClient.RfbConnection
   fullName: MarcusW.VncClient.RfbConnection
   nameWithType: RfbConnection
-- uid: MarcusW.VncClient.RfbConnection.AuthenticationHandler
-  name: AuthenticationHandler
-  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_AuthenticationHandler
-  commentId: P:MarcusW.VncClient.RfbConnection.AuthenticationHandler
-  fullName: MarcusW.VncClient.RfbConnection.AuthenticationHandler
-  nameWithType: RfbConnection.AuthenticationHandler
-- uid: MarcusW.VncClient.RfbConnection.AuthenticationHandler*
-  name: AuthenticationHandler
-  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_AuthenticationHandler_
-  commentId: Overload:MarcusW.VncClient.RfbConnection.AuthenticationHandler
-  isSpec: "True"
-  fullName: MarcusW.VncClient.RfbConnection.AuthenticationHandler
-  nameWithType: RfbConnection.AuthenticationHandler
 - uid: MarcusW.VncClient.RfbConnection.CloseAsync
   name: CloseAsync()
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_CloseAsync
@@ -992,15 +1005,15 @@ references:
   commentId: T:MarcusW.VncClient.VncClient
   fullName: MarcusW.VncClient.VncClient
   nameWithType: VncClient
-- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding})
-  name: VncClient(ILoggerFactory, IEnumerable<IEncoding>)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding__
-  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding})
-  name.vb: VncClient(ILoggerFactory, IEnumerable(Of IEncoding))
-  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, IEnumerable<MarcusW.VncClient.Protocol.Encodings.IEncoding>)
-  fullName.vb: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, IEnumerable(Of MarcusW.VncClient.Protocol.Encodings.IEncoding))
-  nameWithType: VncClient.VncClient(ILoggerFactory, IEnumerable<IEncoding>)
-  nameWithType.vb: VncClient.VncClient(ILoggerFactory, IEnumerable(Of IEncoding))
+- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,System.Nullable{IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding}})
+  name: VncClient(ILoggerFactory, Nullable<IEnumerable<IEncoding>>)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_System_Nullable_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding___
+  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,System.Nullable{IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding}})
+  name.vb: VncClient(ILoggerFactory, Nullable(Of IEnumerable(Of IEncoding)))
+  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, System.Nullable<IEnumerable<MarcusW.VncClient.Protocol.Encodings.IEncoding>>)
+  fullName.vb: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, System.Nullable(Of IEnumerable(Of MarcusW.VncClient.Protocol.Encodings.IEncoding)))
+  nameWithType: VncClient.VncClient(ILoggerFactory, Nullable<IEnumerable<IEncoding>>)
+  nameWithType.vb: VncClient.VncClient(ILoggerFactory, Nullable(Of IEnumerable(Of IEncoding)))
 - uid: MarcusW.VncClient.VncClient.#ctor*
   name: VncClient
   href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_
@@ -1008,15 +1021,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncClient.VncClient
   nameWithType: VncClient.VncClient
-- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
-  name: ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_MarcusW_VncClient_Security_IAuthenticationHandler_System_Nullable_MarcusW_VncClient_Rendering_IRenderTarget__CancellationToken_
-  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,MarcusW.VncClient.Security.IAuthenticationHandler,System.Nullable{MarcusW.VncClient.Rendering.IRenderTarget},CancellationToken)
-  name.vb: ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
-  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable<MarcusW.VncClient.Rendering.IRenderTarget>, CancellationToken)
-  fullName.vb: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, MarcusW.VncClient.Security.IAuthenticationHandler, System.Nullable(Of MarcusW.VncClient.Rendering.IRenderTarget), CancellationToken)
-  nameWithType: VncClient.ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable<IRenderTarget>, CancellationToken)
-  nameWithType.vb: VncClient.ConnectAsync(ConnectParameters, IAuthenticationHandler, Nullable(Of IRenderTarget), CancellationToken)
+- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,CancellationToken)
+  name: ConnectAsync(ConnectParameters, CancellationToken)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_CancellationToken_
+  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,CancellationToken)
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, CancellationToken)
+  nameWithType: VncClient.ConnectAsync(ConnectParameters, CancellationToken)
 - uid: MarcusW.VncClient.VncClient.ConnectAsync*
   name: ConnectAsync
   href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_
