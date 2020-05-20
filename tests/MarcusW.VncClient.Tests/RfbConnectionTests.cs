@@ -45,7 +45,7 @@ namespace MarcusW.VncClient.Tests
             Assert.Equal(ConnectionState.Connected, rfbConnection.ConnectionState);
 
             // Receive loop should have been started.
-            _messageReceiverMock.Verify(receiver => receiver.StartReceiveLoop(It.IsAny<CancellationToken>()));
+            _messageReceiverMock.Verify(receiver => receiver.StartReceiveLoop());
 
             // Status should update when connection is interrupted
             Assert.PropertyChanged(rfbConnection, nameof(rfbConnection.ConnectionState), () => {

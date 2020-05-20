@@ -27,8 +27,8 @@ namespace MarcusW.VncClient
             // TODO: Connect and authenticate async
 
             // Setup new receive loop.
-            _messageReceiver = _protocolImplementation.CreateMessageReceiver(this);
-            _messageReceiver.StartReceiveLoop(cancellationToken);
+            _messageReceiver = ProtocolImplementation.CreateMessageReceiver(this);
+            _messageReceiver.StartReceiveLoop();
 
             // From now on, exceptions will only land in the Failed event handler.
             // This should be the last real operation to ensure that exceptions are not propagated by two ways at the same time.

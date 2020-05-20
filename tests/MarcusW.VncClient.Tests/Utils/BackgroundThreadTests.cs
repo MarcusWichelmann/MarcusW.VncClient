@@ -61,7 +61,7 @@ namespace MarcusW.VncClient.Tests.Utils
         {
             public CancellableThread() : base("Cancellable Thread") { }
 
-            public new void Start(CancellationToken cancellationToken = default) => base.Start(cancellationToken);
+            public new void Start(CancellationToken cancellationToken = default) => base.Start();
 
             public new Task StopAndWaitAsync() => base.StopAndWaitAsync();
 
