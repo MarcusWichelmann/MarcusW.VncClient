@@ -30,7 +30,7 @@ namespace AvaloniaVncClient.Services
         public Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
             CancellationToken cancellationToken = default)
         {
-            return _vncClient.ConnectAsync(parameters, _interactiveAuthenticationHandler, null, cancellationToken);
+            return _vncClient.ConnectAsync(parameters, cancellationToken);
         }
     }
 }

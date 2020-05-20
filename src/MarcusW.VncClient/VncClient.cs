@@ -24,7 +24,7 @@ namespace MarcusW.VncClient
         /// Initializes a new instance of the <see cref="VncClient"/>.
         /// </summary>
         /// <param name="loggerFactory">The logger factory implementation that should be used for creating new loggers.</param>
-        /// <param name="supportedEncodings">The collection of supported encodings.</param>
+        /// <param name="supportedEncodings">The collection of supported encodings. See <see cref="VncDefaults.GetEncodingsCollection"/></param>
         public VncClient(ILoggerFactory loggerFactory, IEnumerable<IEncoding> supportedEncodings)
         {
             _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
