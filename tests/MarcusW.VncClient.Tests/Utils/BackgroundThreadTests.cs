@@ -17,14 +17,14 @@ namespace MarcusW.VncClient.Tests.Utils
         {
             var mock = new Mock<BackgroundThread>(MockBehavior.Strict, "Test Thread") { CallBase = true };
 
-            // Call start method
+            // Call start method.
             typeof(BackgroundThread).GetMethod("Start", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(
                 mock.Object, new object[] { CancellationToken.None });
 
-            // Ensure the thread has started
+            // Ensure the thread has started.
             Thread.Sleep(1000);
 
-            // Verify thread worker was called
+            // Verify thread worker was called.
             mock.Protected().Verify("ThreadWorker", Times.Exactly(1), ItExpr.IsAny<CancellationToken>());
         }
 
@@ -33,16 +33,16 @@ namespace MarcusW.VncClient.Tests.Utils
         {
             var mock = new Mock<BackgroundThread>(MockBehavior.Strict, "Test Thread") { CallBase = true };
 
-            // Setup thread worker that throws an exception
+            // Setup thread worker that throws an exception.
             mock.Protected().Setup("ThreadWorker", ItExpr.IsAny<CancellationToken>()).Throws<Exception>();
 
             Assert.Raises<BackgroundThreadFailedEventArgs>(handler => mock.Object.Failed += handler,
                 handler => mock.Object.Failed -= handler, () => {
-                    // Call start method
+                    // Call start method.
                     typeof(BackgroundThread).GetMethod("Start", BindingFlags.NonPublic | BindingFlags.Instance)!.Invoke(
                         mock.Object, new object[] { CancellationToken.None });
 
-                    // Ensure the thread has started
+                    // Ensure the thread has started.
                     Thread.Sleep(1000);
                 });
         }
@@ -53,7 +53,7 @@ namespace MarcusW.VncClient.Tests.Utils
             var thread = new CancellableThread();
             thread.Start();
 
-            // Stop thread, should not throw.
+            // Stop thread, should not throw..
             return thread.StopAndWaitAsync();
         }
 

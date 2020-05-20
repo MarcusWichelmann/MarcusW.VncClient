@@ -10,7 +10,7 @@ namespace MarcusW.VncClient
     public partial class RfbConnection
     {
         // Fundamental connection objects
-        private RfbMessageReceiver? _messageReceiver;
+        private IRfbMessageReceiver? _messageReceiver;
 
         // TODO: Message sender etc...
 
@@ -23,10 +23,10 @@ namespace MarcusW.VncClient
 
             _logger.LogInformation("Connecting to VNC-Server on {endpoint}...", Parameters.Endpoint);
 
-            // TODO: Connect and authenticate
+            // TODO: Connect and authenticate async
 
             // Setup new receive loop.
-            _messageReceiver = new RfbMessageReceiver(this);
+            _messageReceiver = _protocolImplementation.CreateMessageReceiver(this);
             _messageReceiver.StartReceiveLoop(cancellationToken);
 
             // From now on, exceptions will only land in the Failed event handler.
