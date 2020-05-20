@@ -9,7 +9,7 @@ namespace MarcusW.VncClient.Utils
     /// <summary>
     /// Base class for easier creation and clean cancellation of a background thread.
     /// </summary>
-    internal abstract class BackgroundThread : IBackgroundThread
+    public abstract class BackgroundThread : IBackgroundThread
     {
         private readonly Thread _thread;
 
@@ -21,6 +21,7 @@ namespace MarcusW.VncClient.Utils
 
         private bool _disposed;
 
+        /// <inheritdoc />
         public event EventHandler<BackgroundThreadFailedEventArgs>? Failed;
 
         /// <summary>
@@ -44,13 +45,10 @@ namespace MarcusW.VncClient.Utils
         /// <remarks>
         /// The thread can only be started once.
         /// </remarks>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        protected void Start(CancellationToken cancellationToken = default)
+        protected void Start()
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(BackgroundThread));
-
-            cancellationToken.ThrowIfCancellationRequested();
 
             lock (_startLock)
             {
@@ -114,6 +112,7 @@ namespace MarcusW.VncClient.Utils
             }
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             if (_disposed)

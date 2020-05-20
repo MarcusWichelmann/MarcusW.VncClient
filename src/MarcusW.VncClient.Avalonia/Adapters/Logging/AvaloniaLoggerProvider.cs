@@ -21,6 +21,7 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
             return _loggers.GetOrAdd(categoryName, loggerName => new AvaloniaLogger(categoryName));
         }
 
+        /// <inheritdoc />
         public void Dispose() { }
     }
 }

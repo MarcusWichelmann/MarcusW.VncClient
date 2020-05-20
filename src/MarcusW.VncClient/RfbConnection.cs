@@ -18,8 +18,6 @@ namespace MarcusW.VncClient
     /// </summary>
     public partial class RfbConnection : INotifyPropertyChanged, IDisposable
     {
-        private readonly IRfbProtocolImplementation _protocolImplementation;
-
         private readonly ILogger<RfbConnection> _logger;
 
         private readonly object _renderTargetLock = new object();
@@ -37,6 +35,11 @@ namespace MarcusW.VncClient
         private Task? _reconnectTask;
 
         private bool _disposed;
+
+        /// <summary>
+        /// Gets the used RFB protocol implementation.
+        /// </summary>
+        public IRfbProtocolImplementation ProtocolImplementation { get; }
 
         /// <summary>
         /// Gets the logger factory implementation that should be used for creating new loggers.
@@ -94,7 +97,7 @@ namespace MarcusW.VncClient
         internal RfbConnection(IRfbProtocolImplementation protocolImplementation, ILoggerFactory loggerFactory,
             ConnectParameters parameters)
         {
-            _protocolImplementation = protocolImplementation;
+            ProtocolImplementation = protocolImplementation;
             LoggerFactory = loggerFactory;
             Parameters = parameters;
             RenderTarget = parameters.InitialRenderTarget;
@@ -239,6 +242,7 @@ namespace MarcusW.VncClient
             }
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             if (_disposed)

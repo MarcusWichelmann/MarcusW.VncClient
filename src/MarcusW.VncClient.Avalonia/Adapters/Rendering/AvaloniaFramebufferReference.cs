@@ -43,6 +43,7 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
             _invalidateVisual = invalidateVisual;
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             ILockedFramebuffer? lockedFramebuffer = _lockedFramebuffer;

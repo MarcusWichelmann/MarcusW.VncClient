@@ -74,6 +74,7 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
 
             private NullScope() { }
 
+            /// <inheritdoc />
             public void Dispose() { }
         }
     }

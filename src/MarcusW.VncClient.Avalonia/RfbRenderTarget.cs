@@ -86,6 +86,7 @@ namespace MarcusW.VncClient.Avalonia
             return bitmapSize.Value;
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             _bitmap?.Dispose();

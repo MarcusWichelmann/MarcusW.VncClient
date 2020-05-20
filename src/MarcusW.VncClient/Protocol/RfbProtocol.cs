@@ -6,21 +6,23 @@ using MarcusW.VncClient.Protocol.Services.Communication;
 namespace MarcusW.VncClient.Protocol
 {
     /// <summary>
-    /// Default implementation of the RFB protocol that provides access to different elements of a RFB protocol
-    /// implementation.
+    /// Default implementation of the RFB protocol.
     /// </summary>
-    internal class RfbProtocol : IRfbProtocolImplementation
+    public class RfbProtocol : IRfbProtocolImplementation
     {
+        /// <inheritdoc />
         public IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
 
-        public RfbProtocol(IReadOnlyCollection<IEncoding> supportedEncodings)
+        internal RfbProtocol(IReadOnlyCollection<IEncoding> supportedEncodings)
         {
-            SupportedEncodings = supportedEncodings ?? throw new ArgumentNullException(nameof(supportedEncodings));
+            SupportedEncodings = supportedEncodings;
         }
 
+        /// <inheritdoc />
         public IRfbMessageReceiver CreateMessageReceiver(RfbConnection connection)
             => new RfbMessageReceiver(connection);
 
+        /// <inheritdoc />
         public IRfbMessageSender CreateMessageSender(RfbConnection connection) => new RfbMessageSender();
     }
 }

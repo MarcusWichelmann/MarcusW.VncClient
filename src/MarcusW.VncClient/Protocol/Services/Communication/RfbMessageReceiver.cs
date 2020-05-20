@@ -9,12 +9,12 @@ namespace MarcusW.VncClient.Protocol.Services.Communication
     /// <summary>
     /// Background thread that receives and processes RFB protocol messages.
     /// </summary>
-    internal sealed class RfbMessageReceiver : BackgroundThread, IRfbMessageReceiver
+    public sealed class RfbMessageReceiver : BackgroundThread, IRfbMessageReceiver
     {
         private readonly RfbConnection _connection;
         private readonly ILogger<RfbMessageReceiver> _logger;
 
-        public RfbMessageReceiver(RfbConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
+        internal RfbMessageReceiver(RfbConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
         {
             _connection = connection;
             _logger = connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
@@ -23,12 +23,14 @@ namespace MarcusW.VncClient.Protocol.Services.Communication
             Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception", args.Exception);
         }
 
-        public void StartReceiveLoop(CancellationToken cancellationToken = default)
+        /// <inheritdoc />
+        public void StartReceiveLoop()
         {
             _logger.LogDebug("Starting receive loop...");
-            Start(cancellationToken);
+            Start();
         }
 
+        /// <inheritdoc />
         public Task StopReceiveLoopAsync()
         {
             _logger.LogDebug("Stopping receive loop...");
