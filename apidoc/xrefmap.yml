@@ -436,6 +436,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParameters.AuthenticationHandler
   nameWithType: ConnectParameters.AuthenticationHandler
+- uid: MarcusW.VncClient.ConnectParameters.ConnectTimeout
+  name: ConnectTimeout
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_ConnectTimeout
+  commentId: P:MarcusW.VncClient.ConnectParameters.ConnectTimeout
+  fullName: MarcusW.VncClient.ConnectParameters.ConnectTimeout
+  nameWithType: ConnectParameters.ConnectTimeout
+- uid: MarcusW.VncClient.ConnectParameters.ConnectTimeout*
+  name: ConnectTimeout
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_ConnectTimeout_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.ConnectTimeout
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.ConnectTimeout
+  nameWithType: ConnectParameters.ConnectTimeout
 - uid: MarcusW.VncClient.ConnectParameters.Endpoint
   name: Endpoint
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Endpoint
@@ -449,6 +462,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParameters.Endpoint
   nameWithType: ConnectParameters.Endpoint
+- uid: MarcusW.VncClient.ConnectParameters.InfiniteReconnects
+  name: InfiniteReconnects
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InfiniteReconnects
+  commentId: F:MarcusW.VncClient.ConnectParameters.InfiniteReconnects
+  fullName: MarcusW.VncClient.ConnectParameters.InfiniteReconnects
+  nameWithType: ConnectParameters.InfiniteReconnects
 - uid: MarcusW.VncClient.ConnectParameters.InitialRenderTarget
   name: InitialRenderTarget
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InitialRenderTarget
@@ -764,6 +783,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender
   nameWithType: IRfbProtocolImplementation.CreateMessageSender
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector
+  name: CreateTcpConnector()
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateTcpConnector
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector()
+  nameWithType: IRfbProtocolImplementation.CreateTcpConnector()
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector*
+  name: CreateTcpConnector
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateTcpConnector_
+  commentId: Overload:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector
+  nameWithType: IRfbProtocolImplementation.CreateTcpConnector
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.SupportedEncodings
   name: SupportedEncodings
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_SupportedEncodings
@@ -809,6 +841,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender
   nameWithType: RfbProtocol.CreateMessageSender
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector
+  name: CreateTcpConnector()
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateTcpConnector
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector()
+  nameWithType: RfbProtocol.CreateTcpConnector()
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector*
+  name: CreateTcpConnector
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateTcpConnector_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector
+  nameWithType: RfbProtocol.CreateTcpConnector
 - uid: MarcusW.VncClient.Protocol.RfbProtocol.SupportedEncodings
   name: SupportedEncodings
   href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_SupportedEncodings
