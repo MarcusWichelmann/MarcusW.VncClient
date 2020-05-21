@@ -929,6 +929,38 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector
   fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector
   nameWithType: ITcpConnector
+- uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
+  name: ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_IPEndPoint_TimeSpan_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+  nameWithType: ITcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync*
+  name: ConnectAsync
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync
+  nameWithType: ITcpConnector.ConnectAsync
+- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
+  name: TcpConnector
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
+  nameWithType: TcpConnector
+- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
+  name: ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_IPEndPoint_TimeSpan_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+  nameWithType: TcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync*
+  name: ConnectAsync
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync
+  nameWithType: TcpConnector.ConnectAsync
 - uid: MarcusW.VncClient.Rendering
   name: MarcusW.VncClient.Rendering
   href: api/MarcusW.VncClient.Rendering.html
