@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace MarcusW.VncClient.Protocol.Services.Communication
 {
     /// <summary>
-    /// Background thread that receives and processes RFB protocol messages.
+    /// A Background thread that receives and processes RFB protocol messages.
     /// </summary>
     public sealed class RfbMessageReceiver : BackgroundThread, IRfbMessageReceiver
     {

@@ -1,8 +1,6 @@
 namespace MarcusW.VncClient.Protocol.Services.Communication
 {
-    /// <summary>
-    /// Provides methods for sending RFB protocol messages.
-    /// </summary>
+    /// <inheritdoc />
     public class RfbMessageSender : IRfbMessageSender
     {
         // TODO: Use queue for sending messages? Advantages? Because of easier fire&forget? -> BackgroundThread & IBackgroundThread
