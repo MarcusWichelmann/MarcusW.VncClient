@@ -192,7 +192,7 @@ namespace MarcusW.VncClient
                 while (true)
                 {
                     // Any attempts remaining?
-                    if (Parameters.MaxReconnectAttempts != -1 && failedAttempts >= Parameters.MaxReconnectAttempts)
+                    if (Parameters.MaxReconnectAttempts != ConnectParameters.InfiniteReconnects && failedAttempts >= Parameters.MaxReconnectAttempts)
                     {
                         // Giving up.
                         _logger.LogInformation("No reconnect attempts to {endpoint} remaining. Giving up.",

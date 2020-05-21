@@ -11,15 +11,22 @@ namespace MarcusW.VncClient
     /// </summary>
     public class ConnectParameters
     {
+        public const int InfiniteReconnects = -1;
+
         /// <summary>
         /// Gets or sets the server address and port to connect to.
         /// </summary>
         public IPEndPoint? Endpoint { get; set; }
 
         /// <summary>
+        /// Gets or sets the connect timeout.
+        /// </summary>
+        public TimeSpan ConnectTimeout { get; set; } = TimeSpan.FromSeconds(30);
+
+        /// <summary>
         /// Gets or sets the delay between a connection being interrupted and a reconnect starting.
         /// </summary>
-        public TimeSpan ReconnectDelay { get; set; }
+        public TimeSpan ReconnectDelay { get; set; } = TimeSpan.FromSeconds(5);
 
         /// <summary>
         /// Gets or sets the maximum number of reconnect attempts.
@@ -27,7 +34,7 @@ namespace MarcusW.VncClient
         /// <remarks>
         /// Set to <c>-1</c> for not limit.
         /// </remarks>
-        public int MaxReconnectAttempts { get; set; }
+        public int MaxReconnectAttempts { get; set; } = InfiniteReconnects;
 
         /// <summary>
         /// Gets or sets the <see cref="IAuthenticationHandler"/> implementation to authenticate against the server.
@@ -59,6 +66,7 @@ namespace MarcusW.VncClient
             => new ConnectParameters {
                 Endpoint = new IPEndPoint(new IPAddress(Endpoint!.Address.GetAddressBytes(), Endpoint.Address.ScopeId),
                     Endpoint.Port),
+                ConnectTimeout = ConnectTimeout,
                 ReconnectDelay = ReconnectDelay,
                 MaxReconnectAttempts = MaxReconnectAttempts,
                 AuthenticationHandler = AuthenticationHandler,

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
@@ -11,6 +12,7 @@ namespace MarcusW.VncClient
     public partial class RfbConnection
     {
         // Fundamental connection objects
+        private TcpClient? _tcpClient;
         private IRfbMessageReceiver? _messageReceiver;
 
         // TODO: Message sender etc...
@@ -24,7 +26,11 @@ namespace MarcusW.VncClient
 
             _logger.LogInformation("Connecting to VNC-Server on {endpoint}...", Parameters.Endpoint);
 
-            // TODO: Connect and authenticate async
+            // Establish TCP connection.
+            _tcpClient = await ProtocolImplementation.CreateTcpConnector()
+                .ConnectAsync(Parameters.Endpoint!, Parameters.ConnectTimeout, cancellationToken).ConfigureAwait(false);
+
+            // TODO: Authenticate async
 
             // Setup new receive loop.
             _messageReceiver = ProtocolImplementation.CreateMessageReceiver(this);
@@ -39,25 +45,35 @@ namespace MarcusW.VncClient
 
         private async Task CloseConnectionAsync()
         {
-            if (_messageReceiver == null)
+            if (_tcpClient == null && _messageReceiver == null)
                 return;
 
             _logger.LogInformation("Closing connection to {endpoint}...", Parameters.Endpoint);
 
-            Debug.Assert(_messageReceiver != null, nameof(_messageReceiver) + " != null");
-            await _messageReceiver.StopReceiveLoopAsync().ConfigureAwait(false);
+            // Stop receiving first.
+            if (_messageReceiver != null)
+                await _messageReceiver.StopReceiveLoopAsync().ConfigureAwait(false);
+
+            // Close connection
+            _tcpClient?.Close();
 
             CleanupPreviousConnection();
         }
 
         private void CleanupPreviousConnection()
         {
-            if (_messageReceiver == null)
-                return;
+            if (_messageReceiver != null)
+            {
+                _messageReceiver.Failed -= MessageReceiverOnFailed;
+                _messageReceiver.Dispose();
+                _messageReceiver = null;
+            }
 
-            _messageReceiver.Failed -= MessageReceiverOnFailed;
-            _messageReceiver.Dispose();
-            _messageReceiver = null;
+            if (_tcpClient != null)
+            {
+                _tcpClient.Dispose();
+                _tcpClient = null;
+            }
         }
 
         // Forward to main class part.

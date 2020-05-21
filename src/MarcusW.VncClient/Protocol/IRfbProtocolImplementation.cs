@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Protocol.Services.Communication;
+using MarcusW.VncClient.Protocol.Services.Connection;
 
 namespace MarcusW.VncClient.Protocol
 {
@@ -13,6 +14,12 @@ namespace MarcusW.VncClient.Protocol
         /// Gets the supported encodings.
         /// </summary>
         IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
+
+        /// <summary>
+        /// Creates a new <see cref="ITcpConnector"/>.
+        /// </summary>
+        /// <returns>A new instance of the TCP connector.</returns>
+        ITcpConnector CreateTcpConnector();
 
         /// <summary>
         /// Creates a new <see cref="IRfbMessageReceiver"/>.

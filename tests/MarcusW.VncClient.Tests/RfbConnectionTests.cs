@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Protocol.Services.Communication;
+using MarcusW.VncClient.Protocol.Services.Connection;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
@@ -15,14 +16,18 @@ namespace MarcusW.VncClient.Tests
 {
     public class RfbConnectionTests
     {
+        private readonly Mock<ITcpConnector> _tcpConnectorMock;
         private readonly Mock<IRfbMessageReceiver> _messageReceiverMock;
+
         private readonly Mock<IRfbProtocolImplementation> _protocolMock;
 
         public RfbConnectionTests()
         {
+            _tcpConnectorMock = new Mock<ITcpConnector>();
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 
             _protocolMock = new Mock<IRfbProtocolImplementation>();
+            _protocolMock.Setup(p => p.CreateTcpConnector()).Returns(_tcpConnectorMock.Object);
             _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnection>()))
                 .Returns(_messageReceiverMock.Object);
         }
@@ -72,15 +77,17 @@ namespace MarcusW.VncClient.Tests
             var connectParams = new ConnectParameters();
 
             // Make the initial connect fail.
-            // TODO: Connection establishment mock should throw SocketException.
+            _tcpConnectorMock
+                .Setup(c => c.ConnectAsync(It.IsAny<IPEndPoint>(), It.IsAny<TimeSpan>(), It.IsAny<CancellationToken>()))
+                .Throws<TimeoutException>();
 
-            //var rfbConnection = new RfbConnection(_protocolMock.Object, new NullLoggerFactory(), connectParams);
+            var rfbConnection = new RfbConnection(_protocolMock.Object, new NullLoggerFactory(), connectParams);
 
             // Start should throw.
-            //await Assert.ThrowsAsync<SocketException>(() => rfbConnection.StartAsync());
+            await Assert.ThrowsAsync<TimeoutException>(() => rfbConnection.StartAsync());
 
             // Connection should still be uninitialized
-            //Assert.Equal(ConnectionState.Uninitialized, rfbConnection.ConnectionState);
+            Assert.Equal(ConnectionState.Uninitialized, rfbConnection.ConnectionState);
         }
 
         // TODO: Test reconnect limit
