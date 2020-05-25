@@ -9,15 +9,20 @@ namespace MarcusW.VncClient.Protocol.Services.Connection
     /// <inheritdoc />
     public class TcpConnector : ITcpConnector
     {
-        /// <inheritdoc />
-        public async Task<TcpClient> ConnectAsync(IPEndPoint endpoint, TimeSpan timeout,
-            CancellationToken cancellationToken = default)
+        private readonly RfbConnectionContext _context;
+
+        internal TcpConnector(RfbConnectionContext context)
         {
-            if (endpoint == null)
-                throw new ArgumentNullException(nameof(endpoint));
+            _context = context;
+        }
+
+        /// <inheritdoc />
+        public async Task<TcpClient> ConnectAsync(CancellationToken cancellationToken = default)
+        {
+            IPEndPoint endpoint = _context.Connection.Parameters.Endpoint!;
 
             // Create a cancellation token source that cancels on timeout or manual cancel
-            using var timeoutCts = new CancellationTokenSource(timeout);
+            using var timeoutCts = new CancellationTokenSource(_context.Connection.Parameters.ConnectTimeout);
             using var connectCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeoutCts.Token);
 
             CancellationToken linkedToken = connectCts.Token;

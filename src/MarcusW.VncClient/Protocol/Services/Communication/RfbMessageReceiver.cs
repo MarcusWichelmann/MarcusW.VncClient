@@ -11,13 +11,13 @@ namespace MarcusW.VncClient.Protocol.Services.Communication
     /// </summary>
     public sealed class RfbMessageReceiver : BackgroundThread, IRfbMessageReceiver
     {
-        private readonly RfbConnection _connection;
+        private readonly RfbConnectionContext _context;
         private readonly ILogger<RfbMessageReceiver> _logger;
 
-        internal RfbMessageReceiver(RfbConnection connection /* TODO: input stream */) : base("RFB Message Receiver")
+        internal RfbMessageReceiver(RfbConnectionContext context) : base("RFB Message Receiver")
         {
-            _connection = connection;
-            _logger = connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
+            _context = context;
+            _logger = context.Connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
 
             // Log failure events from background thread base
             Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception", args.Exception);
@@ -48,7 +48,7 @@ namespace MarcusW.VncClient.Protocol.Services.Communication
             {
                 // TODO: Just some testing code...
 
-                IRenderTarget? renderTarget = _connection.RenderTarget;
+                IRenderTarget? renderTarget = _context.Connection.RenderTarget;
                 if (renderTarget != null)
                 {
                     using var framebuffer = renderTarget.GrabFramebufferReference(new FrameSize(256, 256));

@@ -27,5 +27,10 @@
             <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Protocol\Messages\Incoming" />
+      <Folder Include="Protocol\Messages\Outgoing" />
+    </ItemGroup>
     
 </Project>

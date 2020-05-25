@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Protocol.Services.Communication;
 using MarcusW.VncClient.Protocol.Services.Connection;
+using MarcusW.VncClient.Protocol.Services.Handshaking;
 
 namespace MarcusW.VncClient.Protocol
 {
@@ -20,13 +21,16 @@ namespace MarcusW.VncClient.Protocol
         }
 
         /// <inheritdoc />
-        public ITcpConnector CreateTcpConnector() => new TcpConnector();
+        public ITcpConnector CreateTcpConnector(RfbConnectionContext context) => new TcpConnector(context);
 
         /// <inheritdoc />
-        public IRfbMessageReceiver CreateMessageReceiver(RfbConnection connection)
-            => new RfbMessageReceiver(connection);
+        public IRfbHandshaker CreateRfbHandshaker(RfbConnectionContext context) => new RfbHandshaker(context);
 
         /// <inheritdoc />
-        public IRfbMessageSender CreateMessageSender(RfbConnection connection) => new RfbMessageSender();
+        public IRfbMessageReceiver CreateMessageReceiver(RfbConnectionContext context)
+            => new RfbMessageReceiver(context);
+
+        /// <inheritdoc />
+        public IRfbMessageSender CreateMessageSender(RfbConnectionContext context) => new RfbMessageSender();
     }
 }
