@@ -16,11 +16,18 @@ namespace AvaloniaVncClient.ViewModels
         private readonly ConnectionManager _connectionManager;
 
         private RfbConnection? _rfbConnection;
+        private string? _errorMessage;
 
         public RfbConnection? RfbConnection
         {
             get => _rfbConnection;
             private set => this.RaiseAndSetIfChanged(ref _rfbConnection, value);
+        }
+
+        public string? ErrorMessage
+        {
+            get => _errorMessage;
+            set => this.RaiseAndSetIfChanged(ref _errorMessage, value);
         }
 
         public ReactiveCommand<Unit, Unit> ConnectCommand { get; }
@@ -40,9 +47,18 @@ namespace AvaloniaVncClient.ViewModels
                 Endpoint = new IPEndPoint(IPAddress.IPv6Loopback, 5901)
             };
 
-            // Try to connect and set the connection
-            // TODO: Errors are not displayed.
-            RfbConnection = await _connectionManager.ConnectAsync(parameters, cancellationToken).ConfigureAwait(true);
+            try
+            {
+                // Try to connect and set the connection
+                RfbConnection = await _connectionManager.ConnectAsync(parameters, cancellationToken)
+                    .ConfigureAwait(true);
+
+                ErrorMessage = null;
+            }
+            catch (Exception exception)
+            {
+                ErrorMessage = exception.Message;
+            }
         }
     }
 }

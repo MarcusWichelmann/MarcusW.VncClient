@@ -15,6 +15,7 @@
 
     <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
         <Button Name="ConnectButton" Command="{Binding ConnectCommand}" />
+        <TextBlock Foreground="Red" Text="{Binding ErrorMessage}" IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
         <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />
     </StackPanel>
 
