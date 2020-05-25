@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vnc="clr-namespace:MarcusW.VncClient.Avalonia;assembly=MarcusW.VncClient.Avalonia"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" Width="800" Height="450"
         x:Class="AvaloniaVncClient.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia VNC Client">
@@ -14,8 +14,13 @@
     </Design.DataContext>
 
     <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
+        <Grid ColumnDefinitions="3*,*">
+            <TextBox Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
+            <TextBox Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
+        </Grid>
         <Button Name="ConnectButton" Command="{Binding ConnectCommand}" />
-        <TextBlock Foreground="Red" Text="{Binding ErrorMessage}" IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
+        <TextBlock Foreground="Red" Text="{Binding ErrorMessage}"
+                   IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
         <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />
     </StackPanel>
 
