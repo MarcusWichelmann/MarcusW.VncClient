@@ -1,15 +1,18 @@
 using System;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Avalonia.ReactiveUI;
 using AvaloniaVncClient.ViewModels;
+using ReactiveUI;
 
 namespace AvaloniaVncClient.Views
 {
-    public class MainWindow : Window
+    public class MainWindow : ReactiveWindow<MainWindowViewModel>
     {
-        private Button _connectButton = null!;
+        private Button ConnectButton => this.FindControl<Button>("ConnectButton");
 
         public MainWindow()
         {
@@ -22,20 +25,15 @@ namespace AvaloniaVncClient.Views
 
         private void InitializeComponent()
         {
+            this.WhenActivated(disposables => {
+                // Bind connect button text to connect command execution
+                ConnectButton
+                    .Bind(Button.ContentProperty,
+                        ViewModel.ConnectCommand.IsExecuting.Select(executing
+                            => executing ? "Connecting..." : "Connect")).DisposeWith(disposables);
+            });
+
             AvaloniaXamlLoader.Load(this);
-            _connectButton = this.FindControl<Button>("connectButton");
-        }
-
-        protected override void OnDataContextChanged(EventArgs e)
-        {
-            base.OnDataContextChanged(e);
-
-            var viewModel = (MainWindowViewModel)DataContext;
-
-            // Change connect button text
-            // TODO: Move to XAML: https://github.com/AvaloniaUI/Avalonia/issues/1362
-            _connectButton.Bind(Button.ContentProperty,
-                viewModel.ConnectCommand.IsExecuting.Select(executing => executing ? "Connecting..." : "Connect"));
         }
     }
 }

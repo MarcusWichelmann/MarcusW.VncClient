@@ -36,7 +36,9 @@ namespace AvaloniaVncClient.ViewModels
         private async Task ConnectAsync(CancellationToken cancellationToken = default)
         {
             // TODO: Configure connect parameters
-            var parameters = new ConnectParameters { Endpoint = new IPEndPoint(IPAddress.IPv6Loopback, 5901) };
+            var parameters = new ConnectParameters {
+                Endpoint = new IPEndPoint(IPAddress.IPv6Loopback, 5901)
+            };
 
             // Try to connect and set the connection
             // TODO: Errors are not displayed.

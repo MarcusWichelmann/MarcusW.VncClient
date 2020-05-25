@@ -14,7 +14,7 @@
     </Design.DataContext>
 
     <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
-        <Button Name="connectButton" Command="{Binding ConnectCommand}" />
+        <Button Name="ConnectButton" Command="{Binding ConnectCommand}" />
         <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />
     </StackPanel>
 
