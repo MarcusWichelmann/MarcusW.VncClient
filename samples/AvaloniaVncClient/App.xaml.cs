@@ -24,7 +24,7 @@ namespace AvaloniaVncClient
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow {
-                    ViewModel = new MainWindowViewModel(),
+                    DataContext = new MainWindowViewModel()
                 };
             }
 
