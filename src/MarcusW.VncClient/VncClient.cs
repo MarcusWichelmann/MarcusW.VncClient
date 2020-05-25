@@ -45,6 +45,8 @@ namespace MarcusW.VncClient
             if (parameters == null)
                 throw new ArgumentNullException(nameof(parameters));
 
+            cancellationToken.ThrowIfCancellationRequested();
+
             parameters.Validate();
 
             // Create a deep copy of the parameters object to make sure connection parameters cannot be changed afterwards.

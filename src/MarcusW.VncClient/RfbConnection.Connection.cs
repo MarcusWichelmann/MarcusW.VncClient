@@ -20,9 +20,10 @@ namespace MarcusW.VncClient
         // Used for establishing the initial connection as well as for reconnects.
         private async Task EstablishNewConnectionAsync(CancellationToken cancellationToken = default)
         {
+            cancellationToken.ThrowIfCancellationRequested();
+
             // Doing one more cleanup doesn't hurt.
             CleanupPreviousConnection();
-            cancellationToken.ThrowIfCancellationRequested();
 
             _logger.LogInformation("Connecting to VNC-Server on {endpoint}...", Parameters.Endpoint);
 
