@@ -18,7 +18,7 @@
             <TextBox Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
             <TextBox Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
         </Grid>
-        <Button Name="ConnectButton" Command="{Binding ConnectCommand}" />
+        <Button Name="ConnectButton" Command="{Binding ConnectCommand}" IsDefault="True" />
         <TextBlock Foreground="Red" Text="{Binding ErrorMessage}"
                    IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
         <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />

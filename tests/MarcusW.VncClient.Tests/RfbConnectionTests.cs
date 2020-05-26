@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Protocol.Services.Communication;
 using MarcusW.VncClient.Protocol.Services.Connection;
+using MarcusW.VncClient.Protocol.Services.Handshaking;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
@@ -17,6 +18,7 @@ namespace MarcusW.VncClient.Tests
     public class RfbConnectionTests
     {
         private readonly Mock<ITcpConnector> _tcpConnectorMock;
+        private readonly Mock<IRfbHandshaker> _rfbHandshakerMock;
         private readonly Mock<IRfbMessageReceiver> _messageReceiverMock;
 
         private readonly Mock<IRfbProtocolImplementation> _protocolMock;
@@ -24,11 +26,15 @@ namespace MarcusW.VncClient.Tests
         public RfbConnectionTests()
         {
             _tcpConnectorMock = new Mock<ITcpConnector>();
+            _rfbHandshakerMock = new Mock<IRfbHandshaker>();
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 
             _protocolMock = new Mock<IRfbProtocolImplementation>();
-            _protocolMock.Setup(p => p.CreateTcpConnector()).Returns(_tcpConnectorMock.Object);
-            _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnection>()))
+            _protocolMock.Setup(p => p.CreateTcpConnector(It.IsAny<RfbConnectionContext>()))
+                .Returns(_tcpConnectorMock.Object);
+            _protocolMock.Setup(p => p.CreateRfbHandshaker(It.IsAny<RfbConnectionContext>()))
+                .Returns(_rfbHandshakerMock.Object);
+            _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnectionContext>()))
                 .Returns(_messageReceiverMock.Object);
         }
 
@@ -77,9 +83,7 @@ namespace MarcusW.VncClient.Tests
             var connectParams = new ConnectParameters();
 
             // Make the initial connect fail.
-            _tcpConnectorMock
-                .Setup(c => c.ConnectAsync(It.IsAny<IPEndPoint>(), It.IsAny<TimeSpan>(), It.IsAny<CancellationToken>()))
-                .Throws<TimeoutException>();
+            _tcpConnectorMock.Setup(c => c.ConnectAsync(It.IsAny<CancellationToken>())).Throws<TimeoutException>();
 
             var rfbConnection = new RfbConnection(_protocolMock.Object, new NullLoggerFactory(), connectParams);
 

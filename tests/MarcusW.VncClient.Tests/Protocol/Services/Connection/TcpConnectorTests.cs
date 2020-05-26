@@ -29,8 +29,11 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
         [Fact]
         public async Task Connects_Successfully()
         {
-            var connector = new TcpConnector();
-            var connectTask = connector.ConnectAsync(_testEndpoint, Timeout.InfiniteTimeSpan);
+            var connector = new TcpConnector(new ConnectParameters {
+                Endpoint = _testEndpoint,
+                ConnectTimeout = Timeout.InfiniteTimeSpan
+            });
+            var connectTask = connector.ConnectAsync();
 
             // Accept client
             using var client = await _testServer.AcceptTcpClientAsync();
@@ -42,8 +45,11 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
         [Fact]
         public async Task Throws_On_Timeout()
         {
-            var connector = new TcpConnector();
-            var connectTask = connector.ConnectAsync(_droppingEndpoint, TimeSpan.FromSeconds(1));
+            var connector = new TcpConnector(new ConnectParameters {
+                Endpoint = _droppingEndpoint,
+                ConnectTimeout = TimeSpan.FromSeconds(1)
+            });
+            var connectTask = connector.ConnectAsync();
 
             // Connect should throw
             await Assert.ThrowsAsync<TimeoutException>(() => connectTask);
@@ -54,8 +60,11 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
         {
             using var cts = new CancellationTokenSource();
 
-            var connector = new TcpConnector();
-            var connectTask = connector.ConnectAsync(_droppingEndpoint, Timeout.InfiniteTimeSpan, cts.Token);
+            var connector = new TcpConnector(new ConnectParameters {
+                Endpoint = _droppingEndpoint,
+                ConnectTimeout = Timeout.InfiniteTimeSpan
+            });
+            var connectTask = connector.ConnectAsync(cts.Token);
 
             // Task should still be alive
             Assert.False(connectTask.IsCompleted);
