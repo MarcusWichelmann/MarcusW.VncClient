@@ -757,12 +757,12 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.IRfbProtocolImplementation
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation
   nameWithType: IRfbProtocolImplementation
-- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver(MarcusW.VncClient.RfbConnection)
-  name: CreateMessageReceiver(RfbConnection)
-  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateMessageReceiver_MarcusW_VncClient_RfbConnection_
-  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver(MarcusW.VncClient.RfbConnection)
-  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver(MarcusW.VncClient.RfbConnection)
-  nameWithType: IRfbProtocolImplementation.CreateMessageReceiver(RfbConnection)
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateMessageReceiver(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateMessageReceiver_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateMessageReceiver(RfbConnectionContext)
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver*
   name: CreateMessageReceiver
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateMessageReceiver_
@@ -770,12 +770,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageReceiver
   nameWithType: IRfbProtocolImplementation.CreateMessageReceiver
-- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender(MarcusW.VncClient.RfbConnection)
-  name: CreateMessageSender(RfbConnection)
-  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateMessageSender_MarcusW_VncClient_RfbConnection_
-  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender(MarcusW.VncClient.RfbConnection)
-  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender(MarcusW.VncClient.RfbConnection)
-  nameWithType: IRfbProtocolImplementation.CreateMessageSender(RfbConnection)
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateMessageSender(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateMessageSender_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateMessageSender(RfbConnectionContext)
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender*
   name: CreateMessageSender
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateMessageSender_
@@ -783,12 +783,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateMessageSender
   nameWithType: IRfbProtocolImplementation.CreateMessageSender
-- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector
-  name: CreateTcpConnector()
-  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateTcpConnector
-  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector
-  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector()
-  nameWithType: IRfbProtocolImplementation.CreateTcpConnector()
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateRfbHandshaker(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateRfbHandshaker_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateRfbHandshaker(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker*
+  name: CreateRfbHandshaker
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateRfbHandshaker_
+  commentId: Overload:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker
+  nameWithType: IRfbProtocolImplementation.CreateRfbHandshaker
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateTcpConnector(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateTcpConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateTcpConnector(RfbConnectionContext)
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTcpConnector*
   name: CreateTcpConnector
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateTcpConnector_
@@ -809,18 +822,89 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.SupportedEncodings
   nameWithType: IRfbProtocolImplementation.SupportedEncodings
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext
+  name: RfbConnectionContext
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbConnectionContext
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext
+  nameWithType: RfbConnectionContext
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.Connection
+  name: Connection
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_Connection
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.Connection
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Connection
+  nameWithType: RfbConnectionContext.Connection
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.Connection*
+  name: Connection
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_Connection_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.Connection
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Connection
+  nameWithType: RfbConnectionContext.Connection
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
+  name: HandshakeResult
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
+  nameWithType: RfbConnectionContext.HandshakeResult
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult*
+  name: HandshakeResult
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
+  nameWithType: RfbConnectionContext.HandshakeResult
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
+  name: MessageReceiver
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
+  nameWithType: RfbConnectionContext.MessageReceiver
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver*
+  name: MessageReceiver
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
+  nameWithType: RfbConnectionContext.MessageReceiver
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
+  nameWithType: RfbConnectionContext.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion*
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
+  nameWithType: RfbConnectionContext.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.Stream
+  name: Stream
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_Stream
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.Stream
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Stream
+  nameWithType: RfbConnectionContext.Stream
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.Stream*
+  name: Stream
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_Stream_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.Stream
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Stream
+  nameWithType: RfbConnectionContext.Stream
 - uid: MarcusW.VncClient.Protocol.RfbProtocol
   name: RfbProtocol
   href: api/MarcusW.VncClient.Protocol.RfbProtocol.html
   commentId: T:MarcusW.VncClient.Protocol.RfbProtocol
   fullName: MarcusW.VncClient.Protocol.RfbProtocol
   nameWithType: RfbProtocol
-- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver(MarcusW.VncClient.RfbConnection)
-  name: CreateMessageReceiver(RfbConnection)
-  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateMessageReceiver_MarcusW_VncClient_RfbConnection_
-  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver(MarcusW.VncClient.RfbConnection)
-  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver(MarcusW.VncClient.RfbConnection)
-  nameWithType: RfbProtocol.CreateMessageReceiver(RfbConnection)
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateMessageReceiver(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateMessageReceiver_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: RfbProtocol.CreateMessageReceiver(RfbConnectionContext)
 - uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver*
   name: CreateMessageReceiver
   href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateMessageReceiver_
@@ -828,12 +912,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageReceiver
   nameWithType: RfbProtocol.CreateMessageReceiver
-- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender(MarcusW.VncClient.RfbConnection)
-  name: CreateMessageSender(RfbConnection)
-  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateMessageSender_MarcusW_VncClient_RfbConnection_
-  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender(MarcusW.VncClient.RfbConnection)
-  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender(MarcusW.VncClient.RfbConnection)
-  nameWithType: RfbProtocol.CreateMessageSender(RfbConnection)
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateMessageSender(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateMessageSender_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: RfbProtocol.CreateMessageSender(RfbConnectionContext)
 - uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender*
   name: CreateMessageSender
   href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateMessageSender_
@@ -841,12 +925,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateMessageSender
   nameWithType: RfbProtocol.CreateMessageSender
-- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector
-  name: CreateTcpConnector()
-  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateTcpConnector
-  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector
-  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector()
-  nameWithType: RfbProtocol.CreateTcpConnector()
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateRfbHandshaker(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateRfbHandshaker_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: RfbProtocol.CreateRfbHandshaker(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateRfbHandshaker*
+  name: CreateRfbHandshaker
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateRfbHandshaker_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocol.CreateRfbHandshaker
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateRfbHandshaker
+  nameWithType: RfbProtocol.CreateRfbHandshaker
+- uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateTcpConnector(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateTcpConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: RfbProtocol.CreateTcpConnector(RfbConnectionContext)
 - uid: MarcusW.VncClient.Protocol.RfbProtocol.CreateTcpConnector*
   name: CreateTcpConnector
   href: api/MarcusW.VncClient.Protocol.RfbProtocol.html#MarcusW_VncClient_Protocol_RfbProtocol_CreateTcpConnector_
@@ -867,6 +964,67 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbProtocol.SupportedEncodings
   nameWithType: RfbProtocol.SupportedEncodings
+- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException
+  name: RfbProtocolUnexpectedDataException
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException
+  nameWithType: RfbProtocolUnexpectedDataException
+- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor
+  name: RfbProtocolUnexpectedDataException()
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException()
+  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException()
+- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String})
+  name: RfbProtocolUnexpectedDataException(Nullable<String>)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor_System_Nullable_System_String__
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String})
+  name.vb: RfbProtocolUnexpectedDataException(Nullable(Of String))
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable<System.String>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable(Of System.String))
+  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable<String>)
+  nameWithType.vb: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable(Of String))
+- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  name: RfbProtocolUnexpectedDataException(Nullable<String>, Nullable<Exception>)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor_System_Nullable_System_String__System_Nullable_Exception__
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  name.vb: RfbProtocolUnexpectedDataException(Nullable(Of String), Nullable(Of Exception))
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable<System.String>, System.Nullable<Exception>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable(Of System.String), System.Nullable(Of Exception))
+  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable<String>, Nullable<Exception>)
+  nameWithType.vb: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable(Of String), Nullable(Of Exception))
+- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor*
+  name: RfbProtocolUnexpectedDataException
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException
+  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersion
+  name: RfbProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersion.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbProtocolVersion
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersion
+  nameWithType: RfbProtocolVersion
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_3
+  name: RFB_3_3
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersion.html#MarcusW_VncClient_Protocol_RfbProtocolVersion_RFB_3_3
+  commentId: F:MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_3
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_3
+  nameWithType: RfbProtocolVersion.RFB_3_3
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_7
+  name: RFB_3_7
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersion.html#MarcusW_VncClient_Protocol_RfbProtocolVersion_RFB_3_7
+  commentId: F:MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_7
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_7
+  nameWithType: RfbProtocolVersion.RFB_3_7
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_8
+  name: RFB_3_8
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersion.html#MarcusW_VncClient_Protocol_RfbProtocolVersion_RFB_3_8
+  commentId: F:MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_8
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersion.RFB_3_8
+  nameWithType: RfbProtocolVersion.RFB_3_8
 - uid: MarcusW.VncClient.Protocol.Services.Communication
   name: MarcusW.VncClient.Protocol.Services.Communication
   href: api/MarcusW.VncClient.Protocol.Services.Communication.html
@@ -974,12 +1132,12 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector
   fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector
   nameWithType: ITcpConnector
-- uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
-  name: ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_IPEndPoint_TimeSpan_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
-  nameWithType: ITcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(CancellationToken)
+  name: ConnectAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(CancellationToken)
+  nameWithType: ITcpConnector.ConnectAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync*
   name: ConnectAsync
   href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_
@@ -993,12 +1151,12 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
   fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
   nameWithType: TcpConnector
-- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
-  name: ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_IPEndPoint_TimeSpan_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(IPEndPoint,TimeSpan,CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
-  nameWithType: TcpConnector.ConnectAsync(IPEndPoint, TimeSpan, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)
+  name: ConnectAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)
+  nameWithType: TcpConnector.ConnectAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync*
   name: ConnectAsync
   href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_
@@ -1006,6 +1164,82 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync
   nameWithType: TcpConnector.ConnectAsync
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking
+  name: MarcusW.VncClient.Protocol.Services.Handshaking
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.html
+  commentId: N:MarcusW.VncClient.Protocol.Services.Handshaking
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking
+  nameWithType: MarcusW.VncClient.Protocol.Services.Handshaking
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult
+  name: HandshakeResult
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult
+  nameWithType: HandshakeResult
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  name: HandshakeResult(RfbProtocolVersion)
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_Handshaking_HandshakeResult__ctor_MarcusW_VncClient_Protocol_RfbProtocolVersion_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.HandshakeResult(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  nameWithType: HandshakeResult.HandshakeResult(RfbProtocolVersion)
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.#ctor*
+  name: HandshakeResult
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_Handshaking_HandshakeResult__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.HandshakeResult
+  nameWithType: HandshakeResult.HandshakeResult
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.ProtocolVersion
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_Handshaking_HandshakeResult_ProtocolVersion
+  commentId: P:MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.ProtocolVersion
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.ProtocolVersion
+  nameWithType: HandshakeResult.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.ProtocolVersion*
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_Handshaking_HandshakeResult_ProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.ProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.ProtocolVersion
+  nameWithType: HandshakeResult.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker
+  name: IRfbHandshaker
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker
+  nameWithType: IRfbHandshaker
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(CancellationToken)
+  name: DoHandshakeAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_IRfbHandshaker_DoHandshakeAsync_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(CancellationToken)
+  nameWithType: IRfbHandshaker.DoHandshakeAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync*
+  name: DoHandshakeAsync
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_IRfbHandshaker_DoHandshakeAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync
+  nameWithType: IRfbHandshaker.DoHandshakeAsync
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker
+  name: RfbHandshaker
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker
+  nameWithType: RfbHandshaker
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)
+  name: DoHandshakeAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)
+  nameWithType: RfbHandshaker.DoHandshakeAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync*
+  name: DoHandshakeAsync
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync
+  nameWithType: RfbHandshaker.DoHandshakeAsync
 - uid: MarcusW.VncClient.Rendering
   name: MarcusW.VncClient.Rendering
   href: api/MarcusW.VncClient.Rendering.html

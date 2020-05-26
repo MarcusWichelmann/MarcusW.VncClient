@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TcpConnector
+    <title>Class RfbHandshaker
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TcpConnector
+    <meta name="title" content="Class RfbHandshaker
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,46 +68,46 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.Connection.TcpConnector">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker">
   
   
-  <h1 id="MarcusW_VncClient_Protocol_Services_Connection_TcpConnector" data-uid="MarcusW.VncClient.Protocol.Services.Connection.TcpConnector" class="text-break">Class TcpConnector
+  <h1 id="MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker" data-uid="MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker" class="text-break">Class RfbHandshaker
   </h1>
-  <div class="markdown level0 summary"><p>Provides methods for establishing TCP connections used for the RFB protocol.</p>
+  <div class="markdown level0 summary"><p>Provides methods for doing a RFB compliant handshake.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">TcpConnector</span></div>
+    <div class="level1"><span class="xref">RfbHandshaker</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html">ITcpConnector</a></div>
+    <div><a class="xref" href="MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html">IRfbHandshaker</a></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.Connection.html">MarcusW.VncClient.Protocol.Services.Connection</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.Handshaking.html">MarcusW.VncClient.Protocol.Services.Handshaking</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_syntax">Syntax</h5>
+  <h5 id="MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TcpConnector : object, ITcpConnector</code></pre>
+    <pre><code class="lang-csharp hljs">public class RfbHandshaker : object, IRfbHandshaker</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/Connection/TcpConnector.cs/#L22">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/Handshaking/RfbHandshaker.cs/#L20">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_" data-uid="MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)">ConnectAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Connects to the specified endpoint and returns the connected <see cref="!:TcpClient"></see>.</p>
+  <a id="MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_" data-uid="MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)">DoHandshakeAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Executes a handshake.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TcpClient&gt; ConnectAsync(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;HandshakeResult&gt; DoHandshakeAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -137,15 +137,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">TcpClient</span>&gt;</td>
-        <td><p>The connected client.</p>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Services.Handshaking.HandshakeResult.html">HandshakeResult</a>&gt;</td>
+        <td><p>Information about the handshake outcome.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html">ITcpConnector</a>
+      <a class="xref" href="MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html">IRfbHandshaker</a>
   </div>
 </article>
           </div>
@@ -155,10 +155,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_Connection_TcpConnector.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.Connection.TcpConnector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/Connection/TcpConnector.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/Handshaking/RfbHandshaker.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
