@@ -541,13 +541,13 @@ references:
   fullName.vb: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable(Of System.String))
   nameWithType: ConnectParametersValidationException.ConnectParametersValidationException(Nullable<String>)
   nameWithType.vb: ConnectParametersValidationException.ConnectParametersValidationException(Nullable(Of String))
-- uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+- uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
   name: ConnectParametersValidationException(Nullable<String>, Nullable<Exception>)
-  href: api/MarcusW.VncClient.ConnectParametersValidationException.html#MarcusW_VncClient_ConnectParametersValidationException__ctor_System_Nullable_System_String__System_Nullable_Exception__
-  commentId: M:MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
+  href: api/MarcusW.VncClient.ConnectParametersValidationException.html#MarcusW_VncClient_ConnectParametersValidationException__ctor_System_Nullable_System_String__System_Nullable_System_Exception__
+  commentId: M:MarcusW.VncClient.ConnectParametersValidationException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
   name.vb: ConnectParametersValidationException(Nullable(Of String), Nullable(Of Exception))
-  fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable<System.String>, System.Nullable<Exception>)
-  fullName.vb: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable(Of System.String), System.Nullable(Of Exception))
+  fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable<System.String>, System.Nullable<System.Exception>)
+  fullName.vb: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException(System.Nullable(Of System.String), System.Nullable(Of System.Exception))
   nameWithType: ConnectParametersValidationException.ConnectParametersValidationException(Nullable<String>, Nullable<Exception>)
   nameWithType.vb: ConnectParametersValidationException.ConnectParametersValidationException(Nullable(Of String), Nullable(Of Exception))
 - uid: MarcusW.VncClient.ConnectParametersValidationException.#ctor*
@@ -964,43 +964,43 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbProtocol.SupportedEncodings
   nameWithType: RfbProtocol.SupportedEncodings
-- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException
-  name: RfbProtocolUnexpectedDataException
-  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html
-  commentId: T:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException
-  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException
-  nameWithType: RfbProtocolUnexpectedDataException
-- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor
-  name: RfbProtocolUnexpectedDataException()
-  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor
-  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor
-  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException()
-  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException()
-- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String})
-  name: RfbProtocolUnexpectedDataException(Nullable<String>)
-  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor_System_Nullable_System_String__
-  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String})
-  name.vb: RfbProtocolUnexpectedDataException(Nullable(Of String))
-  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable<System.String>)
-  fullName.vb: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable(Of System.String))
-  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable<String>)
-  nameWithType.vb: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable(Of String))
-- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
-  name: RfbProtocolUnexpectedDataException(Nullable<String>, Nullable<Exception>)
-  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor_System_Nullable_System_String__System_Nullable_Exception__
-  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor(System.Nullable{System.String},System.Nullable{Exception})
-  name.vb: RfbProtocolUnexpectedDataException(Nullable(Of String), Nullable(Of Exception))
-  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable<System.String>, System.Nullable<Exception>)
-  fullName.vb: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(System.Nullable(Of System.String), System.Nullable(Of Exception))
-  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable<String>, Nullable<Exception>)
-  nameWithType.vb: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException(Nullable(Of String), Nullable(Of Exception))
-- uid: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor*
-  name: RfbProtocolUnexpectedDataException
-  href: api/MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.html#MarcusW_VncClient_Protocol_RfbProtocolUnexpectedDataException__ctor_
-  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.#ctor
+- uid: MarcusW.VncClient.Protocol.RfbProtocolException
+  name: RfbProtocolException
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbProtocolException
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolException
+  nameWithType: RfbProtocolException
+- uid: MarcusW.VncClient.Protocol.RfbProtocolException.#ctor
+  name: RfbProtocolException()
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html#MarcusW_VncClient_Protocol_RfbProtocolException__ctor
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolException.#ctor
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolException.RfbProtocolException()
+  nameWithType: RfbProtocolException.RfbProtocolException()
+- uid: MarcusW.VncClient.Protocol.RfbProtocolException.#ctor(System.Nullable{System.String})
+  name: RfbProtocolException(Nullable<String>)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html#MarcusW_VncClient_Protocol_RfbProtocolException__ctor_System_Nullable_System_String__
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolException.#ctor(System.Nullable{System.String})
+  name.vb: RfbProtocolException(Nullable(Of String))
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolException.RfbProtocolException(System.Nullable<System.String>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbProtocolException.RfbProtocolException(System.Nullable(Of System.String))
+  nameWithType: RfbProtocolException.RfbProtocolException(Nullable<String>)
+  nameWithType.vb: RfbProtocolException.RfbProtocolException(Nullable(Of String))
+- uid: MarcusW.VncClient.Protocol.RfbProtocolException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
+  name: RfbProtocolException(Nullable<String>, Nullable<Exception>)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html#MarcusW_VncClient_Protocol_RfbProtocolException__ctor_System_Nullable_System_String__System_Nullable_System_Exception__
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
+  name.vb: RfbProtocolException(Nullable(Of String), Nullable(Of Exception))
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolException.RfbProtocolException(System.Nullable<System.String>, System.Nullable<System.Exception>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbProtocolException.RfbProtocolException(System.Nullable(Of System.String), System.Nullable(Of System.Exception))
+  nameWithType: RfbProtocolException.RfbProtocolException(Nullable<String>, Nullable<Exception>)
+  nameWithType.vb: RfbProtocolException.RfbProtocolException(Nullable(Of String), Nullable(Of Exception))
+- uid: MarcusW.VncClient.Protocol.RfbProtocolException.#ctor*
+  name: RfbProtocolException
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html#MarcusW_VncClient_Protocol_RfbProtocolException__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocolException.#ctor
   isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException
-  nameWithType: RfbProtocolUnexpectedDataException.RfbProtocolUnexpectedDataException
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolException.RfbProtocolException
+  nameWithType: RfbProtocolException.RfbProtocolException
 - uid: MarcusW.VncClient.Protocol.RfbProtocolVersion
   name: RfbProtocolVersion
   href: api/MarcusW.VncClient.Protocol.RfbProtocolVersion.html
@@ -1101,11 +1101,11 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.StopReceiveLoopAsync
   nameWithType: RfbMessageReceiver.StopReceiveLoopAsync
-- uid: MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker(System.Threading.CancellationToken)
   name: ThreadWorker(CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.html#MarcusW_VncClient_Protocol_Services_Communication_RfbMessageReceiver_ThreadWorker_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker(CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.html#MarcusW_VncClient_Protocol_Services_Communication_RfbMessageReceiver_ThreadWorker_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker(System.Threading.CancellationToken)
   nameWithType: RfbMessageReceiver.ThreadWorker(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Communication.RfbMessageReceiver.ThreadWorker*
   name: ThreadWorker
@@ -1132,11 +1132,11 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector
   fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector
   nameWithType: ITcpConnector
-- uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)
   name: ConnectAsync(CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)
   nameWithType: ITcpConnector.ConnectAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync*
   name: ConnectAsync
@@ -1151,11 +1151,11 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
   fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector
   nameWithType: TcpConnector
-- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(System.Threading.CancellationToken)
   name: ConnectAsync(CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.html#MarcusW_VncClient_Protocol_Services_Connection_TcpConnector_ConnectAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync(System.Threading.CancellationToken)
   nameWithType: TcpConnector.ConnectAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Connection.TcpConnector.ConnectAsync*
   name: ConnectAsync
@@ -1208,11 +1208,11 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker
   fullName: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker
   nameWithType: IRfbHandshaker
-- uid: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)
   name: DoHandshakeAsync(CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_IRfbHandshaker_DoHandshakeAsync_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_IRfbHandshaker_DoHandshakeAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)
   nameWithType: IRfbHandshaker.DoHandshakeAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Handshaking.IRfbHandshaker.DoHandshakeAsync*
   name: DoHandshakeAsync
@@ -1227,11 +1227,11 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker
   fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker
   nameWithType: RfbHandshaker
-- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)
   name: DoHandshakeAsync(CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_DoHandshakeAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)
   nameWithType: RfbHandshaker.DoHandshakeAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync*
   name: DoHandshakeAsync
@@ -1240,6 +1240,93 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.DoHandshakeAsync
   nameWithType: RfbHandshaker.DoHandshakeAsync
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.ReadProtocolVersionAsync(System.Threading.CancellationToken)
+  name: ReadProtocolVersionAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_ReadProtocolVersionAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.ReadProtocolVersionAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.ReadProtocolVersionAsync(System.Threading.CancellationToken)
+  nameWithType: RfbHandshaker.ReadProtocolVersionAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.ReadProtocolVersionAsync*
+  name: ReadProtocolVersionAsync
+  href: api/MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.html#MarcusW_VncClient_Protocol_Services_Handshaking_RfbHandshaker_ReadProtocolVersionAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.ReadProtocolVersionAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.Handshaking.RfbHandshaker.ReadProtocolVersionAsync
+  nameWithType: RfbHandshaker.ReadProtocolVersionAsync
+- uid: MarcusW.VncClient.Protocol.UnexpectedDataException
+  name: UnexpectedDataException
+  href: api/MarcusW.VncClient.Protocol.UnexpectedDataException.html
+  commentId: T:MarcusW.VncClient.Protocol.UnexpectedDataException
+  fullName: MarcusW.VncClient.Protocol.UnexpectedDataException
+  nameWithType: UnexpectedDataException
+- uid: MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor
+  name: UnexpectedDataException()
+  href: api/MarcusW.VncClient.Protocol.UnexpectedDataException.html#MarcusW_VncClient_Protocol_UnexpectedDataException__ctor
+  commentId: M:MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor
+  fullName: MarcusW.VncClient.Protocol.UnexpectedDataException.UnexpectedDataException()
+  nameWithType: UnexpectedDataException.UnexpectedDataException()
+- uid: MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor(System.Nullable{System.String})
+  name: UnexpectedDataException(Nullable<String>)
+  href: api/MarcusW.VncClient.Protocol.UnexpectedDataException.html#MarcusW_VncClient_Protocol_UnexpectedDataException__ctor_System_Nullable_System_String__
+  commentId: M:MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor(System.Nullable{System.String})
+  name.vb: UnexpectedDataException(Nullable(Of String))
+  fullName: MarcusW.VncClient.Protocol.UnexpectedDataException.UnexpectedDataException(System.Nullable<System.String>)
+  fullName.vb: MarcusW.VncClient.Protocol.UnexpectedDataException.UnexpectedDataException(System.Nullable(Of System.String))
+  nameWithType: UnexpectedDataException.UnexpectedDataException(Nullable<String>)
+  nameWithType.vb: UnexpectedDataException.UnexpectedDataException(Nullable(Of String))
+- uid: MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
+  name: UnexpectedDataException(Nullable<String>, Nullable<Exception>)
+  href: api/MarcusW.VncClient.Protocol.UnexpectedDataException.html#MarcusW_VncClient_Protocol_UnexpectedDataException__ctor_System_Nullable_System_String__System_Nullable_System_Exception__
+  commentId: M:MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
+  name.vb: UnexpectedDataException(Nullable(Of String), Nullable(Of Exception))
+  fullName: MarcusW.VncClient.Protocol.UnexpectedDataException.UnexpectedDataException(System.Nullable<System.String>, System.Nullable<System.Exception>)
+  fullName.vb: MarcusW.VncClient.Protocol.UnexpectedDataException.UnexpectedDataException(System.Nullable(Of System.String), System.Nullable(Of System.Exception))
+  nameWithType: UnexpectedDataException.UnexpectedDataException(Nullable<String>, Nullable<Exception>)
+  nameWithType.vb: UnexpectedDataException.UnexpectedDataException(Nullable(Of String), Nullable(Of Exception))
+- uid: MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor*
+  name: UnexpectedDataException
+  href: api/MarcusW.VncClient.Protocol.UnexpectedDataException.html#MarcusW_VncClient_Protocol_UnexpectedDataException__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.UnexpectedDataException.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.UnexpectedDataException.UnexpectedDataException
+  nameWithType: UnexpectedDataException.UnexpectedDataException
+- uid: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException
+  name: UnexpectedEndOfStreamException
+  href: api/MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.html
+  commentId: T:MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException
+  fullName: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException
+  nameWithType: UnexpectedEndOfStreamException
+- uid: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor
+  name: UnexpectedEndOfStreamException()
+  href: api/MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.html#MarcusW_VncClient_Protocol_UnexpectedEndOfStreamException__ctor
+  commentId: M:MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor
+  fullName: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.UnexpectedEndOfStreamException()
+  nameWithType: UnexpectedEndOfStreamException.UnexpectedEndOfStreamException()
+- uid: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor(System.Nullable{System.String})
+  name: UnexpectedEndOfStreamException(Nullable<String>)
+  href: api/MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.html#MarcusW_VncClient_Protocol_UnexpectedEndOfStreamException__ctor_System_Nullable_System_String__
+  commentId: M:MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor(System.Nullable{System.String})
+  name.vb: UnexpectedEndOfStreamException(Nullable(Of String))
+  fullName: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(System.Nullable<System.String>)
+  fullName.vb: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(System.Nullable(Of System.String))
+  nameWithType: UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(Nullable<String>)
+  nameWithType.vb: UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(Nullable(Of String))
+- uid: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
+  name: UnexpectedEndOfStreamException(Nullable<String>, Nullable<Exception>)
+  href: api/MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.html#MarcusW_VncClient_Protocol_UnexpectedEndOfStreamException__ctor_System_Nullable_System_String__System_Nullable_System_Exception__
+  commentId: M:MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor(System.Nullable{System.String},System.Nullable{System.Exception})
+  name.vb: UnexpectedEndOfStreamException(Nullable(Of String), Nullable(Of Exception))
+  fullName: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(System.Nullable<System.String>, System.Nullable<System.Exception>)
+  fullName.vb: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(System.Nullable(Of System.String), System.Nullable(Of System.Exception))
+  nameWithType: UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(Nullable<String>, Nullable<Exception>)
+  nameWithType.vb: UnexpectedEndOfStreamException.UnexpectedEndOfStreamException(Nullable(Of String), Nullable(Of Exception))
+- uid: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor*
+  name: UnexpectedEndOfStreamException
+  href: api/MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.html#MarcusW_VncClient_Protocol_UnexpectedEndOfStreamException__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.UnexpectedEndOfStreamException.UnexpectedEndOfStreamException
+  nameWithType: UnexpectedEndOfStreamException.UnexpectedEndOfStreamException
 - uid: MarcusW.VncClient.Rendering
   name: MarcusW.VncClient.Rendering
   href: api/MarcusW.VncClient.Rendering.html
@@ -1558,11 +1645,11 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Utils.BackgroundThread.StopAndWaitAsync
   nameWithType: BackgroundThread.StopAndWaitAsync
-- uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
+- uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(System.Threading.CancellationToken)
   name: ThreadWorker(CancellationToken)
-  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_ThreadWorker_CancellationToken_
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
-  fullName: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(CancellationToken)
+  href: api/MarcusW.VncClient.Utils.BackgroundThread.html#MarcusW_VncClient_Utils_BackgroundThread_ThreadWorker_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker(System.Threading.CancellationToken)
   nameWithType: BackgroundThread.ThreadWorker(CancellationToken)
 - uid: MarcusW.VncClient.Utils.BackgroundThread.ThreadWorker*
   name: ThreadWorker
@@ -1577,11 +1664,11 @@ references:
   commentId: T:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs
   fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs
   nameWithType: BackgroundThreadFailedEventArgs
-- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor(Exception)
+- uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor(System.Exception)
   name: BackgroundThreadFailedEventArgs(Exception)
-  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Utils_BackgroundThreadFailedEventArgs__ctor_Exception_
-  commentId: M:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor(Exception)
-  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
+  href: api/MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.html#MarcusW_VncClient_Utils_BackgroundThreadFailedEventArgs__ctor_System_Exception_
+  commentId: M:MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor(System.Exception)
+  fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(System.Exception)
   nameWithType: BackgroundThreadFailedEventArgs.BackgroundThreadFailedEventArgs(Exception)
 - uid: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.#ctor*
   name: BackgroundThreadFailedEventArgs
@@ -1621,13 +1708,13 @@ references:
   commentId: T:MarcusW.VncClient.VncClient
   fullName: MarcusW.VncClient.VncClient
   nameWithType: VncClient
-- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,System.Nullable{IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding}})
+- uid: MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,System.Nullable{System.Collections.Generic.IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding}})
   name: VncClient(ILoggerFactory, Nullable<IEnumerable<IEncoding>>)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_System_Nullable_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding___
-  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,System.Nullable{IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding}})
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient__ctor_ILoggerFactory_System_Nullable_System_Collections_Generic_IEnumerable_MarcusW_VncClient_Protocol_Encodings_IEncoding___
+  commentId: M:MarcusW.VncClient.VncClient.#ctor(ILoggerFactory,System.Nullable{System.Collections.Generic.IEnumerable{MarcusW.VncClient.Protocol.Encodings.IEncoding}})
   name.vb: VncClient(ILoggerFactory, Nullable(Of IEnumerable(Of IEncoding)))
-  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, System.Nullable<IEnumerable<MarcusW.VncClient.Protocol.Encodings.IEncoding>>)
-  fullName.vb: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, System.Nullable(Of IEnumerable(Of MarcusW.VncClient.Protocol.Encodings.IEncoding)))
+  fullName: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, System.Nullable<System.Collections.Generic.IEnumerable<MarcusW.VncClient.Protocol.Encodings.IEncoding>>)
+  fullName.vb: MarcusW.VncClient.VncClient.VncClient(ILoggerFactory, System.Nullable(Of System.Collections.Generic.IEnumerable(Of MarcusW.VncClient.Protocol.Encodings.IEncoding)))
   nameWithType: VncClient.VncClient(ILoggerFactory, Nullable<IEnumerable<IEncoding>>)
   nameWithType.vb: VncClient.VncClient(ILoggerFactory, Nullable(Of IEnumerable(Of IEncoding)))
 - uid: MarcusW.VncClient.VncClient.#ctor*
@@ -1637,11 +1724,11 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.VncClient.VncClient
   nameWithType: VncClient.VncClient
-- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,CancellationToken)
+- uid: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,System.Threading.CancellationToken)
   name: ConnectAsync(ConnectParameters, CancellationToken)
-  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_CancellationToken_
-  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,CancellationToken)
-  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, CancellationToken)
+  href: api/MarcusW.VncClient.VncClient.html#MarcusW_VncClient_VncClient_ConnectAsync_MarcusW_VncClient_ConnectParameters_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.VncClient.ConnectAsync(MarcusW.VncClient.ConnectParameters, System.Threading.CancellationToken)
   nameWithType: VncClient.ConnectAsync(ConnectParameters, CancellationToken)
 - uid: MarcusW.VncClient.VncClient.ConnectAsync*
   name: ConnectAsync
