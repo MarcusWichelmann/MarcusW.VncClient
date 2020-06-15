@@ -3,8 +3,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol.Services;
 
-namespace MarcusW.VncClient.Protocol.Services.Connection
+namespace MarcusW.VncClient.Protocol.Implementation.Services.Connection
 {
     /// <inheritdoc />
     public class TcpConnector : ITcpConnector

@@ -1,21 +1,21 @@
-using System;
 using System.Collections.Generic;
 using MarcusW.VncClient.Protocol.Encodings;
-using MarcusW.VncClient.Protocol.Services.Communication;
-using MarcusW.VncClient.Protocol.Services.Connection;
-using MarcusW.VncClient.Protocol.Services.Handshaking;
+using MarcusW.VncClient.Protocol.Implementation.Services.Communication;
+using MarcusW.VncClient.Protocol.Implementation.Services.Connection;
+using MarcusW.VncClient.Protocol.Implementation.Services.Handshaking;
+using MarcusW.VncClient.Protocol.Services;
 
-namespace MarcusW.VncClient.Protocol
+namespace MarcusW.VncClient.Protocol.Implementation
 {
     /// <summary>
     /// Default implementation of the RFB protocol.
     /// </summary>
-    public class RfbProtocol : IRfbProtocolImplementation
+    public class DefaultImplementation : IRfbProtocolImplementation
     {
         /// <inheritdoc />
         public IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
 
-        internal RfbProtocol(IReadOnlyCollection<IEncoding> supportedEncodings)
+        internal DefaultImplementation(IReadOnlyCollection<IEncoding> supportedEncodings)
         {
             SupportedEncodings = supportedEncodings;
         }

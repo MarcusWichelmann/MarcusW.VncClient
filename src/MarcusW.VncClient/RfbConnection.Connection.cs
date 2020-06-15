@@ -5,8 +5,6 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
-using MarcusW.VncClient.Protocol.Services.Communication;
-using MarcusW.VncClient.Protocol.Services.Handshaking;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging;
 
@@ -32,19 +30,28 @@ namespace MarcusW.VncClient
             // Create a new connection context
             var context = new RfbConnectionContext(this);
 
-            // Establish a new TCP connection
-            context.TcpClient = await ProtocolImplementation.CreateTcpConnector(context).ConnectAsync(cancellationToken)
-                .ConfigureAwait(false);
+            try
+            {
+                // Establish a new TCP connection
+                context.TcpClient = await ProtocolImplementation.CreateTcpConnector(context).ConnectAsync(cancellationToken).ConfigureAwait(false);
 
-            // Do the handshake
-            context.HandshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context)
-                .DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
+                // Do the handshake
+                context.HandshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
 
-            // TODO: Initialization, ...
+                // TODO: Initialization, ...
 
-            // Setup new receive loop
-            context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);
-            context.MessageReceiver.StartReceiveLoop();
+                // Setup new receive loop
+                context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);
+                context.MessageReceiver.StartReceiveLoop();
+            }
+            catch
+            {
+                // Ensure cleanup on failure
+                context.MessageReceiver?.Dispose();
+                context.TcpClient?.Dispose();
+
+                throw;
+            }
 
             // From now on, exceptions will only land in the Failed event handler.
             // This should be the last real operation to ensure that exceptions are not propagated by two ways at the same time.
@@ -94,7 +101,6 @@ namespace MarcusW.VncClient
         }
 
         // Forward to main class part
-        private void MessageReceiverOnFailed(object? sender, BackgroundThreadFailedEventArgs e)
-            => OnRunningConnectionFailed();
+        private void MessageReceiverOnFailed(object? sender, BackgroundThreadFailedEventArgs e) => OnRunningConnectionFailed();
     }
 }

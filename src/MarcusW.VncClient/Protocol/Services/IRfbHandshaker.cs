@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MarcusW.VncClient.Protocol.Services.Handshaking
+namespace MarcusW.VncClient.Protocol.Services
 {
     /// <summary>
     /// Provides methods for doing a RFB compliant handshake.

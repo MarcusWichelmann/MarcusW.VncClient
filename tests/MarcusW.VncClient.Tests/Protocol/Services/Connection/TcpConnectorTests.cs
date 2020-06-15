@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using MarcusW.VncClient.Protocol.Services.Connection;
+using MarcusW.VncClient.Protocol.Implementation.Services.Connection;
 using Xunit;
 
 namespace MarcusW.VncClient.Tests.Protocol.Services.Connection

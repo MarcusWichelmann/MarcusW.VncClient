@@ -15,8 +15,8 @@ namespace AvaloniaVncClient.ViewModels
     {
         private readonly ConnectionManager _connectionManager;
 
-        private string _host = "::1";
-        private int _port = 5902;
+        private string _host = "fedora-vm";
+        private int _port = 5901;
         private RfbConnection? _rfbConnection;
         private string? _errorMessage;
 

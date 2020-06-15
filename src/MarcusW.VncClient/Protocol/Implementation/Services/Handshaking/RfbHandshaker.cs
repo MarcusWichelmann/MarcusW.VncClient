@@ -1,13 +1,13 @@
 using System;
-using System.Buffers.Binary;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol.Services;
 using Microsoft.Extensions.Logging;
 
-namespace MarcusW.VncClient.Protocol.Services.Handshaking
+namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 {
     /// <inheritdoc />
     public class RfbHandshaker : IRfbHandshaker

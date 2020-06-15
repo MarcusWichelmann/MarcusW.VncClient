@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace MarcusW.VncClient.Protocol.Services.Handshaking
+namespace MarcusW.VncClient.Protocol
 {
     /// <summary>
     /// Provides information about the outcome of a client-server handshake.

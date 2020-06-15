@@ -1,4 +1,6 @@
-namespace MarcusW.VncClient.Protocol.Services.Communication
+using MarcusW.VncClient.Protocol.Services;
+
+namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 {
     /// <inheritdoc />
     public class RfbMessageSender : IRfbMessageSender

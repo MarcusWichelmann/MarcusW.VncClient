@@ -1,10 +1,8 @@
-using System;
-using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MarcusW.VncClient.Protocol.Services.Connection
+namespace MarcusW.VncClient.Protocol.Services
 {
     /// <summary>
     /// Provides methods for establishing TCP connections used for the RFB protocol.

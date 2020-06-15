@@ -1,8 +1,7 @@
 using System;
 using System.IO;
 using System.Net.Sockets;
-using MarcusW.VncClient.Protocol.Services.Communication;
-using MarcusW.VncClient.Protocol.Services.Handshaking;
+using MarcusW.VncClient.Protocol.Services;
 
 namespace MarcusW.VncClient.Protocol
 {
