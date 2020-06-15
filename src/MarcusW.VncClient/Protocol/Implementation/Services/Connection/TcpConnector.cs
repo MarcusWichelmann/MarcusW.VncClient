@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Protocol.Implementation.Services.Connection
 {
@@ -11,18 +12,23 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Connection
     public class TcpConnector : ITcpConnector
     {
         private readonly ConnectParameters _connectParameters;
-        internal TcpConnector(RfbConnectionContext context) : this(context.Connection.Parameters) { }
+        private readonly ILogger<TcpConnector> _logger;
+
+        internal TcpConnector(RfbConnectionContext context) : this(context.Connection.Parameters, context.Connection.LoggerFactory.CreateLogger<TcpConnector>()) { }
 
         // For uint testing only
-        internal TcpConnector(ConnectParameters connectParameters)
+        internal TcpConnector(ConnectParameters connectParameters, ILogger<TcpConnector> logger)
         {
             _connectParameters = connectParameters;
+            _logger = logger;
         }
 
         /// <inheritdoc />
         public async Task<TcpClient> ConnectAsync(CancellationToken cancellationToken = default)
         {
             IPEndPoint endpoint = _connectParameters.Endpoint!;
+
+            _logger.LogDebug($"Starting connect attempt to endpoint {endpoint}...");
 
             // Create a cancellation token source that cancels on timeout or manual cancel
             using var timeoutCts = new CancellationTokenSource(_connectParameters.ConnectTimeout);

@@ -79,6 +79,7 @@ namespace AvaloniaVncClient.ViewModels
                 // TODO: Configure connect parameters
                 var parameters = new ConnectParameters {
                     // TODO: Pass multiple addresses, because the first one might not be the reachable one (e.g. no dual stack)
+                    // TODO: Maybe move the resolve logic to the TcpConnector and just pass the host string and port?
                     Endpoint = new IPEndPoint(hostEntry.AddressList.First(), Port)
                 };
 

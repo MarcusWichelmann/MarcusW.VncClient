@@ -17,8 +17,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
         private readonly byte[] _readBuffer = new byte[32];
 
-        internal RfbHandshaker(RfbConnectionContext context) : this(context.Stream,
-            context.Connection.LoggerFactory.CreateLogger<RfbHandshaker>()) { }
+        internal RfbHandshaker(RfbConnectionContext context) : this(context.Stream, context.Connection.LoggerFactory.CreateLogger<RfbHandshaker>()) { }
 
         // For uint testing only
         internal RfbHandshaker(Stream stream, ILogger<RfbHandshaker> logger)
@@ -32,30 +31,65 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            RfbProtocolVersion protocolVersion =
-                await ReadProtocolVersionAsync(cancellationToken).ConfigureAwait(false);
+            _logger.LogDebug("Doing protocol handshake...");
 
-            return new HandshakeResult(protocolVersion);
+            // Read maximum supported server protocol version
+            RfbProtocolVersion serverProtocolVersion = await ReadProtocolVersionAsync(cancellationToken).ConfigureAwait(false);
+
+            // Select used protocol version
+            RfbProtocolVersion clientProtocolVersion;
+            if (serverProtocolVersion == RfbProtocolVersion.Unknown)
+            {
+                clientProtocolVersion = RfbProtocolVersions.Latest;
+                _logger.LogDebug($"Supported server protocol version is unknown, too new? Trying latest protocol version {clientProtocolVersion}.");
+            }
+            else if (serverProtocolVersion > RfbProtocolVersions.Latest)
+            {
+                clientProtocolVersion = RfbProtocolVersions.Latest;
+                _logger.LogDebug($"Supported server protocol version {serverProtocolVersion} is too new. Requesting latest version supported by the client.");
+            }
+            else
+            {
+                clientProtocolVersion = serverProtocolVersion;
+                _logger.LogDebug($"Server supports protocol version {serverProtocolVersion}. Choosing that as the highest one that's supported by both sides.");
+            }
+
+            // Send selected protocol version
+            await SendProtocolVersionAsync(clientProtocolVersion, cancellationToken).ConfigureAwait(false);
+
+            
+
+            return new HandshakeResult(serverProtocolVersion);
         }
 
-        public async Task<RfbProtocolVersion> ReadProtocolVersionAsync(CancellationToken cancellationToken = default)
+        private async Task<RfbProtocolVersion> ReadProtocolVersionAsync(CancellationToken cancellationToken = default)
         {
+            _logger.LogDebug("Reading protocol version...");
+
             // The protocol version info always consists of 12 bytes
             ReadOnlyMemory<byte> bytes = await ReadBytesAsync(12, cancellationToken).ConfigureAwait(false);
             string protocolVersionString = Encoding.ASCII.GetString(bytes.Span).TrimEnd('\n');
 
-            return protocolVersionString switch {
-                "RFB 003.003" => RfbProtocolVersion.RFB_3_3,
-                "RFB 003.005" => RfbProtocolVersion.RFB_3_3, // Interpret as 3.3
-                "RFB 003.007" => RfbProtocolVersion.RFB_3_7,
-                "RFB 003.008" => RfbProtocolVersion.RFB_3_8,
-                _             => throw new UnexpectedDataException($"Unexpected RFB version {protocolVersionString}.")
-            };
+            RfbProtocolVersion protocolVersion = RfbProtocolVersions.GetFromStringRepresentation(Encoding.ASCII.GetString(bytes.Span).TrimEnd('\n'));
+            if (protocolVersion == RfbProtocolVersion.Unknown)
+                _logger.LogWarning($"Unknown protocol version {protocolVersionString}.");
+
+            return protocolVersion;
+        }
+
+        private async Task SendProtocolVersionAsync(RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default)
+        {
+            _logger.LogDebug($"Sending protocol version {protocolVersion}...");
+
+            string protocolVersionString = protocolVersion.GetStringRepresentation() + '\n';
+            byte[] bytes = Encoding.ASCII.GetBytes(protocolVersionString);
+            Debug.Assert(bytes.Length == 12, "bytes.Length == 12");
+
+            await _stream.WriteAsync(bytes, cancellationToken).ConfigureAwait(false);
         }
 
         // Helper method to read a chunk of bytes from the stream. Not thread-safe!
-        private async Task<ReadOnlyMemory<byte>> ReadBytesAsync(int numBytes,
-            CancellationToken cancellationToken = default)
+        private async Task<ReadOnlyMemory<byte>> ReadBytesAsync(int numBytes, CancellationToken cancellationToken = default)
         {
             Debug.Assert(numBytes <= _readBuffer.Length, "numBytes <= _readBuffer.Length");
 
@@ -64,11 +98,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             var bytesRead = 0;
             do
             {
-                int read = await _stream.ReadAsync(_readBuffer, bytesRead, numBytes - bytesRead, cancellationToken)
-                    .ConfigureAwait(false);
+                int read = await _stream.ReadAsync(_readBuffer, bytesRead, numBytes - bytesRead, cancellationToken).ConfigureAwait(false);
                 if (read == 0)
-                    throw new UnexpectedEndOfStreamException(
-                        $"Stream reached its end while trying to read {numBytes} bytes.");
+                    throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to read {numBytes} bytes.");
 
                 bytesRead += read;
             }
