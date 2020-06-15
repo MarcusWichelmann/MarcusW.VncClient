@@ -6,29 +6,38 @@ using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.Services;
 using Microsoft.Extensions.Logging;
 
-namespace MarcusW.VncClient.Protocol.Implementation.Services.Connection
+namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
 {
     /// <inheritdoc />
-    public class TcpConnector : ITcpConnector
+    public class TransportConnector : ITransportConnector
     {
         private readonly ConnectParameters _connectParameters;
-        private readonly ILogger<TcpConnector> _logger;
+        private readonly ILogger<TransportConnector> _logger;
 
-        internal TcpConnector(RfbConnectionContext context) : this(context.Connection.Parameters, context.Connection.LoggerFactory.CreateLogger<TcpConnector>()) { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransportConnector"/>.
+        /// </summary>
+        /// <param name="context">The connection context.</param>
+        public TransportConnector(RfbConnectionContext context) : this((context ?? throw new ArgumentNullException(nameof(context))).Connection.Parameters,
+            context.Connection.LoggerFactory.CreateLogger<TransportConnector>()) { }
 
         // For uint testing only
-        internal TcpConnector(ConnectParameters connectParameters, ILogger<TcpConnector> logger)
+        internal TransportConnector(ConnectParameters connectParameters, ILogger<TransportConnector> logger)
         {
             _connectParameters = connectParameters;
             _logger = logger;
         }
 
         /// <inheritdoc />
-        public async Task<TcpClient> ConnectAsync(CancellationToken cancellationToken = default)
+        public async Task<ITransport> ConnectAsync(CancellationToken cancellationToken = default)
         {
-            IPEndPoint endpoint = _connectParameters.Endpoint!;
+            // TODO: Support different transport types (SSH?) by adding some parameters (dynamic endpoint type interface?) to ConnectParameters and differentiating here.
+            return await ConnectTcpTransportAsync(_connectParameters.Endpoint!, cancellationToken).ConfigureAwait(false);
+        }
 
-            _logger.LogDebug($"Starting connect attempt to endpoint {endpoint}...");
+        private async Task<TcpTransport> ConnectTcpTransportAsync(IPEndPoint endpoint, CancellationToken cancellationToken = default)
+        {
+            _logger.LogDebug($"Connecting to TCP endpoint {endpoint}...");
 
             // Create a cancellation token source that cancels on timeout or manual cancel
             using var timeoutCts = new CancellationTokenSource(_connectParameters.ConnectTimeout);
@@ -60,7 +69,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Connection
                 throw new TimeoutException("Connect timeout reached.");
             }
 
-            return tcpClient;
+            return new TcpTransport(tcpClient);
         }
     }
 }

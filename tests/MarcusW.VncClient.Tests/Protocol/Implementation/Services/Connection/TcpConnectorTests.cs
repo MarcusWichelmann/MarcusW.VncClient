@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using MarcusW.VncClient.Protocol.Implementation.Services.Connection;
+using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using Xunit;
 
 namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
@@ -29,7 +29,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
         [Fact]
         public async Task Connects_Successfully()
         {
-            var connector = new TcpConnector(new ConnectParameters {
+            var connector = new TransportConnector(new ConnectParameters {
                 Endpoint = _testEndpoint,
                 ConnectTimeout = Timeout.InfiniteTimeSpan
             });
@@ -45,7 +45,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
         [Fact]
         public async Task Throws_On_Timeout()
         {
-            var connector = new TcpConnector(new ConnectParameters {
+            var connector = new TransportConnector(new ConnectParameters {
                 Endpoint = _droppingEndpoint,
                 ConnectTimeout = TimeSpan.FromSeconds(1)
             });
@@ -60,7 +60,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
         {
             using var cts = new CancellationTokenSource();
 
-            var connector = new TcpConnector(new ConnectParameters {
+            var connector = new TransportConnector(new ConnectParameters {
                 Endpoint = _droppingEndpoint,
                 ConnectTimeout = Timeout.InfiniteTimeSpan
             });

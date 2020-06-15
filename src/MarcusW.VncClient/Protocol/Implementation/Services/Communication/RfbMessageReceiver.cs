@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.Services;
@@ -15,9 +16,13 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         private readonly RfbConnectionContext _context;
         private readonly ILogger<RfbMessageReceiver> _logger;
 
-        internal RfbMessageReceiver(RfbConnectionContext context) : base("RFB Message Receiver")
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RfbMessageReceiver"/>.
+        /// </summary>
+        /// <param name="context">The connection context.</param>
+        public RfbMessageReceiver(RfbConnectionContext context) : base("RFB Message Receiver")
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
 
             // Log failure events from background thread base

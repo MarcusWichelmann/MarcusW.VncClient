@@ -32,8 +32,8 @@ namespace MarcusW.VncClient
 
             try
             {
-                // Establish a new TCP connection
-                context.TcpClient = await ProtocolImplementation.CreateTcpConnector(context).ConnectAsync(cancellationToken).ConfigureAwait(false);
+                // Establish a new transport connection
+                context.Transport = await ProtocolImplementation.CreateTransportConnector(context).ConnectAsync(cancellationToken).ConfigureAwait(false);
 
                 // Do the handshake
                 context.HandshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
@@ -48,7 +48,7 @@ namespace MarcusW.VncClient
             {
                 // Ensure cleanup on failure
                 context.MessageReceiver?.Dispose();
-                context.TcpClient?.Dispose();
+                context.Transport?.Dispose();
 
                 throw;
             }
@@ -74,7 +74,7 @@ namespace MarcusW.VncClient
                 await _activeConnection.MessageReceiver.StopReceiveLoopAsync().ConfigureAwait(false);
 
             // Close connection
-            _activeConnection.TcpClient?.Close();
+            _activeConnection.Transport?.Dispose();
 
             CleanupPreviousConnection();
         }
@@ -91,10 +91,10 @@ namespace MarcusW.VncClient
                 _activeConnection.MessageReceiver = null;
             }
 
-            if (_activeConnection.TcpClient != null)
+            if (_activeConnection.Transport != null)
             {
-                _activeConnection.TcpClient.Dispose();
-                _activeConnection.TcpClient = null;
+                _activeConnection.Transport.Dispose();
+                _activeConnection.Transport = null;
             }
 
             _activeConnection = null;

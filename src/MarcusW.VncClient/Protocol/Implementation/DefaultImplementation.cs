@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Protocol.Implementation.Services.Communication;
-using MarcusW.VncClient.Protocol.Implementation.Services.Connection;
 using MarcusW.VncClient.Protocol.Implementation.Services.Handshaking;
+using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using MarcusW.VncClient.Protocol.Services;
 
 namespace MarcusW.VncClient.Protocol.Implementation
@@ -32,7 +32,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <inheritdoc />
-        public ITcpConnector CreateTcpConnector(RfbConnectionContext context) => new TcpConnector(context);
+        public ITransportConnector CreateTransportConnector(RfbConnectionContext context) => new TransportConnector(context);
 
         /// <inheritdoc />
         public IRfbHandshaker CreateRfbHandshaker(RfbConnectionContext context) => new RfbHandshaker(context);
@@ -41,7 +41,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public IRfbMessageReceiver CreateMessageReceiver(RfbConnectionContext context) => new RfbMessageReceiver(context);
 
         /// <inheritdoc />
-        public IRfbMessageSender CreateMessageSender(RfbConnectionContext context) => new RfbMessageSender();
+        public IRfbMessageSender CreateMessageSender(RfbConnectionContext context) => new RfbMessageSender(context);
 
         /// <summary>
         /// Builds a collection with all RFB encodings that are officially supported by this protocol implementation.

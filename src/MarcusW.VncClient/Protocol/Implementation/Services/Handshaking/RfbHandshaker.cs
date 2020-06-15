@@ -12,17 +12,22 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
     /// <inheritdoc />
     public class RfbHandshaker : IRfbHandshaker
     {
-        private readonly Stream _stream;
+        private readonly ITransport _transport;
         private readonly ILogger<RfbHandshaker> _logger;
 
         private readonly byte[] _readBuffer = new byte[32];
 
-        internal RfbHandshaker(RfbConnectionContext context) : this(context.Stream, context.Connection.LoggerFactory.CreateLogger<RfbHandshaker>()) { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RfbHandshaker"/>.
+        /// </summary>
+        /// <param name="context">The connection context.</param>
+        public RfbHandshaker(RfbConnectionContext context) : this((context ?? throw new ArgumentNullException(nameof(context))).Transport,
+            context.Connection.LoggerFactory.CreateLogger<RfbHandshaker>()) { }
 
         // For uint testing only
-        internal RfbHandshaker(Stream stream, ILogger<RfbHandshaker> logger)
+        internal RfbHandshaker(ITransport transport, ILogger<RfbHandshaker> logger)
         {
-            _stream = stream;
+            _transport = transport;
             _logger = logger;
         }
 
@@ -57,8 +62,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             // Send selected protocol version
             await SendProtocolVersionAsync(clientProtocolVersion, cancellationToken).ConfigureAwait(false);
 
-            
-
             return new HandshakeResult(serverProtocolVersion);
         }
 
@@ -85,7 +88,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             byte[] bytes = Encoding.ASCII.GetBytes(protocolVersionString);
             Debug.Assert(bytes.Length == 12, "bytes.Length == 12");
 
-            await _stream.WriteAsync(bytes, cancellationToken).ConfigureAwait(false);
+            await _transport.Stream.WriteAsync(bytes, cancellationToken).ConfigureAwait(false);
         }
 
         // Helper method to read a chunk of bytes from the stream. Not thread-safe!
@@ -98,7 +101,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             var bytesRead = 0;
             do
             {
-                int read = await _stream.ReadAsync(_readBuffer, bytesRead, numBytes - bytesRead, cancellationToken).ConfigureAwait(false);
+                int read = await _transport.Stream.ReadAsync(_readBuffer, bytesRead, numBytes - bytesRead, cancellationToken).ConfigureAwait(false);
                 if (read == 0)
                     throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to read {numBytes} bytes.");
 

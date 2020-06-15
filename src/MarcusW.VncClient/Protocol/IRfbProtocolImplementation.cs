@@ -15,11 +15,11 @@ namespace MarcusW.VncClient.Protocol
         IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
 
         /// <summary>
-        /// Creates a new <see cref="ITcpConnector"/>.
+        /// Creates a new <see cref="ITransportConnector"/>.
         /// </summary>
         /// <param name="context">Details about the associated connection.</param>
-        /// <returns>A new instance of the TCP connector.</returns>
-        ITcpConnector CreateTcpConnector(RfbConnectionContext context);
+        /// <returns>A new instance of the transport connector.</returns>
+        ITransportConnector CreateTransportConnector(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new <see cref="IRfbHandshaker"/>.

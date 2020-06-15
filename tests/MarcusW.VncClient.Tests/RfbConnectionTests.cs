@@ -15,7 +15,7 @@ namespace MarcusW.VncClient.Tests
 {
     public class RfbConnectionTests
     {
-        private readonly Mock<ITcpConnector> _tcpConnectorMock;
+        private readonly Mock<ITransportConnector> _tcpConnectorMock;
         private readonly Mock<IRfbHandshaker> _rfbHandshakerMock;
         private readonly Mock<IRfbMessageReceiver> _messageReceiverMock;
 
@@ -23,7 +23,7 @@ namespace MarcusW.VncClient.Tests
 
         public RfbConnectionTests()
         {
-            _tcpConnectorMock = new Mock<ITcpConnector>();
+            _tcpConnectorMock = new Mock<ITransportConnector>();
             _rfbHandshakerMock = new Mock<IRfbHandshaker>();
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 

@@ -18,30 +18,25 @@ namespace MarcusW.VncClient.Protocol
         /// </summary>
         public RfbConnection Connection { get; }
 
-        internal TcpClient? TcpClient { get; set; }
+        /// <summary>
+        /// Gets the current transport layer used by the protocol.
+        /// Please note, that this might be replaced with tunnel transports during the handshake procedure.
+        /// </summary>
+        public ITransport? Transport { get; internal set; }
 
         /// <summary>
-        /// Gets the result of the initial handshake.
+        /// Gets or sets the result of the initial handshake.
         /// </summary>
         public HandshakeResult? HandshakeResult { get; internal set; }
 
         /// <summary>
-        /// Gets the <see cref="IRfbMessageReceiver"/> for this connection.
+        /// Gets or sets the <see cref="IRfbMessageReceiver"/> for this connection.
         /// </summary>
         public IRfbMessageReceiver? MessageReceiver { get; internal set; }
 
         // TODO: Message sender etc...
 
-        /// <summary>
-        /// Gets the base stream for receiving and sending server messages.
-        /// Should only be used inside of custom protocol implementation classes.
-        /// </summary>
-        public Stream Stream
-            => TcpClient?.GetStream() ?? throw new InvalidOperationException("Stream is not accessible yet.");
-
-        public RfbProtocolVersion ProtocolVersion
-            => HandshakeResult?.ProtocolVersion
-                ?? throw new InvalidOperationException("Protocol handshake has not completed yet.");
+        public RfbProtocolVersion ProtocolVersion => HandshakeResult?.ProtocolVersion ?? throw new InvalidOperationException("Protocol handshake has not completed yet.");
 
         internal RfbConnectionContext(RfbConnection connection)
         {
