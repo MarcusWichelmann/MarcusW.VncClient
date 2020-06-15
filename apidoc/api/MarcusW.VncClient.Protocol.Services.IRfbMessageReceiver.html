@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ITcpConnector
+    <title>Interface IRfbMessageReceiver
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ITcpConnector
+    <meta name="title" content="Interface IRfbMessageReceiver
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,56 +68,63 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver">
   
   
-  <h1 id="MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector" data-uid="MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector" class="text-break">Interface ITcpConnector
+  <h1 id="MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver" class="text-break">Interface IRfbMessageReceiver
   </h1>
-  <div class="markdown level0 summary"><p>Provides methods for establishing TCP connections used for the RFB protocol.</p>
+  <div class="markdown level0 summary"><p>Describes a background thread that receives and processes RFB protocol messages.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.Connection.html">MarcusW.VncClient.Protocol.Services.Connection</a></h6>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Utils.IBackgroundThread.html#MarcusW_VncClient_Utils_IBackgroundThread_Failed">IBackgroundThread.Failed</a>
+    </div>
+    <div>
+      <span class="xref">System.IDisposable.Dispose()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.html">MarcusW.VncClient.Protocol.Services</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_syntax">Syntax</h5>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ITcpConnector</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IRfbMessageReceiver : IBackgroundThread, IDisposable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_StartReceiveLoop.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.StartReceiveLoop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/Connection/ITcpConnector.cs/#L19">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageReceiver.cs/#L14">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_" data-uid="MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector_ConnectAsync_System_Threading_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)">ConnectAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Connects to the specified endpoint and returns the connected <span class="xref">System.Net.Sockets.TcpClient</span>.</p>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_StartReceiveLoop_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.StartReceiveLoop*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_StartReceiveLoop" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.StartReceiveLoop">StartReceiveLoop()</h4>
+  <div class="markdown level1 summary"><p>Starts the receive loop.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;TcpClient&gt; ConnectAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">void StartReceiveLoop()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The cancellation token.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_StopReceiveLoopAsync.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.StopReceiveLoopAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageReceiver.cs/#L19">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_StopReceiveLoopAsync_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.StopReceiveLoopAsync*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver_StopReceiveLoopAsync" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.StopReceiveLoopAsync">StopReceiveLoopAsync()</h4>
+  <div class="markdown level1 summary"><p>Stops the receive loop and waits for completion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task StopReceiveLoopAsync()</code></pre>
+  </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -128,9 +135,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Net.Sockets.TcpClient</span>&gt;</td>
-        <td><p>The connected client.</p>
-</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -142,10 +148,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_Connection_ITcpConnector.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.Connection.ITcpConnector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageReceiver.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/Connection/ITcpConnector.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageReceiver.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class VncDefaults
+    <title>Interface IRfbHandshaker
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class VncDefaults
+    <meta name="title" content="Interface IRfbHandshaker
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,68 +68,56 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.VncDefaults">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.IRfbHandshaker">
   
   
-  <h1 id="MarcusW_VncClient_VncDefaults" data-uid="MarcusW.VncClient.VncDefaults" class="text-break">Class VncDefaults
+  <h1 id="MarcusW_VncClient_Protocol_Services_IRfbHandshaker" data-uid="MarcusW.VncClient.Protocol.Services.IRfbHandshaker" class="text-break">Interface IRfbHandshaker
   </h1>
-  <div class="markdown level0 summary"><p>Provides default values for VNC Client options.</p>
+  <div class="markdown level0 summary"><p>Provides methods for doing a RFB compliant handshake.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">VncDefaults</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.html">MarcusW.VncClient</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.html">MarcusW.VncClient.Protocol.Services</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_VncDefaults_syntax">Syntax</h5>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IRfbHandshaker_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class VncDefaults</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IRfbHandshaker</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncDefaults_GetEncodingsCollection.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncDefaults.GetEncodingsCollection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbHandshaker_DoHandshakeAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncDefaults.cs/#L16">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbHandshaker.cs/#L16">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_VncDefaults_GetEncodingsCollection_" data-uid="MarcusW.VncClient.VncDefaults.GetEncodingsCollection*"></a>
-  <h4 id="MarcusW_VncClient_VncDefaults_GetEncodingsCollection" data-uid="MarcusW.VncClient.VncDefaults.GetEncodingsCollection">GetEncodingsCollection()</h4>
-  <div class="markdown level1 summary"><p>Builds a collection with all RFB encodings that are officially supported by this library.
-Feel free to extend the returned enumerable with custom encodings.</p>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbHandshaker_DoHandshakeAsync_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbHandshaker.DoHandshakeAsync*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbHandshaker_DoHandshakeAsync_System_Threading_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbHandshaker.DoHandshakeAsync(System.Threading.CancellationToken)">DoHandshakeAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Executes a handshake.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEncoding&gt; GetEncodingsCollection()</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;HandshakeResult&gt; DoHandshakeAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -140,8 +128,8 @@ Feel free to extend the returned enumerable with custom encodings.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Encodings.IEncoding.html">IEncoding</a>&gt;</td>
-        <td><p>The encoding collection.</p>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.HandshakeResult.html">HandshakeResult</a>&gt;</td>
+        <td><p>Information about the handshake outcome.</p>
 </td>
       </tr>
     </tbody>
@@ -154,10 +142,10 @@ Feel free to extend the returned enumerable with custom encodings.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_VncDefaults.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.VncDefaults%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbHandshaker.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbHandshaker%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/VncDefaults.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbHandshaker.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
