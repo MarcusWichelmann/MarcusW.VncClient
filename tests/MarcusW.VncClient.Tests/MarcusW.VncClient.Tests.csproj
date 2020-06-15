@@ -18,4 +18,8 @@
       <ProjectReference Include="..\..\src\MarcusW.VncClient\MarcusW.VncClient.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Protocol\Implementation" />
+    </ItemGroup>
+
 </Project>

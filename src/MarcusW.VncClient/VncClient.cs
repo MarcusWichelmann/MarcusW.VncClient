@@ -19,19 +19,23 @@ namespace MarcusW.VncClient
     public class VncClient
     {
         private readonly ILoggerFactory _loggerFactory;
-        private readonly IReadOnlyCollection<IEncoding> _supportedEncodings;
+        private readonly IRfbProtocolImplementation _protocolImplementation;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VncClient"/>.
         /// </summary>
         /// <param name="loggerFactory">The logger factory implementation that should be used for creating new loggers.</param>
-        /// <param name="supportedEncodings">The collection of supported encodings or <see langword="null"/> to use the default <see cref="VncDefaults.GetEncodingsCollection"/>.</param>
-        public VncClient(ILoggerFactory loggerFactory, IEnumerable<IEncoding>? supportedEncodings = null)
+        public VncClient(ILoggerFactory loggerFactory):this(loggerFactory,new DefaultImplementation()){}
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VncClient"/>.
+        /// </summary>
+        /// <param name="loggerFactory">The logger factory implementation that should be used for creating new loggers.</param>
+        /// <param name="protocolImplementation">The <see cref="IRfbProtocolImplementation"/> that should be used.</param>
+        public VncClient(ILoggerFactory loggerFactory, IRfbProtocolImplementation protocolImplementation)
         {
             _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
-
-            // TODO: Some other data type that allows faster lookup by encoding type? Array?
-            _supportedEncodings = (supportedEncodings ?? VncDefaults.GetEncodingsCollection()).ToList().AsReadOnly();
+            _protocolImplementation = protocolImplementation ?? throw new ArgumentNullException(nameof(protocolImplementation));
         }
 
         /// <summary>
@@ -53,9 +57,7 @@ namespace MarcusW.VncClient
             // Create a deep copy of the parameters object to make sure connection parameters cannot be changed afterwards.
             var parametersCopy = parameters.DeepCopy();
 
-            var protocolImplementation = new DefaultImplementation(_supportedEncodings);
-
-            var rfbConnection = new RfbConnection(protocolImplementation, _loggerFactory, parametersCopy);
+            var rfbConnection = new RfbConnection(_protocolImplementation, _loggerFactory, parametersCopy);
             await rfbConnection.StartAsync(cancellationToken).ConfigureAwait(false);
             return rfbConnection;
         }
