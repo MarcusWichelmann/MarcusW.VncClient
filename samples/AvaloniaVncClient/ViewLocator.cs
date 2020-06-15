@@ -19,7 +19,7 @@ namespace AvaloniaVncClient
             if (viewType == null)
                 return new TextBlock { Text = "Not Found: " + viewName };
 
-            return ((Control)Activator.CreateInstance(viewType))!;
+            return (Control)Activator.CreateInstance(viewType)!;
         }
 
         public bool Match(object data) => data is ViewModelBase;

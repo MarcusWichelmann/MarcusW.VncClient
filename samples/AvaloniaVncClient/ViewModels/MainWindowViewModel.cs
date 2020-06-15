@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Reactive;
 using System.Reactive.Linq;
@@ -53,11 +54,16 @@ namespace AvaloniaVncClient.ViewModels
 
         public MainWindowViewModel(ConnectionManager? connectionManager = null)
         {
-            _connectionManager = connectionManager ?? Locator.Current.GetService<ConnectionManager>()
-                ?? throw new ArgumentNullException(nameof(connectionManager));
+            _connectionManager = connectionManager ?? Locator.Current.GetService<ConnectionManager>() ?? throw new ArgumentNullException(nameof(connectionManager));
 
-            IObservable<bool> parametersValid = this.WhenAnyValue(vm => vm.Host, vm => vm.Port,
-                (host, port) => IPAddress.TryParse(host, out _) && port >= 0 && port <= 65535);
+            IObservable<bool> parametersValid = this.WhenAnyValue(vm => vm.Host, vm => vm.Port, (host, port) => {
+                // Is it an IP Address or a valid DNS/hostname?
+                if (Uri.CheckHostName(host) == UriHostNameType.Unknown)
+                    return false;
+
+                // Is the port valid?
+                return port >= 0 && port <= 65535;
+            });
             _parametersValidProperty = parametersValid.ToProperty(this, nameof(ParametersValid));
 
             ConnectCommand = ReactiveCommand.CreateFromTask(ConnectAsync, parametersValid);
@@ -65,16 +71,19 @@ namespace AvaloniaVncClient.ViewModels
 
         private async Task ConnectAsync(CancellationToken cancellationToken = default)
         {
-            // TODO: Configure connect parameters
-            var parameters = new ConnectParameters {
-                Endpoint = new IPEndPoint(IPAddress.Parse(Host), Port)
-            };
-
             try
             {
+                // Resolve hostname or IP address
+                IPHostEntry hostEntry = await Dns.GetHostEntryAsync(Host).ConfigureAwait(true);
+
+                // TODO: Configure connect parameters
+                var parameters = new ConnectParameters {
+                    // TODO: Pass multiple addresses, because the first one might not be the reachable one (e.g. no dual stack)
+                    Endpoint = new IPEndPoint(hostEntry.AddressList.First(), Port)
+                };
+
                 // Try to connect and set the connection
-                RfbConnection = await _connectionManager.ConnectAsync(parameters, cancellationToken)
-                    .ConfigureAwait(true);
+                RfbConnection = await _connectionManager.ConnectAsync(parameters, cancellationToken).ConfigureAwait(true);
 
                 ErrorMessage = null;
             }
