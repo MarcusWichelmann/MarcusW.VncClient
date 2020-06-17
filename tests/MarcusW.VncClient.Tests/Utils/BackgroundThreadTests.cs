@@ -2,7 +2,6 @@ using System;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Utils;
 using Moq;
 using Moq.Protected;
@@ -61,7 +60,7 @@ namespace MarcusW.VncClient.Tests.Utils
         {
             public CancellableThread() : base("Cancellable Thread") { }
 
-            public new void Start(CancellationToken cancellationToken = default) => base.Start();
+            public void Start(CancellationToken cancellationToken = default) => base.Start();
 
             public new Task StopAndWaitAsync() => base.StopAndWaitAsync();
 

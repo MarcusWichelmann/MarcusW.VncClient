@@ -4,9 +4,10 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
+using Microsoft.Extensions.Logging.Abstractions;
 using Xunit;
 
-namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
+namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports
 {
     public class TcpConnectorTests : IDisposable
     {
@@ -32,7 +33,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
             var connector = new TransportConnector(new ConnectParameters {
                 Endpoint = _testEndpoint,
                 ConnectTimeout = Timeout.InfiniteTimeSpan
-            });
+            }, new NullLogger<TransportConnector>());
             var connectTask = connector.ConnectAsync();
 
             // Accept client
@@ -48,7 +49,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
             var connector = new TransportConnector(new ConnectParameters {
                 Endpoint = _droppingEndpoint,
                 ConnectTimeout = TimeSpan.FromSeconds(1)
-            });
+            }, new NullLogger<TransportConnector>());
             var connectTask = connector.ConnectAsync();
 
             // Connect should throw
@@ -63,7 +64,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Services.Connection
             var connector = new TransportConnector(new ConnectParameters {
                 Endpoint = _droppingEndpoint,
                 ConnectTimeout = Timeout.InfiniteTimeSpan
-            });
+            }, new NullLogger<TransportConnector>());
             var connectTask = connector.ConnectAsync(cts.Token);
 
             // Task should still be alive

@@ -11,13 +11,13 @@ namespace AvaloniaVncClient.Services
         // TODO: https://reactiveui.net/docs/handbook/events/
 
         /// <inhertitdoc />
-        public async Task<IAuthenticationInput<TRequest>> ProvideAuthenticationInputAsync<TRequest>(RfbConnection connection, ISecurityType securityType, TRequest request)
+        public Task<IAuthenticationInput<TRequest>> ProvideAuthenticationInputAsync<TRequest>(RfbConnection connection, ISecurityType securityType, TRequest request)
             where TRequest : class, IAuthenticationInputRequest
         {
-            if (request is PasswordAuthenticationInputRequest passwordRequest)
+            if (request is PasswordAuthenticationInputRequest)
             {
                 // TODO: Request password from user
-                return (IAuthenticationInput<TRequest>)new PasswordAuthenticationInput("123456");
+                return Task.FromResult((IAuthenticationInput<TRequest>)new PasswordAuthenticationInput("123456"));
             }
 
             throw new InvalidOperationException("This authentication input request is not supported by this handler.");

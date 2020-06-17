@@ -1,5 +1,4 @@
 using System;
-using MarcusW.VncClient.Protocol;
 
 namespace MarcusW.VncClient.Utils
 {

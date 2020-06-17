@@ -1,7 +1,4 @@
 using System;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
@@ -15,7 +12,7 @@ namespace MarcusW.VncClient.Tests
 {
     public class RfbConnectionTests
     {
-        private readonly Mock<ITransportConnector> _tcpConnectorMock;
+        private readonly Mock<ITransportConnector> _transportConnectorMock;
         private readonly Mock<IRfbHandshaker> _rfbHandshakerMock;
         private readonly Mock<IRfbMessageReceiver> _messageReceiverMock;
 
@@ -23,13 +20,13 @@ namespace MarcusW.VncClient.Tests
 
         public RfbConnectionTests()
         {
-            _tcpConnectorMock = new Mock<ITransportConnector>();
+            _transportConnectorMock = new Mock<ITransportConnector>();
             _rfbHandshakerMock = new Mock<IRfbHandshaker>();
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 
             _protocolMock = new Mock<IRfbProtocolImplementation>();
-            _protocolMock.Setup(p => p.CreateTcpConnector(It.IsAny<RfbConnectionContext>()))
-                .Returns(_tcpConnectorMock.Object);
+            _protocolMock.Setup(p => p.CreateTransportConnector(It.IsAny<RfbConnectionContext>()))
+                .Returns(_transportConnectorMock.Object);
             _protocolMock.Setup(p => p.CreateRfbHandshaker(It.IsAny<RfbConnectionContext>()))
                 .Returns(_rfbHandshakerMock.Object);
             _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnectionContext>()))
@@ -81,7 +78,7 @@ namespace MarcusW.VncClient.Tests
             var connectParams = new ConnectParameters();
 
             // Make the initial connect fail.
-            _tcpConnectorMock.Setup(c => c.ConnectAsync(It.IsAny<CancellationToken>())).Throws<TimeoutException>();
+            _transportConnectorMock.Setup(c => c.ConnectAsync(It.IsAny<CancellationToken>())).Throws<TimeoutException>();
 
             var rfbConnection = new RfbConnection(_protocolMock.Object, new NullLoggerFactory(), connectParams);
 

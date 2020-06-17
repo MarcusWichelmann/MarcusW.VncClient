@@ -1,8 +1,6 @@
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using Avalonia.Logging;
-using Avalonia.Logging.Serilog;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Logging

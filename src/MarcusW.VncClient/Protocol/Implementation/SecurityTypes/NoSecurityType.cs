@@ -22,7 +22,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
         public int Priority => 1; // Anything is better than nothing. xD
 
         /// <inhertitdoc />
-        public async Task<AuthenticationResult> AuthenticateAsync(RfbProtocolVersion protocolVersion, IAuthenticationHandler authenticationHandler,
+        public Task<AuthenticationResult> AuthenticateAsync(RfbProtocolVersion protocolVersion, IAuthenticationHandler authenticationHandler,
             CancellationToken cancellationToken = default)
         {
             if (!Enum.IsDefined(typeof(RfbProtocolVersion), protocolVersion) || protocolVersion == RfbProtocolVersion.Unknown)
@@ -37,7 +37,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
             // The server will not answer with a SecurityResult message in earlier protocol versions.
             bool expectSecurityResult = protocolVersion >= RfbProtocolVersion.RFB_3_8;
 
-            return new AuthenticationResult(null, expectSecurityResult);
+            return Task.FromResult(new AuthenticationResult(null, expectSecurityResult));
         }
     }
 }

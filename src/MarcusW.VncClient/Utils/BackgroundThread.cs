@@ -2,7 +2,6 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using MarcusW.VncClient.Protocol;
 
 namespace MarcusW.VncClient.Utils
 {

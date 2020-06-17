@@ -22,12 +22,12 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// Gets the supported security types.
         /// </summary>
-        public IImmutableDictionary<byte, ISecurityType> SupportedSecurityTypes { get; internal set; }
+        public IImmutableDictionary<byte, ISecurityType>? SupportedSecurityTypes { get; internal set; }
 
         /// <summary>
         /// Gets the supported encodings.
         /// </summary>
-        public IImmutableDictionary<int, IEncoding> SupportedEncodings { get; internal set; }
+        public IImmutableDictionary<int, IEncoding>? SupportedEncodings { get; internal set; }
 
         /// <summary>
         /// Gets the current transport layer used by the protocol.

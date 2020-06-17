@@ -1,8 +1,4 @@
 using Avalonia;
-using MarcusW.VncClient.Avalonia.Adapters.Logging;
-using MarcusW.VncClient.Protocol.Encodings;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace MarcusW.VncClient.Avalonia
 {

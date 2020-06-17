@@ -1,14 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
-using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Protocol.Implementation;
-using MarcusW.VncClient.Rendering;
-using MarcusW.VncClient.Security;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient

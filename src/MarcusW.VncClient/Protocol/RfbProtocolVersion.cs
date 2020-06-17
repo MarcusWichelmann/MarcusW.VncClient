@@ -1,7 +1,5 @@
-using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using MarcusW.VncClient.Protocol;
 
 namespace MarcusW.VncClient.Protocol
 {

@@ -2,7 +2,6 @@ using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -125,7 +124,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 var id = (byte)securityTypeId;
 
                 // Search security type
-                if (!_context.SupportedSecurityTypes.ContainsKey(id))
+                if (!_context.SupportedSecurityTypes!.ContainsKey(id))
                     throw new HandshakeFailedException($"Server decided on the used security type, but no security type for the ID {id} is known.");
                 return _context.SupportedSecurityTypes[id];
             }
@@ -141,8 +140,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Read the security types supported by the server and find all security types that are known by our protocol implementation and supported by the server
             byte[] securityTypeIds = (await transport.Stream.ReadAllBytesAsync(numberOfSecurityTypes, cancellationToken).ConfigureAwait(false)).ToArray();
-            IEnumerable<ISecurityType> availableSecurityTypes = securityTypeIds.Where(id => _context.SupportedSecurityTypes.ContainsKey(id))
-                .Select(id => _context.SupportedSecurityTypes[id]);
+            IEnumerable<ISecurityType> availableSecurityTypes = securityTypeIds.Where(id => _context.SupportedSecurityTypes!.ContainsKey(id))
+                .Select(id => _context.SupportedSecurityTypes![id]);
 
             if (_logger.IsEnabled(LogLevel.Debug))
                 _logger.LogDebug("Server supports the following security types: {securityTypeIds}", string.Join(", ", securityTypeIds));

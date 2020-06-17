@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Protocol.SecurityTypes;
