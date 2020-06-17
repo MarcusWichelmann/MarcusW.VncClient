@@ -29,6 +29,8 @@ namespace MarcusW.VncClient
 
             // Create a new connection context
             var context = new RfbConnectionContext(this);
+            context.SupportedSecurityTypes = ProtocolImplementation.CreateSecurityTypesCollection(context);
+            context.SupportedEncodings = ProtocolImplementation.CreateEncodingsCollection(context);
 
             try
             {
@@ -36,7 +38,13 @@ namespace MarcusW.VncClient
                 context.Transport = await ProtocolImplementation.CreateTransportConnector(context).ConnectAsync(cancellationToken).ConfigureAwait(false);
 
                 // Do the handshake
-                context.HandshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
+                (HandshakeResult handshakeResult, ITransport? tunnelTransport) =
+                    await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
+                context.HandshakeResult = handshakeResult;
+
+                // Replace the current transport in case a tunnel has been built during handshake
+                if (tunnelTransport != null)
+                    context.Transport = tunnelTransport;
 
                 // TODO: Initialization, ...
 
@@ -44,8 +52,10 @@ namespace MarcusW.VncClient
                 context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);
                 context.MessageReceiver.StartReceiveLoop();
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogWarning(ex, "Connecting to VNC-Server on {endpoint} failed: {exception}", Parameters.Endpoint, ex.Message);
+
                 // Ensure cleanup on failure
                 context.MessageReceiver?.Dispose();
                 context.Transport?.Dispose();

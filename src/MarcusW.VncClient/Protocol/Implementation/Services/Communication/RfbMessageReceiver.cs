@@ -26,7 +26,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
 
             // Log failure events from background thread base
-            Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception", args.Exception);
+            Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception}", args.Exception);
         }
 
         /// <inheritdoc />

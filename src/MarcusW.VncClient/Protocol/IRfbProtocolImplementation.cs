@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
 
 namespace MarcusW.VncClient.Protocol
@@ -10,9 +12,26 @@ namespace MarcusW.VncClient.Protocol
     public interface IRfbProtocolImplementation
     {
         /// <summary>
-        /// Gets the supported encodings.
+        /// Creates a new collection of all supported <see cref="ISecurityType"/>s.
         /// </summary>
-        IReadOnlyCollection<IEncoding> SupportedEncodings { get; }
+        /// <remarks>
+        /// Make sure the security types are newly instantiated on each call, because it's
+        /// not guaranteed that they can safely be used across multiple connections simultaneously.
+        /// </remarks>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>An immutable dictionary that maps security type ids to security types.</returns>
+        IImmutableDictionary<byte, ISecurityType> CreateSecurityTypesCollection(RfbConnectionContext context);
+
+        /// <summary>
+        /// Creates a new collection of all supported <see cref="IEncoding"/>s.
+        /// </summary>
+        /// <remarks>
+        /// Make sure the encodings are newly instantiated on each call, because it's
+        /// not guaranteed that they can safely be used across multiple connections simultaneously.
+        /// </remarks>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>An immutable dictionary that maps encoding ids to encodings.</returns>
+        IImmutableDictionary<int, IEncoding> CreateEncodingsCollection(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new <see cref="ITransportConnector"/>.

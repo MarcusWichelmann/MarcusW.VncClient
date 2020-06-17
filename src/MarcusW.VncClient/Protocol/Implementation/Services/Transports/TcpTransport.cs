@@ -11,7 +11,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
     {
         private readonly TcpClient _tcpClient;
 
+        /// <inhertitdoc />
         public Stream Stream => _tcpClient.GetStream();
+
+        /// <inhertitdoc />
+        public bool IsEncrypted => false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TcpTransport"/>.

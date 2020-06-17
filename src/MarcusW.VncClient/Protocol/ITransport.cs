@@ -1,5 +1,8 @@
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MarcusW.VncClient.Protocol
 {
@@ -11,6 +14,14 @@ namespace MarcusW.VncClient.Protocol
     /// </remarks>
     public interface ITransport : IDisposable
     {
+        /// <summary>
+        /// Gets the stream for sending and receiving bytes.
+        /// </summary>
         Stream Stream { get; }
+
+        /// <summary>
+        /// Gets whether the data on this transport gets encrypted.
+        /// </summary>
+        bool IsEncrypted { get; }
     }
 }

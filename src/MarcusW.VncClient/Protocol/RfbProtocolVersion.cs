@@ -43,7 +43,7 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// The latest supported protocol version.
         /// </summary>
-        public static RfbProtocolVersion Latest = RfbProtocolVersion.RFB_3_8;
+        public static RfbProtocolVersion LatestSupported = RfbProtocolVersion.RFB_3_8;
 
         /// <summary>
         /// Returns the protocol version for the provided string representation.
