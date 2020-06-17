@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum RfbProtocolVersion
+    <title>Interface ITransportConnector
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum RfbProtocolVersion
+    <meta name="title" content="Interface ITransportConnector
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,55 +68,72 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.RfbProtocolVersion">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.ITransportConnector">
   
   
-  <h1 id="MarcusW_VncClient_Protocol_RfbProtocolVersion" data-uid="MarcusW.VncClient.Protocol.RfbProtocolVersion" class="text-break">Enum RfbProtocolVersion
+  <h1 id="MarcusW_VncClient_Protocol_Services_ITransportConnector" data-uid="MarcusW.VncClient.Protocol.Services.ITransportConnector" class="text-break">Interface ITransportConnector
   </h1>
-  <div class="markdown level0 summary"><p>The different versions of the RFB protocol.</p>
+  <div class="markdown level0 summary"><p>Provides methods for establishing transport connections used for the RFB protocol.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.html">MarcusW.VncClient.Protocol</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.html">MarcusW.VncClient.Protocol.Services</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Protocol_RfbProtocolVersion_syntax">Syntax</h5>
+  <h5 id="MarcusW_VncClient_Protocol_Services_ITransportConnector_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum RfbProtocolVersion</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ITransportConnector</code></pre>
   </div>
-  <h5 id="MarcusW_VncClient_Protocol_RfbProtocolVersion_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>See: <a href="https://github.com/rfbproto/rfbproto/blob/master/rfbproto.rst#protocolversion">https://github.com/rfbproto/rfbproto/blob/master/rfbproto.rst#protocolversion</a></p>
-</div>
-  <h3 id="fields">Fields
+  <h3 id="methods">Methods
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_ITransportConnector_ConnectAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.ITransportConnector.ConnectAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/ITransportConnector.cs/#L16">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_ITransportConnector_ConnectAsync_" data-uid="MarcusW.VncClient.Protocol.Services.ITransportConnector.ConnectAsync*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_ITransportConnector_ConnectAsync_System_Threading_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.ITransportConnector.ConnectAsync(System.Threading.CancellationToken)">ConnectAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Connects to the specified endpoint and returns the resulting <a class="xref" href="MarcusW.VncClient.Protocol.ITransport.html">ITransport</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ITransport&gt; ConnectAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
+        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
-        <td id="MarcusW_VncClient_Protocol_RfbProtocolVersion_RFB_3_3">RFB_3_3</td>
-        <td><p>RFB 3.3</p>
-</td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_RfbProtocolVersion_RFB_3_7">RFB_3_7</td>
-        <td><p>RFB 3.7</p>
-</td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_RfbProtocolVersion_RFB_3_8">RFB_3_8</td>
-        <td><p>RFB 3.8</p>
-</td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_RfbProtocolVersion_Unknown">Unknown</td>
-        <td><p>Unknown</p>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
 </td>
       </tr>
     </tbody>
-  </thead></thead></table>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.ITransport.html">ITransport</a>&gt;</td>
+        <td><p>The open transport.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -125,10 +142,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbProtocolVersion.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbProtocolVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_ITransportConnector.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.ITransportConnector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbProtocolVersion.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/ITransportConnector.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

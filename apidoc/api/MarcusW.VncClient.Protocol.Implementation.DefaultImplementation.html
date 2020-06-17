@@ -122,7 +122,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L23">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L38">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor*"></a>
   <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor">DefaultImplementation()</h4>
@@ -135,19 +135,19 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_System_Collections_Generic_IReadOnlyCollection_MarcusW_VncClient_Protocol_Encodings_IEncoding__.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.%23ctor(System.Collections.Generic.IReadOnlyCollection%7BMarcusW.VncClient.Protocol.Encodings.IEncoding%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_MarcusW_VncClient_Protocol_Implementation_SecurityTypesCollectionBuilderDelegate_MarcusW_VncClient_Protocol_Implementation_EncodingsCollectionBuilderDelegate_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.%23ctor(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate%2CMarcusW.VncClient.Protocol.Implementation.EncodingsCollectionBuilderDelegate)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L29">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L45">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_System_Collections_Generic_IReadOnlyCollection_MarcusW_VncClient_Protocol_Encodings_IEncoding__" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor(System.Collections.Generic.IReadOnlyCollection{MarcusW.VncClient.Protocol.Encodings.IEncoding})">DefaultImplementation(IReadOnlyCollection&lt;IEncoding&gt;)</h4>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_MarcusW_VncClient_Protocol_Implementation_SecurityTypesCollectionBuilderDelegate_MarcusW_VncClient_Protocol_Implementation_EncodingsCollectionBuilderDelegate_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.EncodingsCollectionBuilderDelegate)">DefaultImplementation(SecurityTypesCollectionBuilderDelegate, EncodingsCollectionBuilderDelegate)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html">DefaultImplementation</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DefaultImplementation(IReadOnlyCollection&lt;IEncoding&gt; supportedEncodings)</code></pre>
+    <pre><code class="lang-csharp hljs">public DefaultImplementation(SecurityTypesCollectionBuilderDelegate securityTypesCollectionBuilder, EncodingsCollectionBuilderDelegate encodingsCollectionBuilder)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -160,32 +160,54 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Encodings.IEncoding.html">IEncoding</a>&gt;</td>
-        <td><span class="parametername">supportedEncodings</span></td>
-        <td><p>The encodings that are supported by this instance. See <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings">GetDefaultEncodings()</a>.</p>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate.html">SecurityTypesCollectionBuilderDelegate</a></td>
+        <td><span class="parametername">securityTypesCollectionBuilder</span></td>
+        <td><p>A method that newly creates all the security types that are supported by this protocol instance. See <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultSecurityTypes_MarcusW_VncClient_Protocol_RfbConnectionContext_">GetDefaultSecurityTypes(RfbConnectionContext)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.Implementation.EncodingsCollectionBuilderDelegate.html">EncodingsCollectionBuilderDelegate</a></td>
+        <td><span class="parametername">encodingsCollectionBuilder</span></td>
+        <td><p>A method that newly creates all the encodings that are supported by this protocol instance. See <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings_MarcusW_VncClient_Protocol_RfbConnectionContext_">GetDefaultEncodings(RfbConnectionContext)</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_SupportedEncodings.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.SupportedEncodings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateEncodingsCollection_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateEncodingsCollection(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L18">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L56">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_SupportedEncodings_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.SupportedEncodings*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_SupportedEncodings" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.SupportedEncodings">SupportedEncodings</h4>
-  <div class="markdown level1 summary"><p>Gets the supported encodings.</p>
-</div>
+  <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateEncodingsCollection_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateEncodingsCollection*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateEncodingsCollection_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateEncodingsCollection(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateEncodingsCollection(RfbConnectionContext)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;IEncoding&gt; SupportedEncodings { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IImmutableDictionary&lt;int, IEncoding&gt; CreateEncodingsCollection(RfbConnectionContext context)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.RfbConnectionContext.html">RfbConnectionContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -195,19 +217,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Encodings.IEncoding.html">IEncoding</a>&gt;</td>
+        <td><span class="xref">System.Collections.Immutable.IImmutableDictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="MarcusW.VncClient.Protocol.Encodings.IEncoding.html">IEncoding</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateMessageReceiver_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L41">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L66">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateMessageReceiver_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateMessageReceiver*"></a>
   <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateMessageReceiver_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateMessageReceiver(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateMessageReceiver(RfbConnectionContext)</h4>
@@ -216,7 +236,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRfbMessageReceiver CreateMessageReceiver(RfbConnectionContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual IRfbMessageReceiver CreateMessageReceiver(RfbConnectionContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -257,7 +277,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateMessageSender_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L44">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L69">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateMessageSender_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateMessageSender*"></a>
   <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateMessageSender_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateMessageSender(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateMessageSender(RfbConnectionContext)</h4>
@@ -266,7 +286,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRfbMessageSender CreateMessageSender(RfbConnectionContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual IRfbMessageSender CreateMessageSender(RfbConnectionContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -307,7 +327,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateRfbHandshaker_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L38">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L63">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateRfbHandshaker_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbHandshaker*"></a>
   <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateRfbHandshaker_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbHandshaker(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateRfbHandshaker(RfbConnectionContext)</h4>
@@ -316,7 +336,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRfbHandshaker CreateRfbHandshaker(RfbConnectionContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual IRfbHandshaker CreateRfbHandshaker(RfbConnectionContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -354,19 +374,66 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTcpConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateSecurityTypesCollection_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateSecurityTypesCollection(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L35">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L52">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTcpConnector_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTcpConnector*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTcpConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTcpConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateTcpConnector(RfbConnectionContext)</h4>
-  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="MarcusW.VncClient.Protocol.Services.ITcpConnector.html">ITcpConnector</a>.</p>
+  <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateSecurityTypesCollection_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateSecurityTypesCollection*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateSecurityTypesCollection_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateSecurityTypesCollection(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateSecurityTypesCollection(RfbConnectionContext)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IImmutableDictionary&lt;byte, ISecurityType&gt; CreateSecurityTypesCollection(RfbConnectionContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.RfbConnectionContext.html">RfbConnectionContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Immutable.IImmutableDictionary</span>&lt;<span class="xref">System.Byte</span>, <a class="xref" href="MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html">ISecurityType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTransportConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTransportConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L60">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTransportConnector_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTransportConnector*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTransportConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTransportConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)">CreateTransportConnector(RfbConnectionContext)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="MarcusW.VncClient.Protocol.Services.ITransportConnector.html">ITransportConnector</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ITcpConnector CreateTcpConnector(RfbConnectionContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual ITransportConnector CreateTransportConnector(RfbConnectionContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -396,29 +463,47 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.Protocol.Services.ITcpConnector.html">ITcpConnector</a></td>
-        <td><p>A new instance of the TCP connector.</p>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.Services.ITransportConnector.html">ITransportConnector</a></td>
+        <td><p>A new instance of the transport connector.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultEncodings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultEncodings(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L51">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L92">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultEncodings*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultEncodings">GetDefaultEncodings()</h4>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodings_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultEncodings(MarcusW.VncClient.Protocol.RfbConnectionContext)">GetDefaultEncodings(RfbConnectionContext)</h4>
   <div class="markdown level1 summary"><p>Builds a collection with all RFB encodings that are officially supported by this protocol implementation.
 Feel free to extend the returned enumerable with custom encodings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEncoding&gt; GetDefaultEncodings()</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IEncoding&gt; GetDefaultEncodings(RfbConnectionContext context)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.RfbConnectionContext.html">RfbConnectionContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The connection context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -431,6 +516,57 @@ Feel free to extend the returned enumerable with custom encodings.</p>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Encodings.IEncoding.html">IEncoding</a>&gt;</td>
         <td><p>The encoding collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultSecurityTypes_MarcusW_VncClient_Protocol_RfbConnectionContext_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultSecurityTypes(MarcusW.VncClient.Protocol.RfbConnectionContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L77">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultSecurityTypes_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultSecurityTypes*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultSecurityTypes_MarcusW_VncClient_Protocol_RfbConnectionContext_" data-uid="MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultSecurityTypes(MarcusW.VncClient.Protocol.RfbConnectionContext)">GetDefaultSecurityTypes(RfbConnectionContext)</h4>
+  <div class="markdown level1 summary"><p>Builds a collection with all RFB security types that are officially supported by this protocol implementation.
+Feel free to extend the returned enumerable with custom types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;ISecurityType&gt; GetDefaultSecurityTypes(RfbConnectionContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.RfbConnectionContext.html">RfbConnectionContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The connection context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html">ISecurityType</a>&gt;</td>
+        <td><p>The security type collection.</p>
 </td>
       </tr>
     </tbody>
@@ -450,7 +586,7 @@ Feel free to extend the returned enumerable with custom encodings.</p>
                     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_DefaultImplementation.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.DefaultImplementation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/DefaultImplementation.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

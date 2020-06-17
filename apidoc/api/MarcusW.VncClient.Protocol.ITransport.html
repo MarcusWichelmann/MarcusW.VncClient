@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ITcpConnector
+    <title>Interface ITransport
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ITcpConnector
+    <meta name="title" content="Interface ITransport
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,57 +68,79 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.ITcpConnector">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.ITransport">
   
   
-  <h1 id="MarcusW_VncClient_Protocol_Services_ITcpConnector" data-uid="MarcusW.VncClient.Protocol.Services.ITcpConnector" class="text-break">Interface ITcpConnector
+  <h1 id="MarcusW_VncClient_Protocol_ITransport" data-uid="MarcusW.VncClient.Protocol.ITransport" class="text-break">Interface ITransport
   </h1>
-  <div class="markdown level0 summary"><p>Provides methods for establishing TCP connections used for the RFB protocol.</p>
+  <div class="markdown level0 summary"><p>Represents an open transport through which bytes to/from the server can be sent and received.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.html">MarcusW.VncClient.Protocol.Services</a></h6>
-  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Protocol_Services_ITcpConnector_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ITcpConnector</code></pre>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.IDisposable.Dispose()</span>
+    </div>
   </div>
-  <h3 id="methods">Methods
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.html">MarcusW.VncClient.Protocol</a></h6>
+  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
+  <h5 id="MarcusW_VncClient_Protocol_ITransport_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ITransport : IDisposable</code></pre>
+  </div>
+  <h5 id="MarcusW_VncClient_Protocol_ITransport_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>You can build a <a class="xref" href="MarcusW.VncClient.Protocol.ITransport.html">ITransport</a> which contains another transport to implement tunnel protocols.</p>
+</div>
+  <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_ITcpConnector_ConnectAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_ITransport_IsEncrypted.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.ITransport.IsEncrypted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/ITcpConnector.cs/#L17">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/ITransport.cs/#L22">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Protocol_Services_ITcpConnector_ConnectAsync_" data-uid="MarcusW.VncClient.Protocol.Services.ITcpConnector.ConnectAsync*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Services_ITcpConnector_ConnectAsync_System_Threading_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.ITcpConnector.ConnectAsync(System.Threading.CancellationToken)">ConnectAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Connects to the specified endpoint and returns the connected <span class="xref">System.Net.Sockets.TcpClient</span>.</p>
+  <a id="MarcusW_VncClient_Protocol_ITransport_IsEncrypted_" data-uid="MarcusW.VncClient.Protocol.ITransport.IsEncrypted*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_ITransport_IsEncrypted" data-uid="MarcusW.VncClient.Protocol.ITransport.IsEncrypted">IsEncrypted</h4>
+  <div class="markdown level1 summary"><p>Gets whether the data on this transport gets encrypted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;TcpClient&gt; ConnectAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">bool IsEncrypted { get; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The cancellation token.</p>
-</td>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_ITransport_Stream.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.ITransport.Stream%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/ITransport.cs/#L17">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_ITransport_Stream_" data-uid="MarcusW.VncClient.Protocol.ITransport.Stream*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_ITransport_Stream" data-uid="MarcusW.VncClient.Protocol.ITransport.Stream">Stream</h4>
+  <div class="markdown level1 summary"><p>Gets the stream for sending and receiving bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Stream Stream { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -128,9 +150,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Net.Sockets.TcpClient</span>&gt;</td>
-        <td><p>The connected client.</p>
-</td>
+        <td><span class="xref">System.IO.Stream</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -142,10 +163,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_ITcpConnector.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.ITcpConnector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_ITransport.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.ITransport%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/ITcpConnector.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/ITransport.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
