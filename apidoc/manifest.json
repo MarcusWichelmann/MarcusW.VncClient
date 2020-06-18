@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.html",
-          "hash": "CLpgV7CAMJ1RLAeTn4rxbw=="
+          "hash": "6dQ2z0HkNrLpkfiqpb4HAQ=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html",
-          "hash": "xXt/hXbsbqy/NmEF7AKSSg=="
+          "hash": "NuXu1s3NBamnISn5yMlYhw=="
         }
       },
       "is_incremental": false,
