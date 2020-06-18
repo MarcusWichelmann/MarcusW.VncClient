@@ -20,8 +20,7 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
         }
 
         /// <inheritdoc />
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception,
-            Func<TState, Exception?, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {
             LogEventLevel? logEventLevel = GetLogEventLevel(logLevel);
             if (logEventLevel == null)
@@ -31,6 +30,9 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
                 return;
 
             string message = $"{_categoryName}: {formatter(state, exception)}";
+
+            if (exception != null)
+                message += Environment.NewLine + exception + Environment.NewLine;
 
             outLogger.Log(AreaName, this, message);
         }
@@ -50,14 +52,14 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
 
         private LogEventLevel? GetLogEventLevel(LogLevel logLevel)
             => logLevel switch {
-                LogLevel.Trace => LogEventLevel.Verbose,
-                LogLevel.Debug => LogEventLevel.Debug,
+                LogLevel.Trace       => LogEventLevel.Verbose,
+                LogLevel.Debug       => LogEventLevel.Debug,
                 LogLevel.Information => LogEventLevel.Information,
-                LogLevel.Warning => LogEventLevel.Warning,
-                LogLevel.Error => LogEventLevel.Error,
-                LogLevel.Critical => LogEventLevel.Fatal,
-                LogLevel.None => null,
-                _ => throw new InvalidEnumArgumentException(nameof(logLevel), (int)logLevel, typeof(LogLevel))
+                LogLevel.Warning     => LogEventLevel.Warning,
+                LogLevel.Error       => LogEventLevel.Error,
+                LogLevel.Critical    => LogEventLevel.Fatal,
+                LogLevel.None        => null,
+                _                    => throw new InvalidEnumArgumentException(nameof(logLevel), (int)logLevel, typeof(LogLevel))
             };
 
         /// <summary>
