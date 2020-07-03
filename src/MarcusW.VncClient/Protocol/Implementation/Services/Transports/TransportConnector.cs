@@ -31,13 +31,16 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
         /// <inheritdoc />
         public async Task<ITransport> ConnectAsync(CancellationToken cancellationToken = default)
         {
-            // TODO: Support different transport types (SSH?) by adding some parameters (dynamic endpoint type interface?) to ConnectParameters and differentiating here.
-            return await ConnectTcpTransportAsync(_connectParameters.Endpoint!, cancellationToken).ConfigureAwait(false);
+            TransportParameters transportParameters = _connectParameters.TransportParameters;
+
+            if (transportParameters is TcpTransportParameters tcpTransportParameters)
+                return await ConnectTcpTransportAsync(tcpTransportParameters, cancellationToken).ConfigureAwait(false);
+            throw new InvalidOperationException($"Unknown transport parameter type {transportParameters.GetType().Name}");
         }
 
-        private async Task<TcpTransport> ConnectTcpTransportAsync(IPEndPoint endpoint, CancellationToken cancellationToken = default)
+        private async Task<TcpTransport> ConnectTcpTransportAsync(TcpTransportParameters parameters, CancellationToken cancellationToken = default)
         {
-            _logger.LogDebug("Connecting to TCP endpoint {endpoint}...", endpoint);
+            _logger.LogDebug("Connecting to TCP endpoint {endpoint}...", parameters);
 
             // Create a cancellation token source that cancels on timeout or manual cancel
             using var timeoutCts = new CancellationTokenSource(_connectParameters.ConnectTimeout);
@@ -55,7 +58,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
                     linkedToken.ThrowIfCancellationRequested();
 
                     // Try to connect
-                    await tcpClient.ConnectAsync(endpoint.Address, endpoint.Port).ConfigureAwait(false);
+                    await tcpClient.ConnectAsync(parameters.Host, parameters.Port).ConfigureAwait(false);
                 }
             }
             catch (Exception ex) when (cancellationToken.IsCancellationRequested)

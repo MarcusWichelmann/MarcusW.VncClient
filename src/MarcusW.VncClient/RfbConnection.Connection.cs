@@ -22,7 +22,7 @@ namespace MarcusW.VncClient
             // Doing one more cleanup won't hurt.
             CleanupPreviousConnection();
 
-            _logger.LogInformation("Connecting to VNC-Server on {endpoint}...", Parameters.Endpoint);
+            _logger.LogInformation("Connecting to VNC-Server on {endpoint}...", Parameters.TransportParameters);
 
             // Create a new connection context
             var context = new RfbConnectionContext(this);
@@ -51,7 +51,7 @@ namespace MarcusW.VncClient
             }
             catch (Exception ex)
             {
-                _logger.LogWarning(ex, "Connecting to VNC-Server on {endpoint} failed: {exception}", Parameters.Endpoint, ex.Message);
+                _logger.LogWarning(ex, "Connecting to VNC-Server on {endpoint} failed: {exception}", Parameters.TransportParameters, ex.Message);
 
                 // Ensure cleanup on failure
                 context.MessageReceiver?.Dispose();
@@ -66,7 +66,7 @@ namespace MarcusW.VncClient
 
             _activeConnection = context;
 
-            _logger.LogInformation("Connection to {endpoint} established successfully.", Parameters.Endpoint);
+            _logger.LogInformation("Connection to {endpoint} established successfully.", Parameters.TransportParameters);
         }
 
         private async Task CloseConnectionAsync()
@@ -74,7 +74,7 @@ namespace MarcusW.VncClient
             if (_activeConnection == null)
                 return;
 
-            _logger.LogInformation("Closing connection to {endpoint}...", Parameters.Endpoint);
+            _logger.LogInformation("Closing connection to {endpoint}...", Parameters.TransportParameters);
 
             // Stop receiving first
             if (_activeConnection.MessageReceiver != null)

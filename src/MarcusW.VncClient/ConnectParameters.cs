@@ -1,31 +1,55 @@
 using System;
+using System.Collections.Generic;
 using System.Net;
 using MarcusW.VncClient.Rendering;
 using MarcusW.VncClient.Security;
+using MarcusW.VncClient.Utils;
 
 namespace MarcusW.VncClient
 {
     /// <summary>
     /// Specifies the parameters for establishing a VNC connection.
     /// </summary>
-    public class ConnectParameters
+    public sealed class ConnectParameters : FreezableParametersObject
     {
+        /// <summary>
+        /// The value to specify unlimited reconnect attempts.
+        /// </summary>
         public const int InfiniteReconnects = -1;
 
+        private TransportParameters _transportParameters = null!;
+        private TimeSpan _connectTimeout = TimeSpan.FromSeconds(30);
+        private TimeSpan _reconnectDelay = TimeSpan.FromSeconds(5);
+        private int _maxReconnectAttempts = InfiniteReconnects;
+        private IAuthenticationHandler _authenticationHandler = null!;
+        private IRenderTarget? _initialRenderTarget;
+
         /// <summary>
-        /// Gets or sets the server address and port to connect to.
+        /// Specifies the transport type and parameters to connect to.
         /// </summary>
-        public IPEndPoint? Endpoint { get; set; }
+        public TransportParameters TransportParameters
+        {
+            get => _transportParameters;
+            set => ThrowIfFrozen(() => _transportParameters = value);
+        }
 
         /// <summary>
         /// Gets or sets the connect timeout.
         /// </summary>
-        public TimeSpan ConnectTimeout { get; set; } = TimeSpan.FromSeconds(30);
+        public TimeSpan ConnectTimeout
+        {
+            get => _connectTimeout;
+            set => ThrowIfFrozen(() => _connectTimeout = value);
+        }
 
         /// <summary>
         /// Gets or sets the delay between a connection being interrupted and a reconnect starting.
         /// </summary>
-        public TimeSpan ReconnectDelay { get; set; } = TimeSpan.FromSeconds(5);
+        public TimeSpan ReconnectDelay
+        {
+            get => _reconnectDelay;
+            set => ThrowIfFrozen(() => _reconnectDelay = value);
+        }
 
         /// <summary>
         /// Gets or sets the maximum number of reconnect attempts.
@@ -33,43 +57,42 @@ namespace MarcusW.VncClient
         /// <remarks>
         /// Set to <c>-1</c> for not limit.
         /// </remarks>
-        public int MaxReconnectAttempts { get; set; } = InfiniteReconnects;
+        public int MaxReconnectAttempts
+        {
+            get => _maxReconnectAttempts;
+            set => ThrowIfFrozen(() => _maxReconnectAttempts = value);
+        }
 
         /// <summary>
-        /// Gets or sets the <see cref="IAuthenticationHandler"/> implementation to authenticate against the server.
+        /// Gets or sets the <see cref="IAuthenticationHandler"/> implementation that provides information for authenticating against the server.
         /// </summary>
-        public IAuthenticationHandler? AuthenticationHandler { get; set; }
+        public IAuthenticationHandler AuthenticationHandler
+        {
+            get => _authenticationHandler;
+            set => ThrowIfFrozen(() => _authenticationHandler = value);
+        }
 
         /// <summary>
         /// Gets or sets the target where received frames should be rendered to, in case you want to set the target from the start on.
         /// </summary>
-        public IRenderTarget? InitialRenderTarget { get; set; }
-
-        /// <summary>
-        /// Validates the parameters and throws a <see cref="ConnectParametersValidationException"/> for the first error found.
-        /// </summary>
-        public void Validate()
+        public IRenderTarget? InitialRenderTarget
         {
-            if (Endpoint == null)
-                throw new ConnectParametersValidationException($"{nameof(Endpoint)} parameter must not be null.");
-            if (MaxReconnectAttempts < -1)
-                throw new ConnectParametersValidationException(
-                    $"{nameof(MaxReconnectAttempts)} parameter must be set to a positive value, or -1 for no limit.");
-            if (AuthenticationHandler == null)
-                throw new ConnectParametersValidationException(
-                    $"{nameof(AuthenticationHandler)} parameter must not be null.");
+            get => _initialRenderTarget;
+            set => ThrowIfFrozen(() => _initialRenderTarget = value);
         }
 
-        // Always Validate() the object beforehand. Otherwise this might fail.
-        internal ConnectParameters DeepCopy()
-            => new ConnectParameters {
-                Endpoint = new IPEndPoint(new IPAddress(Endpoint!.Address.GetAddressBytes(), Endpoint.Address.ScopeId),
-                    Endpoint.Port),
-                ConnectTimeout = ConnectTimeout,
-                ReconnectDelay = ReconnectDelay,
-                MaxReconnectAttempts = MaxReconnectAttempts,
-                AuthenticationHandler = AuthenticationHandler,
-                InitialRenderTarget = InitialRenderTarget
-            };
+        /// <inhertitdoc />
+        public override void Validate()
+        {
+            if (TransportParameters == null)
+                throw new ConnectParametersValidationException($"{nameof(TransportParameters)} parameter must not be null.");
+            if (MaxReconnectAttempts < -1)
+                throw new ConnectParametersValidationException($"{nameof(MaxReconnectAttempts)} parameter must be set to a positive value, or -1 for no limit.");
+            if (AuthenticationHandler == null)
+                throw new ConnectParametersValidationException($"{nameof(AuthenticationHandler)} parameter must not be null.");
+        }
+
+        /// <inheritdoc />
+        protected override IEnumerable<FreezableParametersObject?>? GetDescendants() => new[] { TransportParameters };
     }
 }

@@ -192,7 +192,7 @@ namespace MarcusW.VncClient
                     {
                         // Giving up.
                         _logger.LogInformation("No reconnect attempts to {endpoint} remaining. Giving up.",
-                            Parameters.Endpoint);
+                            Parameters.TransportParameters);
                         CleanupPreviousConnection();
                         ConnectionState = ConnectionState.Closed;
                         return;
@@ -223,7 +223,7 @@ namespace MarcusW.VncClient
                     {
                         // Reconnect attempt failed
                         _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", exception,
-                            failedAttempts, Parameters.Endpoint);
+                            failedAttempts, Parameters.TransportParameters);
                         CleanupPreviousConnection();
                         ConnectionState = ConnectionState.ReconnectFailed;
 

@@ -12,10 +12,13 @@ namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports
     public class TcpConnectorTests : IDisposable
     {
         private readonly TcpListener _testServer;
-        private readonly IPEndPoint _testEndpoint;
+        private readonly TcpTransportParameters _testEndpoint;
 
         // Some endpoint which always drops the SYNs (Sorry Google :P)
-        private readonly IPEndPoint _droppingEndpoint = new IPEndPoint(IPAddress.Parse("8.8.8.8"), 25623);
+        private readonly TcpTransportParameters _droppingEndpoint = new TcpTransportParameters {
+            Host = "8.8.8.8",
+            Port = 1
+        };
 
         public TcpConnectorTests()
         {
@@ -24,14 +27,18 @@ namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports
             _testServer.Start();
 
             // Get the chosen port
-            _testEndpoint = (IPEndPoint)_testServer.LocalEndpoint;
+            IPEndPoint serverEndpoint = (IPEndPoint)_testServer.LocalEndpoint;
+            _testEndpoint = new TcpTransportParameters {
+                Host = IPAddress.IPv6Loopback.ToString(),
+                Port = serverEndpoint.Port
+            };
         }
 
         [Fact]
         public async Task Connects_Successfully()
         {
             var connector = new TransportConnector(new ConnectParameters {
-                Endpoint = _testEndpoint,
+                TransportParameters = _testEndpoint,
                 ConnectTimeout = Timeout.InfiniteTimeSpan
             }, new NullLogger<TransportConnector>());
             var connectTask = connector.ConnectAsync();
@@ -47,7 +54,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports
         public async Task Throws_On_Timeout()
         {
             var connector = new TransportConnector(new ConnectParameters {
-                Endpoint = _droppingEndpoint,
+                TransportParameters = _droppingEndpoint,
                 ConnectTimeout = TimeSpan.FromSeconds(1)
             }, new NullLogger<TransportConnector>());
             var connectTask = connector.ConnectAsync();
@@ -62,7 +69,7 @@ namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports
             using var cts = new CancellationTokenSource();
 
             var connector = new TransportConnector(new ConnectParameters {
-                Endpoint = _droppingEndpoint,
+                TransportParameters = _droppingEndpoint,
                 ConnectTimeout = Timeout.InfiniteTimeSpan
             }, new NullLogger<TransportConnector>());
             var connectTask = connector.ConnectAsync(cts.Token);

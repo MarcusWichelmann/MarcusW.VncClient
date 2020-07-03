@@ -47,7 +47,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             // Execute authentication
             _logger.LogDebug("Negotiated security type: {name}({id}). Authenticating...", usedSecurityType.Name, usedSecurityType.Id);
             AuthenticationResult authenticationResult = await usedSecurityType
-                .AuthenticateAsync(protocolVersion, _context.Connection.Parameters.AuthenticationHandler!, cancellationToken).ConfigureAwait(false);
+                .AuthenticateAsync(protocolVersion, _context.Connection.Parameters.AuthenticationHandler, cancellationToken).ConfigureAwait(false);
 
             // When a tunnel was built, use that transport for further communication
             if (authenticationResult.TunnelTransport != null)

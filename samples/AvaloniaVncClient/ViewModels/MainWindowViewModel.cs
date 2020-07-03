@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AvaloniaVncClient.Services;
 using MarcusW.VncClient;
+using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using ReactiveUI;
 using Splat;
 
@@ -72,14 +73,12 @@ namespace AvaloniaVncClient.ViewModels
         {
             try
             {
-                // Resolve hostname or IP address
-                IPHostEntry hostEntry = await Dns.GetHostEntryAsync(Host).ConfigureAwait(true);
-
                 // TODO: Configure connect parameters
                 var parameters = new ConnectParameters {
-                    // TODO: Pass multiple addresses, because the first one might not be the reachable one (e.g. no dual stack)
-                    // TODO: Maybe move the resolve logic to the TransportConnector and just pass the host string and port?
-                    Endpoint = new IPEndPoint(hostEntry.AddressList.First(), Port)
+                   TransportParameters = new TcpTransportParameters {
+                       Host = Host,
+                       Port = Port
+                   }
                 };
 
                 // Try to connect and set the connection

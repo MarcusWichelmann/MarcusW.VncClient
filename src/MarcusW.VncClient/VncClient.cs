@@ -46,12 +46,10 @@ namespace MarcusW.VncClient
 
             cancellationToken.ThrowIfCancellationRequested();
 
-            parameters.Validate();
+            // Validate and freeze the parameters so they are immutable from now on
+            parameters.ValidateAndFreezeRecursively();
 
-            // Create a deep copy of the parameters object to make sure connection parameters cannot be changed afterwards.
-            var parametersCopy = parameters.DeepCopy();
-
-            var rfbConnection = new RfbConnection(_protocolImplementation, _loggerFactory, parametersCopy);
+            var rfbConnection = new RfbConnection(_protocolImplementation, _loggerFactory, parameters);
             await rfbConnection.StartAsync(cancellationToken).ConfigureAwait(false);
             return rfbConnection;
         }
