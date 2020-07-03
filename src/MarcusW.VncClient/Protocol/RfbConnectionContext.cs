@@ -7,10 +7,11 @@ using MarcusW.VncClient.Protocol.Services;
 namespace MarcusW.VncClient.Protocol
 {
     /// <summary>
-    /// Holds multiple connection-related objects and gives the protocol implementation classes access to some aspects of them.
+    /// Holds multiple connection-related objects and acts as a central place to provide the protocol implementation classes access to them.
     /// </summary>
     /// <remarks>
     /// This is just a container class that does not implement any complex logic.
+    /// Remember that some of the properties might be uninitialized during early stages of the protocol.
     /// </remarks>
     public class RfbConnectionContext
     {
@@ -41,6 +42,11 @@ namespace MarcusW.VncClient.Protocol
         public HandshakeResult? HandshakeResult { get; internal set; }
 
         /// <summary>
+        /// Gets the result of the connection initialization.
+        /// </summary>
+        public InitializationResult? InitializationResult { get; internal set; }
+
+        /// <summary>
         /// Gets the <see cref="IRfbMessageReceiver"/> for this connection.
         /// </summary>
         public IRfbMessageReceiver? MessageReceiver { get; internal set; }
@@ -55,7 +61,7 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// Gets the used protocol version.
         /// </summary>
-        public RfbProtocolVersion ProtocolVersion => HandshakeResult?.ProtocolVersion ?? throw new InvalidOperationException("Protocol handshake has not completed yet.");
+        public RfbProtocolVersion ProtocolVersion => HandshakeResult?.ProtocolVersion ?? RfbProtocolVersion.Unknown;
 
         internal RfbConnectionContext(RfbConnection connection)
         {

@@ -6,6 +6,7 @@ using MarcusW.VncClient.Protocol.Encodings;
 using MarcusW.VncClient.Protocol.Implementation.SecurityTypes;
 using MarcusW.VncClient.Protocol.Implementation.Services.Communication;
 using MarcusW.VncClient.Protocol.Implementation.Services.Handshaking;
+using MarcusW.VncClient.Protocol.Implementation.Services.Initialization;
 using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
@@ -61,6 +62,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         /// <inheritdoc />
         public virtual IRfbHandshaker CreateRfbHandshaker(RfbConnectionContext context) => new RfbHandshaker(context);
+
+        /// <inheritdoc />
+        public IRfbInitializer CreateRfbInitializer(RfbConnectionContext context) => new RfbInitializer(context);
 
         /// <inheritdoc />
         public virtual IRfbMessageReceiver CreateMessageReceiver(RfbConnectionContext context) => new RfbMessageReceiver(context);

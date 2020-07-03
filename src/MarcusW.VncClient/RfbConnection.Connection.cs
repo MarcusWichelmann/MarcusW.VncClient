@@ -43,7 +43,8 @@ namespace MarcusW.VncClient
                 if (tunnelTransport != null)
                     context.Transport = tunnelTransport;
 
-                // TODO: Initialization, ...
+                // Initialize the connection
+                context.InitializationResult = await ProtocolImplementation.CreateRfbInitializer(context).InitializeAsync(cancellationToken).ConfigureAwait(false);
 
                 // Setup new receive loop
                 context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);

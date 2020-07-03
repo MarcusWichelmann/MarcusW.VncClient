@@ -30,7 +30,6 @@
 
     <ItemGroup>
       <Folder Include="Protocol\Implementation\Encodings" />
-      <Folder Include="Protocol\Implementation\Services" />
     </ItemGroup>
     
 </Project>

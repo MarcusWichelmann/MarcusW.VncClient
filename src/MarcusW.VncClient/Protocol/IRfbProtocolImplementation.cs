@@ -47,6 +47,13 @@ namespace MarcusW.VncClient.Protocol
         IRfbHandshaker CreateRfbHandshaker(RfbConnectionContext context);
 
         /// <summary>
+        /// Creates a new <see cref="IRfbInitializer"/>.
+        /// </summary>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>A new instance of the RFB initializer.</returns>
+        IRfbInitializer CreateRfbInitializer(RfbConnectionContext context);
+
+        /// <summary>
         /// Creates a new <see cref="IRfbMessageReceiver"/>.
         /// </summary>
         /// <param name="context">Details about the associated connection.</param>

@@ -77,8 +77,7 @@ namespace MarcusW.VncClient.Utils
         /// <param name="action">The action to execute, if the object was not frozen.</param>
         protected void ThrowIfFrozen(Action action)
         {
-            if (_isFrozen)
-                throw new InvalidOperationException("The object is frozen and now immutable.");
+            ThrowIfFrozen();
             action.Invoke();
         }
 
