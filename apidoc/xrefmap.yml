@@ -449,19 +449,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParameters.ConnectTimeout
   nameWithType: ConnectParameters.ConnectTimeout
-- uid: MarcusW.VncClient.ConnectParameters.Endpoint
-  name: Endpoint
-  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Endpoint
-  commentId: P:MarcusW.VncClient.ConnectParameters.Endpoint
-  fullName: MarcusW.VncClient.ConnectParameters.Endpoint
-  nameWithType: ConnectParameters.Endpoint
-- uid: MarcusW.VncClient.ConnectParameters.Endpoint*
-  name: Endpoint
-  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Endpoint_
-  commentId: Overload:MarcusW.VncClient.ConnectParameters.Endpoint
+- uid: MarcusW.VncClient.ConnectParameters.GetDescendants
+  name: GetDescendants()
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_GetDescendants
+  commentId: M:MarcusW.VncClient.ConnectParameters.GetDescendants
+  fullName: MarcusW.VncClient.ConnectParameters.GetDescendants()
+  nameWithType: ConnectParameters.GetDescendants()
+- uid: MarcusW.VncClient.ConnectParameters.GetDescendants*
+  name: GetDescendants
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_GetDescendants_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.GetDescendants
   isSpec: "True"
-  fullName: MarcusW.VncClient.ConnectParameters.Endpoint
-  nameWithType: ConnectParameters.Endpoint
+  fullName: MarcusW.VncClient.ConnectParameters.GetDescendants
+  nameWithType: ConnectParameters.GetDescendants
 - uid: MarcusW.VncClient.ConnectParameters.InfiniteReconnects
   name: InfiniteReconnects
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InfiniteReconnects
@@ -507,6 +507,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParameters.ReconnectDelay
   nameWithType: ConnectParameters.ReconnectDelay
+- uid: MarcusW.VncClient.ConnectParameters.TransportParameters
+  name: TransportParameters
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_TransportParameters
+  commentId: P:MarcusW.VncClient.ConnectParameters.TransportParameters
+  fullName: MarcusW.VncClient.ConnectParameters.TransportParameters
+  nameWithType: ConnectParameters.TransportParameters
+- uid: MarcusW.VncClient.ConnectParameters.TransportParameters*
+  name: TransportParameters
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_TransportParameters_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.TransportParameters
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.TransportParameters
+  nameWithType: ConnectParameters.TransportParameters
 - uid: MarcusW.VncClient.ConnectParameters.Validate
   name: Validate()
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_Validate
@@ -1313,6 +1326,77 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransport.Stream
   nameWithType: TcpTransport.Stream
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters
+  name: TcpTransportParameters
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters
+  nameWithType: TcpTransportParameters
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.GetDescendants
+  name: GetDescendants()
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_GetDescendants
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.GetDescendants
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.GetDescendants()
+  nameWithType: TcpTransportParameters.GetDescendants()
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.GetDescendants*
+  name: GetDescendants
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_GetDescendants_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.GetDescendants
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.GetDescendants
+  nameWithType: TcpTransportParameters.GetDescendants
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Host
+  name: Host
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_Host
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Host
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Host
+  nameWithType: TcpTransportParameters.Host
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Host*
+  name: Host
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_Host_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Host
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Host
+  nameWithType: TcpTransportParameters.Host
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Port
+  name: Port
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_Port
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Port
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Port
+  nameWithType: TcpTransportParameters.Port
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Port*
+  name: Port
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_Port_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Port
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Port
+  nameWithType: TcpTransportParameters.Port
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.ToString
+  name: ToString()
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_ToString
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.ToString
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.ToString()
+  nameWithType: TcpTransportParameters.ToString()
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.ToString*
+  name: ToString
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_ToString_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.ToString
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.ToString
+  nameWithType: TcpTransportParameters.ToString
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Validate
+  name: Validate()
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_Validate
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Validate
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Validate()
+  nameWithType: TcpTransportParameters.Validate()
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Validate*
+  name: Validate
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.html#MarcusW_VncClient_Protocol_Implementation_Services_Transports_TcpTransportParameters_Validate_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Validate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TcpTransportParameters.Validate
+  nameWithType: TcpTransportParameters.Validate
 - uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports.TransportConnector
   name: TransportConnector
   href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.TransportConnector.html
@@ -2248,6 +2332,25 @@ references:
   commentId: T:MarcusW.VncClient.Security.PasswordAuthenticationInputRequest
   fullName: MarcusW.VncClient.Security.PasswordAuthenticationInputRequest
   nameWithType: PasswordAuthenticationInputRequest
+- uid: MarcusW.VncClient.TransportParameters
+  name: TransportParameters
+  href: api/MarcusW.VncClient.TransportParameters.html
+  commentId: T:MarcusW.VncClient.TransportParameters
+  fullName: MarcusW.VncClient.TransportParameters
+  nameWithType: TransportParameters
+- uid: MarcusW.VncClient.TransportParameters.ToString
+  name: ToString()
+  href: api/MarcusW.VncClient.TransportParameters.html#MarcusW_VncClient_TransportParameters_ToString
+  commentId: M:MarcusW.VncClient.TransportParameters.ToString
+  fullName: MarcusW.VncClient.TransportParameters.ToString()
+  nameWithType: TransportParameters.ToString()
+- uid: MarcusW.VncClient.TransportParameters.ToString*
+  name: ToString
+  href: api/MarcusW.VncClient.TransportParameters.html#MarcusW_VncClient_TransportParameters_ToString_
+  commentId: Overload:MarcusW.VncClient.TransportParameters.ToString
+  isSpec: "True"
+  fullName: MarcusW.VncClient.TransportParameters.ToString
+  nameWithType: TransportParameters.ToString
 - uid: MarcusW.VncClient.Utils
   name: MarcusW.VncClient.Utils
   href: api/MarcusW.VncClient.Utils.html
@@ -2363,6 +2466,96 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Utils.BackgroundThreadFailedEventArgs.Exception
   nameWithType: BackgroundThreadFailedEventArgs.Exception
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject
+  name: FreezableParametersObject
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html
+  commentId: T:MarcusW.VncClient.Utils.FreezableParametersObject
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject
+  nameWithType: FreezableParametersObject
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.GetDescendants
+  name: GetDescendants()
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_GetDescendants
+  commentId: M:MarcusW.VncClient.Utils.FreezableParametersObject.GetDescendants
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.GetDescendants()
+  nameWithType: FreezableParametersObject.GetDescendants()
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.GetDescendants*
+  name: GetDescendants
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_GetDescendants_
+  commentId: Overload:MarcusW.VncClient.Utils.FreezableParametersObject.GetDescendants
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.GetDescendants
+  nameWithType: FreezableParametersObject.GetDescendants
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.IsFrozen
+  name: IsFrozen
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_IsFrozen
+  commentId: P:MarcusW.VncClient.Utils.FreezableParametersObject.IsFrozen
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.IsFrozen
+  nameWithType: FreezableParametersObject.IsFrozen
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.IsFrozen*
+  name: IsFrozen
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_IsFrozen_
+  commentId: Overload:MarcusW.VncClient.Utils.FreezableParametersObject.IsFrozen
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.IsFrozen
+  nameWithType: FreezableParametersObject.IsFrozen
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen
+  name: ThrowIfFrozen()
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ThrowIfFrozen
+  commentId: M:MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen()
+  nameWithType: FreezableParametersObject.ThrowIfFrozen()
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen(System.Action)
+  name: ThrowIfFrozen(Action)
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ThrowIfFrozen_System_Action_
+  commentId: M:MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen(System.Action)
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen(System.Action)
+  nameWithType: FreezableParametersObject.ThrowIfFrozen(Action)
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen*
+  name: ThrowIfFrozen
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ThrowIfFrozen_
+  commentId: Overload:MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ThrowIfFrozen
+  nameWithType: FreezableParametersObject.ThrowIfFrozen
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.Validate
+  name: Validate()
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_Validate
+  commentId: M:MarcusW.VncClient.Utils.FreezableParametersObject.Validate
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.Validate()
+  nameWithType: FreezableParametersObject.Validate()
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.Validate*
+  name: Validate
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_Validate_
+  commentId: Overload:MarcusW.VncClient.Utils.FreezableParametersObject.Validate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.Validate
+  nameWithType: FreezableParametersObject.Validate
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateAndFreezeRecursively
+  name: ValidateAndFreezeRecursively()
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ValidateAndFreezeRecursively
+  commentId: M:MarcusW.VncClient.Utils.FreezableParametersObject.ValidateAndFreezeRecursively
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateAndFreezeRecursively()
+  nameWithType: FreezableParametersObject.ValidateAndFreezeRecursively()
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateAndFreezeRecursively*
+  name: ValidateAndFreezeRecursively
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ValidateAndFreezeRecursively_
+  commentId: Overload:MarcusW.VncClient.Utils.FreezableParametersObject.ValidateAndFreezeRecursively
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateAndFreezeRecursively
+  nameWithType: FreezableParametersObject.ValidateAndFreezeRecursively
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateRecursively
+  name: ValidateRecursively()
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ValidateRecursively
+  commentId: M:MarcusW.VncClient.Utils.FreezableParametersObject.ValidateRecursively
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateRecursively()
+  nameWithType: FreezableParametersObject.ValidateRecursively()
+- uid: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateRecursively*
+  name: ValidateRecursively
+  href: api/MarcusW.VncClient.Utils.FreezableParametersObject.html#MarcusW_VncClient_Utils_FreezableParametersObject_ValidateRecursively_
+  commentId: Overload:MarcusW.VncClient.Utils.FreezableParametersObject.ValidateRecursively
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Utils.FreezableParametersObject.ValidateRecursively
+  nameWithType: FreezableParametersObject.ValidateRecursively
 - uid: MarcusW.VncClient.Utils.IBackgroundThread
   name: IBackgroundThread
   href: api/MarcusW.VncClient.Utils.IBackgroundThread.html
