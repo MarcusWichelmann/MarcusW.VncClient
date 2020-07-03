@@ -18,7 +18,7 @@ namespace MarcusW.VncClient.Avalonia
     /// </summary>
     public class RfbRenderTarget : Control, IRenderTarget, IDisposable
     {
-        private WriteableBitmap? _bitmap;
+        private volatile WriteableBitmap? _bitmap;
         private readonly object _bitmapReplacementLock = new object();
 
         /// <inheritdoc />
@@ -27,6 +27,8 @@ namespace MarcusW.VncClient.Avalonia
             PixelSize requiredPixelSize = Conversions.GetPixelSize(frameSize);
 
             // Creation of a new buffer necessary?
+            // No synchronization necessary, because the only conflicting write operation is
+            // in this same method and the field is marked volatile to avoid caching issues.
             // ReSharper disable once InconsistentlySynchronizedField
             bool sizeChanged = _bitmap == null || _bitmap.PixelSize != requiredPixelSize;
 
