@@ -18,7 +18,7 @@ namespace MarcusW.VncClient.Utils
         private readonly CancellationTokenSource _stopCts = new CancellationTokenSource();
         private readonly TaskCompletionSource<object?> _completedTcs = new TaskCompletionSource<object?>();
 
-        private bool _disposed;
+        private volatile bool _disposed;
 
         /// <inheritdoc />
         public event EventHandler<BackgroundThreadFailedEventArgs>? Failed;

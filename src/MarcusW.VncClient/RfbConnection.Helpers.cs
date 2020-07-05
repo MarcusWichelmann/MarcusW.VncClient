@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -5,14 +7,20 @@ namespace MarcusW.VncClient
 {
     public partial class RfbConnection
     {
-        private void LockedSetAndRaiseNotifyWhenChanged<T>(ref T backingField, T newValue, object lockObject,
-            [CallerMemberName] string propertyName = "")
+        private T GetWithLock<T>(ref T backingField, object lockObject)
         {
             lock (lockObject)
+                return backingField;
+        }
+
+        private void RaiseAndSetIfChangedWithLockAndDisposedCheck<T>(ref T backingField, T newValue, object lockObject, [CallerMemberName] string propertyName = "")
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(RfbConnection));
+
+            lock (lockObject)
             {
-                if (backingField == null && newValue == null)
-                    return;
-                if (backingField?.Equals(newValue) == true)
+                if (EqualityComparer<T>.Default.Equals(backingField, newValue))
                     return;
                 backingField = newValue;
             }
@@ -21,7 +29,6 @@ namespace MarcusW.VncClient
             NotifyPropertyChanged(propertyName);
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

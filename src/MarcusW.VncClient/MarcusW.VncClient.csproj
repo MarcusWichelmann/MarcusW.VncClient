@@ -17,6 +17,9 @@
       <Compile Update="RfbConnection.Connection.cs">
         <DependentUpon>RfbConnection.cs</DependentUpon>
       </Compile>
+      <Compile Update="RfbConnection.Details.cs">
+        <DependentUpon>RfbConnection.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

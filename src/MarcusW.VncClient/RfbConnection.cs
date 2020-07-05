@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace MarcusW.VncClient
 {
     /// <summary>
-    /// Connection to a remote server using the RFB protocol.
+    /// Connection with a remote server using the RFB protocol.
     /// </summary>
     public partial class RfbConnection : INotifyPropertyChanged, IDisposable
     {
@@ -30,7 +30,7 @@ namespace MarcusW.VncClient
         private readonly CancellationTokenSource _reconnectCts = new CancellationTokenSource();
         private Task? _reconnectTask;
 
-        private bool _disposed;
+        private volatile bool _disposed;
 
         /// <summary>
         /// Gets the used RFB protocol implementation.
@@ -52,19 +52,8 @@ namespace MarcusW.VncClient
         /// </summary>
         public IRenderTarget? RenderTarget
         {
-            get
-            {
-                lock (_renderTargetLock)
-                    return _renderTarget;
-            }
-            set
-            {
-                if (_disposed)
-                    throw new ObjectDisposedException(nameof(RfbConnection));
-
-                // ReSharper disable once InconsistentlySynchronizedField
-                LockedSetAndRaiseNotifyWhenChanged(ref _renderTarget, value, _renderTargetLock);
-            }
+            get => GetWithLock(ref _renderTarget, _renderTargetLock);
+            set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _renderTarget, value, _renderTargetLock);
         }
 
         /// <summary>
@@ -72,26 +61,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public ConnectionState ConnectionState
         {
-            get
-            {
-                lock (_connectionStateLock)
-                    return _connectionState;
-            }
-            private set
-            {
-                if (_disposed)
-                    throw new ObjectDisposedException(nameof(RfbConnection));
-
-                // ReSharper disable once InconsistentlySynchronizedField
-                LockedSetAndRaiseNotifyWhenChanged(ref _connectionState, value, _connectionStateLock);
-            }
+            get => GetWithLock(ref _connectionState, _connectionStateLock);
+            private set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _connectionState, value, _connectionStateLock);
         }
 
         /// <inheritdoc />
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        internal RfbConnection(IRfbProtocolImplementation protocolImplementation, ILoggerFactory loggerFactory,
-            ConnectParameters parameters)
+        internal RfbConnection(IRfbProtocolImplementation protocolImplementation, ILoggerFactory loggerFactory, ConnectParameters parameters)
         {
             ProtocolImplementation = protocolImplementation;
             LoggerFactory = loggerFactory;
@@ -134,8 +111,7 @@ namespace MarcusW.VncClient
             lock (_startedLock)
             {
                 if (!_started)
-                    throw new InvalidOperationException(
-                        "Connection cannot be closed before the initial connect has completed. "
+                    throw new InvalidOperationException("Connection cannot be closed before the initial connect has completed. "
                         + "Please consider using the cancellation token passed to the connect method instead.");
             }
 
@@ -191,8 +167,7 @@ namespace MarcusW.VncClient
                     if (Parameters.MaxReconnectAttempts != ConnectParameters.InfiniteReconnects && failedAttempts >= Parameters.MaxReconnectAttempts)
                     {
                         // Giving up.
-                        _logger.LogInformation("No reconnect attempts to {endpoint} remaining. Giving up.",
-                            Parameters.TransportParameters);
+                        _logger.LogInformation("No reconnect attempts to {endpoint} remaining. Giving up.", Parameters.TransportParameters);
                         CleanupPreviousConnection();
                         ConnectionState = ConnectionState.Closed;
                         return;
@@ -222,8 +197,7 @@ namespace MarcusW.VncClient
                     catch (Exception exception)
                     {
                         // Reconnect attempt failed
-                        _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", exception,
-                            failedAttempts, Parameters.TransportParameters);
+                        _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", exception, failedAttempts, Parameters.TransportParameters);
                         CleanupPreviousConnection();
                         ConnectionState = ConnectionState.ReconnectFailed;
 

@@ -13,15 +13,29 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
-        <Grid ColumnDefinitions="3*,*">
-            <TextBox Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
-            <TextBox Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
-        </Grid>
-        <Button Name="ConnectButton" Command="{Binding ConnectCommand}" IsDefault="True" />
-        <TextBlock Foreground="Red" Text="{Binding ErrorMessage}"
-                   IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
-        <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />
-    </StackPanel>
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" Margin="10" Spacing="10">
+                <TextBlock Text="Not connected." IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
+                <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
+                <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
+                <TextBlock Text="{Binding RfbConnection.ProtocolVersion, StringFormat=Protocol Version: \{0\}}" />
+                <TextBlock Text="{Binding RfbConnection.FramebufferSize, StringFormat=Frame Size: \{0\}}" />
+            </StackPanel>
+        </Border>
+
+        <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
+            <Grid ColumnDefinitions="3*,*">
+                <TextBox Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
+                <TextBox Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
+            </Grid>
+
+            <Button Name="ConnectButton" Command="{Binding ConnectCommand}" IsDefault="True" />
+            <TextBlock Foreground="Red" Text="{Binding ErrorMessage}"
+                       IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
+
+            <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />
+        </StackPanel>
+    </DockPanel>
 
 </Window>

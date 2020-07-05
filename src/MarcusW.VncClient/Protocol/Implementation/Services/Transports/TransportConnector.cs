@@ -31,6 +31,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
         /// <inheritdoc />
         public async Task<ITransport> ConnectAsync(CancellationToken cancellationToken = default)
         {
+            cancellationToken.ThrowIfCancellationRequested();
+
             TransportParameters transportParameters = _connectParameters.TransportParameters;
 
             if (transportParameters is TcpTransportParameters tcpTransportParameters)
