@@ -25,6 +25,19 @@ references:
   commentId: T:MarcusW.VncClient.Avalonia.Adapters.Conversions
   fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions
   nameWithType: Conversions
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameFormat(PixelFormat)
+  name: GetFrameFormat(PixelFormat)
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetFrameFormat_PixelFormat_
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameFormat(PixelFormat)
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameFormat(PixelFormat)
+  nameWithType: Conversions.GetFrameFormat(PixelFormat)
+- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameFormat*
+  name: GetFrameFormat
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetFrameFormat_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameFormat
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameFormat
+  nameWithType: Conversions.GetFrameFormat
 - uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize(PixelSize)
   name: GetFrameSize(PixelSize)
   href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetFrameSize_PixelSize_
@@ -38,19 +51,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetFrameSize
   nameWithType: Conversions.GetFrameSize
-- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
-  name: GetPixelFormat(Avalonia.Platform.PixelFormat)
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelFormat_Avalonia_Platform_PixelFormat_
-  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
-  nameWithType: Conversions.GetPixelFormat(Avalonia.Platform.PixelFormat)
-- uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat*
-  name: GetPixelFormat
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelFormat_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelFormat
-  nameWithType: Conversions.GetPixelFormat
 - uid: MarcusW.VncClient.Avalonia.Adapters.Conversions.GetPixelSize(MarcusW.VncClient.FrameSize)
   name: GetPixelSize(FrameSize)
   href: api/MarcusW.VncClient.Avalonia.Adapters.Conversions.html#MarcusW_VncClient_Avalonia_Adapters_Conversions_GetPixelSize_MarcusW_VncClient_FrameSize_
@@ -288,6 +288,24 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.Adapters.Rendering.AvaloniaFramebufferReference.VerticalDpi
   nameWithType: AvaloniaFramebufferReference.VerticalDpi
+- uid: MarcusW.VncClient.Avalonia.Converters
+  name: MarcusW.VncClient.Avalonia.Converters
+  href: api/MarcusW.VncClient.Avalonia.Converters.html
+  commentId: N:MarcusW.VncClient.Avalonia.Converters
+  fullName: MarcusW.VncClient.Avalonia.Converters
+  nameWithType: MarcusW.VncClient.Avalonia.Converters
+- uid: MarcusW.VncClient.Avalonia.Converters.VncClientConverters
+  name: VncClientConverters
+  href: api/MarcusW.VncClient.Avalonia.Converters.VncClientConverters.html
+  commentId: T:MarcusW.VncClient.Avalonia.Converters.VncClientConverters
+  fullName: MarcusW.VncClient.Avalonia.Converters.VncClientConverters
+  nameWithType: VncClientConverters
+- uid: MarcusW.VncClient.Avalonia.Converters.VncClientConverters.RfbProtocolVersionToString
+  name: RfbProtocolVersionToString
+  href: api/MarcusW.VncClient.Avalonia.Converters.VncClientConverters.html#MarcusW_VncClient_Avalonia_Converters_VncClientConverters_RfbProtocolVersionToString
+  commentId: F:MarcusW.VncClient.Avalonia.Converters.VncClientConverters.RfbProtocolVersionToString
+  fullName: MarcusW.VncClient.Avalonia.Converters.VncClientConverters.RfbProtocolVersionToString
+  nameWithType: VncClientConverters.RfbProtocolVersionToString
 - uid: MarcusW.VncClient.Avalonia.RfbRenderTarget
   name: RfbRenderTarget
   href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html
@@ -423,6 +441,19 @@ references:
   commentId: T:MarcusW.VncClient.ConnectParameters
   fullName: MarcusW.VncClient.ConnectParameters
   nameWithType: ConnectParameters
+- uid: MarcusW.VncClient.ConnectParameters.AllowSharedConnection
+  name: AllowSharedConnection
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_AllowSharedConnection
+  commentId: P:MarcusW.VncClient.ConnectParameters.AllowSharedConnection
+  fullName: MarcusW.VncClient.ConnectParameters.AllowSharedConnection
+  nameWithType: ConnectParameters.AllowSharedConnection
+- uid: MarcusW.VncClient.ConnectParameters.AllowSharedConnection*
+  name: AllowSharedConnection
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_AllowSharedConnection_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.AllowSharedConnection
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.AllowSharedConnection
+  nameWithType: ConnectParameters.AllowSharedConnection
 - uid: MarcusW.VncClient.ConnectParameters.AuthenticationHandler
   name: AuthenticationHandler
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_AuthenticationHandler
@@ -814,51 +845,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.HandshakeFailedException.HandshakeFailedException
   nameWithType: HandshakeFailedException.HandshakeFailedException
-- uid: MarcusW.VncClient.Protocol.HandshakeResult
-  name: HandshakeResult
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html
-  commentId: T:MarcusW.VncClient.Protocol.HandshakeResult
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult
-  nameWithType: HandshakeResult
-- uid: MarcusW.VncClient.Protocol.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType)
-  name: HandshakeResult(RfbProtocolVersion, ISecurityType)
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html#MarcusW_VncClient_Protocol_HandshakeResult__ctor_MarcusW_VncClient_Protocol_RfbProtocolVersion_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_
-  commentId: M:MarcusW.VncClient.Protocol.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType)
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult.HandshakeResult(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType)
-  nameWithType: HandshakeResult.HandshakeResult(RfbProtocolVersion, ISecurityType)
-- uid: MarcusW.VncClient.Protocol.HandshakeResult.#ctor*
-  name: HandshakeResult
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html#MarcusW_VncClient_Protocol_HandshakeResult__ctor_
-  commentId: Overload:MarcusW.VncClient.Protocol.HandshakeResult.#ctor
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult.HandshakeResult
-  nameWithType: HandshakeResult.HandshakeResult
-- uid: MarcusW.VncClient.Protocol.HandshakeResult.ProtocolVersion
-  name: ProtocolVersion
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html#MarcusW_VncClient_Protocol_HandshakeResult_ProtocolVersion
-  commentId: P:MarcusW.VncClient.Protocol.HandshakeResult.ProtocolVersion
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult.ProtocolVersion
-  nameWithType: HandshakeResult.ProtocolVersion
-- uid: MarcusW.VncClient.Protocol.HandshakeResult.ProtocolVersion*
-  name: ProtocolVersion
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html#MarcusW_VncClient_Protocol_HandshakeResult_ProtocolVersion_
-  commentId: Overload:MarcusW.VncClient.Protocol.HandshakeResult.ProtocolVersion
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult.ProtocolVersion
-  nameWithType: HandshakeResult.ProtocolVersion
-- uid: MarcusW.VncClient.Protocol.HandshakeResult.UsedSecurityType
-  name: UsedSecurityType
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html#MarcusW_VncClient_Protocol_HandshakeResult_UsedSecurityType
-  commentId: P:MarcusW.VncClient.Protocol.HandshakeResult.UsedSecurityType
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult.UsedSecurityType
-  nameWithType: HandshakeResult.UsedSecurityType
-- uid: MarcusW.VncClient.Protocol.HandshakeResult.UsedSecurityType*
-  name: UsedSecurityType
-  href: api/MarcusW.VncClient.Protocol.HandshakeResult.html#MarcusW_VncClient_Protocol_HandshakeResult_UsedSecurityType_
-  commentId: Overload:MarcusW.VncClient.Protocol.HandshakeResult.UsedSecurityType
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.HandshakeResult.UsedSecurityType
-  nameWithType: HandshakeResult.UsedSecurityType
 - uid: MarcusW.VncClient.Protocol.Implementation
   name: MarcusW.VncClient.Protocol.Implementation
   href: api/MarcusW.VncClient.Protocol.Implementation.html
@@ -942,6 +928,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbHandshaker
   nameWithType: DefaultImplementation.CreateRfbHandshaker
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateRfbInitializer(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateRfbInitializer_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: DefaultImplementation.CreateRfbInitializer(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbInitializer*
+  name: CreateRfbInitializer
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateRfbInitializer_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbInitializer
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateRfbInitializer
+  nameWithType: DefaultImplementation.CreateRfbInitializer
 - uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateSecurityTypesCollection(MarcusW.VncClient.Protocol.RfbConnectionContext)
   name: CreateSecurityTypesCollection(RfbConnectionContext)
   href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateSecurityTypesCollection_MarcusW_VncClient_Protocol_RfbConnectionContext_
@@ -1064,6 +1063,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.Priority
   nameWithType: NoSecurityType.Priority
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
+  name: ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_ReadServerInitExtensionAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, System.Threading.CancellationToken)
+  nameWithType: NoSecurityType.ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync*
+  name: ReadServerInitExtensionAsync
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_ReadServerInitExtensionAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync
+  nameWithType: NoSecurityType.ReadServerInitExtensionAsync
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType
   name: VncAuthenticationSecurityType
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html
@@ -1135,6 +1147,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.Priority
   nameWithType: VncAuthenticationSecurityType.Priority
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
+  name: ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_ReadServerInitExtensionAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, System.Threading.CancellationToken)
+  nameWithType: VncAuthenticationSecurityType.ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync*
+  name: ReadServerInitExtensionAsync
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_ReadServerInitExtensionAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync
+  nameWithType: VncAuthenticationSecurityType.ReadServerInitExtensionAsync
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate
   name: SecurityTypesCollectionBuilderDelegate
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate.html
@@ -1262,6 +1287,44 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.Services.Handshaking.RfbHandshaker.DoHandshakeAsync
   nameWithType: RfbHandshaker.DoHandshakeAsync
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Initialization
+  name: MarcusW.VncClient.Protocol.Implementation.Services.Initialization
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Initialization.html
+  commentId: N:MarcusW.VncClient.Protocol.Implementation.Services.Initialization
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Initialization
+  nameWithType: MarcusW.VncClient.Protocol.Implementation.Services.Initialization
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer
+  name: RfbInitializer
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer
+  nameWithType: RfbInitializer
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: RfbInitializer(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.html#MarcusW_VncClient_Protocol_Implementation_Services_Initialization_RfbInitializer__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.RfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: RfbInitializer.RfbInitializer(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.#ctor*
+  name: RfbInitializer
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.html#MarcusW_VncClient_Protocol_Implementation_Services_Initialization_RfbInitializer__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.RfbInitializer
+  nameWithType: RfbInitializer.RfbInitializer
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.InitializeAsync(System.Threading.CancellationToken)
+  name: InitializeAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.html#MarcusW_VncClient_Protocol_Implementation_Services_Initialization_RfbInitializer_InitializeAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.InitializeAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.InitializeAsync(System.Threading.CancellationToken)
+  nameWithType: RfbInitializer.InitializeAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.InitializeAsync*
+  name: InitializeAsync
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.html#MarcusW_VncClient_Protocol_Implementation_Services_Initialization_RfbInitializer_InitializeAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.InitializeAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Initialization.RfbInitializer.InitializeAsync
+  nameWithType: RfbInitializer.InitializeAsync
 - uid: MarcusW.VncClient.Protocol.Implementation.Services.Transports
   name: MarcusW.VncClient.Protocol.Implementation.Services.Transports
   href: api/MarcusW.VncClient.Protocol.Implementation.Services.Transports.html
@@ -1487,6 +1550,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbHandshaker
   nameWithType: IRfbProtocolImplementation.CreateRfbHandshaker
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateRfbInitializer(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateRfbInitializer_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbInitializer(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateRfbInitializer(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbInitializer*
+  name: CreateRfbInitializer
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateRfbInitializer_
+  commentId: Overload:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbInitializer
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateRfbInitializer
+  nameWithType: IRfbProtocolImplementation.CreateRfbInitializer
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateSecurityTypesCollection(MarcusW.VncClient.Protocol.RfbConnectionContext)
   name: CreateSecurityTypesCollection(RfbConnectionContext)
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateSecurityTypesCollection_MarcusW_VncClient_Protocol_RfbConnectionContext_
@@ -1564,6 +1640,77 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Connection
   nameWithType: RfbConnectionContext.Connection
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails
+  name: ConnectionDetails
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetails
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails
+  nameWithType: RfbConnectionContext.ConnectionDetails
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails*
+  name: ConnectionDetails
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetails_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails
+  nameWithType: RfbConnectionContext.ConnectionDetails
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
+  name: RfbConnectionContext.ConnectionDetailsAccessor
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+  name: DesktopName
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_DesktopName
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.DesktopName*
+  name: DesktopName
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_DesktopName_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.DesktopName
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+  name: FramebufferFormat
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_FramebufferFormat
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat*
+  name: FramebufferFormat
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_FramebufferFormat_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.FramebufferFormat
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_FramebufferSize
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize*
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_FramebufferSize_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.FramebufferSize
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_ProtocolVersion
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion*
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_ProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.ProtocolVersion
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
   name: HandshakeResult
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult
@@ -1577,6 +1724,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
   nameWithType: RfbConnectionContext.HandshakeResult
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
+  name: InitializationResult
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
+  nameWithType: RfbConnectionContext.InitializationResult
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult*
+  name: InitializationResult
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
+  nameWithType: RfbConnectionContext.InitializationResult
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
   name: MessageReceiver
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver
@@ -1655,6 +1815,242 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Transport
   nameWithType: RfbConnectionContext.Transport
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat
+  name: RfbPixelFormat
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbPixelFormat
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat
+  nameWithType: RfbPixelFormat
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.#ctor(System.Byte,System.Byte,System.Boolean,System.Boolean,System.UInt16,System.UInt16,System.UInt16,System.Byte,System.Byte,System.Byte)
+  name: RfbPixelFormat(Byte, Byte, Boolean, Boolean, UInt16, UInt16, UInt16, Byte, Byte, Byte)
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat__ctor_System_Byte_System_Byte_System_Boolean_System_Boolean_System_UInt16_System_UInt16_System_UInt16_System_Byte_System_Byte_System_Byte_
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.#ctor(System.Byte,System.Byte,System.Boolean,System.Boolean,System.UInt16,System.UInt16,System.UInt16,System.Byte,System.Byte,System.Byte)
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.RfbPixelFormat(System.Byte, System.Byte, System.Boolean, System.Boolean, System.UInt16, System.UInt16, System.UInt16, System.Byte, System.Byte, System.Byte)
+  nameWithType: RfbPixelFormat.RfbPixelFormat(Byte, Byte, Boolean, Boolean, UInt16, UInt16, UInt16, Byte, Byte, Byte)
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.#ctor*
+  name: RfbPixelFormat
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.RfbPixelFormat
+  nameWithType: RfbPixelFormat.RfbPixelFormat
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.AsFrameFormat
+  name: AsFrameFormat()
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_AsFrameFormat
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.AsFrameFormat
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.AsFrameFormat()
+  nameWithType: RfbPixelFormat.AsFrameFormat()
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.AsFrameFormat*
+  name: AsFrameFormat
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_AsFrameFormat_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.AsFrameFormat
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.AsFrameFormat
+  nameWithType: RfbPixelFormat.AsFrameFormat
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BigEndian
+  name: BigEndian
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BigEndian
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.BigEndian
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BigEndian
+  nameWithType: RfbPixelFormat.BigEndian
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BigEndian*
+  name: BigEndian
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BigEndian_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.BigEndian
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BigEndian
+  nameWithType: RfbPixelFormat.BigEndian
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BitsPerPixel
+  name: BitsPerPixel
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BitsPerPixel
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.BitsPerPixel
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BitsPerPixel
+  nameWithType: RfbPixelFormat.BitsPerPixel
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BitsPerPixel*
+  name: BitsPerPixel
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BitsPerPixel_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.BitsPerPixel
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BitsPerPixel
+  nameWithType: RfbPixelFormat.BitsPerPixel
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueMax
+  name: BlueMax
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BlueMax
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.BlueMax
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueMax
+  nameWithType: RfbPixelFormat.BlueMax
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueMax*
+  name: BlueMax
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BlueMax_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.BlueMax
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueMax
+  nameWithType: RfbPixelFormat.BlueMax
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueShift
+  name: BlueShift
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BlueShift
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.BlueShift
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueShift
+  nameWithType: RfbPixelFormat.BlueShift
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueShift*
+  name: BlueShift
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_BlueShift_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.BlueShift
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.BlueShift
+  nameWithType: RfbPixelFormat.BlueShift
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.Depth
+  name: Depth
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_Depth
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.Depth
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Depth
+  nameWithType: RfbPixelFormat.Depth
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.Depth*
+  name: Depth
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_Depth_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.Depth
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Depth
+  nameWithType: RfbPixelFormat.Depth
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(MarcusW.VncClient.Protocol.RfbPixelFormat)
+  name: Equals(RfbPixelFormat)
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_Equals_MarcusW_VncClient_Protocol_RfbPixelFormat_
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(MarcusW.VncClient.Protocol.RfbPixelFormat)
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(MarcusW.VncClient.Protocol.RfbPixelFormat)
+  nameWithType: RfbPixelFormat.Equals(RfbPixelFormat)
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(System.Nullable{System.Object})
+  name: Equals(Nullable<Object>)
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_Equals_System_Nullable_System_Object__
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(System.Nullable{System.Object})
+  name.vb: Equals(Nullable(Of Object))
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(System.Nullable<System.Object>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals(System.Nullable(Of System.Object))
+  nameWithType: RfbPixelFormat.Equals(Nullable<Object>)
+  nameWithType.vb: RfbPixelFormat.Equals(Nullable(Of Object))
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals*
+  name: Equals
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_Equals_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.Equals
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Equals
+  nameWithType: RfbPixelFormat.Equals
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.GetHashCode
+  name: GetHashCode()
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_GetHashCode
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.GetHashCode
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.GetHashCode()
+  nameWithType: RfbPixelFormat.GetHashCode()
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.GetHashCode*
+  name: GetHashCode
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_GetHashCode_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.GetHashCode
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.GetHashCode
+  nameWithType: RfbPixelFormat.GetHashCode
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenMax
+  name: GreenMax
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_GreenMax
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.GreenMax
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenMax
+  nameWithType: RfbPixelFormat.GreenMax
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenMax*
+  name: GreenMax
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_GreenMax_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.GreenMax
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenMax
+  nameWithType: RfbPixelFormat.GreenMax
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenShift
+  name: GreenShift
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_GreenShift
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.GreenShift
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenShift
+  nameWithType: RfbPixelFormat.GreenShift
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenShift*
+  name: GreenShift
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_GreenShift_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.GreenShift
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.GreenShift
+  nameWithType: RfbPixelFormat.GreenShift
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.op_Equality(MarcusW.VncClient.Protocol.RfbPixelFormat,MarcusW.VncClient.Protocol.RfbPixelFormat)
+  name: Equality(RfbPixelFormat, RfbPixelFormat)
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_op_Equality_MarcusW_VncClient_Protocol_RfbPixelFormat_MarcusW_VncClient_Protocol_RfbPixelFormat_
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.op_Equality(MarcusW.VncClient.Protocol.RfbPixelFormat,MarcusW.VncClient.Protocol.RfbPixelFormat)
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Equality(MarcusW.VncClient.Protocol.RfbPixelFormat, MarcusW.VncClient.Protocol.RfbPixelFormat)
+  nameWithType: RfbPixelFormat.Equality(RfbPixelFormat, RfbPixelFormat)
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.op_Equality*
+  name: Equality
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_op_Equality_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.op_Equality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Equality
+  nameWithType: RfbPixelFormat.Equality
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.op_Inequality(MarcusW.VncClient.Protocol.RfbPixelFormat,MarcusW.VncClient.Protocol.RfbPixelFormat)
+  name: Inequality(RfbPixelFormat, RfbPixelFormat)
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_op_Inequality_MarcusW_VncClient_Protocol_RfbPixelFormat_MarcusW_VncClient_Protocol_RfbPixelFormat_
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.op_Inequality(MarcusW.VncClient.Protocol.RfbPixelFormat,MarcusW.VncClient.Protocol.RfbPixelFormat)
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Inequality(MarcusW.VncClient.Protocol.RfbPixelFormat, MarcusW.VncClient.Protocol.RfbPixelFormat)
+  nameWithType: RfbPixelFormat.Inequality(RfbPixelFormat, RfbPixelFormat)
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.op_Inequality*
+  name: Inequality
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_op_Inequality_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.op_Inequality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.Inequality
+  nameWithType: RfbPixelFormat.Inequality
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.RedMax
+  name: RedMax
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_RedMax
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.RedMax
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.RedMax
+  nameWithType: RfbPixelFormat.RedMax
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.RedMax*
+  name: RedMax
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_RedMax_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.RedMax
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.RedMax
+  nameWithType: RfbPixelFormat.RedMax
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.RedShift
+  name: RedShift
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_RedShift
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.RedShift
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.RedShift
+  nameWithType: RfbPixelFormat.RedShift
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.RedShift*
+  name: RedShift
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_RedShift_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.RedShift
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.RedShift
+  nameWithType: RfbPixelFormat.RedShift
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.ToString
+  name: ToString()
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_ToString
+  commentId: M:MarcusW.VncClient.Protocol.RfbPixelFormat.ToString
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.ToString()
+  nameWithType: RfbPixelFormat.ToString()
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.ToString*
+  name: ToString
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_ToString_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.ToString
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.ToString
+  nameWithType: RfbPixelFormat.ToString
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.TrueColor
+  name: TrueColor
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_TrueColor
+  commentId: P:MarcusW.VncClient.Protocol.RfbPixelFormat.TrueColor
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.TrueColor
+  nameWithType: RfbPixelFormat.TrueColor
+- uid: MarcusW.VncClient.Protocol.RfbPixelFormat.TrueColor*
+  name: TrueColor
+  href: api/MarcusW.VncClient.Protocol.RfbPixelFormat.html#MarcusW_VncClient_Protocol_RfbPixelFormat_TrueColor_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbPixelFormat.TrueColor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbPixelFormat.TrueColor
+  nameWithType: RfbPixelFormat.TrueColor
 - uid: MarcusW.VncClient.Protocol.RfbProtocolException
   name: RfbProtocolException
   href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html
@@ -1859,12 +2255,144 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.Priority
   nameWithType: ISecurityType.Priority
+- uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
+  name: ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_ReadServerInitExtensionAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, System.Threading.CancellationToken)
+  nameWithType: ISecurityType.ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync*
+  name: ReadServerInitExtensionAsync
+  href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_ReadServerInitExtensionAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync
+  nameWithType: ISecurityType.ReadServerInitExtensionAsync
 - uid: MarcusW.VncClient.Protocol.Services
   name: MarcusW.VncClient.Protocol.Services
   href: api/MarcusW.VncClient.Protocol.Services.html
   commentId: N:MarcusW.VncClient.Protocol.Services
   fullName: MarcusW.VncClient.Protocol.Services
   nameWithType: MarcusW.VncClient.Protocol.Services
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult
+  name: HandshakeResult
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.HandshakeResult
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult
+  nameWithType: HandshakeResult
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,System.Nullable{MarcusW.VncClient.Protocol.ITransport})
+  name: HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable<ITransport>)
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult__ctor_MarcusW_VncClient_Protocol_RfbProtocolVersion_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_System_Nullable_MarcusW_VncClient_Protocol_ITransport__
+  commentId: M:MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,System.Nullable{MarcusW.VncClient.Protocol.ITransport})
+  name.vb: HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable(Of ITransport))
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.HandshakeResult(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, System.Nullable<MarcusW.VncClient.Protocol.ITransport>)
+  fullName.vb: MarcusW.VncClient.Protocol.Services.HandshakeResult.HandshakeResult(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, System.Nullable(Of MarcusW.VncClient.Protocol.ITransport))
+  nameWithType: HandshakeResult.HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable<ITransport>)
+  nameWithType.vb: HandshakeResult.HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable(Of ITransport))
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor*
+  name: HandshakeResult
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.HandshakeResult
+  nameWithType: HandshakeResult.HandshakeResult
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_ProtocolVersion
+  commentId: P:MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
+  nameWithType: HandshakeResult.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion*
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_ProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
+  nameWithType: HandshakeResult.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
+  name: TunnelTransport
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_TunnelTransport
+  commentId: P:MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
+  nameWithType: HandshakeResult.TunnelTransport
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport*
+  name: TunnelTransport
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_TunnelTransport_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
+  nameWithType: HandshakeResult.TunnelTransport
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
+  name: UsedSecurityType
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_UsedSecurityType
+  commentId: P:MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
+  nameWithType: HandshakeResult.UsedSecurityType
+- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType*
+  name: UsedSecurityType
+  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_UsedSecurityType_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
+  nameWithType: HandshakeResult.UsedSecurityType
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult
+  name: InitializationResult
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.InitializationResult
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult
+  nameWithType: InitializationResult
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor(MarcusW.VncClient.FrameSize,MarcusW.VncClient.Protocol.RfbPixelFormat,System.String)
+  name: InitializationResult(FrameSize, RfbPixelFormat, String)
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult__ctor_MarcusW_VncClient_FrameSize_MarcusW_VncClient_Protocol_RfbPixelFormat_System_String_
+  commentId: M:MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor(MarcusW.VncClient.FrameSize,MarcusW.VncClient.Protocol.RfbPixelFormat,System.String)
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.InitializationResult(MarcusW.VncClient.FrameSize, MarcusW.VncClient.Protocol.RfbPixelFormat, System.String)
+  nameWithType: InitializationResult.InitializationResult(FrameSize, RfbPixelFormat, String)
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor*
+  name: InitializationResult
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.InitializationResult
+  nameWithType: InitializationResult.InitializationResult
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
+  name: DesktopName
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_DesktopName
+  commentId: P:MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
+  nameWithType: InitializationResult.DesktopName
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName*
+  name: DesktopName
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_DesktopName_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
+  nameWithType: InitializationResult.DesktopName
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_FramebufferSize
+  commentId: P:MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
+  nameWithType: InitializationResult.FramebufferSize
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize*
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_FramebufferSize_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
+  nameWithType: InitializationResult.FramebufferSize
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
+  name: PixelFormat
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_PixelFormat
+  commentId: P:MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
+  nameWithType: InitializationResult.PixelFormat
+- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat*
+  name: PixelFormat
+  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_PixelFormat_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
+  nameWithType: InitializationResult.PixelFormat
 - uid: MarcusW.VncClient.Protocol.Services.IRfbHandshaker
   name: IRfbHandshaker
   href: api/MarcusW.VncClient.Protocol.Services.IRfbHandshaker.html
@@ -1884,6 +2412,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Services.IRfbHandshaker.DoHandshakeAsync
   nameWithType: IRfbHandshaker.DoHandshakeAsync
+- uid: MarcusW.VncClient.Protocol.Services.IRfbInitializer
+  name: IRfbInitializer
+  href: api/MarcusW.VncClient.Protocol.Services.IRfbInitializer.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.IRfbInitializer
+  fullName: MarcusW.VncClient.Protocol.Services.IRfbInitializer
+  nameWithType: IRfbInitializer
+- uid: MarcusW.VncClient.Protocol.Services.IRfbInitializer.InitializeAsync(System.Threading.CancellationToken)
+  name: InitializeAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.IRfbInitializer.html#MarcusW_VncClient_Protocol_Services_IRfbInitializer_InitializeAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.IRfbInitializer.InitializeAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.IRfbInitializer.InitializeAsync(System.Threading.CancellationToken)
+  nameWithType: IRfbInitializer.InitializeAsync(CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.IRfbInitializer.InitializeAsync*
+  name: InitializeAsync
+  href: api/MarcusW.VncClient.Protocol.Services.IRfbInitializer.html#MarcusW_VncClient_Protocol_Services_IRfbInitializer_InitializeAsync_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.IRfbInitializer.InitializeAsync
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.IRfbInitializer.InitializeAsync
+  nameWithType: IRfbInitializer.InitializeAsync
 - uid: MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver
   name: IRfbMessageReceiver
   href: api/MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.html
@@ -2021,6 +2568,36 @@ references:
   commentId: N:MarcusW.VncClient.Rendering
   fullName: MarcusW.VncClient.Rendering
   nameWithType: MarcusW.VncClient.Rendering
+- uid: MarcusW.VncClient.Rendering.FrameFormat
+  name: FrameFormat
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html
+  commentId: T:MarcusW.VncClient.Rendering.FrameFormat
+  fullName: MarcusW.VncClient.Rendering.FrameFormat
+  nameWithType: FrameFormat
+- uid: MarcusW.VncClient.Rendering.FrameFormat.BGRA8888
+  name: BGRA8888
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_BGRA8888
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.BGRA8888
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.BGRA8888
+  nameWithType: FrameFormat.BGRA8888
+- uid: MarcusW.VncClient.Rendering.FrameFormat.RGB565
+  name: RGB565
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_RGB565
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.RGB565
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.RGB565
+  nameWithType: FrameFormat.RGB565
+- uid: MarcusW.VncClient.Rendering.FrameFormat.RGBA8888
+  name: RGBA8888
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_RGBA8888
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.RGBA8888
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.RGBA8888
+  nameWithType: FrameFormat.RGBA8888
+- uid: MarcusW.VncClient.Rendering.FrameFormat.Unknown
+  name: Unknown
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_Unknown
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.Unknown
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.Unknown
+  nameWithType: FrameFormat.Unknown
 - uid: MarcusW.VncClient.Rendering.IFramebufferReference
   name: IFramebufferReference
   href: api/MarcusW.VncClient.Rendering.IFramebufferReference.html
@@ -2124,30 +2701,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
   nameWithType: IRenderTarget.GrabFramebufferReference
-- uid: MarcusW.VncClient.Rendering.PixelFormat
-  name: PixelFormat
-  href: api/MarcusW.VncClient.Rendering.PixelFormat.html
-  commentId: T:MarcusW.VncClient.Rendering.PixelFormat
-  fullName: MarcusW.VncClient.Rendering.PixelFormat
-  nameWithType: PixelFormat
-- uid: MarcusW.VncClient.Rendering.PixelFormat.Bgra8888
-  name: Bgra8888
-  href: api/MarcusW.VncClient.Rendering.PixelFormat.html#MarcusW_VncClient_Rendering_PixelFormat_Bgra8888
-  commentId: F:MarcusW.VncClient.Rendering.PixelFormat.Bgra8888
-  fullName: MarcusW.VncClient.Rendering.PixelFormat.Bgra8888
-  nameWithType: PixelFormat.Bgra8888
-- uid: MarcusW.VncClient.Rendering.PixelFormat.Rgb565
-  name: Rgb565
-  href: api/MarcusW.VncClient.Rendering.PixelFormat.html#MarcusW_VncClient_Rendering_PixelFormat_Rgb565
-  commentId: F:MarcusW.VncClient.Rendering.PixelFormat.Rgb565
-  fullName: MarcusW.VncClient.Rendering.PixelFormat.Rgb565
-  nameWithType: PixelFormat.Rgb565
-- uid: MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
-  name: Rgba8888
-  href: api/MarcusW.VncClient.Rendering.PixelFormat.html#MarcusW_VncClient_Rendering_PixelFormat_Rgba8888
-  commentId: F:MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
-  fullName: MarcusW.VncClient.Rendering.PixelFormat.Rgba8888
-  nameWithType: PixelFormat.Rgba8888
 - uid: MarcusW.VncClient.RfbConnection
   name: RfbConnection
   href: api/MarcusW.VncClient.RfbConnection.html
@@ -2180,6 +2733,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.ConnectionState
   nameWithType: RfbConnection.ConnectionState
+- uid: MarcusW.VncClient.RfbConnection.DesktopName
+  name: DesktopName
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_DesktopName
+  commentId: P:MarcusW.VncClient.RfbConnection.DesktopName
+  fullName: MarcusW.VncClient.RfbConnection.DesktopName
+  nameWithType: RfbConnection.DesktopName
+- uid: MarcusW.VncClient.RfbConnection.DesktopName*
+  name: DesktopName
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_DesktopName_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.DesktopName
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.DesktopName
+  nameWithType: RfbConnection.DesktopName
 - uid: MarcusW.VncClient.RfbConnection.Dispose
   name: Dispose()
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_Dispose
@@ -2193,6 +2759,32 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.Dispose
   nameWithType: RfbConnection.Dispose
+- uid: MarcusW.VncClient.RfbConnection.FramebufferFormat
+  name: FramebufferFormat
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_FramebufferFormat
+  commentId: P:MarcusW.VncClient.RfbConnection.FramebufferFormat
+  fullName: MarcusW.VncClient.RfbConnection.FramebufferFormat
+  nameWithType: RfbConnection.FramebufferFormat
+- uid: MarcusW.VncClient.RfbConnection.FramebufferFormat*
+  name: FramebufferFormat
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_FramebufferFormat_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.FramebufferFormat
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.FramebufferFormat
+  nameWithType: RfbConnection.FramebufferFormat
+- uid: MarcusW.VncClient.RfbConnection.FramebufferSize
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_FramebufferSize
+  commentId: P:MarcusW.VncClient.RfbConnection.FramebufferSize
+  fullName: MarcusW.VncClient.RfbConnection.FramebufferSize
+  nameWithType: RfbConnection.FramebufferSize
+- uid: MarcusW.VncClient.RfbConnection.FramebufferSize*
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_FramebufferSize_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.FramebufferSize
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.FramebufferSize
+  nameWithType: RfbConnection.FramebufferSize
 - uid: MarcusW.VncClient.RfbConnection.LoggerFactory
   name: LoggerFactory
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_LoggerFactory
@@ -2238,6 +2830,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.ProtocolImplementation
   nameWithType: RfbConnection.ProtocolImplementation
+- uid: MarcusW.VncClient.RfbConnection.ProtocolVersion
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_ProtocolVersion
+  commentId: P:MarcusW.VncClient.RfbConnection.ProtocolVersion
+  fullName: MarcusW.VncClient.RfbConnection.ProtocolVersion
+  nameWithType: RfbConnection.ProtocolVersion
+- uid: MarcusW.VncClient.RfbConnection.ProtocolVersion*
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_ProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.ProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.ProtocolVersion
+  nameWithType: RfbConnection.ProtocolVersion
 - uid: MarcusW.VncClient.RfbConnection.RenderTarget
   name: RenderTarget
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RenderTarget

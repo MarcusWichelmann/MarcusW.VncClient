@@ -73,7 +73,7 @@
   
   <h1 id="MarcusW_VncClient_Protocol_RfbConnectionContext" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext" class="text-break">Class RfbConnectionContext
   </h1>
-  <div class="markdown level0 summary"><p>Holds multiple connection-related objects and gives the protocol implementation classes access to some aspects of them.</p>
+  <div class="markdown level0 summary"><p>Holds multiple connection-related objects and acts as a central place to provide the protocol implementation classes access to them.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -112,7 +112,8 @@
     <pre><code class="lang-csharp hljs">public class RfbConnectionContext</code></pre>
   </div>
   <h5 id="MarcusW_VncClient_Protocol_RfbConnectionContext_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>This is just a container class that does not implement any complex logic.</p>
+  <div class="markdown level0 remarks"><p>This is just a container class that does not implement any complex logic.
+Remember that some of the properties might be uninitialized during early stages of the protocol.</p>
 </div>
   <h3 id="properties">Properties
   </h3>
@@ -121,7 +122,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_Connection.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.Connection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L20">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L22">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_Connection_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.Connection*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_Connection" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.Connection">Connection</h4>
@@ -149,10 +150,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetails.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L27">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetails_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetails" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetails">ConnectionDetails</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html">RfbConnectionContext.ConnectionDetailsAccessor</a> which provides write access to some details properties on the <a class="xref" href="MarcusW.VncClient.RfbConnection.html">RfbConnection</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RfbConnectionContext.ConnectionDetailsAccessor ConnectionDetails { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html">RfbConnectionContext.ConnectionDetailsAccessor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L41">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L48">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult">HandshakeResult</h4>
@@ -173,7 +205,38 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.HandshakeResult.html">HandshakeResult</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Services.HandshakeResult.html">HandshakeResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L53">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult">InitializationResult</h4>
+  <div class="markdown level1 summary"><p>Gets the result of the connection initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InitializationResult? InitializationResult { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Services.InitializationResult.html">InitializationResult</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -183,7 +246,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L46">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L58">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver">MessageReceiver</h4>
@@ -214,7 +277,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolImplementation.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L53">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L65">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolImplementation_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolImplementation" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation">ProtocolImplementation</h4>
@@ -245,7 +308,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L58">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L70">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion">ProtocolVersion</h4>
@@ -276,7 +339,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedEncodings.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedEncodings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L30">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L37">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedEncodings_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedEncodings*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedEncodings" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedEncodings">SupportedEncodings</h4>
@@ -307,7 +370,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedSecurityTypes.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedSecurityTypes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L25">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L32">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedSecurityTypes_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedSecurityTypes*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedSecurityTypes" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedSecurityTypes">SupportedSecurityTypes</h4>
@@ -338,7 +401,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext_Transport.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext.Transport%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L36">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L43">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_RfbConnectionContext_Transport_" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.Transport*"></a>
   <h4 id="MarcusW_VncClient_Protocol_RfbConnectionContext_Transport" data-uid="MarcusW.VncClient.Protocol.RfbConnectionContext.Transport">Transport</h4>
@@ -376,7 +439,7 @@ Please note, that this might be replaced with tunnel transports during the hands
                     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_RfbConnectionContext.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.RfbConnectionContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/RfbConnectionContext.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
