@@ -40,7 +40,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Negotiate the protocol version that both sides will use
             RfbProtocolVersion protocolVersion = await NegotiateProtocolVersionAsync(currentTransport, cancellationToken).ConfigureAwait(false);
-            _context.ConnectionDetails.ProtocolVersion = protocolVersion;
 
             // Negotiate which security type will be used
             ISecurityType usedSecurityType = await NegotiateSecurityTypeAsync(currentTransport, protocolVersion, cancellationToken).ConfigureAwait(false);

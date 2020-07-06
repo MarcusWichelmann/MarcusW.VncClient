@@ -1,5 +1,6 @@
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.Messages;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
 
@@ -20,6 +21,17 @@ namespace MarcusW.VncClient.Protocol
         /// <param name="context">Details about the associated connection.</param>
         /// <returns>An immutable dictionary that maps security type ids to security types.</returns>
         IImmutableDictionary<byte, ISecurityType> CreateSecurityTypesCollection(RfbConnectionContext context);
+
+        /// <summary>
+        /// Creates a new collection of all supported <see cref="IMessage"/>s.
+        /// </summary>
+        /// <remarks>
+        /// Make sure the messages are newly instantiated on each call, because it's
+        /// not guaranteed that they can safely be used across multiple connections simultaneously.
+        /// </remarks>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>An immutable dictionary that maps message ids to messages.</returns>
+        IImmutableDictionary<byte, IMessage> CreateMessagesCollection(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new collection of all supported <see cref="IEncoding"/>s.

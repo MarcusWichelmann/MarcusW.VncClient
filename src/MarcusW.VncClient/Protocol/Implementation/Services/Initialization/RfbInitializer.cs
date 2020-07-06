@@ -47,10 +47,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             }
 
             // Set some connection details
-            var connectionDetails = _context.ConnectionDetails;
-            connectionDetails.FramebufferSize = framebufferSize;
-            connectionDetails.FramebufferFormat = pixelFormat;
-            connectionDetails.DesktopName = desktopName;
+            _context.ConnectionDetails.SetFramebufferSize(framebufferSize);
+            _context.ConnectionDetails.SetFramebufferFormat(pixelFormat);
+            _context.ConnectionDetails.SetDesktopName(desktopName);
 
             // Some security types extend the ServerInit response and now have the chance to continue reading
             await _context.HandshakeResult!.UsedSecurityType.ReadServerInitExtensionAsync(_context.ProtocolVersion, cancellationToken).ConfigureAwait(false);

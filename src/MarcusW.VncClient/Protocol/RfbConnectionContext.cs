@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.Messages;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Rendering;
@@ -24,12 +25,17 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// Gets a <see cref="ConnectionDetailsAccessor"/> which provides write access to some details properties on the <see cref="RfbConnection"/> object.
         /// </summary>
-        public ConnectionDetailsAccessor ConnectionDetails => new ConnectionDetailsAccessor(Connection);
+        public ConnectionDetailsAccessor ConnectionDetails { get; }
 
         /// <summary>
         /// Gets the security types that are supported by the client.
         /// </summary>
         public IImmutableDictionary<byte, ISecurityType>? SupportedSecurityTypes { get; internal set; }
+
+        /// <summary>
+        /// Gets the messages that are supported by the client.
+        /// </summary>
+        public IImmutableDictionary<byte, IMessage>? SupportedMessages { get; internal set; }
 
         /// <summary>
         /// Gets the encodings that are supported by the client.
@@ -72,6 +78,7 @@ namespace MarcusW.VncClient.Protocol
         internal RfbConnectionContext(RfbConnection connection)
         {
             Connection = connection;
+            ConnectionDetails = new ConnectionDetailsAccessor(connection);
         }
 
         /// <summary>
@@ -87,40 +94,34 @@ namespace MarcusW.VncClient.Protocol
             }
 
             /// <summary>
-            /// Gets or sets the value of the <seealso cref="RfbConnection.FramebufferSize"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.UsedMessages"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            public FrameSize FramebufferSize
-            {
-                get => _connection.FramebufferSize;
-                set => _connection.FramebufferSize = value;
-            }
+            /// <param name="usedMessages">The new messages set.</param>
+            public void SetUsedMessages(IImmutableDictionary<byte, IMessage> usedMessages) => _connection.UsedMessages = usedMessages;
 
             /// <summary>
-            /// Gets or sets the value of the <seealso cref="RfbConnection.FramebufferFormat"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.UsedEncodings"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            public PixelFormat FramebufferFormat
-            {
-                get => _connection.FramebufferFormat;
-                set => _connection.FramebufferFormat = value;
-            }
+            /// <param name="usedEncodings">The new encodings set.</param>
+            public void SetUsedEncodings(IImmutableDictionary<int, IEncoding> usedEncodings) => _connection.UsedEncodings = usedEncodings;
 
             /// <summary>
-            /// Gets or sets the value of the <seealso cref="RfbConnection.DesktopName"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.FramebufferSize"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            public string DesktopName
-            {
-                get => _connection.DesktopName;
-                set => _connection.DesktopName = value;
-            }
+            /// <param name="framebufferSize">The new framebuffer size.</param>
+            public void SetFramebufferSize(FrameSize framebufferSize) => _connection.FramebufferSize = framebufferSize;
 
             /// <summary>
-            /// Gets or sets the value of the <seealso cref="RfbConnection.ProtocolVersion"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.FramebufferFormat"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            public RfbProtocolVersion ProtocolVersion
-            {
-                get => _connection.ProtocolVersion;
-                set => _connection.ProtocolVersion = value;
-            }
+            /// <param name="framebufferFormat">The new framebuffer format.</param>
+            public void SetFramebufferFormat(PixelFormat framebufferFormat) => _connection.FramebufferFormat = framebufferFormat;
+
+            /// <summary>
+            /// Sets the value of the <seealso cref="RfbConnection.DesktopName"/> property on the <see cref="RfbConnection"/> object.
+            /// </summary>
+            /// <param name="desktopName">The new desktop name.</param>
+            public void SetDesktopName(string desktopName) => _connection.DesktopName = desktopName;
         }
     }
 }

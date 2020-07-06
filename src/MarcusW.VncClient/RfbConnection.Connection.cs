@@ -28,6 +28,7 @@ namespace MarcusW.VncClient
             // Create a new connection context
             var context = new RfbConnectionContext(this);
             context.SupportedSecurityTypes = ProtocolImplementation.CreateSecurityTypesCollection(context);
+            context.SupportedMessages = ProtocolImplementation.CreateMessagesCollection(context);
             context.SupportedEncodings = ProtocolImplementation.CreateEncodingsCollection(context);
 
             try
@@ -38,6 +39,10 @@ namespace MarcusW.VncClient
                 // Do the handshake
                 HandshakeResult handshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
                 context.HandshakeResult = handshakeResult;
+
+                // Set some connection details
+                ProtocolVersion = handshakeResult.ProtocolVersion;
+                UsedSecurityType = handshakeResult.UsedSecurityType;
 
                 // Replace the current transport in case a tunnel has been built during handshake
                 if (handshakeResult.TunnelTransport != null)
