@@ -2574,6 +2574,18 @@ references:
   commentId: T:MarcusW.VncClient.Rendering.FrameFormat
   fullName: MarcusW.VncClient.Rendering.FrameFormat
   nameWithType: FrameFormat
+- uid: MarcusW.VncClient.Rendering.FrameFormat.BGR565
+  name: BGR565
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_BGR565
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.BGR565
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.BGR565
+  nameWithType: FrameFormat.BGR565
+- uid: MarcusW.VncClient.Rendering.FrameFormat.BGR888
+  name: BGR888
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_BGR888
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.BGR888
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.BGR888
+  nameWithType: FrameFormat.BGR888
 - uid: MarcusW.VncClient.Rendering.FrameFormat.BGRA8888
   name: BGRA8888
   href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_BGRA8888
@@ -2586,6 +2598,12 @@ references:
   commentId: F:MarcusW.VncClient.Rendering.FrameFormat.RGB565
   fullName: MarcusW.VncClient.Rendering.FrameFormat.RGB565
   nameWithType: FrameFormat.RGB565
+- uid: MarcusW.VncClient.Rendering.FrameFormat.RGB888
+  name: RGB888
+  href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_RGB888
+  commentId: F:MarcusW.VncClient.Rendering.FrameFormat.RGB888
+  fullName: MarcusW.VncClient.Rendering.FrameFormat.RGB888
+  nameWithType: FrameFormat.RGB888
 - uid: MarcusW.VncClient.Rendering.FrameFormat.RGBA8888
   name: RGBA8888
   href: api/MarcusW.VncClient.Rendering.FrameFormat.html#MarcusW_VncClient_Rendering_FrameFormat_RGBA8888
