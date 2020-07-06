@@ -1314,6 +1314,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateSecurityTypesCollection
   nameWithType: DefaultImplementation.CreateSecurityTypesCollection
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateStateObject(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateStateObject(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateStateObject_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateStateObject(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateStateObject(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: DefaultImplementation.CreateStateObject(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateStateObject*
+  name: CreateStateObject
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateStateObject_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateStateObject
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateStateObject
+  nameWithType: DefaultImplementation.CreateStateObject
 - uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTransportConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
   name: CreateTransportConnector(RfbConnectionContext)
   href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateTransportConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_
@@ -1378,6 +1391,25 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate
   fullName: MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate
   nameWithType: MessagesCollectionBuilderDelegate
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState
+  name: ProtocolState
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.ProtocolState
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState
+  nameWithType: ProtocolState
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: ProtocolState(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolState(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: ProtocolState.ProtocolState(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.#ctor*
+  name: ProtocolState
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolState
+  nameWithType: ProtocolState.ProtocolState
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes
   name: MarcusW.VncClient.Protocol.Implementation.SecurityTypes
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.html
@@ -1968,6 +2000,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateSecurityTypesCollection
   nameWithType: IRfbProtocolImplementation.CreateSecurityTypesCollection
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateStateObject(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateStateObject(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateStateObject_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateStateObject(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateStateObject(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateStateObject(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateStateObject*
+  name: CreateStateObject
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateStateObject_
+  commentId: Overload:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateStateObject
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateStateObject
+  nameWithType: IRfbProtocolImplementation.CreateStateObject
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTransportConnector(MarcusW.VncClient.Protocol.RfbConnectionContext)
   name: CreateTransportConnector(RfbConnectionContext)
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateTransportConnector_MarcusW_VncClient_Protocol_RfbConnectionContext_
@@ -1981,6 +2026,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTransportConnector
   nameWithType: IRfbProtocolImplementation.CreateTransportConnector
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolState
+  name: IRfbProtocolState
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolState.html
+  commentId: T:MarcusW.VncClient.Protocol.IRfbProtocolState
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolState
+  nameWithType: IRfbProtocolState
 - uid: MarcusW.VncClient.Protocol.ITransport
   name: ITransport
   href: api/MarcusW.VncClient.Protocol.ITransport.html
@@ -2250,6 +2301,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
   nameWithType: RfbConnectionContext.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.State
+  name: State
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_State
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.State
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.State
+  nameWithType: RfbConnectionContext.State
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.State*
+  name: State
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_State_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.State
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.State
+  nameWithType: RfbConnectionContext.State
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.SupportedEncodings
   name: SupportedEncodings
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_SupportedEncodings
