@@ -12,6 +12,13 @@ namespace MarcusW.VncClient.Protocol
     public interface IRfbProtocolImplementation
     {
         /// <summary>
+        /// Creates a new <see cref="IRfbProtocolState"/> state object.
+        /// </summary>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>A new state object.</returns>
+        IRfbProtocolState CreateStateObject(RfbConnectionContext context);
+
+        /// <summary>
         /// Creates a new collection of all supported <see cref="ISecurityType"/>s.
         /// </summary>
         /// <remarks>

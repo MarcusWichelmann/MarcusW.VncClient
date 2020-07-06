@@ -60,6 +60,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
             _encodingsCollectionBuilder = encodingsCollectionBuilder ?? throw new ArgumentNullException(nameof(encodingsCollectionBuilder));
         }
 
+        /// <inheritdoc />
+        public IRfbProtocolState CreateStateObject(RfbConnectionContext context) => new ProtocolState(context);
+
         /// <inhertitdoc />
         public IImmutableDictionary<byte, ISecurityType> CreateSecurityTypesCollection(RfbConnectionContext context)
             => BuildImmutableDictionary(_securityTypesCollectionBuilder.Invoke(context), v => v.Id);

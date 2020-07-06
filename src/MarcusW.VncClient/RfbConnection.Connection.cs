@@ -27,6 +27,7 @@ namespace MarcusW.VncClient
 
             // Create a new connection context
             var context = new RfbConnectionContext(this);
+            context.State = ProtocolImplementation.CreateStateObject(context);
             context.SupportedSecurityTypes = ProtocolImplementation.CreateSecurityTypesCollection(context);
             context.SupportedMessages = ProtocolImplementation.CreateMessagesCollection(context);
             context.SupportedEncodings = ProtocolImplementation.CreateEncodingsCollection(context);

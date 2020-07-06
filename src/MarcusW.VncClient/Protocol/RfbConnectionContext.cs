@@ -28,6 +28,11 @@ namespace MarcusW.VncClient.Protocol
         public ConnectionDetailsAccessor ConnectionDetails { get; }
 
         /// <summary>
+        /// Gets the protocol state object.
+        /// </summary>
+        public IRfbProtocolState State { get; internal set; }
+
+        /// <summary>
         /// Gets the security types that are supported by the client.
         /// </summary>
         public IImmutableDictionary<byte, ISecurityType>? SupportedSecurityTypes { get; internal set; }
