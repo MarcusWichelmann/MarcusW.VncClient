@@ -23,7 +23,8 @@
                 <TextBlock
                     Text="{Binding RfbConnection.ProtocolVersion, Converter={x:Static vncconverters:VncClientConverters.RfbProtocolVersionToString}, StringFormat=Protocol Version: \{0\}}" />
                 <TextBlock Text="{Binding RfbConnection.FramebufferSize, StringFormat=Framebuffer Size: \{0\}}" />
-                <TextBlock Text="{Binding RfbConnection.FramebufferFormat, StringFormat=Framebuffer Format: \{0\}}" />
+                <TextBlock
+                    Text="{Binding RfbConnection.FramebufferFormat, Converter={x:Static vncconverters:VncClientConverters.PixelFormatToShortString}, StringFormat=Framebuffer Format: \{0\}}" />
             </StackPanel>
         </Border>
 

@@ -9,7 +9,7 @@ namespace MarcusW.VncClient
         private FrameSize _framebufferSize = FrameSize.Zero;
 
         private readonly object _framebufferFormatLock = new object();
-        private FrameFormat _framebufferFormat = FrameFormat.Unknown;
+        private PixelFormat _framebufferFormat = PixelFormat.Unknown;
 
         private readonly object _desktopNameLock = new object();
         private string _desktopName = "Unknown";
@@ -31,7 +31,7 @@ namespace MarcusW.VncClient
         /// Gets the current format of the remote view.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public FrameFormat FramebufferFormat
+        public PixelFormat FramebufferFormat
         {
             get => GetWithLock(ref _framebufferFormat, _framebufferFormatLock);
             internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _framebufferFormat, value, _framebufferFormatLock);

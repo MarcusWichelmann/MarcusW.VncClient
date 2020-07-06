@@ -24,8 +24,8 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
             => _lockedFramebuffer?.RowBytes ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
 
         /// <inheritdoc />
-        public FrameFormat Format
-            => Conversions.GetFrameFormat(_lockedFramebuffer?.Format
+        public TargetFramebufferFormat Format
+            => Conversions.GetTargetFramebufferFormat(_lockedFramebuffer?.Format
                 ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
 
         /// <inheritdoc />

@@ -28,7 +28,7 @@ namespace MarcusW.VncClient.Tests
                 .ReturnsAsync(new HandshakeResult(RfbProtocolVersion.RFB_3_8, new NoSecurityType(), null));
             _rfbInitializerMock = new Mock<IRfbInitializer>();
             _rfbInitializerMock.Setup(i => i.InitializeAsync(It.IsAny<CancellationToken>()))
-                .ReturnsAsync(new InitializationResult(FrameSize.Zero, new RfbPixelFormat(), "Desktop"));
+                .ReturnsAsync(new InitializationResult(FrameSize.Zero, new PixelFormat(), "Desktop"));
 
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 

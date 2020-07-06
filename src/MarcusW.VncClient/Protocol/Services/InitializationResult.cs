@@ -15,7 +15,7 @@ namespace MarcusW.VncClient.Protocol.Services
         /// <summary>
         /// Gets the received pixel format.
         /// </summary>
-        public RfbPixelFormat PixelFormat { get; }
+        public PixelFormat PixelFormat { get; }
 
         /// <summary>
         /// Gets the received name of the remote desktop.
@@ -28,7 +28,7 @@ namespace MarcusW.VncClient.Protocol.Services
         /// <param name="framebufferSize">The received framebuffer size.</param>
         /// <param name="pixelFormat">The received pixel format.</param>
         /// <param name="desktopName">The received name of the remote desktop.</param>
-        public InitializationResult(FrameSize framebufferSize, RfbPixelFormat pixelFormat, string desktopName)
+        public InitializationResult(FrameSize framebufferSize, PixelFormat pixelFormat, string desktopName)
         {
             FramebufferSize = framebufferSize;
             PixelFormat = pixelFormat;

@@ -38,7 +38,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             await SendClientInitAsync(transport, cancellationToken).ConfigureAwait(false);
 
             // Read ServerInit response
-            (FrameSize framebufferSize, RfbPixelFormat pixelFormat, string desktopName) = await ReadServerInitAsync(transport, cancellationToken).ConfigureAwait(false);
+            (FrameSize framebufferSize, PixelFormat pixelFormat, string desktopName) = await ReadServerInitAsync(transport, cancellationToken).ConfigureAwait(false);
             if (_logger.IsEnabled(LogLevel.Debug))
             {
                 _logger.LogDebug("Framebuffer size: {framebufferSize}", framebufferSize);
@@ -49,7 +49,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             // Set some connection details
             var connectionDetails = _context.ConnectionDetails;
             connectionDetails.FramebufferSize = framebufferSize;
-            connectionDetails.FramebufferFormat = pixelFormat.AsFrameFormat();
+            connectionDetails.FramebufferFormat = pixelFormat;
             connectionDetails.DesktopName = desktopName;
 
             // Some security types extend the ServerInit response and now have the chance to continue reading
@@ -66,7 +66,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             await transport.Stream.WriteAsync(new[] { (byte)(shared ? 1 : 0) }, cancellationToken).ConfigureAwait(false);
         }
 
-        private async Task<(FrameSize framebufferSize, RfbPixelFormat pixelFormat, string desktopName)> ReadServerInitAsync(ITransport transport,
+        private async Task<(FrameSize framebufferSize, PixelFormat pixelFormat, string desktopName)> ReadServerInitAsync(ITransport transport,
             CancellationToken cancellationToken = default)
         {
             _logger.LogDebug("Reading server init message...");
@@ -74,7 +74,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             // Read the first part of the message of which the length is known
             ReadOnlyMemory<byte> headerBytes = await transport.Stream.ReadAllBytesAsync(24, cancellationToken).ConfigureAwait(false);
             FrameSize framebufferSize = GetFramebufferSize(headerBytes.Span[..4]);
-            RfbPixelFormat pixelFormat = GetPixelFormat(headerBytes.Span[4..20]);
+            PixelFormat pixelFormat = GetPixelFormat(headerBytes.Span[4..20]);
             uint desktopNameLength = BinaryPrimitives.ReadUInt32BigEndian(headerBytes.Span[20..24]);
 
             // Read desktop name
@@ -92,7 +92,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             return new FrameSize(framebufferWidth, framebufferHeight);
         }
 
-        private static RfbPixelFormat GetPixelFormat(ReadOnlySpan<byte> headerBytes)
+        private static PixelFormat GetPixelFormat(ReadOnlySpan<byte> headerBytes)
         {
             byte bitsPerPixel = headerBytes[0];
             byte depth = headerBytes[1];
@@ -107,7 +107,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
 
             // Remaining 3 bytes are padding
 
-            return new RfbPixelFormat(bitsPerPixel, depth, bigEndian, trueColor, redMax, greenMax, blueMax, redShift, greenShift, blueShift);
+            // TODO: Add support for color maps
+            if (!trueColor)
+                throw new UnsupportedProtocolFeatureException("Color maps are currently not supported by this client.");
+
+            return new PixelFormat(bitsPerPixel, depth, bigEndian, trueColor, redMax, greenMax, blueMax, redShift, greenShift, blueShift);
         }
     }
 }

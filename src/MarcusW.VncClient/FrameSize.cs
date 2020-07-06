@@ -13,7 +13,7 @@ namespace MarcusW.VncClient
     public readonly struct FrameSize : IEquatable<FrameSize>
     {
         /// <summary>
-        /// A size representing zero
+        /// A size representing zero.
         /// </summary>
         public static readonly FrameSize Zero = new FrameSize(0, 0);
 

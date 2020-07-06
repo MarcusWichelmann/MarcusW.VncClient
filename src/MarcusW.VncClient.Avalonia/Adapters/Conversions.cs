@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using Avalonia;
-using Avalonia.Platform;
 using MarcusW.VncClient.Rendering;
 
 namespace MarcusW.VncClient.Avalonia.Adapters
@@ -25,16 +24,16 @@ namespace MarcusW.VncClient.Avalonia.Adapters
         public static PixelSize GetPixelSize(FrameSize frameSize) => new PixelSize(frameSize.Width, frameSize.Height);
 
         /// <summary>
-        /// Converts a Avalonia PixelFormat to a <see cref="FrameFormat"/>.
+        /// Converts a Avalonia PixelFormat to a <see cref="TargetFramebufferFormat"/>.
         /// </summary>
         /// <param name="avaloniaPixelFormat">Value to convert.</param>
         /// <returns>The conversion result.</returns>
-        public static FrameFormat GetFrameFormat(PixelFormat avaloniaPixelFormat)
+        public static TargetFramebufferFormat GetTargetFramebufferFormat(global::Avalonia.Platform.PixelFormat avaloniaPixelFormat)
             => avaloniaPixelFormat switch {
-                PixelFormat.Rgb565 => FrameFormat.RGB565,
-                PixelFormat.Rgba8888 => FrameFormat.RGBA8888,
-                PixelFormat.Bgra8888 => FrameFormat.BGRA8888,
-                _ => throw new InvalidEnumArgumentException(nameof(avaloniaPixelFormat), (int)avaloniaPixelFormat, typeof(PixelFormat))
+                global::Avalonia.Platform.PixelFormat.Rgb565   => TargetFramebufferFormat.RGB565,
+                global::Avalonia.Platform.PixelFormat.Rgba8888 => TargetFramebufferFormat.RGBA8888,
+                global::Avalonia.Platform.PixelFormat.Bgra8888 => TargetFramebufferFormat.BGRA8888,
+                _                                              => throw new InvalidEnumArgumentException(nameof(avaloniaPixelFormat), (int)avaloniaPixelFormat, typeof(PixelFormat))
             };
     }
 }

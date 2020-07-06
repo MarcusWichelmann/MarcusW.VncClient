@@ -27,12 +27,12 @@ namespace MarcusW.VncClient.Protocol
         public ConnectionDetailsAccessor ConnectionDetails => new ConnectionDetailsAccessor(Connection);
 
         /// <summary>
-        /// Gets the supported security types.
+        /// Gets the security types that are supported by the client.
         /// </summary>
         public IImmutableDictionary<byte, ISecurityType>? SupportedSecurityTypes { get; internal set; }
 
         /// <summary>
-        /// Gets the supported encodings.
+        /// Gets the encodings that are supported by the client.
         /// </summary>
         public IImmutableDictionary<int, IEncoding>? SupportedEncodings { get; internal set; }
 
@@ -98,7 +98,7 @@ namespace MarcusW.VncClient.Protocol
             /// <summary>
             /// Gets or sets the value of the <seealso cref="RfbConnection.FramebufferFormat"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            public FrameFormat FramebufferFormat
+            public PixelFormat FramebufferFormat
             {
                 get => _connection.FramebufferFormat;
                 set => _connection.FramebufferFormat = value;

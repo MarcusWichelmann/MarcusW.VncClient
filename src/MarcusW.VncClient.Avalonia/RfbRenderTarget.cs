@@ -37,7 +37,7 @@ namespace MarcusW.VncClient.Avalonia
                 // Create new bitmap with required size
                 // TODO: BGRA8888 is device-native and much faster?
                 // TODO: Detect DPI dynamically
-                var newBitmap = new WriteableBitmap(requiredPixelSize, new Vector(96.0f, 96.0f), PixelFormat.Bgra8888);
+                var newBitmap = new WriteableBitmap(requiredPixelSize, new Vector(96.0f, 96.0f), global::Avalonia.Platform.PixelFormat.Bgra8888);
 
                 // Wait for the rendering being finished before replacing the bitmap
                 lock (_bitmapReplacementLock)

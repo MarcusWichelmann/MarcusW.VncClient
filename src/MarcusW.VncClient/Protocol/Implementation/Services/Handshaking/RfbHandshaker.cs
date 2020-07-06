@@ -88,18 +88,20 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             if (serverProtocolVersion == RfbProtocolVersion.Unknown)
             {
                 clientProtocolVersion = RfbProtocolVersions.LatestSupported;
-                _logger.LogDebug("Supported server protocol version is unknown, too new? Trying latest protocol version {clientProtocolVersion}.", clientProtocolVersion);
+                _logger.LogDebug("Supported server protocol version is unknown, too new? Trying latest protocol version {clientProtocolVersion}.",
+                    clientProtocolVersion.ToReadableString());
             }
             else if (serverProtocolVersion > RfbProtocolVersions.LatestSupported)
             {
                 clientProtocolVersion = RfbProtocolVersions.LatestSupported;
-                _logger.LogDebug("Supported server protocol version {serverProtocolVersion} is too new. Requesting latest version supported by the client.", serverProtocolVersion);
+                _logger.LogDebug("Supported server protocol version {serverProtocolVersion} is too new. Requesting latest version supported by the client.",
+                    serverProtocolVersion.ToReadableString());
             }
             else
             {
                 clientProtocolVersion = serverProtocolVersion;
                 _logger.LogDebug("Server supports protocol version {serverProtocolVersion}. Choosing that as the highest one that's supported by both sides.",
-                    serverProtocolVersion);
+                    serverProtocolVersion.ToReadableString());
             }
 
             // Send selected protocol version
@@ -176,7 +178,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
         private async Task SendProtocolVersionAsync(ITransport transport, RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default)
         {
-            _logger.LogDebug("Sending protocol version {protocolVersion}...", protocolVersion);
+            _logger.LogDebug("Sending protocol version {protocolVersion}...", protocolVersion.ToReadableString());
 
             string protocolVersionString = protocolVersion.GetStringRepresentation() + '\n';
             byte[] bytes = Encoding.ASCII.GetBytes(protocolVersionString);
