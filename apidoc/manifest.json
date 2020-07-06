@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Encodings.IEncoding.html",
-          "hash": "T17JWzqK7W+CPfnrZrAeLQ=="
+          "hash": "Yis/AbS7YJ3YDaAqpb4zAA=="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Encodings.IFrameEncoding.html",
-          "hash": "XCC0+G/o5zkIHE5036SCVw=="
+          "hash": "eH36Mtz2s8pJ5pTkmkNGyw=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Encodings.IPseudoEncoding.html",
-          "hash": "dXJeoKOFiqrPJJyp2/sMjg=="
+          "hash": "yyNnh1YqaJizUQ6B9hiimw=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html",
-          "hash": "9C1ZajvntJ9qYNHzCEIhWg=="
+          "hash": "o9vK8E+F1Qux2zJcdIsjcA=="
         }
       },
       "is_incremental": false,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html",
-          "hash": "YvY0IgRTbxQ0ecUdOHxBHw=="
+          "hash": "4lU6V+CqOMrunugY1fLAmw=="
         }
       },
       "is_incremental": false,
@@ -321,7 +321,19 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.EncodingsCollectionBuilderDelegate.html",
-          "hash": "rtjzAWN/op4LoCfkR/4Skw=="
+          "hash": "TyfquzjrQxdo2bFE70FpYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate.html",
+          "hash": "P7+w05687Kt8dN/sX+JKrQ=="
         }
       },
       "is_incremental": false,
@@ -369,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate.html",
-          "hash": "0yHlJvTbIrii4x/XpeKujw=="
+          "hash": "cZ+vcJpRO5Rfa7/9DvKsWg=="
         }
       },
       "is_incremental": false,
@@ -513,7 +525,55 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.html",
-          "hash": "QXeeADmK05c4doQSn841zg=="
+          "hash": "Lc3+yb5HjmKGU3gX9PFENA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Protocol.Messages.IIncomingMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Protocol.Messages.IIncomingMessage.html",
+          "hash": "Q54+oYQf9y2QL/dwzsveLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Protocol.Messages.IMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Protocol.Messages.IMessage.html",
+          "hash": "7cT01VqzGXLQ9FA11oxVXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Protocol.Messages.IOutgoingMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Protocol.Messages.IOutgoingMessage.html",
+          "hash": "aJ/CjeItR2sHOgMKRqEPDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Protocol.Messages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Protocol.Messages.html",
+          "hash": "+2ZOn8zNpu5MaHADd4DYAA=="
         }
       },
       "is_incremental": false,
@@ -525,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html",
-          "hash": "lCJdQiq57iS4gaGhYLw/cA=="
+          "hash": "FhUwzzSFWmp3ZSlg5W5ZOw=="
         }
       },
       "is_incremental": false,
@@ -537,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.RfbConnectionContext.html",
-          "hash": "MxrLKsgxIy5nImUmfwRPNg=="
+          "hash": "CfWGKYUbyp0d2/Sl3AvLqA=="
         }
       },
       "is_incremental": false,
@@ -813,7 +873,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.RfbConnection.html",
-          "hash": "SO66L9aKB06EzBYJyaoE+A=="
+          "hash": "hr9N0eDuUWdU3NSRVSItsg=="
         }
       },
       "is_incremental": false,
@@ -1017,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "JAk6Wqs9nPN0yaVgtXvd7Q=="
+          "hash": "yF9B7Q1/TOngUdhlupPPcg=="
         }
       },
       "is_incremental": false,
@@ -1068,7 +1128,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 83,
+          "total_file_count": 88,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
