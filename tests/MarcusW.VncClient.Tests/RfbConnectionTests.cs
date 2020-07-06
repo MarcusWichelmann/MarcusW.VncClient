@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
+using MarcusW.VncClient.Protocol.Implementation.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -14,6 +15,7 @@ namespace MarcusW.VncClient.Tests
     {
         private readonly Mock<ITransportConnector> _transportConnectorMock;
         private readonly Mock<IRfbHandshaker> _rfbHandshakerMock;
+        private readonly Mock<IRfbInitializer> _rfbInitializerMock;
         private readonly Mock<IRfbMessageReceiver> _messageReceiverMock;
 
         private readonly Mock<IRfbProtocolImplementation> _protocolMock;
@@ -22,15 +24,19 @@ namespace MarcusW.VncClient.Tests
         {
             _transportConnectorMock = new Mock<ITransportConnector>();
             _rfbHandshakerMock = new Mock<IRfbHandshaker>();
+            _rfbHandshakerMock.Setup(h => h.DoHandshakeAsync(It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new HandshakeResult(RfbProtocolVersion.RFB_3_8, new NoSecurityType(), null));
+            _rfbInitializerMock = new Mock<IRfbInitializer>();
+            _rfbInitializerMock.Setup(i => i.InitializeAsync(It.IsAny<CancellationToken>()))
+                .ReturnsAsync(new InitializationResult(FrameSize.Zero, new RfbPixelFormat(), "Desktop"));
+
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 
             _protocolMock = new Mock<IRfbProtocolImplementation>();
-            _protocolMock.Setup(p => p.CreateTransportConnector(It.IsAny<RfbConnectionContext>()))
-                .Returns(_transportConnectorMock.Object);
-            _protocolMock.Setup(p => p.CreateRfbHandshaker(It.IsAny<RfbConnectionContext>()))
-                .Returns(_rfbHandshakerMock.Object);
-            _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnectionContext>()))
-                .Returns(_messageReceiverMock.Object);
+            _protocolMock.Setup(p => p.CreateTransportConnector(It.IsAny<RfbConnectionContext>())).Returns(_transportConnectorMock.Object);
+            _protocolMock.Setup(p => p.CreateRfbHandshaker(It.IsAny<RfbConnectionContext>())).Returns(_rfbHandshakerMock.Object);
+            _protocolMock.Setup(p => p.CreateRfbInitializer(It.IsAny<RfbConnectionContext>())).Returns(_rfbInitializerMock.Object);
+            _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnectionContext>())).Returns(_messageReceiverMock.Object);
         }
 
         [Fact]
@@ -46,8 +52,7 @@ namespace MarcusW.VncClient.Tests
             Assert.Equal(ConnectionState.Uninitialized, rfbConnection.ConnectionState);
 
             // Start connection.
-            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState),
-                () => rfbConnection.StartAsync());
+            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState), () => rfbConnection.StartAsync());
             Assert.Equal(ConnectionState.Connected, rfbConnection.ConnectionState);
 
             // Receive loop should have been started.
@@ -56,19 +61,16 @@ namespace MarcusW.VncClient.Tests
             // Status should update when connection is interrupted
             Assert.PropertyChanged(rfbConnection, nameof(rfbConnection.ConnectionState), () => {
                 // Let's simulate a failure
-                _messageReceiverMock.Raise(receiver => receiver.Failed += null,
-                    new BackgroundThreadFailedEventArgs(new Exception("Shit happens.")));
+                _messageReceiverMock.Raise(receiver => receiver.Failed += null, new BackgroundThreadFailedEventArgs(new Exception("Shit happens.")));
             });
             Assert.Equal(ConnectionState.Interrupted, rfbConnection.ConnectionState);
 
             // Reconnect should succeed after 1 second.
-            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState),
-                () => Task.Delay(TimeSpan.FromSeconds(1.5)));
+            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState), () => Task.Delay(TimeSpan.FromSeconds(1.5)));
             Assert.Equal(ConnectionState.Connected, rfbConnection.ConnectionState);
 
             // Close connection.
-            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState),
-                () => rfbConnection.CloseAsync());
+            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState), () => rfbConnection.CloseAsync());
             Assert.Equal(ConnectionState.Closed, rfbConnection.ConnectionState);
         }
 
