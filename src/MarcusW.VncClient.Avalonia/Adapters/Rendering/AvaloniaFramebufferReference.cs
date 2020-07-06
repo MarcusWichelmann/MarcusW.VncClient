@@ -1,7 +1,6 @@
 using System;
 using Avalonia.Platform;
 using MarcusW.VncClient.Rendering;
-using PixelFormat = MarcusW.VncClient.Rendering.PixelFormat;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
 {
@@ -25,8 +24,8 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
             => _lockedFramebuffer?.RowBytes ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
 
         /// <inheritdoc />
-        public PixelFormat Format
-            => Conversions.GetPixelFormat(_lockedFramebuffer?.Format
+        public FrameFormat Format
+            => Conversions.GetFrameFormat(_lockedFramebuffer?.Format
                 ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
 
         /// <inheritdoc />

@@ -49,6 +49,7 @@ namespace MarcusW.VncClient
 
         /// <summary>
         /// Gets or sets the target where received frames should be rendered to.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
         public IRenderTarget? RenderTarget
         {

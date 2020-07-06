@@ -39,5 +39,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
 
             return Task.FromResult(new AuthenticationResult(null, expectSecurityResult));
         }
+
+        /// <inheritdoc />
+        public Task ReadServerInitExtensionAsync(RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default) => Task.CompletedTask;
     }
 }

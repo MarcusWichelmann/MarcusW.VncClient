@@ -22,6 +22,7 @@ namespace MarcusW.VncClient
         private TimeSpan _reconnectDelay = TimeSpan.FromSeconds(5);
         private int _maxReconnectAttempts = InfiniteReconnects;
         private IAuthenticationHandler _authenticationHandler = null!;
+        private bool _allowSharedConnection = true;
         private IRenderTarget? _initialRenderTarget;
 
         /// <summary>
@@ -70,6 +71,15 @@ namespace MarcusW.VncClient
         {
             get => _authenticationHandler;
             set => ThrowIfFrozen(() => _authenticationHandler = value);
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server should leave other clients connected when this connection is established.
+        /// </summary>
+        public bool AllowSharedConnection
+        {
+            get => _allowSharedConnection;
+            set => ThrowIfFrozen(() => _allowSharedConnection = value);
         }
 
         /// <summary>

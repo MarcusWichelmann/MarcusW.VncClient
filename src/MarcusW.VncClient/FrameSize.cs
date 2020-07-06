@@ -18,6 +18,21 @@ namespace MarcusW.VncClient
         public static readonly FrameSize Zero = new FrameSize(0, 0);
 
         /// <summary>
+        /// Gets the width.
+        /// </summary>
+        public int Width { get; }
+
+        /// <summary>
+        /// Gets the height.
+        /// </summary>
+        public int Height { get; }
+
+        /// <summary>
+        /// Gets the aspect ratio of the size.
+        /// </summary>
+        public double AspectRatio => (double)Width / Height;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="FrameSize"/> structure.
         /// </summary>
         /// <param name="width">The width.</param>
@@ -27,21 +42,6 @@ namespace MarcusW.VncClient
             Width = width;
             Height = height;
         }
-
-        /// <summary>
-        /// Gets the aspect ratio of the size.
-        /// </summary>
-        public double AspectRatio => (double)Width / Height;
-
-        /// <summary>
-        /// Gets the width.
-        /// </summary>
-        public int Width { get; }
-
-        /// <summary>
-        /// Gets the height.
-        /// </summary>
-        public int Height { get; }
 
         /// <summary>
         /// Checks for equality between two <see cref="FrameSize"/>s.
@@ -84,8 +84,8 @@ namespace MarcusW.VncClient
             unchecked
             {
                 int hash = 17;
-                hash = (hash * 23) + Width.GetHashCode();
-                hash = (hash * 23) + Height.GetHashCode();
+                hash = hash * 23 + Width.GetHashCode();
+                hash = hash * 23 + Height.GetHashCode();
                 return hash;
             }
         }
@@ -108,6 +108,6 @@ namespace MarcusW.VncClient
         /// Returns the string representation of the size.
         /// </summary>
         /// <returns>The string representation of the size.</returns>
-        public override string ToString() => string.Format(CultureInfo.InvariantCulture, "{0}, {1}", Width, Height);
+        public override string ToString() => $"{Width}, {Height}";
     }
 }

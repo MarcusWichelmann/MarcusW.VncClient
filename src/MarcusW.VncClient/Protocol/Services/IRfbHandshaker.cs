@@ -13,6 +13,6 @@ namespace MarcusW.VncClient.Protocol.Services
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Information about the handshake outcome.</returns>
-        Task<(HandshakeResult handshakeResult, ITransport? tunnelTransport)> DoHandshakeAsync(CancellationToken cancellationToken = default);
+        Task<HandshakeResult> DoHandshakeAsync(CancellationToken cancellationToken = default);
     }
 }

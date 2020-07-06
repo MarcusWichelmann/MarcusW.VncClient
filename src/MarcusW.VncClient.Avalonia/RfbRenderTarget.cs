@@ -35,7 +35,7 @@ namespace MarcusW.VncClient.Avalonia
             if (sizeChanged)
             {
                 // Create new bitmap with required size
-                // TODO: Bgra8888 is device-native and much faster?
+                // TODO: BGRA8888 is device-native and much faster?
                 // TODO: Detect DPI dynamically
                 var newBitmap = new WriteableBitmap(requiredPixelSize, new Vector(96.0f, 96.0f), PixelFormat.Bgra8888);
 

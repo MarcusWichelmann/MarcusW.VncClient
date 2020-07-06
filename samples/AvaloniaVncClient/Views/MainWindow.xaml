@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vnc="clr-namespace:MarcusW.VncClient.Avalonia;assembly=MarcusW.VncClient.Avalonia"
+        xmlns:vncconverters="clr-namespace:MarcusW.VncClient.Avalonia.Converters;assembly=MarcusW.VncClient.Avalonia"
         mc:Ignorable="d" Width="800" Height="450"
         x:Class="AvaloniaVncClient.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -19,8 +20,10 @@
                 <TextBlock Text="Not connected." IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
                 <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
                 <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
-                <TextBlock Text="{Binding RfbConnection.ProtocolVersion, StringFormat=Protocol Version: \{0\}}" />
-                <TextBlock Text="{Binding RfbConnection.FramebufferSize, StringFormat=Frame Size: \{0\}}" />
+                <TextBlock
+                    Text="{Binding RfbConnection.ProtocolVersion, Converter={x:Static vncconverters:VncClientConverters.RfbProtocolVersionToString}, StringFormat=Protocol Version: \{0\}}" />
+                <TextBlock Text="{Binding RfbConnection.FramebufferSize, StringFormat=Framebuffer Size: \{0\}}" />
+                <TextBlock Text="{Binding RfbConnection.FramebufferFormat, StringFormat=Framebuffer Format: \{0\}}" />
             </StackPanel>
         </Border>
 

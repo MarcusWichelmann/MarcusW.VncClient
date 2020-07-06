@@ -25,7 +25,7 @@ namespace MarcusW.VncClient.Rendering
         /// <summary>
         /// Gets the format of how the pixels are stored in memory.
         /// </summary>
-        PixelFormat Format { get; }
+        FrameFormat Format { get; }
 
         /// <summary>
         /// Gets the horizontal DPI of the underlying screen.

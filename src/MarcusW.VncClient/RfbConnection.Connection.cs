@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
+using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Utils;
 using Microsoft.Extensions.Logging;
 
@@ -35,13 +36,12 @@ namespace MarcusW.VncClient
                 context.Transport = await ProtocolImplementation.CreateTransportConnector(context).ConnectAsync(cancellationToken).ConfigureAwait(false);
 
                 // Do the handshake
-                (HandshakeResult handshakeResult, ITransport? tunnelTransport) =
-                    await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
+                HandshakeResult handshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
                 context.HandshakeResult = handshakeResult;
 
                 // Replace the current transport in case a tunnel has been built during handshake
-                if (tunnelTransport != null)
-                    context.Transport = tunnelTransport;
+                if (handshakeResult.TunnelTransport != null)
+                    context.Transport = handshakeResult.TunnelTransport;
 
                 // Initialize the connection
                 context.InitializationResult = await ProtocolImplementation.CreateRfbInitializer(context).InitializeAsync(cancellationToken).ConfigureAwait(false);

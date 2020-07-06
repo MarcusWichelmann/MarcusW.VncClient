@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 
@@ -64,16 +65,30 @@ namespace MarcusW.VncClient.Protocol
     public static class RfbProtocolVersionExtensions
     {
         /// <summary>
-        /// Returns a string representation of a given protocol version.
+        /// Returns the string representation of a given protocol version.
         /// </summary>
         /// <param name="protocolVersion">The protocol version.</param>
-        /// <returns>A string.</returns>
+        /// <returns>The string representation defined by the protocol.</returns>
         public static string GetStringRepresentation(this RfbProtocolVersion protocolVersion)
             => protocolVersion switch {
-                RfbProtocolVersion.Unknown => "Unknown",
+                RfbProtocolVersion.Unknown => throw new InvalidOperationException("Cannot get string representation for unknown protocol version."),
                 RfbProtocolVersion.RFB_3_3 => "RFB 003.003",
                 RfbProtocolVersion.RFB_3_7 => "RFB 003.007",
                 RfbProtocolVersion.RFB_3_8 => "RFB 003.008",
+                _                          => throw new InvalidEnumArgumentException(nameof(protocolVersion), (int)protocolVersion, typeof(RfbProtocolVersion))
+            };
+
+        /// <summary>
+        /// Returns a readable string for a given protocol version.
+        /// </summary>
+        /// <param name="protocolVersion">The protocol version.</param>
+        /// <returns>A readable string.</returns>
+        public static string ToReadableString(this RfbProtocolVersion protocolVersion)
+            => protocolVersion switch {
+                RfbProtocolVersion.Unknown => "Unknown",
+                RfbProtocolVersion.RFB_3_3 => "RFB 3.3",
+                RfbProtocolVersion.RFB_3_7 => "RFB 3.7",
+                RfbProtocolVersion.RFB_3_8 => "RFB 3.8",
                 _                          => throw new InvalidEnumArgumentException(nameof(protocolVersion), (int)protocolVersion, typeof(RfbProtocolVersion))
             };
     }

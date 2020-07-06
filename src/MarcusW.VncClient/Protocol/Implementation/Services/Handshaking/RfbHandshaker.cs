@@ -30,7 +30,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
         }
 
         /// <inheritdoc />
-        public async Task<(HandshakeResult handshakeResult, ITransport? tunnelTransport)> DoHandshakeAsync(CancellationToken cancellationToken = default)
+        public async Task<HandshakeResult> DoHandshakeAsync(CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -40,6 +40,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Negotiate the protocol version that both sides will use
             RfbProtocolVersion protocolVersion = await NegotiateProtocolVersionAsync(currentTransport, cancellationToken).ConfigureAwait(false);
+            _context.ConnectionDetails.ProtocolVersion = protocolVersion;
 
             // Negotiate which security type will be used
             ISecurityType usedSecurityType = await NegotiateSecurityTypeAsync(currentTransport, protocolVersion, cancellationToken).ConfigureAwait(false);
@@ -74,7 +75,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 }
             }
 
-            return (new HandshakeResult(protocolVersion, usedSecurityType), authenticationResult.TunnelTransport);
+            return new HandshakeResult(protocolVersion, usedSecurityType, authenticationResult.TunnelTransport);
         }
 
         private async Task<RfbProtocolVersion> NegotiateProtocolVersionAsync(ITransport transport, CancellationToken cancellationToken = default)
