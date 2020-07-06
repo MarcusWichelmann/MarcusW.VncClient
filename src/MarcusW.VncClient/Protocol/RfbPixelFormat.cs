@@ -129,8 +129,7 @@ namespace MarcusW.VncClient.Protocol
 
         /// <inheritdoc />
         public override string ToString()
-            => $"Bits per pixel: {BitsPerPixel}, Depth: {Depth}, {(BigEndian ? "Big endian" : "Little endian")}, {(TrueColor ? "True color" : "Mapped color")}, "
-                + $"RGB max values: {RedMax} {GreenMax} {BlueMax}, RGB shifts: {RedShift} {GreenShift} {BlueShift}";
+            => $"Depth {Depth} ({BitsPerPixel}bpp), {(BigEndian ? "Big endian" : "Little endian")} {(TrueColor ? "true" : "mapped")} RGB ({RedMax} {GreenMax} {BlueMax} shift {RedShift} {GreenShift} {BlueShift})";
 
         /// <summary>
         /// Tries to find a matching <see cref="FrameFormat"/> for this pixel format.
@@ -138,14 +137,22 @@ namespace MarcusW.VncClient.Protocol
         /// <returns>A matching <see cref="FrameFormat"/>.</returns>
         public FrameFormat AsFrameFormat()
         {
-            if (Depth == 16 && RedShift > GreenShift && GreenShift > BlueShift)
-                return FrameFormat.RGB565;
-
-            if (Depth == 24 || Depth == 32)
+            if (RedShift > GreenShift && GreenShift > BlueShift)
             {
-                if (RedShift > GreenShift && GreenShift > BlueShift)
+                if (Depth == 16)
+                    return FrameFormat.RGB565;
+                if (Depth == 24)
+                    return FrameFormat.RGB888;
+                if (Depth == 32)
                     return FrameFormat.RGBA8888;
-                if (BlueShift > GreenShift && GreenShift > RedShift)
+            }
+            else if (BlueShift > GreenShift && GreenShift > RedShift)
+            {
+                if (Depth == 16)
+                    return FrameFormat.BGR565;
+                if (Depth == 24)
+                    return FrameFormat.BGR888;
+                if (Depth == 32)
                     return FrameFormat.BGRA8888;
             }
 
