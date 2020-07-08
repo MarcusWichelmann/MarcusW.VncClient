@@ -32,10 +32,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Protocol\Implementation\Encodings\Frame" />
-      <Folder Include="Protocol\Implementation\Encodings\Pseudo" />
-      <Folder Include="Protocol\Implementation\Messages\Incoming" />
-      <Folder Include="Protocol\Implementation\Messages\Outgoing" />
+      <Folder Include="Protocol\Implementation\EncodingTypes\Frame" />
+      <Folder Include="Protocol\Implementation\EncodingTypes\Pseudo" />
+      <Folder Include="Protocol\Implementation\MessageTypes\Incoming" />
+      <Folder Include="Protocol\Implementation\MessageTypes\Outgoing" />
     </ItemGroup>
     
 </Project>
