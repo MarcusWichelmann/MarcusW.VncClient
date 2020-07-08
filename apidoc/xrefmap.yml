@@ -1410,6 +1410,136 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolState
   nameWithType: ProtocolState.ProtocolState
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ContinuousUpdatesEnabled
+  name: ContinuousUpdatesEnabled
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ContinuousUpdatesEnabled
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.ContinuousUpdatesEnabled
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ContinuousUpdatesEnabled
+  nameWithType: ProtocolState.ContinuousUpdatesEnabled
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ContinuousUpdatesEnabled*
+  name: ContinuousUpdatesEnabled
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ContinuousUpdatesEnabled_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.ContinuousUpdatesEnabled
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ContinuousUpdatesEnabled
+  nameWithType: ProtocolState.ContinuousUpdatesEnabled
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.DesktopName
+  name: DesktopName
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_DesktopName
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.DesktopName
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.DesktopName
+  nameWithType: ProtocolState.DesktopName
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.DesktopName*
+  name: DesktopName
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_DesktopName_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.DesktopName
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.DesktopName
+  nameWithType: ProtocolState.DesktopName
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferFormat
+  name: FramebufferFormat
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_FramebufferFormat
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferFormat
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferFormat
+  nameWithType: ProtocolState.FramebufferFormat
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferFormat*
+  name: FramebufferFormat
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_FramebufferFormat_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferFormat
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferFormat
+  nameWithType: ProtocolState.FramebufferFormat
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferSize
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_FramebufferSize
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferSize
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferSize
+  nameWithType: ProtocolState.FramebufferSize
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferSize*
+  name: FramebufferSize
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_FramebufferSize_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferSize
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.FramebufferSize
+  nameWithType: ProtocolState.FramebufferSize
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkEncodingAsUsed(System.Int32)
+  name: MarkEncodingAsUsed(Int32)
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_MarkEncodingAsUsed_System_Int32_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkEncodingAsUsed(System.Int32)
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkEncodingAsUsed(System.Int32)
+  nameWithType: ProtocolState.MarkEncodingAsUsed(Int32)
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkEncodingAsUsed*
+  name: MarkEncodingAsUsed
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_MarkEncodingAsUsed_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkEncodingAsUsed
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkEncodingAsUsed
+  nameWithType: ProtocolState.MarkEncodingAsUsed
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkMessageAsUsed(System.Byte)
+  name: MarkMessageAsUsed(Byte)
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_MarkMessageAsUsed_System_Byte_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkMessageAsUsed(System.Byte)
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkMessageAsUsed(System.Byte)
+  nameWithType: ProtocolState.MarkMessageAsUsed(Byte)
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkMessageAsUsed*
+  name: MarkMessageAsUsed
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_MarkMessageAsUsed_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkMessageAsUsed
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.MarkMessageAsUsed
+  nameWithType: ProtocolState.MarkMessageAsUsed
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolVersion
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ProtocolVersion
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolVersion
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolVersion
+  nameWithType: ProtocolState.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolVersion*
+  name: ProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ProtocolVersion
+  nameWithType: ProtocolState.ProtocolVersion
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedEncodings
+  name: UsedEncodings
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_UsedEncodings
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedEncodings
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedEncodings
+  nameWithType: ProtocolState.UsedEncodings
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedEncodings*
+  name: UsedEncodings
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_UsedEncodings_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedEncodings
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedEncodings
+  nameWithType: ProtocolState.UsedEncodings
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedMessages
+  name: UsedMessages
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_UsedMessages
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedMessages
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedMessages
+  nameWithType: ProtocolState.UsedMessages
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedMessages*
+  name: UsedMessages
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_UsedMessages_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedMessages
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedMessages
+  nameWithType: ProtocolState.UsedMessages
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedSecurityType
+  name: UsedSecurityType
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_UsedSecurityType
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedSecurityType
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedSecurityType
+  nameWithType: ProtocolState.UsedSecurityType
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedSecurityType*
+  name: UsedSecurityType
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_UsedSecurityType_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedSecurityType
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.UsedSecurityType
+  nameWithType: ProtocolState.UsedSecurityType
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes
   name: MarcusW.VncClient.Protocol.Implementation.SecurityTypes
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.html
@@ -1422,12 +1552,25 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType
   fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType
   nameWithType: NoSecurityType
-- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
-  name: AuthenticateAsync(RfbProtocolVersion, IAuthenticationHandler, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_AuthenticateAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_MarcusW_VncClient_Security_IAuthenticationHandler_System_Threading_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Security.IAuthenticationHandler, System.Threading.CancellationToken)
-  nameWithType: NoSecurityType.AuthenticateAsync(RfbProtocolVersion, IAuthenticationHandler, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: NoSecurityType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.NoSecurityType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: NoSecurityType.NoSecurityType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.#ctor*
+  name: NoSecurityType
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.NoSecurityType
+  nameWithType: NoSecurityType.NoSecurityType
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
+  name: AuthenticateAsync(IAuthenticationHandler, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_AuthenticateAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Threading.CancellationToken)
+  nameWithType: NoSecurityType.AuthenticateAsync(IAuthenticationHandler, CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.AuthenticateAsync*
   name: AuthenticateAsync
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_AuthenticateAsync_
@@ -1474,12 +1617,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.Priority
   nameWithType: NoSecurityType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
-  name: ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_ReadServerInitExtensionAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_System_Threading_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, System.Threading.CancellationToken)
-  nameWithType: NoSecurityType.ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  name: ReadServerInitExtensionAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_ReadServerInitExtensionAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  nameWithType: NoSecurityType.ReadServerInitExtensionAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.ReadServerInitExtensionAsync*
   name: ReadServerInitExtensionAsync
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.NoSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_NoSecurityType_ReadServerInitExtensionAsync_
@@ -1506,12 +1649,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.VncAuthenticationSecurityType
   nameWithType: VncAuthenticationSecurityType.VncAuthenticationSecurityType
-- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
-  name: AuthenticateAsync(RfbProtocolVersion, IAuthenticationHandler, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_AuthenticateAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_MarcusW_VncClient_Security_IAuthenticationHandler_System_Threading_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Security.IAuthenticationHandler, System.Threading.CancellationToken)
-  nameWithType: VncAuthenticationSecurityType.AuthenticateAsync(RfbProtocolVersion, IAuthenticationHandler, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
+  name: AuthenticateAsync(IAuthenticationHandler, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_AuthenticateAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Threading.CancellationToken)
+  nameWithType: VncAuthenticationSecurityType.AuthenticateAsync(IAuthenticationHandler, CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.AuthenticateAsync*
   name: AuthenticateAsync
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_AuthenticateAsync_
@@ -1558,12 +1701,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.Priority
   nameWithType: VncAuthenticationSecurityType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
-  name: ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_ReadServerInitExtensionAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_System_Threading_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, System.Threading.CancellationToken)
-  nameWithType: VncAuthenticationSecurityType.ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  name: ReadServerInitExtensionAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_ReadServerInitExtensionAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  nameWithType: VncAuthenticationSecurityType.ReadServerInitExtensionAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.ReadServerInitExtensionAsync*
   name: ReadServerInitExtensionAsync
   href: api/MarcusW.VncClient.Protocol.Implementation.SecurityTypes.VncAuthenticationSecurityType.html#MarcusW_VncClient_Protocol_Implementation_SecurityTypes_VncAuthenticationSecurityType_ReadServerInitExtensionAsync_
@@ -2165,12 +2308,15 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.String)
-  name: SetDesktopName(String)
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopName_System_String_
-  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.String)
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.String)
-  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(String)
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.Nullable{System.String})
+  name: SetDesktopName(Nullable<String>)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopName_System_Nullable_System_String__
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.Nullable{System.String})
+  name.vb: SetDesktopName(Nullable(Of String))
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.Nullable<System.String>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.Nullable(Of System.String))
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(Nullable<String>)
+  nameWithType.vb: RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(Nullable(Of String))
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName*
   name: SetDesktopName
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopName_
@@ -2204,6 +2350,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetFramebufferSize
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetFramebufferSize
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  name: SetProtocolVersion(RfbProtocolVersion)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetProtocolVersion_MarcusW_VncClient_Protocol_RfbProtocolVersion_
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion(RfbProtocolVersion)
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion*
+  name: SetProtocolVersion
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetProtocolVersion_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetProtocolVersion
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedEncodings(System.Collections.Immutable.IImmutableDictionary{System.Int32,MarcusW.VncClient.Protocol.Encodings.IEncoding})
   name: SetUsedEncodings(IImmutableDictionary<Int32, IEncoding>)
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetUsedEncodings_System_Collections_Immutable_IImmutableDictionary_System_Int32_MarcusW_VncClient_Protocol_Encodings_IEncoding__
@@ -2236,32 +2395,38 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedMessages
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedMessages
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
-  name: HandshakeResult
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult
-  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
-  nameWithType: RfbConnectionContext.HandshakeResult
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult*
-  name: HandshakeResult
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_HandshakeResult_
-  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable{MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType})
+  name: SetUsedSecurityType(Nullable<ISecurityType>)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetUsedSecurityType_System_Nullable_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType__
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable{MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType})
+  name.vb: SetUsedSecurityType(Nullable(Of ISecurityType))
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable<MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable(Of MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType))
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(Nullable<ISecurityType>)
+  nameWithType.vb: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(Nullable(Of ISecurityType))
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType*
+  name: SetUsedSecurityType
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetUsedSecurityType_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType
   isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.HandshakeResult
-  nameWithType: RfbConnectionContext.HandshakeResult
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
-  name: InitializationResult
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult
-  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
-  nameWithType: RfbConnectionContext.InitializationResult
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult*
-  name: InitializationResult
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_InitializationResult_
-  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.GetState*
+  name: GetState
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_GetState_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.GetState
   isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.InitializationResult
-  nameWithType: RfbConnectionContext.InitializationResult
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.GetState
+  nameWithType: RfbConnectionContext.GetState
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.GetState``1
+  name: GetState<TState>()
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_GetState__1
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.GetState``1
+  name.vb: GetState(Of TState)()
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.GetState<TState>()
+  fullName.vb: MarcusW.VncClient.Protocol.RfbConnectionContext.GetState(Of TState)()
+  nameWithType: RfbConnectionContext.GetState<TState>()
+  nameWithType.vb: RfbConnectionContext.GetState(Of TState)()
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
   name: MessageReceiver
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_MessageReceiver
@@ -2275,32 +2440,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.MessageReceiver
   nameWithType: RfbConnectionContext.MessageReceiver
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation
-  name: ProtocolImplementation
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolImplementation
-  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation
-  nameWithType: RfbConnectionContext.ProtocolImplementation
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation*
-  name: ProtocolImplementation
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolImplementation_
-  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolImplementation
-  nameWithType: RfbConnectionContext.ProtocolImplementation
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
-  name: ProtocolVersion
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion
-  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
-  nameWithType: RfbConnectionContext.ProtocolVersion
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion*
-  name: ProtocolVersion
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ProtocolVersion_
-  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ProtocolVersion
-  nameWithType: RfbConnectionContext.ProtocolVersion
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.State
   name: State
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_State
@@ -2518,12 +2657,12 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType
   fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType
   nameWithType: ISecurityType
-- uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
-  name: AuthenticateAsync(RfbProtocolVersion, IAuthenticationHandler, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_AuthenticateAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_MarcusW_VncClient_Security_IAuthenticationHandler_System_Threading_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Security.IAuthenticationHandler, System.Threading.CancellationToken)
-  nameWithType: ISecurityType.AuthenticateAsync(RfbProtocolVersion, IAuthenticationHandler, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
+  name: AuthenticateAsync(IAuthenticationHandler, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_AuthenticateAsync_MarcusW_VncClient_Security_IAuthenticationHandler_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler,System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync(MarcusW.VncClient.Security.IAuthenticationHandler, System.Threading.CancellationToken)
+  nameWithType: ISecurityType.AuthenticateAsync(IAuthenticationHandler, CancellationToken)
 - uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.AuthenticateAsync*
   name: AuthenticateAsync
   href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_AuthenticateAsync_
@@ -2570,12 +2709,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.Priority
   nameWithType: ISecurityType.Priority
-- uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
-  name: ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
-  href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_ReadServerInitExtensionAsync_MarcusW_VncClient_Protocol_RfbProtocolVersion_System_Threading_CancellationToken_
-  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion,System.Threading.CancellationToken)
-  fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(MarcusW.VncClient.Protocol.RfbProtocolVersion, System.Threading.CancellationToken)
-  nameWithType: ISecurityType.ReadServerInitExtensionAsync(RfbProtocolVersion, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  name: ReadServerInitExtensionAsync(CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_ReadServerInitExtensionAsync_System_Threading_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync(System.Threading.CancellationToken)
+  nameWithType: ISecurityType.ReadServerInitExtensionAsync(CancellationToken)
 - uid: MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.ReadServerInitExtensionAsync*
   name: ReadServerInitExtensionAsync
   href: api/MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType.html#MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_ReadServerInitExtensionAsync_
@@ -2589,125 +2728,6 @@ references:
   commentId: N:MarcusW.VncClient.Protocol.Services
   fullName: MarcusW.VncClient.Protocol.Services
   nameWithType: MarcusW.VncClient.Protocol.Services
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult
-  name: HandshakeResult
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html
-  commentId: T:MarcusW.VncClient.Protocol.Services.HandshakeResult
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult
-  nameWithType: HandshakeResult
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,System.Nullable{MarcusW.VncClient.Protocol.ITransport})
-  name: HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable<ITransport>)
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult__ctor_MarcusW_VncClient_Protocol_RfbProtocolVersion_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_System_Nullable_MarcusW_VncClient_Protocol_ITransport__
-  commentId: M:MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor(MarcusW.VncClient.Protocol.RfbProtocolVersion,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,System.Nullable{MarcusW.VncClient.Protocol.ITransport})
-  name.vb: HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable(Of ITransport))
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.HandshakeResult(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, System.Nullable<MarcusW.VncClient.Protocol.ITransport>)
-  fullName.vb: MarcusW.VncClient.Protocol.Services.HandshakeResult.HandshakeResult(MarcusW.VncClient.Protocol.RfbProtocolVersion, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, System.Nullable(Of MarcusW.VncClient.Protocol.ITransport))
-  nameWithType: HandshakeResult.HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable<ITransport>)
-  nameWithType.vb: HandshakeResult.HandshakeResult(RfbProtocolVersion, ISecurityType, Nullable(Of ITransport))
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor*
-  name: HandshakeResult
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult__ctor_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.#ctor
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.HandshakeResult
-  nameWithType: HandshakeResult.HandshakeResult
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
-  name: ProtocolVersion
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_ProtocolVersion
-  commentId: P:MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
-  nameWithType: HandshakeResult.ProtocolVersion
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion*
-  name: ProtocolVersion
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_ProtocolVersion_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.ProtocolVersion
-  nameWithType: HandshakeResult.ProtocolVersion
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
-  name: TunnelTransport
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_TunnelTransport
-  commentId: P:MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
-  nameWithType: HandshakeResult.TunnelTransport
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport*
-  name: TunnelTransport
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_TunnelTransport_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.TunnelTransport
-  nameWithType: HandshakeResult.TunnelTransport
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
-  name: UsedSecurityType
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_UsedSecurityType
-  commentId: P:MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
-  nameWithType: HandshakeResult.UsedSecurityType
-- uid: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType*
-  name: UsedSecurityType
-  href: api/MarcusW.VncClient.Protocol.Services.HandshakeResult.html#MarcusW_VncClient_Protocol_Services_HandshakeResult_UsedSecurityType_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.HandshakeResult.UsedSecurityType
-  nameWithType: HandshakeResult.UsedSecurityType
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult
-  name: InitializationResult
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html
-  commentId: T:MarcusW.VncClient.Protocol.Services.InitializationResult
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult
-  nameWithType: InitializationResult
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor(MarcusW.VncClient.FrameSize,MarcusW.VncClient.PixelFormat,System.String)
-  name: InitializationResult(FrameSize, PixelFormat, String)
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult__ctor_MarcusW_VncClient_FrameSize_MarcusW_VncClient_PixelFormat_System_String_
-  commentId: M:MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor(MarcusW.VncClient.FrameSize,MarcusW.VncClient.PixelFormat,System.String)
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.InitializationResult(MarcusW.VncClient.FrameSize, MarcusW.VncClient.PixelFormat, System.String)
-  nameWithType: InitializationResult.InitializationResult(FrameSize, PixelFormat, String)
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor*
-  name: InitializationResult
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult__ctor_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.#ctor
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.InitializationResult
-  nameWithType: InitializationResult.InitializationResult
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
-  name: DesktopName
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_DesktopName
-  commentId: P:MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
-  nameWithType: InitializationResult.DesktopName
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName*
-  name: DesktopName
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_DesktopName_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.DesktopName
-  nameWithType: InitializationResult.DesktopName
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
-  name: FramebufferSize
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_FramebufferSize
-  commentId: P:MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
-  nameWithType: InitializationResult.FramebufferSize
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize*
-  name: FramebufferSize
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_FramebufferSize_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.FramebufferSize
-  nameWithType: InitializationResult.FramebufferSize
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
-  name: PixelFormat
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_PixelFormat
-  commentId: P:MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
-  nameWithType: InitializationResult.PixelFormat
-- uid: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat*
-  name: PixelFormat
-  href: api/MarcusW.VncClient.Protocol.Services.InitializationResult.html#MarcusW_VncClient_Protocol_Services_InitializationResult_PixelFormat_
-  commentId: Overload:MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Services.InitializationResult.PixelFormat
-  nameWithType: InitializationResult.PixelFormat
 - uid: MarcusW.VncClient.Protocol.Services.IRfbHandshaker
   name: IRfbHandshaker
   href: api/MarcusW.VncClient.Protocol.Services.IRfbHandshaker.html
