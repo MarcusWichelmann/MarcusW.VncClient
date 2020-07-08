@@ -25,10 +25,9 @@ namespace MarcusW.VncClient.Tests
             _transportConnectorMock = new Mock<ITransportConnector>();
             _rfbHandshakerMock = new Mock<IRfbHandshaker>();
             _rfbHandshakerMock.Setup(h => h.DoHandshakeAsync(It.IsAny<CancellationToken>()))
-                .ReturnsAsync(new HandshakeResult(RfbProtocolVersion.RFB_3_8, new NoSecurityType(), null));
+                .ReturnsAsync((ITransport?)null);
             _rfbInitializerMock = new Mock<IRfbInitializer>();
-            _rfbInitializerMock.Setup(i => i.InitializeAsync(It.IsAny<CancellationToken>()))
-                .ReturnsAsync(new InitializationResult(FrameSize.Zero, new PixelFormat(), "Desktop"));
+            _rfbInitializerMock.Setup(i => i.InitializeAsync(It.IsAny<CancellationToken>()));
 
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
 
