@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Implementation.SecurityTypes;
 using MarcusW.VncClient.Protocol.Implementation.Services.Communication;
 using MarcusW.VncClient.Protocol.Implementation.Services.Handshaking;
@@ -27,10 +27,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
     public delegate IEnumerable<IMessage> MessagesCollectionBuilderDelegate(RfbConnectionContext context);
 
     /// <summary>
-    /// Represents the method that builds a new <see cref="IEncoding"/> collection.
+    /// Represents the method that builds a new <see cref="IEncodingType"/> collection.
     /// </summary>
     /// <param name="context">Details about the associated connection.</param>
-    public delegate IEnumerable<IEncoding> EncodingsCollectionBuilderDelegate(RfbConnectionContext context);
+    public delegate IEnumerable<IEncodingType> EncodingTypesCollectionBuilderDelegate(RfbConnectionContext context);
 
     /// <summary>
     /// Default implementation of the RFB protocol.
@@ -39,25 +39,25 @@ namespace MarcusW.VncClient.Protocol.Implementation
     {
         private readonly SecurityTypesCollectionBuilderDelegate _securityTypesCollectionBuilder;
         private readonly MessagesCollectionBuilderDelegate _messagesCollectionBuilder;
-        private readonly EncodingsCollectionBuilderDelegate _encodingsCollectionBuilder;
+        private readonly EncodingTypesCollectionBuilderDelegate _encodingTypesCollectionBuilder;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultImplementation"/>.
         /// </summary>
-        public DefaultImplementation() : this(GetDefaultSecurityTypes, GetDefaultMessages, GetDefaultEncodings) { }
+        public DefaultImplementation() : this(GetDefaultSecurityTypes, GetDefaultMessages, GetDefaultEncodingTypes) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultImplementation"/>.
         /// </summary>
         /// <param name="securityTypesCollectionBuilder">A method that newly creates all the security types that are supported by this protocol instance. See <see cref="GetDefaultSecurityTypes"/>.</param>
         /// <param name="messagesCollectionBuilder">A method that newly creates all the messages that are supported by this protocol instance. See <see cref="GetDefaultMessages"/>.</param>
-        /// <param name="encodingsCollectionBuilder">A method that newly creates all the encodings that are supported by this protocol instance. See <see cref="GetDefaultEncodings"/>.</param>
+        /// <param name="encodingTypesCollectionBuilder">A method that newly creates all the encoding types that are supported by this protocol instance. See <see cref="GetDefaultEncodingTypes"/>.</param>
         public DefaultImplementation(SecurityTypesCollectionBuilderDelegate securityTypesCollectionBuilder, MessagesCollectionBuilderDelegate messagesCollectionBuilder,
-            EncodingsCollectionBuilderDelegate encodingsCollectionBuilder)
+            EncodingTypesCollectionBuilderDelegate encodingTypesCollectionBuilder)
         {
             _securityTypesCollectionBuilder = securityTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(securityTypesCollectionBuilder));
             _messagesCollectionBuilder = messagesCollectionBuilder ?? throw new ArgumentNullException(nameof(messagesCollectionBuilder));
-            _encodingsCollectionBuilder = encodingsCollectionBuilder ?? throw new ArgumentNullException(nameof(encodingsCollectionBuilder));
+            _encodingTypesCollectionBuilder = encodingTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(encodingTypesCollectionBuilder));
         }
 
         /// <inheritdoc />
@@ -72,8 +72,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             => BuildImmutableDictionary(_messagesCollectionBuilder.Invoke(context), v => v.Id);
 
         /// <inhertitdoc />
-        public IImmutableDictionary<int, IEncoding> CreateEncodingsCollection(RfbConnectionContext context)
-            => BuildImmutableDictionary(_encodingsCollectionBuilder.Invoke(context), v => v.Id);
+        public IImmutableDictionary<int, IEncodingType> CreateEncodingTypesCollection(RfbConnectionContext context)
+            => BuildImmutableDictionary(_encodingTypesCollectionBuilder.Invoke(context), v => v.Id);
 
         /// <inheritdoc />
         public virtual ITransportConnector CreateTransportConnector(RfbConnectionContext context) => new TransportConnector(context);
@@ -121,17 +121,17 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
-        /// Builds a collection with all RFB encodings that are officially supported by this protocol implementation.
-        /// Feel free to extend the returned enumerable with custom encodings.
+        /// Builds a collection with all RFB encoding types that are officially supported by this protocol implementation.
+        /// Feel free to extend the returned enumerable with custom types.
         /// </summary>
         /// <param name="context">The connection context.</param>
-        /// <returns>The encoding collection.</returns>
-        public static IEnumerable<IEncoding> GetDefaultEncodings(RfbConnectionContext context)
+        /// <returns>The encoding types collection.</returns>
+        public static IEnumerable<IEncodingType> GetDefaultEncodingTypes(RfbConnectionContext context)
         {
             if (context == null)
                 throw new ArgumentNullException(nameof(context));
 
-            // TODO: Add encodings
+            // TODO: Add encoding types
             yield break;
         }
 

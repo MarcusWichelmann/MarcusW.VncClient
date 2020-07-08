@@ -1,6 +1,6 @@
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol;
-using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Messages;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Rendering;
@@ -22,8 +22,8 @@ namespace MarcusW.VncClient
         private readonly object _usedMessagesLock = new object();
         private IImmutableDictionary<byte, IMessage> _usedMessages = ImmutableDictionary<byte, IMessage>.Empty;
 
-        private readonly object _usedEncodingsLock = new object();
-        private IImmutableDictionary<int, IEncoding> _usedEncodings = ImmutableDictionary<int, IEncoding>.Empty;
+        private readonly object _usedEncodingTypesLock = new object();
+        private IImmutableDictionary<int, IEncodingType> _usedEncodingTypes = ImmutableDictionary<int, IEncodingType>.Empty;
 
         private readonly object _framebufferSizeLock = new object();
         private FrameSize _framebufferSize = FrameSize.Zero;
@@ -65,13 +65,13 @@ namespace MarcusW.VncClient
         }
 
         /// <summary>
-        /// Gets the encodings that are currently used by this connection.
+        /// Gets the encoding types that are currently used by this connection.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public IImmutableDictionary<int, IEncoding> UsedEncodings
+        public IImmutableDictionary<int, IEncodingType> UsedEncodingTypes
         {
-            get => GetWithLock(ref _usedEncodings, _usedEncodingsLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedEncodings, value, _usedEncodingsLock);
+            get => GetWithLock(ref _usedEncodingTypes, _usedEncodingTypesLock);
+            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedEncodingTypes, value, _usedEncodingTypesLock);
         }
 
         /// <summary>

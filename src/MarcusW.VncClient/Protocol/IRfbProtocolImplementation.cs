@@ -1,5 +1,5 @@
 using System.Collections.Immutable;
-using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Messages;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
@@ -41,15 +41,15 @@ namespace MarcusW.VncClient.Protocol
         IImmutableDictionary<byte, IMessage> CreateMessagesCollection(RfbConnectionContext context);
 
         /// <summary>
-        /// Creates a new collection of all supported <see cref="IEncoding"/>s.
+        /// Creates a new collection of all supported <see cref="IEncodingType"/>s.
         /// </summary>
         /// <remarks>
-        /// Make sure the encodings are newly instantiated on each call, because it's
+        /// Make sure the encoding tpyes are newly instantiated on each call, because it's
         /// not guaranteed that they can safely be used across multiple connections simultaneously.
         /// </remarks>
         /// <param name="context">Details about the associated connection.</param>
-        /// <returns>An immutable dictionary that maps encoding ids to encodings.</returns>
-        IImmutableDictionary<int, IEncoding> CreateEncodingsCollection(RfbConnectionContext context);
+        /// <returns>An immutable dictionary that maps encoding type ids to encoding types.</returns>
+        IImmutableDictionary<int, IEncodingType> CreateEncodingTypesCollection(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new <see cref="ITransportConnector"/>.

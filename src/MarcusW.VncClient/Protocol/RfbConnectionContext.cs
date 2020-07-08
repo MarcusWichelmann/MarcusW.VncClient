@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Immutable;
-using MarcusW.VncClient.Protocol.Encodings;
+using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Messages;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
@@ -43,9 +43,9 @@ namespace MarcusW.VncClient.Protocol
         public IImmutableDictionary<byte, IMessage>? SupportedMessages { get; internal set; }
 
         /// <summary>
-        /// Gets the encodings that are supported by the client.
+        /// Gets the encoding types that are supported by the client.
         /// </summary>
-        public IImmutableDictionary<int, IEncoding>? SupportedEncodings { get; internal set; }
+        public IImmutableDictionary<int, IEncodingType>? SupportedEncodingTypes { get; internal set; }
 
         /// <summary>
         /// Gets the current transport layer used by the protocol.
@@ -110,10 +110,10 @@ namespace MarcusW.VncClient.Protocol
             public void SetUsedMessages(IImmutableDictionary<byte, IMessage> usedMessages) => _connection.UsedMessages = usedMessages;
 
             /// <summary>
-            /// Sets the value of the <seealso cref="RfbConnection.UsedEncodings"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.UsedEncodingTypes"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            /// <param name="usedEncodings">The new encodings set.</param>
-            public void SetUsedEncodings(IImmutableDictionary<int, IEncoding> usedEncodings) => _connection.UsedEncodings = usedEncodings;
+            /// <param name="usedEncodingTypes">The new encodings set.</param>
+            public void SetUsedEncodingTypes(IImmutableDictionary<int, IEncodingType> usedEncodingTypes) => _connection.UsedEncodingTypes = usedEncodingTypes;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.FramebufferSize"/> property on the <see cref="RfbConnection"/> object.

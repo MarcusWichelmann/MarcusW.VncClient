@@ -30,7 +30,7 @@ namespace MarcusW.VncClient
             context.State = ProtocolImplementation.CreateStateObject(context);
             context.SupportedSecurityTypes = ProtocolImplementation.CreateSecurityTypesCollection(context);
             context.SupportedMessages = ProtocolImplementation.CreateMessagesCollection(context);
-            context.SupportedEncodings = ProtocolImplementation.CreateEncodingsCollection(context);
+            context.SupportedEncodingTypes = ProtocolImplementation.CreateEncodingTypesCollection(context);
 
             // Prepare the state for first use
             context.State.Prepare();
