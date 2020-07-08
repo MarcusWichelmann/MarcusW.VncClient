@@ -138,12 +138,16 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public ProtocolState(RfbConnectionContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
+        /// <inheritdoc />
+        public void Prepare()
+        {
             // Initialize UsedMessages with all standard messages that need to be supported by the server by definition
-            UsedMessages = context.SupportedMessages.Where(entry => entry.Value.IsStandardMessage).ToImmutableDictionary();
+            UsedMessages = _context.SupportedMessages.Where(entry => entry.Value.IsStandardMessage).ToImmutableDictionary();
 
             // Initialize UsedEncodings with all encodings that don't require a confirmation by the server
-            UsedEncodings = context.SupportedEncodings.Where(entry => entry.Value.RequiresConfirmation).ToImmutableDictionary();
+            UsedEncodings = _context.SupportedEncodings.Where(entry => entry.Value.RequiresConfirmation).ToImmutableDictionary();
         }
 
         /// <summary>

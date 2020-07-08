@@ -32,6 +32,9 @@ namespace MarcusW.VncClient
             context.SupportedMessages = ProtocolImplementation.CreateMessagesCollection(context);
             context.SupportedEncodings = ProtocolImplementation.CreateEncodingsCollection(context);
 
+            // Prepare the state for first use
+            context.State.Prepare();
+
             try
             {
                 // Establish a new transport connection

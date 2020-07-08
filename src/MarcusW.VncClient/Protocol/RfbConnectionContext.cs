@@ -74,7 +74,7 @@ namespace MarcusW.VncClient.Protocol
         public TState GetState<TState>() where TState : IRfbProtocolState
         {
             if (State == null)
-                throw new InvalidOperationException("State is not initialized.");
+                throw new InvalidOperationException("State is not accessible yet.");
 
             return (TState)State;
         }
