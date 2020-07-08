@@ -1,5 +1,6 @@
 using System;
 using System.Buffers.Binary;
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
     public class RfbInitializer : IRfbInitializer
     {
         private readonly RfbConnectionContext _context;
+        private readonly ProtocolState _state;
         private readonly ILogger<RfbInitializer> _logger;
 
         /// <summary>
@@ -22,17 +24,20 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
         public RfbInitializer(RfbConnectionContext context)
         {
             _context = context;
+            _state = context.GetState<ProtocolState>();
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbInitializer>();
         }
 
         /// <inheritdoc />
-        public async Task<InitializationResult> InitializeAsync(CancellationToken cancellationToken = default)
+        public async Task InitializeAsync(CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
+            Debug.Assert(_context.Transport != null, "_context.Transport != null");
+
             _logger.LogDebug("Doing protocol initialization...");
 
-            ITransport transport = _context.Transport!;
+            ITransport transport = _context.Transport;
 
             // Send ClientInit message
             await SendClientInitAsync(transport, cancellationToken).ConfigureAwait(false);
@@ -46,15 +51,14 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
                 _logger.LogDebug("Desktop name: {desktopName}", desktopName);
             }
 
-            // Set some connection details
-            _context.ConnectionDetails.SetFramebufferSize(framebufferSize);
-            _context.ConnectionDetails.SetFramebufferFormat(pixelFormat);
-            _context.ConnectionDetails.SetDesktopName(desktopName);
+            // Update state
+            _state.FramebufferSize = framebufferSize;
+            _state.FramebufferFormat = pixelFormat;
+            _state.DesktopName = desktopName;
 
             // Some security types extend the ServerInit response and now have the chance to continue reading
-            await _context.HandshakeResult!.UsedSecurityType.ReadServerInitExtensionAsync(_context.ProtocolVersion, cancellationToken).ConfigureAwait(false);
-
-            return new InitializationResult(framebufferSize, pixelFormat, desktopName);
+            Debug.Assert(_state.UsedSecurityType != null, "_state.UsedSecurityType != null");
+            await _state.UsedSecurityType.ReadServerInitExtensionAsync(cancellationToken).ConfigureAwait(false);
         }
 
         private async Task SendClientInitAsync(ITransport transport, CancellationToken cancellationToken = default)

@@ -12,7 +12,7 @@ namespace MarcusW.VncClient.Protocol.Services
         /// Executes a handshake.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>Information about the handshake outcome.</returns>
-        Task<HandshakeResult> DoHandshakeAsync(CancellationToken cancellationToken = default);
+        /// <returns>The new built tunnel transport, otherwise null.</returns>
+        Task<ITransport?> DoHandshakeAsync(CancellationToken cancellationToken = default);
     }
 }

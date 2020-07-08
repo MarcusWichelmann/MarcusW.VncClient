@@ -30,7 +30,7 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// Gets the protocol state object.
         /// </summary>
-        public IRfbProtocolState State { get; internal set; }
+        public IRfbProtocolState? State { get; internal set; }
 
         /// <summary>
         /// Gets the security types that are supported by the client.
@@ -54,36 +54,29 @@ namespace MarcusW.VncClient.Protocol
         public ITransport? Transport { get; internal set; }
 
         /// <summary>
-        /// Gets the result of the initial handshake.
-        /// </summary>
-        public HandshakeResult? HandshakeResult { get; internal set; }
-
-        /// <summary>
-        /// Gets the result of the connection initialization.
-        /// </summary>
-        public InitializationResult? InitializationResult { get; internal set; }
-
-        /// <summary>
         /// Gets the <see cref="IRfbMessageReceiver"/> for this connection.
         /// </summary>
         public IRfbMessageReceiver? MessageReceiver { get; internal set; }
 
-        // TODO: Message sender etc...
-
-        /// <summary>
-        /// Gets the used RFB protocol implementation.
-        /// </summary>
-        public IRfbProtocolImplementation ProtocolImplementation => Connection.ProtocolImplementation;
-
-        /// <summary>
-        /// Gets the used protocol version.
-        /// </summary>
-        public RfbProtocolVersion ProtocolVersion => HandshakeResult?.ProtocolVersion ?? RfbProtocolVersion.Unknown;
+        // TODO: Message sender...
 
         internal RfbConnectionContext(RfbConnection connection)
         {
             Connection = connection;
             ConnectionDetails = new ConnectionDetailsAccessor(connection);
+        }
+
+        /// <summary>
+        /// Casts the state object to <typeparam name="TState"/> and returns it.
+        /// </summary>
+        /// <typeparam name="TState">The type of the state object that implements <see cref="IRfbProtocolState"/>.</typeparam>
+        /// <returns>The casted state.</returns>
+        public TState GetState<TState>() where TState : IRfbProtocolState
+        {
+            if (State == null)
+                throw new InvalidOperationException("State is not initialized.");
+
+            return (TState)State;
         }
 
         /// <summary>
@@ -97,6 +90,18 @@ namespace MarcusW.VncClient.Protocol
             {
                 _connection = connection;
             }
+
+            /// <summary>
+            /// Sets the value of the <seealso cref="RfbConnection.ProtocolVersion"/> property on the <see cref="RfbConnection"/> object.
+            /// </summary>
+            /// <param name="protocolVersion">The new protocol version value.</param>
+            public void SetProtocolVersion(RfbProtocolVersion protocolVersion) => _connection.ProtocolVersion = protocolVersion;
+
+            /// <summary>
+            /// Sets the value of the <seealso cref="RfbConnection.UsedSecurityType"/> property on the <see cref="RfbConnection"/> object.
+            /// </summary>
+            /// <param name="usedSecurityType">The new security type.</param>
+            public void SetUsedSecurityType(ISecurityType? usedSecurityType) => _connection.UsedSecurityType = usedSecurityType;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.UsedMessages"/> property on the <see cref="RfbConnection"/> object.
@@ -126,7 +131,7 @@ namespace MarcusW.VncClient.Protocol
             /// Sets the value of the <seealso cref="RfbConnection.DesktopName"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
             /// <param name="desktopName">The new desktop name.</param>
-            public void SetDesktopName(string desktopName) => _connection.DesktopName = desktopName;
+            public void SetDesktopName(string? desktopName) => _connection.DesktopName = desktopName;
         }
     }
 }

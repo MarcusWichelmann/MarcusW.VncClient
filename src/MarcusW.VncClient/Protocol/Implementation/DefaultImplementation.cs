@@ -101,7 +101,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             if (context == null)
                 throw new ArgumentNullException(nameof(context));
 
-            yield return new NoSecurityType();
+            yield return new NoSecurityType(context);
             yield return new VncAuthenticationSecurityType(context);
         }
 

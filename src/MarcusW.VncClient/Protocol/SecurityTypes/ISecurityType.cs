@@ -28,18 +28,15 @@ namespace MarcusW.VncClient.Protocol.SecurityTypes
         /// <summary>
         /// Executes the security type authentication.
         /// </summary>
-        /// <param name="protocolVersion">The protocol version negotiated earlier during the handshake.</param>
         /// <param name="authenticationHandler">The authentication handler to request login data from the application.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The authentication result.</returns>
-        Task<AuthenticationResult> AuthenticateAsync(RfbProtocolVersion protocolVersion, IAuthenticationHandler authenticationHandler,
-            CancellationToken cancellationToken = default);
+        Task<AuthenticationResult> AuthenticateAsync(IAuthenticationHandler authenticationHandler, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reads additional security type specific data contained in the ServerInit message after the main part has been read.
         /// </summary>
-        /// <param name="protocolVersion">The protocol version negotiated earlier during the handshake.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        Task ReadServerInitExtensionAsync(RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default);
+        Task ReadServerInitExtensionAsync(CancellationToken cancellationToken = default);
     }
 }

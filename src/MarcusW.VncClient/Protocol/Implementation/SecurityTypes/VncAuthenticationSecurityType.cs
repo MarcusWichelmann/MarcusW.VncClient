@@ -37,11 +37,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
         }
 
         /// <inhertitdoc />
-        public async Task<AuthenticationResult> AuthenticateAsync(RfbProtocolVersion protocolVersion, IAuthenticationHandler authenticationHandler,
-            CancellationToken cancellationToken = default)
+        public async Task<AuthenticationResult> AuthenticateAsync(IAuthenticationHandler authenticationHandler, CancellationToken cancellationToken = default)
         {
-            if (!Enum.IsDefined(typeof(RfbProtocolVersion), protocolVersion) || protocolVersion == RfbProtocolVersion.Unknown)
-                throw new InvalidEnumArgumentException(nameof(protocolVersion), (int)protocolVersion, typeof(RfbProtocolVersion));
             if (authenticationHandler == null)
                 throw new ArgumentNullException(nameof(authenticationHandler));
 
@@ -68,7 +65,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
         }
 
         /// <inheritdoc />
-        public Task ReadServerInitExtensionAsync(RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default) => Task.CompletedTask;
+        public Task ReadServerInitExtensionAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
 
         // Inspired by https://github.com/quamotion/remoteviewing/blob/8c7cfeab90064d5bc68d9ab83313ddd12703c462/RemoteViewing/Vnc/VncPasswordChallenge.cs#L91
         private static ReadOnlyMemory<byte> CreateChallengeResponse(ReadOnlyMemory<byte> challenge, ReadOnlyMemory<byte> password)

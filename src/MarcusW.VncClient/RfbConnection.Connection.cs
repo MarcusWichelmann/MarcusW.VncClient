@@ -38,19 +38,14 @@ namespace MarcusW.VncClient
                 context.Transport = await ProtocolImplementation.CreateTransportConnector(context).ConnectAsync(cancellationToken).ConfigureAwait(false);
 
                 // Do the handshake
-                HandshakeResult handshakeResult = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
-                context.HandshakeResult = handshakeResult;
-
-                // Set some connection details
-                ProtocolVersion = handshakeResult.ProtocolVersion;
-                UsedSecurityType = handshakeResult.UsedSecurityType;
+                ITransport? tunnelTransport = await ProtocolImplementation.CreateRfbHandshaker(context).DoHandshakeAsync(cancellationToken).ConfigureAwait(false);
 
                 // Replace the current transport in case a tunnel has been built during handshake
-                if (handshakeResult.TunnelTransport != null)
-                    context.Transport = handshakeResult.TunnelTransport;
+                if (tunnelTransport != null)
+                    context.Transport = tunnelTransport;
 
                 // Initialize the connection
-                context.InitializationResult = await ProtocolImplementation.CreateRfbInitializer(context).InitializeAsync(cancellationToken).ConfigureAwait(false);
+                await ProtocolImplementation.CreateRfbInitializer(context).InitializeAsync(cancellationToken).ConfigureAwait(false);
 
                 // Setup new receive loop
                 context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);

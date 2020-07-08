@@ -32,7 +32,7 @@ namespace MarcusW.VncClient
         private PixelFormat _framebufferFormat = PixelFormat.Unknown;
 
         private readonly object _desktopNameLock = new object();
-        private string _desktopName = "Unknown";
+        private string? _desktopName;
 
         /// <summary>
         /// Gets the version of the protocol used for remote communication.
@@ -41,7 +41,7 @@ namespace MarcusW.VncClient
         public RfbProtocolVersion ProtocolVersion
         {
             get => GetWithLock(ref _protocolVersion, _protocolVersionLock);
-            private set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _protocolVersion, value, _protocolVersionLock);
+            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _protocolVersion, value, _protocolVersionLock);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace MarcusW.VncClient
         public ISecurityType? UsedSecurityType
         {
             get => GetWithLock(ref _usedSecurityType, _usedSecurityTypeLock);
-            private set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedSecurityType, value, _usedSecurityTypeLock);
+            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedSecurityType, value, _usedSecurityTypeLock);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace MarcusW.VncClient
         /// Gets the current name of the remote desktop.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public string DesktopName
+        public string? DesktopName
         {
             get => GetWithLock(ref _desktopName, _desktopNameLock);
             internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _desktopName, value, _desktopNameLock);

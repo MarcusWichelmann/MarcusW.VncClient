@@ -17,6 +17,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
     public class RfbHandshaker : IRfbHandshaker
     {
         private readonly RfbConnectionContext _context;
+        private readonly ProtocolState _state;
         private readonly ILogger<RfbHandshaker> _logger;
 
         /// <summary>
@@ -26,11 +27,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
         public RfbHandshaker(RfbConnectionContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _state = context.GetState<ProtocolState>();
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbHandshaker>();
         }
 
         /// <inheritdoc />
-        public async Task<HandshakeResult> DoHandshakeAsync(CancellationToken cancellationToken = default)
+        public async Task<ITransport?> DoHandshakeAsync(CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -40,14 +42,16 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Negotiate the protocol version that both sides will use
             RfbProtocolVersion protocolVersion = await NegotiateProtocolVersionAsync(currentTransport, cancellationToken).ConfigureAwait(false);
+            _state.ProtocolVersion = protocolVersion;
 
             // Negotiate which security type will be used
-            ISecurityType usedSecurityType = await NegotiateSecurityTypeAsync(currentTransport, protocolVersion, cancellationToken).ConfigureAwait(false);
+            ISecurityType usedSecurityType = await NegotiateSecurityTypeAsync(currentTransport,  cancellationToken).ConfigureAwait(false);
+            _state.UsedSecurityType = usedSecurityType;
 
             // Execute authentication
             _logger.LogDebug("Negotiated security type: {name}({id}). Authenticating...", usedSecurityType.Name, usedSecurityType.Id);
             AuthenticationResult authenticationResult = await usedSecurityType
-                .AuthenticateAsync(protocolVersion, _context.Connection.Parameters.AuthenticationHandler, cancellationToken).ConfigureAwait(false);
+                .AuthenticateAsync(_context.Connection.Parameters.AuthenticationHandler, cancellationToken).ConfigureAwait(false);
 
             // When a tunnel was built, use that transport for further communication
             if (authenticationResult.TunnelTransport != null)
@@ -74,7 +78,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 }
             }
 
-            return new HandshakeResult(protocolVersion, usedSecurityType, authenticationResult.TunnelTransport);
+            return authenticationResult.TunnelTransport;
         }
 
         private async Task<RfbProtocolVersion> NegotiateProtocolVersionAsync(ITransport transport, CancellationToken cancellationToken = default)
@@ -109,9 +113,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             return clientProtocolVersion;
         }
 
-        private async Task<ISecurityType> NegotiateSecurityTypeAsync(ITransport transport, RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default)
+        private async Task<ISecurityType> NegotiateSecurityTypeAsync(ITransport transport, CancellationToken cancellationToken = default)
         {
-            if (protocolVersion == RfbProtocolVersion.RFB_3_3)
+            Debug.Assert(_context.SupportedSecurityTypes != null, "_context.SupportedSecurityTypes != null");
+
+            if (_state.ProtocolVersion == RfbProtocolVersion.RFB_3_3)
             {
                 ReadOnlyMemory<byte> securityTypeIdBytes = await transport.Stream.ReadAllBytesAsync(4, cancellationToken).ConfigureAwait(false);
                 uint securityTypeId = BinaryPrimitives.ReadUInt32BigEndian(securityTypeIdBytes.Span);
@@ -126,7 +132,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 var id = (byte)securityTypeId;
 
                 // Search security type
-                if (!_context.SupportedSecurityTypes!.ContainsKey(id))
+                if (!_context.SupportedSecurityTypes.ContainsKey(id))
                     throw new HandshakeFailedException($"Server decided on the used security type, but no security type for the ID {id} is known.");
                 return _context.SupportedSecurityTypes[id];
             }
@@ -142,8 +148,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Read the security types supported by the server and find all security types that are known by our protocol implementation and supported by the server
             byte[] securityTypeIds = (await transport.Stream.ReadAllBytesAsync(numberOfSecurityTypes, cancellationToken).ConfigureAwait(false)).ToArray();
-            IEnumerable<ISecurityType> availableSecurityTypes = securityTypeIds.Where(id => _context.SupportedSecurityTypes!.ContainsKey(id))
-                .Select(id => _context.SupportedSecurityTypes![id]);
+            IEnumerable<ISecurityType> availableSecurityTypes = securityTypeIds.Where(id => _context.SupportedSecurityTypes.ContainsKey(id))
+                .Select(id => _context.SupportedSecurityTypes[id]);
 
             if (_logger.IsEnabled(LogLevel.Debug))
                 _logger.LogDebug("Server supports the following security types: {securityTypeIds}", string.Join(", ", securityTypeIds));

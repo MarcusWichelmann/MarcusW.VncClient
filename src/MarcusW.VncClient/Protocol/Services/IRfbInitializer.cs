@@ -12,7 +12,6 @@ namespace MarcusW.VncClient.Protocol.Services
         /// Executes a initialization.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>Information about the initialization outcome.</returns>
-        Task<InitializationResult> InitializeAsync(CancellationToken cancellationToken = default);
+        Task InitializeAsync(CancellationToken cancellationToken = default);
     }
 }
