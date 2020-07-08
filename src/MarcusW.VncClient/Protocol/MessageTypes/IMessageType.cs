@@ -1,9 +1,9 @@
-namespace MarcusW.VncClient.Protocol.Messages
+namespace MarcusW.VncClient.Protocol.MessageTypes
 {
     /// <summary>
-    /// Represents a RFB protocol message.
+    /// Represents a RFB protocol message type.
     /// </summary>
-    public interface IMessage
+    public interface IMessageType
     {
         /// <summary>
         /// Gets the ID for this message type.
@@ -16,8 +16,8 @@ namespace MarcusW.VncClient.Protocol.Messages
         string Name { get; }
 
         /// <summary>
-        /// Gets whether this is a standard message that must be supported by all servers and clients.
+        /// Gets whether this is a standard message type that must be supported by all servers and clients.
         /// </summary>
-        bool IsStandardMessage { get; }
+        bool IsStandardMessageType { get; }
     }
 }

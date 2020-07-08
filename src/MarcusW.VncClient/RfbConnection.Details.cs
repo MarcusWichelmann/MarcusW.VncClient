@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Protocol.EncodingTypes;
-using MarcusW.VncClient.Protocol.Messages;
+using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Rendering;
 
@@ -19,8 +19,8 @@ namespace MarcusW.VncClient
         private readonly object _usedSecurityTypeLock = new object();
         private ISecurityType? _usedSecurityType;
 
-        private readonly object _usedMessagesLock = new object();
-        private IImmutableDictionary<byte, IMessage> _usedMessages = ImmutableDictionary<byte, IMessage>.Empty;
+        private readonly object _usedMessageTypesLock = new object();
+        private IImmutableDictionary<byte, IMessageType> _usedMessageTypes = ImmutableDictionary<byte, IMessageType>.Empty;
 
         private readonly object _usedEncodingTypesLock = new object();
         private IImmutableDictionary<int, IEncodingType> _usedEncodingTypes = ImmutableDictionary<int, IEncodingType>.Empty;
@@ -55,13 +55,13 @@ namespace MarcusW.VncClient
         }
 
         /// <summary>
-        /// Gets the messages that are currently used by this connection.
+        /// Gets the message types that are currently used by this connection.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public IImmutableDictionary<byte, IMessage> UsedMessages
+        public IImmutableDictionary<byte, IMessageType> UsedMessageTypes
         {
-            get => GetWithLock(ref _usedMessages, _usedMessagesLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedMessages, value, _usedMessagesLock);
+            get => GetWithLock(ref _usedMessageTypes, _usedMessageTypesLock);
+            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedMessageTypes, value, _usedMessageTypesLock);
         }
 
         /// <summary>

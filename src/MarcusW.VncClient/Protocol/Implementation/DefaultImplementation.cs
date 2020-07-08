@@ -8,7 +8,7 @@ using MarcusW.VncClient.Protocol.Implementation.Services.Communication;
 using MarcusW.VncClient.Protocol.Implementation.Services.Handshaking;
 using MarcusW.VncClient.Protocol.Implementation.Services.Initialization;
 using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
-using MarcusW.VncClient.Protocol.Messages;
+using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
 
@@ -21,10 +21,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
     public delegate IEnumerable<ISecurityType> SecurityTypesCollectionBuilderDelegate(RfbConnectionContext context);
 
     /// <summary>
-    /// Represents the method that builds a new <see cref="IMessage"/> collection.
+    /// Represents the method that builds a new <see cref="IMessageType"/> collection.
     /// </summary>
     /// <param name="context">Details about the associated connection.</param>
-    public delegate IEnumerable<IMessage> MessagesCollectionBuilderDelegate(RfbConnectionContext context);
+    public delegate IEnumerable<IMessageType> MessagesCollectionBuilderDelegate(RfbConnectionContext context);
 
     /// <summary>
     /// Represents the method that builds a new <see cref="IEncodingType"/> collection.
@@ -68,7 +68,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             => BuildImmutableDictionary(_securityTypesCollectionBuilder.Invoke(context), v => v.Id);
 
         /// <inhertitdoc />
-        public IImmutableDictionary<byte, IMessage> CreateMessagesCollection(RfbConnectionContext context)
+        public IImmutableDictionary<byte, IMessageType> CreateMessageTypesCollection(RfbConnectionContext context)
             => BuildImmutableDictionary(_messagesCollectionBuilder.Invoke(context), v => v.Id);
 
         /// <inhertitdoc />
@@ -111,7 +111,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// </summary>
         /// <param name="context">The connection context.</param>
         /// <returns>The message collection.</returns>
-        public static IEnumerable<IMessage> GetDefaultMessages(RfbConnectionContext context)
+        public static IEnumerable<IMessageType> GetDefaultMessages(RfbConnectionContext context)
         {
             if (context == null)
                 throw new ArgumentNullException(nameof(context));

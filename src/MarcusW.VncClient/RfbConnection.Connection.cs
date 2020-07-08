@@ -29,7 +29,7 @@ namespace MarcusW.VncClient
             var context = new RfbConnectionContext(this);
             context.State = ProtocolImplementation.CreateStateObject(context);
             context.SupportedSecurityTypes = ProtocolImplementation.CreateSecurityTypesCollection(context);
-            context.SupportedMessages = ProtocolImplementation.CreateMessagesCollection(context);
+            context.SupportedMessageTypes = ProtocolImplementation.CreateMessageTypesCollection(context);
             context.SupportedEncodingTypes = ProtocolImplementation.CreateEncodingTypesCollection(context);
 
             // Prepare the state for first use

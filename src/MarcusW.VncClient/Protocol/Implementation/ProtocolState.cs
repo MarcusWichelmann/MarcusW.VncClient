@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
 using MarcusW.VncClient.Protocol.EncodingTypes;
-using MarcusW.VncClient.Protocol.Messages;
+using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 
 namespace MarcusW.VncClient.Protocol.Implementation
@@ -17,8 +17,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         private readonly StateValue<ISecurityType?> _usedSecurityTypeValue = new StateValue<ISecurityType?>(null);
 
-        private readonly StateValue<IImmutableDictionary<byte, IMessage>> _usedMessagesValue =
-            new StateValue<IImmutableDictionary<byte, IMessage>>(ImmutableDictionary<byte, IMessage>.Empty);
+        private readonly StateValue<IImmutableDictionary<byte, IMessageType>> _usedMessageTypesValue =
+            new StateValue<IImmutableDictionary<byte, IMessageType>>(ImmutableDictionary<byte, IMessageType>.Empty);
 
         private readonly StateValue<IImmutableDictionary<int, IEncodingType>> _usedEncodingTypesValue =
             new StateValue<IImmutableDictionary<int, IEncodingType>>(ImmutableDictionary<int, IEncodingType>.Empty);
@@ -58,15 +58,15 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
-        /// Gets or sets the messages that are known to be supported by both sides.
+        /// Gets or sets the message types that are known to be supported by both sides.
         /// </summary>
-        public IImmutableDictionary<byte, IMessage> UsedMessages
+        public IImmutableDictionary<byte, IMessageType> UsedMessageTypes
         {
-            get => _usedMessagesValue.Value;
+            get => _usedMessageTypesValue.Value;
             set
             {
-                _usedMessagesValue.Value = value;
-                _context.ConnectionDetails.SetUsedMessages(value);
+                _usedMessageTypesValue.Value = value;
+                _context.ConnectionDetails.SetUsedMessageTypes(value);
             }
         }
 
@@ -143,28 +143,28 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <inheritdoc />
         public void Prepare()
         {
-            // Initialize UsedMessages with all standard messages that need to be supported by the server by definition
-            UsedMessages = _context.SupportedMessages.Where(entry => entry.Value.IsStandardMessage).ToImmutableDictionary();
+            // Initialize UsedMessageTypes with all standard messages that need to be supported by the server by definition
+            UsedMessageTypes = _context.SupportedMessageTypes.Where(entry => entry.Value.IsStandardMessageType).ToImmutableDictionary();
 
             // Initialize UsedEncodingTypes with all encoding types that don't require a confirmation by the server
             UsedEncodingTypes = _context.SupportedEncodingTypes.Where(entry => entry.Value.RequiresConfirmation).ToImmutableDictionary();
         }
 
         /// <summary>
-        /// Marks a message as known to be supported by both sides.
+        /// Marks a message type as known to be supported by both sides.
         /// </summary>
-        /// <param name="id">The message id.</param>
-        public void MarkMessageAsUsed(byte id)
+        /// <param name="id">The message type id.</param>
+        public void MarkMessageTypeAsUsed(byte id)
         {
-            if (UsedMessages.ContainsKey(id))
+            if (UsedMessageTypes.ContainsKey(id))
                 return;
 
-            Debug.Assert(_context.SupportedMessages != null, "_context.SupportedMessages != null");
-            if (!_context.SupportedMessages.ContainsKey(id))
-                throw new ArgumentException($"Unknown message id: {id}", nameof(id));
-            IMessage message = _context.SupportedMessages[id];
+            Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
+            if (!_context.SupportedMessageTypes.ContainsKey(id))
+                throw new ArgumentException($"Unknown message type id: {id}", nameof(id));
+            IMessageType messageType = _context.SupportedMessageTypes[id];
 
-            UsedMessages = UsedMessages.Add(id, message);
+            UsedMessageTypes = UsedMessageTypes.Add(id, messageType);
         }
 
         /// <summary>

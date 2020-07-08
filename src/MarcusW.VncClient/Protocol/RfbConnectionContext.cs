@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol.EncodingTypes;
-using MarcusW.VncClient.Protocol.Messages;
+using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Rendering;
@@ -38,9 +38,9 @@ namespace MarcusW.VncClient.Protocol
         public IImmutableDictionary<byte, ISecurityType>? SupportedSecurityTypes { get; internal set; }
 
         /// <summary>
-        /// Gets the messages that are supported by the client.
+        /// Gets the message types that are supported by the client.
         /// </summary>
-        public IImmutableDictionary<byte, IMessage>? SupportedMessages { get; internal set; }
+        public IImmutableDictionary<byte, IMessageType>? SupportedMessageTypes { get; internal set; }
 
         /// <summary>
         /// Gets the encoding types that are supported by the client.
@@ -104,15 +104,15 @@ namespace MarcusW.VncClient.Protocol
             public void SetUsedSecurityType(ISecurityType? usedSecurityType) => _connection.UsedSecurityType = usedSecurityType;
 
             /// <summary>
-            /// Sets the value of the <seealso cref="RfbConnection.UsedMessages"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.UsedMessageTypes"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            /// <param name="usedMessages">The new messages set.</param>
-            public void SetUsedMessages(IImmutableDictionary<byte, IMessage> usedMessages) => _connection.UsedMessages = usedMessages;
+            /// <param name="usedMessageTypes">The new message types set.</param>
+            public void SetUsedMessageTypes(IImmutableDictionary<byte, IMessageType> usedMessageTypes) => _connection.UsedMessageTypes = usedMessageTypes;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.UsedEncodingTypes"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            /// <param name="usedEncodingTypes">The new encodings set.</param>
+            /// <param name="usedEncodingTypes">The new encoding types set.</param>
             public void SetUsedEncodingTypes(IImmutableDictionary<int, IEncodingType> usedEncodingTypes) => _connection.UsedEncodingTypes = usedEncodingTypes;
 
             /// <summary>
