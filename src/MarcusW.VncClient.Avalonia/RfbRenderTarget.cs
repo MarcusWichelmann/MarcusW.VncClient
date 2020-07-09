@@ -21,9 +21,14 @@ namespace MarcusW.VncClient.Avalonia
         private volatile WriteableBitmap? _bitmap;
         private readonly object _bitmapReplacementLock = new object();
 
+        private volatile bool _disposed;
+
         /// <inheritdoc />
         IFramebufferReference IRenderTarget.GrabFramebufferReference(FrameSize frameSize)
         {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(RfbRenderTarget));
+
             PixelSize requiredPixelSize = Conversions.GetPixelSize(frameSize);
 
             // Creation of a new buffer necessary?
@@ -89,10 +94,23 @@ namespace MarcusW.VncClient.Avalonia
         }
 
         /// <inheritdoc />
-        public void Dispose()
+        public void Dispose() => Dispose(true);
+
+        protected virtual void Dispose(bool disposing)
         {
-            _bitmap?.Dispose();
-            _bitmap = null;
+            if (_disposed)
+                return;
+
+            if (disposing)
+            {
+                lock (_bitmapReplacementLock)
+                {
+                    _bitmap?.Dispose();
+                    _bitmap = null;
+                }
+            }
+
+            _disposed = true;
         }
     }
 }

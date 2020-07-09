@@ -12,7 +12,7 @@ namespace MarcusW.VncClient
     /// <summary>
     /// Connection with a remote server using the RFB protocol.
     /// </summary>
-    public partial class RfbConnection : INotifyPropertyChanged, IDisposable
+    public sealed partial class RfbConnection : INotifyPropertyChanged, IDisposable
     {
         private readonly ILogger<RfbConnection> _logger;
 
@@ -147,8 +147,15 @@ namespace MarcusW.VncClient
         // Is called by the other class part to signal us that the running connection has failed in the background.
         private void OnRunningConnectionFailed()
         {
-            // Reconnect in the background and store the task away, just for cleanliness.
-            _reconnectTask = ReconnectAsync();
+            try
+            {
+                // Reconnect in the background and store the task away, just for cleanliness.
+                _reconnectTask = ReconnectAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Could not start reconnect task.");
+            }
         }
 
         private async Task ReconnectAsync()
@@ -161,6 +168,9 @@ namespace MarcusW.VncClient
             await _connectionManagementSemaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
+                // Do a cleanup first to ensure that all other non-failed background threads are stopped too.
+                CleanupPreviousConnection();
+
                 var failedAttempts = 0;
                 while (true)
                 {

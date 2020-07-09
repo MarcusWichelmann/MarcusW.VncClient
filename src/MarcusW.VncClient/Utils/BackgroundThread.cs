@@ -99,8 +99,7 @@ namespace MarcusW.VncClient.Utils
                 // Do your work...
                 ThreadWorker(cancellationToken);
             }
-            catch (Exception exception) when (!(exception is OperationCanceledException
-                || exception is ThreadAbortException))
+            catch (Exception exception) when (!(exception is OperationCanceledException || exception is ThreadAbortException))
             {
                 Failed?.Invoke(this, new BackgroundThreadFailedEventArgs(exception));
             }
@@ -112,31 +111,36 @@ namespace MarcusW.VncClient.Utils
         }
 
         /// <inheritdoc />
-        public void Dispose()
+        public void Dispose() => Dispose(true);
+
+        protected virtual void Dispose(bool disposing)
         {
             if (_disposed)
                 return;
 
-            try
+            if (disposing)
             {
-                // Ensure the thread is stopped
-                _stopCts.Cancel();
-                if (_thread.IsAlive)
+                try
                 {
-                    // Block and wait for completion or hard-kill the thread after 3 seconds
-                    if (!_thread.Join(TimeSpan.FromSeconds(3)))
-                        _thread.Abort();
+                    // Ensure the thread is stopped
+                    _stopCts.Cancel();
+                    if (_thread.IsAlive)
+                    {
+                        // Block and wait for completion or hard-kill the thread after 1 second
+                        if (!_thread.Join(TimeSpan.FromSeconds(1)))
+                            _thread.Abort();
+                    }
                 }
-            }
-            catch
-            {
-                // Ignore
-            }
+                catch
+                {
+                    // Ignore
+                }
 
-            // Just to be sure...
-            _completedTcs.SetResult(null);
+                // Just to be sure...
+                _completedTcs.SetResult(null);
 
-            _stopCts.Dispose();
+                _stopCts.Dispose();
+            }
 
             _disposed = true;
         }

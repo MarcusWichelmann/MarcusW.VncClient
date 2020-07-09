@@ -50,9 +50,11 @@ namespace MarcusW.VncClient
                 // Initialize the connection
                 await ProtocolImplementation.CreateRfbInitializer(context).InitializeAsync(cancellationToken).ConfigureAwait(false);
 
-                // Setup new receive loop
+                // Setup send and receive loops
                 context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);
+                context.MessageSender = ProtocolImplementation.CreateMessageSender(context);
                 context.MessageReceiver.StartReceiveLoop();
+                context.MessageSender.StartSendLoop();
             }
             catch (Exception ex)
             {
@@ -60,6 +62,7 @@ namespace MarcusW.VncClient
 
                 // Ensure cleanup on failure
                 context.MessageReceiver?.Dispose();
+                context.MessageSender?.Dispose();
                 context.Transport?.Dispose();
 
                 throw;
@@ -67,7 +70,8 @@ namespace MarcusW.VncClient
 
             // From now on, exceptions will only land in the Failed event handler.
             // This should be the last real operation to ensure that exceptions are not propagated by two ways at the same time.
-            context.MessageReceiver.Failed += MessageReceiverOnFailed;
+            context.MessageReceiver.Failed += BackgroundThreadOnFailed;
+            context.MessageSender.Failed += BackgroundThreadOnFailed;
 
             _activeConnection = context;
 
@@ -81,9 +85,11 @@ namespace MarcusW.VncClient
 
             _logger.LogInformation("Closing connection to {endpoint}...", Parameters.TransportParameters);
 
-            // Stop receiving first
+            // Stop receiving and sending
             if (_activeConnection.MessageReceiver != null)
                 await _activeConnection.MessageReceiver.StopReceiveLoopAsync().ConfigureAwait(false);
+            if (_activeConnection.MessageSender != null)
+                await _activeConnection.MessageSender.StopSendLoopAsync().ConfigureAwait(false);
 
             // Close connection
             _activeConnection.Transport?.Dispose();
@@ -98,9 +104,16 @@ namespace MarcusW.VncClient
 
             if (_activeConnection.MessageReceiver != null)
             {
-                _activeConnection.MessageReceiver.Failed -= MessageReceiverOnFailed;
+                _activeConnection.MessageReceiver.Failed -= BackgroundThreadOnFailed;
                 _activeConnection.MessageReceiver.Dispose();
                 _activeConnection.MessageReceiver = null;
+            }
+
+            if (_activeConnection.MessageSender != null)
+            {
+                _activeConnection.MessageSender.Failed -= BackgroundThreadOnFailed;
+                _activeConnection.MessageSender.Dispose();
+                _activeConnection.MessageSender = null;
             }
 
             if (_activeConnection.Transport != null)
@@ -113,6 +126,6 @@ namespace MarcusW.VncClient
         }
 
         // Forward to main class part
-        private void MessageReceiverOnFailed(object? sender, BackgroundThreadFailedEventArgs e) => OnRunningConnectionFailed();
+        private void BackgroundThreadOnFailed(object? sender, BackgroundThreadFailedEventArgs e) => OnRunningConnectionFailed();
     }
 }

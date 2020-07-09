@@ -7,7 +7,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
     /// <summary>
     /// A transport which provides a stream for communication over a plain TCP connection.
     /// </summary>
-    public class TcpTransport : ITransport
+    public sealed class TcpTransport : ITransport
     {
         private readonly TcpClient _tcpClient;
 

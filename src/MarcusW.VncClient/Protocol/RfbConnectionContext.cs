@@ -58,7 +58,10 @@ namespace MarcusW.VncClient.Protocol
         /// </summary>
         public IRfbMessageReceiver? MessageReceiver { get; internal set; }
 
-        // TODO: Message sender...
+        /// <summary>
+        /// Gets the <see cref="IRfbMessageSender"/> for this connection.
+        /// </summary>
+        public IRfbMessageSender? MessageSender { get; internal set; }
 
         internal RfbConnectionContext(RfbConnection connection)
         {

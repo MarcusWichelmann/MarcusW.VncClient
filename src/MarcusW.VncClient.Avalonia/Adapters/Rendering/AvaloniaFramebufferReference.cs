@@ -5,7 +5,7 @@ using MarcusW.VncClient.Rendering;
 namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
 {
     /// <inheritdoc />
-    public class AvaloniaFramebufferReference : IFramebufferReference
+    public sealed class AvaloniaFramebufferReference : IFramebufferReference
     {
         private ILockedFramebuffer? _lockedFramebuffer;
         private readonly Action _invalidateVisual;

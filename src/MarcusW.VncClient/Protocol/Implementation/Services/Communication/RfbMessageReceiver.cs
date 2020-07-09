@@ -14,6 +14,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
     public sealed class RfbMessageReceiver : BackgroundThread, IRfbMessageReceiver
     {
         private readonly RfbConnectionContext _context;
+        private readonly ProtocolState _state;
         private readonly ILogger<RfbMessageReceiver> _logger;
 
         /// <summary>
@@ -23,6 +24,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         public RfbMessageReceiver(RfbConnectionContext context) : base("RFB Message Receiver")
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _state = context.GetState<ProtocolState>();
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
 
             // Log failure events from background thread base
