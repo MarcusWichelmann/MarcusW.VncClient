@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MarcusW.VncClient.Utils
+namespace MarcusW.VncClient.Protocol.Implementation
 {
     /// <summary>
     /// Extension methods for <see cref="Stream"/>.
@@ -29,7 +29,7 @@ namespace MarcusW.VncClient.Utils
             {
                 int read = await stream.ReadAsync(buffer, bytesRead, numBytes - bytesRead, cancellationToken).ConfigureAwait(false);
                 if (read == 0)
-                    throw new EndOfStreamException($"Stream reached its end while trying to read {numBytes} bytes.");
+                    throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to read {numBytes} bytes.");
 
                 bytesRead += read;
             }

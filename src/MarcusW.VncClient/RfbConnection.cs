@@ -205,10 +205,10 @@ namespace MarcusW.VncClient
                         ConnectionState = ConnectionState.Closed;
                         return;
                     }
-                    catch (Exception exception)
+                    catch
                     {
-                        // Reconnect attempt failed
-                        _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", exception, failedAttempts, Parameters.TransportParameters);
+                        // Reconnect attempt failed (exception has already been logged by EstablishNewConnectionAsync)
+                        _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", failedAttempts, Parameters.TransportParameters);
                         CleanupPreviousConnection();
                         ConnectionState = ConnectionState.ReconnectFailed;
 

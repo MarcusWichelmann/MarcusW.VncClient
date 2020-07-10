@@ -20,10 +20,10 @@ namespace MarcusW.VncClient
         private ISecurityType? _usedSecurityType;
 
         private readonly object _usedMessageTypesLock = new object();
-        private IImmutableDictionary<byte, IMessageType> _usedMessageTypes = ImmutableDictionary<byte, IMessageType>.Empty;
+        private IImmutableSet<IMessageType> _usedMessageTypes = ImmutableHashSet<IMessageType>.Empty;
 
         private readonly object _usedEncodingTypesLock = new object();
-        private IImmutableDictionary<int, IEncodingType> _usedEncodingTypes = ImmutableDictionary<int, IEncodingType>.Empty;
+        private IImmutableSet<IEncodingType> _usedEncodingTypes = ImmutableHashSet<IEncodingType>.Empty;
 
         private readonly object _framebufferSizeLock = new object();
         private FrameSize _framebufferSize = FrameSize.Zero;
@@ -58,7 +58,7 @@ namespace MarcusW.VncClient
         /// Gets the message types that are currently used by this connection.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public IImmutableDictionary<byte, IMessageType> UsedMessageTypes
+        public IImmutableSet<IMessageType> UsedMessageTypes
         {
             get => GetWithLock(ref _usedMessageTypes, _usedMessageTypesLock);
             internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedMessageTypes, value, _usedMessageTypesLock);
@@ -68,7 +68,7 @@ namespace MarcusW.VncClient
         /// Gets the encoding types that are currently used by this connection.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public IImmutableDictionary<int, IEncodingType> UsedEncodingTypes
+        public IImmutableSet<IEncodingType> UsedEncodingTypes
         {
             get => GetWithLock(ref _usedEncodingTypes, _usedEncodingTypesLock);
             internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedEncodingTypes, value, _usedEncodingTypesLock);

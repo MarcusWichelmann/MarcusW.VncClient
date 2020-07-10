@@ -8,9 +8,9 @@ using MarcusW.VncClient.Security;
 namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
 {
     /// <summary>
-    /// A security type without any security (Security type "None").
+    /// A security type without any security.
     /// </summary>
-    public class NoSecurityType : ISecurityType
+    public class NoneSecurityType : ISecurityType
     {
         private readonly RfbConnectionContext _context;
         private readonly ProtocolState _state;
@@ -25,10 +25,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
         public int Priority => 1; // Anything is better than nothing. xD
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NoSecurityType"/>.
+        /// Initializes a new instance of the <see cref="NoneSecurityType"/>.
         /// </summary>
         /// <param name="context">The connection context.</param>
-        public NoSecurityType(RfbConnectionContext context)
+        public NoneSecurityType(RfbConnectionContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _state = context.GetState<ProtocolState>();

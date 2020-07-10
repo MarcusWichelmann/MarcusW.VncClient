@@ -17,11 +17,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         private readonly StateValue<ISecurityType?> _usedSecurityTypeValue = new StateValue<ISecurityType?>(null);
 
-        private readonly StateValue<IImmutableDictionary<byte, IMessageType>> _usedMessageTypesValue =
-            new StateValue<IImmutableDictionary<byte, IMessageType>>(ImmutableDictionary<byte, IMessageType>.Empty);
+        private readonly StateValue<IImmutableSet<IMessageType>> _usedMessageTypesValue = new StateValue<IImmutableSet<IMessageType>>(ImmutableHashSet<IMessageType>.Empty);
 
-        private readonly StateValue<IImmutableDictionary<int, IEncodingType>> _usedEncodingTypesValue =
-            new StateValue<IImmutableDictionary<int, IEncodingType>>(ImmutableDictionary<int, IEncodingType>.Empty);
+        private readonly StateValue<IImmutableSet<IEncodingType>> _usedEncodingTypesValue = new StateValue<IImmutableSet<IEncodingType>>(ImmutableHashSet<IEncodingType>.Empty);
 
         private readonly StateValue<FrameSize> _framebufferSizeValue = new StateValue<FrameSize>(FrameSize.Zero);
 
@@ -60,7 +58,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets or sets the message types that are known to be supported by both sides.
         /// </summary>
-        public IImmutableDictionary<byte, IMessageType> UsedMessageTypes
+        public IImmutableSet<IMessageType> UsedMessageTypes
         {
             get => _usedMessageTypesValue.Value;
             set
@@ -73,7 +71,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets or sets the encoding types that are either known to be supported by both sides, or at least safe to use anyway.
         /// </summary>
-        public IImmutableDictionary<int, IEncodingType> UsedEncodingTypes
+        public IImmutableSet<IEncodingType> UsedEncodingTypes
         {
             get => _usedEncodingTypesValue.Value;
             set
@@ -141,50 +139,16 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <inheritdoc />
-        public void Prepare()
+        public virtual void Prepare()
         {
             // Initialize UsedMessageTypes with all standard messages that need to be supported by the server by definition
-            UsedMessageTypes = _context.SupportedMessageTypes.Where(entry => entry.Value.IsStandardMessageType).ToImmutableDictionary();
+            UsedMessageTypes = _context.SupportedMessageTypes.Where(mt => mt.IsStandardMessageType).ToImmutableHashSet();
 
             // Initialize UsedEncodingTypes with all encoding types that don't require a confirmation by the server
-            UsedEncodingTypes = _context.SupportedEncodingTypes.Where(entry => entry.Value.RequiresConfirmation).ToImmutableDictionary();
+            UsedEncodingTypes = _context.SupportedEncodingTypes.Where(et => et.RequiresConfirmation).ToImmutableHashSet();
         }
 
-        /// <summary>
-        /// Marks a message type as known to be supported by both sides.
-        /// </summary>
-        /// <param name="id">The message type id.</param>
-        public void MarkMessageTypeAsUsed(byte id)
-        {
-            if (UsedMessageTypes.ContainsKey(id))
-                return;
-
-            Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
-            if (!_context.SupportedMessageTypes.ContainsKey(id))
-                throw new ArgumentException($"Unknown message type id: {id}", nameof(id));
-            IMessageType messageType = _context.SupportedMessageTypes[id];
-
-            UsedMessageTypes = UsedMessageTypes.Add(id, messageType);
-        }
-
-        /// <summary>
-        /// Marks an encoding type as known to be supported by both sides.
-        /// </summary>
-        /// <param name="id">The encoding type id.</param>
-        public void MarkEncodingTypeAsUsed(int id)
-        {
-            if (UsedEncodingTypes.ContainsKey(id))
-                return;
-
-            Debug.Assert(_context.SupportedEncodingTypes != null, "_context.SupportedEncodingTypes != null");
-            if (!_context.SupportedEncodingTypes.ContainsKey(id))
-                throw new ArgumentException($"Unknown encoding type id: {id}", nameof(id));
-            IEncodingType encodingType = _context.SupportedEncodingTypes[id];
-
-            UsedEncodingTypes = UsedEncodingTypes.Add(id, encodingType);
-        }
-
-        private class StateValue<T>
+        protected class StateValue<T>
         {
             private readonly object _lockObject = new object();
             private T _value;

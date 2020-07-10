@@ -1,6 +1,12 @@
 using System;
+using System.Collections.Immutable;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Rendering;
 using MarcusW.VncClient.Utils;
@@ -49,47 +55,37 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         // raise a "Failure" and trigger a reconnect.
         protected override void ThreadWorker(CancellationToken cancellationToken)
         {
-            byte offset = 0;
-            bool sign = false;
+            // Get the transport stream so we don't have to call the getter every time
+            Debug.Assert(_context.Transport != null, "_context.Transport != null");
+            ITransport transport = _context.Transport;
+            Stream transportStream = transport.Stream;
+
+            // Build a dictionary for fast lookup of incoming message types
+            ImmutableDictionary<byte, IIncomingMessageType> incomingMessageLookup =
+                _context.SupportedMessageTypes.Where(mt => mt is IIncomingMessageType).Cast<IIncomingMessageType>().ToImmutableDictionary(mt => mt.Id);
+
+            Span<byte> messageTypeBuffer = stackalloc byte[1];
 
             while (!cancellationToken.IsCancellationRequested)
             {
-                // TODO: Just some testing code...
+                // Read message type
+                if (transportStream.Read(messageTypeBuffer) == 0)
+                    throw new UnexpectedEndOfStreamException("Stream reached its end while reading next message type.");
+                byte messageTypeId = messageTypeBuffer[0];
 
-                IRenderTarget? renderTarget = _context.Connection.RenderTarget;
-                if (renderTarget != null)
-                {
-                    using var framebuffer = renderTarget.GrabFramebufferReference(new FrameSize(256, 256));
-                    unsafe
-                    {
-                        var ptr = (byte*)framebuffer.Address;
-                        for (int row = 0; row < 256; row++)
-                        for (int col = 0; col < 256; col++)
-                        {
-                            *ptr++ = (byte)row; // blue
-                            *ptr++ = offset; // green
-                            *ptr++ = (byte)col; // red
-                            *ptr++ = 0xFF; // alpha
-                        }
-                    }
-                }
+                // Find message type
+                if (!incomingMessageLookup.TryGetValue(messageTypeId, out IIncomingMessageType messageType))
+                    throw new UnexpectedDataException($"Server sent a message of type {messageTypeId} that is not supported by this protocol implementation. "
+                        + "Servers should always check for client support before using protocol extensions.");
 
-                if (sign)
-                {
-                    if (offset == 0)
-                        sign = false;
-                    else
-                        offset--;
-                }
-                else
-                {
-                    if (offset == 255)
-                        sign = true;
-                    else
-                        offset++;
-                }
+                _logger.LogDebug($"Received message: {messageType.Name}({messageType.Id})");
 
-                Thread.Sleep(1000 / 60);
+                // Mark the message type as used, if necessary
+                if (!messageType.IsStandardMessageType && !_state.UsedMessageTypes.Contains(messageType))
+                    _state.UsedMessageTypes = _state.UsedMessageTypes.Add(messageType);
+
+                // Read the message
+                messageType.ReadMessage(transport);
             }
         }
     }

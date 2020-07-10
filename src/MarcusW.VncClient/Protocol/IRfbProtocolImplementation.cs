@@ -26,19 +26,19 @@ namespace MarcusW.VncClient.Protocol
         /// not guaranteed that they can safely be used across multiple connections simultaneously.
         /// </remarks>
         /// <param name="context">Details about the associated connection.</param>
-        /// <returns>An immutable dictionary that maps security type ids to security types.</returns>
-        IImmutableDictionary<byte, ISecurityType> CreateSecurityTypesCollection(RfbConnectionContext context);
+        /// <returns>An immutable set with all supported security types.</returns>
+        IImmutableSet<ISecurityType> CreateSecurityTypesCollection(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new collection of all supported <see cref="IMessageType"/>s.
         /// </summary>
         /// <remarks>
-        /// Make sure the message typess are newly instantiated on each call, because it's
+        /// Make sure the message types are newly instantiated on each call, because it's
         /// not guaranteed that they can safely be used across multiple connections simultaneously.
         /// </remarks>
         /// <param name="context">Details about the associated connection.</param>
-        /// <returns>An immutable dictionary that maps message type ids to message types.</returns>
-        IImmutableDictionary<byte, IMessageType> CreateMessageTypesCollection(RfbConnectionContext context);
+        /// <returns>An immutable set with all supported message types.</returns>
+        IImmutableSet<IMessageType> CreateMessageTypesCollection(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new collection of all supported <see cref="IEncodingType"/>s.
@@ -48,8 +48,8 @@ namespace MarcusW.VncClient.Protocol
         /// not guaranteed that they can safely be used across multiple connections simultaneously.
         /// </remarks>
         /// <param name="context">Details about the associated connection.</param>
-        /// <returns>An immutable dictionary that maps encoding type ids to encoding types.</returns>
-        IImmutableDictionary<int, IEncodingType> CreateEncodingTypesCollection(RfbConnectionContext context);
+        /// <returns>An immutable set with all supported encoding types.</returns>
+        IImmutableSet<IEncodingType> CreateEncodingTypesCollection(RfbConnectionContext context);
 
         /// <summary>
         /// Creates a new <see cref="ITransportConnector"/>.

@@ -45,7 +45,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             _state.ProtocolVersion = protocolVersion;
 
             // Negotiate which security type will be used
-            ISecurityType usedSecurityType = await NegotiateSecurityTypeAsync(currentTransport,  cancellationToken).ConfigureAwait(false);
+            ISecurityType usedSecurityType = await NegotiateSecurityTypeAsync(currentTransport, cancellationToken).ConfigureAwait(false);
             _state.UsedSecurityType = usedSecurityType;
 
             // Execute authentication
@@ -117,8 +117,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
         {
             Debug.Assert(_context.SupportedSecurityTypes != null, "_context.SupportedSecurityTypes != null");
 
+            ISecurityType? usedSecurityType;
+
             if (_state.ProtocolVersion == RfbProtocolVersion.RFB_3_3)
             {
+                // Read the security type id that was decided by the server (is 0 if the connection/handshake failed)
                 ReadOnlyMemory<byte> securityTypeIdBytes = await transport.Stream.ReadAllBytesAsync(4, cancellationToken).ConfigureAwait(false);
                 uint securityTypeId = BinaryPrimitives.ReadUInt32BigEndian(securityTypeIdBytes.Span);
                 if (securityTypeId == 0)
@@ -132,12 +135,13 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 var id = (byte)securityTypeId;
 
                 // Search security type
-                if (!_context.SupportedSecurityTypes.ContainsKey(id))
+                usedSecurityType = _context.SupportedSecurityTypes.FirstOrDefault(st => st.Id == id);
+                if (usedSecurityType == null)
                     throw new HandshakeFailedException($"Server decided on the used security type, but no security type for the ID {id} is known.");
-                return _context.SupportedSecurityTypes[id];
+
+                return usedSecurityType;
             }
 
-            // Read the security type id that was decided by the server (is 0 if the connection/handshake failed)
             // Read number of security types (is 0 if the connection/handshake failed)
             byte numberOfSecurityTypes = (await transport.Stream.ReadAllBytesAsync(1, cancellationToken).ConfigureAwait(false)).Span[0];
             if (numberOfSecurityTypes == 0)
@@ -148,14 +152,13 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Read the security types supported by the server and find all security types that are known by our protocol implementation and supported by the server
             byte[] securityTypeIds = (await transport.Stream.ReadAllBytesAsync(numberOfSecurityTypes, cancellationToken).ConfigureAwait(false)).ToArray();
-            IEnumerable<ISecurityType> availableSecurityTypes = securityTypeIds.Where(id => _context.SupportedSecurityTypes.ContainsKey(id))
-                .Select(id => _context.SupportedSecurityTypes[id]);
+            IEnumerable<ISecurityType> usableSecurityTypes = _context.SupportedSecurityTypes.Where(st => securityTypeIds.Contains(st.Id));
 
             if (_logger.IsEnabled(LogLevel.Debug))
                 _logger.LogDebug("Server supports the following security types: {securityTypeIds}", string.Join(", ", securityTypeIds));
 
             // Select the one with the hightest priority (hopefully the best one!)
-            ISecurityType? usedSecurityType = availableSecurityTypes.OrderByDescending(st => st.Priority).FirstOrDefault();
+            usedSecurityType = usableSecurityTypes.OrderByDescending(st => st.Priority).FirstOrDefault();
             if (usedSecurityType == null)
                 throw new HandshakeFailedException("Could not negotiate any common security types between the server and the client.");
 

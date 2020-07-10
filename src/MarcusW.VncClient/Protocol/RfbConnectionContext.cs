@@ -35,17 +35,17 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// Gets the security types that are supported by the client.
         /// </summary>
-        public IImmutableDictionary<byte, ISecurityType>? SupportedSecurityTypes { get; internal set; }
+        public IImmutableSet<ISecurityType>? SupportedSecurityTypes { get; internal set; }
 
         /// <summary>
         /// Gets the message types that are supported by the client.
         /// </summary>
-        public IImmutableDictionary<byte, IMessageType>? SupportedMessageTypes { get; internal set; }
+        public IImmutableSet<IMessageType>? SupportedMessageTypes { get; internal set; }
 
         /// <summary>
         /// Gets the encoding types that are supported by the client.
         /// </summary>
-        public IImmutableDictionary<int, IEncodingType>? SupportedEncodingTypes { get; internal set; }
+        public IImmutableSet<IEncodingType>? SupportedEncodingTypes { get; internal set; }
 
         /// <summary>
         /// Gets the current transport layer used by the protocol.
@@ -110,13 +110,13 @@ namespace MarcusW.VncClient.Protocol
             /// Sets the value of the <seealso cref="RfbConnection.UsedMessageTypes"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
             /// <param name="usedMessageTypes">The new message types set.</param>
-            public void SetUsedMessageTypes(IImmutableDictionary<byte, IMessageType> usedMessageTypes) => _connection.UsedMessageTypes = usedMessageTypes;
+            public void SetUsedMessageTypes(IImmutableSet<IMessageType> usedMessageTypes) => _connection.UsedMessageTypes = usedMessageTypes;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.UsedEncodingTypes"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
             /// <param name="usedEncodingTypes">The new encoding types set.</param>
-            public void SetUsedEncodingTypes(IImmutableDictionary<int, IEncodingType> usedEncodingTypes) => _connection.UsedEncodingTypes = usedEncodingTypes;
+            public void SetUsedEncodingTypes(IImmutableSet<IEncodingType> usedEncodingTypes) => _connection.UsedEncodingTypes = usedEncodingTypes;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.FramebufferSize"/> property on the <see cref="RfbConnection"/> object.

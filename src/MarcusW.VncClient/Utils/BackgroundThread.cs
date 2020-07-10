@@ -106,7 +106,7 @@ namespace MarcusW.VncClient.Utils
             finally
             {
                 // Notify stop method that thread has completed
-                _completedTcs.SetResult(null);
+                _completedTcs.TrySetResult(null);
             }
         }
 
@@ -137,7 +137,7 @@ namespace MarcusW.VncClient.Utils
                 }
 
                 // Just to be sure...
-                _completedTcs.SetResult(null);
+                _completedTcs.TrySetResult(null);
 
                 _stopCts.Dispose();
             }
