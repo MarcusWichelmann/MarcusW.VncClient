@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Rendering;
@@ -34,7 +35,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbMessageReceiver>();
 
             // Log failure events from background thread base
-            Failed += (sender, args) => _logger.LogWarning("Receive loop failed: {exception}", args.Exception);
+            Failed += (sender, args) => _logger.LogWarning(args.Exception, "Receive loop failed.");
         }
 
         /// <inheritdoc />
@@ -62,7 +63,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
             // Build a dictionary for fast lookup of incoming message types
             ImmutableDictionary<byte, IIncomingMessageType> incomingMessageLookup =
-                _context.SupportedMessageTypes.Where(mt => mt is IIncomingMessageType).Cast<IIncomingMessageType>().ToImmutableDictionary(mt => mt.Id);
+                _context.SupportedMessageTypes.OfType<IIncomingMessageType>().ToImmutableDictionary(mt => mt.Id);
 
             Span<byte> messageTypeBuffer = stackalloc byte[1];
 
@@ -78,14 +79,18 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                     throw new UnexpectedDataException($"Server sent a message of type {messageTypeId} that is not supported by this protocol implementation. "
                         + "Servers should always check for client support before using protocol extensions.");
 
-                _logger.LogDebug($"Received message: {messageType.Name}({messageType.Id})");
+                _logger.LogDebug("Received message: {name}({id})", messageType.Name, messageTypeId);
 
                 // Mark the message type as used, if necessary
-                if (!messageType.IsStandardMessageType && !_state.UsedMessageTypes.Contains(messageType))
-                    _state.UsedMessageTypes = _state.UsedMessageTypes.Add(messageType);
+                if (!messageType.IsStandardMessageType)
+                {
+                    IImmutableSet<IMessageType> usedMessageTypes = _state.UsedMessageTypes;
+                    if (!usedMessageTypes.Contains(messageType))
+                        _state.UsedMessageTypes = usedMessageTypes.Add(messageType);
+                }
 
                 // Read the message
-                messageType.ReadMessage(transport);
+                messageType.ReadMessage(transport, cancellationToken);
             }
         }
     }

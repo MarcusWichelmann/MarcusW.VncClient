@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Immutable;
+using System.Diagnostics;
+using System.Linq;
 using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
@@ -74,12 +76,28 @@ namespace MarcusW.VncClient.Protocol
         /// </summary>
         /// <typeparam name="TState">The type of the state object that implements <see cref="IRfbProtocolState"/>.</typeparam>
         /// <returns>The casted state.</returns>
-        public TState GetState<TState>() where TState : IRfbProtocolState
+        public TState GetState<TState>() where TState : class, IRfbProtocolState
         {
             if (State == null)
                 throw new InvalidOperationException("State is not accessible yet.");
 
             return (TState)State;
+        }
+
+        /// <summary>
+        /// Finds the specified message type instance in the collection of supported message types.
+        /// </summary>
+        /// <typeparam name="TMessageType">The type of the message type.</typeparam>
+        /// <returns>The message type.</returns>
+        public TMessageType GetMessageType<TMessageType>() where TMessageType : class, IMessageType
+        {
+            Debug.Assert(SupportedMessageTypes != null, nameof(SupportedMessageTypes) + " != null");
+
+            TMessageType? messageType = SupportedMessageTypes.OfType<TMessageType>().FirstOrDefault();
+            if (messageType == null)
+                throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} in supported message types collection.");
+
+            return messageType;
         }
 
         /// <summary>
@@ -122,7 +140,7 @@ namespace MarcusW.VncClient.Protocol
             /// Sets the value of the <seealso cref="RfbConnection.FramebufferSize"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
             /// <param name="framebufferSize">The new framebuffer size.</param>
-            public void SetFramebufferSize(FrameSize framebufferSize) => _connection.FramebufferSize = framebufferSize;
+            public void SetFramebufferSize(Size framebufferSize) => _connection.FramebufferSize = framebufferSize;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.FramebufferFormat"/> property on the <see cref="RfbConnection"/> object.

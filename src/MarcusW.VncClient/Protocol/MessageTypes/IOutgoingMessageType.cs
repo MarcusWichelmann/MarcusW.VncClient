@@ -8,11 +8,11 @@ namespace MarcusW.VncClient.Protocol.MessageTypes
     public interface IOutgoingMessageType : IMessageType
     {
         /// <summary>
-        /// Writes the <see cref="message"/> to the transport stream.
+        /// Writes the <see cref="message"/> (including the message header) to the transport stream.
         /// </summary>
         /// <param name="message">The message to write.</param>
         /// <param name="transport">The target transport.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        void WriteToTransport(IOutgoingMessage<IOutgoingMessageType> message, ITransport transport, CancellationToken cancellationToken);
+        void WriteToTransport(IOutgoingMessage<IOutgoingMessageType> message, ITransport transport, CancellationToken cancellationToken = default);
     }
 }

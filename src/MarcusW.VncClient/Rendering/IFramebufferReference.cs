@@ -15,7 +15,7 @@ namespace MarcusW.VncClient.Rendering
         /// <summary>
         /// Gets the framebuffer size in device pixels.
         /// </summary>
-        FrameSize Size { get; }
+        Size Size { get; }
 
         /// <summary>
         /// Gets the number of bytes per row.

@@ -1,21 +1,19 @@
 using System;
-using System.Drawing;
-using System.Globalization;
 
 namespace MarcusW.VncClient
 {
     /// <summary>
-    /// Represents a frame size in device pixels.
+    /// Represents a size in device pixels.
     /// </summary>
     /// <remarks>
     /// Based on https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Visuals/Media/PixelSize.cs
     /// </remarks>
-    public readonly struct FrameSize : IEquatable<FrameSize>
+    public readonly struct Size : IEquatable<Size>
     {
         /// <summary>
         /// A size representing zero.
         /// </summary>
-        public static readonly FrameSize Zero = new FrameSize(0, 0);
+        public static readonly Size Zero = new Size(0, 0);
 
         /// <summary>
         /// Gets the width.
@@ -33,23 +31,28 @@ namespace MarcusW.VncClient
         public double AspectRatio => (double)Width / Height;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FrameSize"/> structure.
+        /// Initializes a new instance of the <see cref="Size"/> structure.
         /// </summary>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
-        public FrameSize(int width, int height)
+        public Size(int width, int height)
         {
+            if (width < 0)
+                throw new ArgumentOutOfRangeException(nameof(width));
+            if (height < 0)
+                throw new ArgumentOutOfRangeException(nameof(height));
+
             Width = width;
             Height = height;
         }
 
         /// <summary>
-        /// Checks for equality between two <see cref="FrameSize"/>s.
+        /// Checks for equality between two <see cref="Size"/>s.
         /// </summary>
         /// <param name="left">The first size.</param>
         /// <param name="right">The second size.</param>
         /// <returns>True if the sizes are equal, otherwise false.</returns>
-        public static bool operator ==(FrameSize left, FrameSize right) => left.Equals(right);
+        public static bool operator ==(Size left, Size right) => left.Equals(right);
 
         /// <summary>
         /// Checks for inequality between two <see cref="Size"/>s.
@@ -57,14 +60,14 @@ namespace MarcusW.VncClient
         /// <param name="left">The first size.</param>
         /// <param name="right">The second size.</param>
         /// <returns>True if the sizes are unequal, otherwise false.</returns>
-        public static bool operator !=(FrameSize left, FrameSize right) => !(left == right);
+        public static bool operator !=(Size left, Size right) => !left.Equals(right);
 
         /// <summary>
         /// Returns a boolean indicating whether the size is equal to the other given size.
         /// </summary>
         /// <param name="other">The other size to test equality against.</param>
         /// <returns>True if this size is equal to other, False otherwise.</returns>
-        public bool Equals(FrameSize other) => Width == other.Width && Height == other.Height;
+        public bool Equals(Size other) => Width == other.Width && Height == other.Height;
 
         /// <summary>
         /// Checks for equality between a size and an object.
@@ -73,10 +76,10 @@ namespace MarcusW.VncClient
         /// <returns>
         /// True if <paramref name="obj"/> is a size that equals the current size.
         /// </returns>
-        public override bool Equals(object? obj) => obj is FrameSize other && Equals(other);
+        public override bool Equals(object? obj) => obj is Size other && Equals(other);
 
         /// <summary>
-        /// Returns a hash code for a <see cref="FrameSize"/>.
+        /// Returns a hash code for a <see cref="Size"/>.
         /// </summary>
         /// <returns>The hash code.</returns>
         public override int GetHashCode()
@@ -91,23 +94,35 @@ namespace MarcusW.VncClient
         }
 
         /// <summary>
-        /// Returns a new <see cref="FrameSize"/> with the same height and the specified width.
+        /// Returns a new <see cref="Size"/> with the same height and the specified width.
         /// </summary>
         /// <param name="width">The width.</param>
-        /// <returns>The new <see cref="FrameSize"/>.</returns>
-        public FrameSize WithWidth(int width) => new FrameSize(width, Height);
+        /// <returns>The new <see cref="Size"/>.</returns>
+        public Size WithWidth(int width)
+        {
+            if (width < 0)
+                throw new ArgumentOutOfRangeException(nameof(width));
+
+            return new Size(width, Height);
+        }
 
         /// <summary>
-        /// Returns a new <see cref="FrameSize"/> with the same width and the specified height.
+        /// Returns a new <see cref="Size"/> with the same width and the specified height.
         /// </summary>
         /// <param name="height">The height.</param>
-        /// <returns>The new <see cref="FrameSize"/>.</returns>
-        public FrameSize WithHeight(int height) => new FrameSize(Width, height);
+        /// <returns>The new <see cref="Size"/>.</returns>
+        public Size WithHeight(int height)
+        {
+            if (height < 0)
+                throw new ArgumentOutOfRangeException(nameof(height));
+
+            return new Size(Width, height);
+        }
 
         /// <summary>
         /// Returns the string representation of the size.
         /// </summary>
         /// <returns>The string representation of the size.</returns>
-        public override string ToString() => $"{Width}, {Height}";
+        public override string ToString() => $"{Width} x {Height}";
     }
 }

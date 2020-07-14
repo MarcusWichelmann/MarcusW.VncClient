@@ -47,7 +47,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
             ITransport transport = _context.Transport ?? throw new InvalidOperationException("Cannot access transport for authentication.");
 
             // Read challenge
-            ReadOnlyMemory<byte> challengeBytes = await transport.Stream.ReadAllBytesAsync(16, cancellationToken).ConfigureAwait(false);
+            ReadOnlyMemory<byte> challengeBytes = await transport.Stream.ReadAllAsync(16, cancellationToken).ConfigureAwait(false);
 
             // Request password input
             PasswordAuthenticationInput input = (PasswordAuthenticationInput)await authenticationHandler

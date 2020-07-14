@@ -22,9 +22,10 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
         int Priority { get; }
 
         /// <summary>
-        /// Gets whether the encoding type will only be used after the server sent some kind of confirmation that the encoding type is supported.
-        /// Encoding types, that do not get confirmed, can still be sent, but the server might ignore them, if they are unsupported.
+        /// Gets whether the server will confirm somehow that it supports this encoding type,
+        /// or if we just expect it to be supported by the server without knowing, if the server actually understood
+        /// the encoding type we requested during SetEncodings.
         /// </summary>
-        bool RequiresConfirmation { get; }
+        bool GetsConfirmed { get; }
     }
 }

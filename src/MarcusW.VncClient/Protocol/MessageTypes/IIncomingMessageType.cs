@@ -1,3 +1,5 @@
+using System.Threading;
+
 namespace MarcusW.VncClient.Protocol.MessageTypes
 {
     /// <summary>
@@ -6,9 +8,10 @@ namespace MarcusW.VncClient.Protocol.MessageTypes
     public interface IIncomingMessageType : IMessageType
     {
         /// <summary>
-        /// Reads the message from the transport stream and processes it.
+        /// Reads the message (everything after the message type byte) from the transport stream and processes it.
         /// </summary>
         /// <param name="transport">The transport to read from.</param>
-        void ReadMessage(ITransport transport);
+        /// <param name="cancellationToken">The cancellation token.</param>
+        void ReadMessage(ITransport transport, CancellationToken cancellationToken = default);
     }
 }

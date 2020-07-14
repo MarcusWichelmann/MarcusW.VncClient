@@ -10,18 +10,18 @@ namespace MarcusW.VncClient.Avalonia.Adapters
     public static class Conversions
     {
         /// <summary>
-        /// Converts a Avalonia PixelSize to a <see cref="FrameSize"/>.
+        /// Converts a Avalonia PixelSize to a <see cref="Size"/>.
         /// </summary>
         /// <param name="avaloniaPixelSize">Value to convert.</param>
         /// <returns>The conversion result.</returns>
-        public static FrameSize GetFrameSize(PixelSize avaloniaPixelSize) => new FrameSize(avaloniaPixelSize.Width, avaloniaPixelSize.Height);
+        public static Size GetSize(PixelSize avaloniaPixelSize) => new Size(avaloniaPixelSize.Width, avaloniaPixelSize.Height);
 
         /// <summary>
-        /// Converts a <see cref="FrameSize"/> to a Avalonia PixelSize.
+        /// Converts a <see cref="Size"/> to a Avalonia PixelSize.
         /// </summary>
-        /// <param name="frameSize">Value to convert.</param>
+        /// <param name="size">Value to convert.</param>
         /// <returns>The conversion result.</returns>
-        public static PixelSize GetPixelSize(FrameSize frameSize) => new PixelSize(frameSize.Width, frameSize.Height);
+        public static PixelSize GetPixelSize(Size size) => new PixelSize(size.Width, size.Height);
 
         /// <summary>
         /// Converts a Avalonia PixelFormat to a <see cref="TargetFramebufferFormat"/>.

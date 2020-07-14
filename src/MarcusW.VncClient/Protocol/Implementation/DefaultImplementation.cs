@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using MarcusW.VncClient.Protocol.EncodingTypes;
+using MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming;
+using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.Implementation.SecurityTypes;
 using MarcusW.VncClient.Protocol.Implementation.Services.Communication;
 using MarcusW.VncClient.Protocol.Implementation.Services.Handshaking;
@@ -120,7 +122,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new FramebufferUpdateMessageType(context);
 
             // Outgoing
-            // TODO
+            yield return new SetEncodingsMessageType();
+            yield return new FramebufferUpdateRequestMessageType();
         }
 
         /// <summary>
@@ -134,8 +137,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
             if (context == null)
                 throw new ArgumentNullException(nameof(context));
 
-            // TODO: Add encoding types
-            yield break;
+            // Frame
+            yield return new RawEncodingType();
+
+            // Pseudo
+            // TODO
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Utils;
@@ -32,6 +33,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _state = context.GetState<ProtocolState>();
             _logger = context.Connection.LoggerFactory.CreateLogger<RfbMessageSender>();
+
+            // Log failure events from background thread base
+            Failed += (sender, args) => _logger.LogWarning(args.Exception, "Send loop failed.");
         }
 
         /// <inheritdoc />
@@ -49,6 +53,19 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         }
 
         /// <inheritdoc />
+        public void EnqueueInitialMessages(CancellationToken cancellationToken = default)
+        {
+            _logger.LogDebug("Enqueuing initial messages...");
+
+            // Send initial SetEncodings
+            Debug.Assert(_context.SupportedEncodingTypes != null, "_context.SupportedEncodingTypes != null");
+            EnqueueMessage(new SetEncodingsMessage(_context.SupportedEncodingTypes), cancellationToken);
+
+            // Request full framebuffer update
+            EnqueueMessage(new FramebufferUpdateRequestMessage(false, new Rectangle(Position.Origin, _state.FramebufferSize)), cancellationToken);
+        }
+
+        /// <inheritdoc />
         public void EnqueueMessage<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default)
             where TMessageType : class, IOutgoingMessageType
         {
@@ -60,7 +77,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             cancellationToken.ThrowIfCancellationRequested();
 
             // Add message to queue
-            _queue.Add(new QueueItem(message), cancellationToken);
+            TMessageType messageType = _context.GetMessageType<TMessageType>();
+            _queue.Add(new QueueItem(message, messageType), cancellationToken);
         }
 
         /// <inheritdoc />
@@ -76,7 +94,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
             // Create a completion source and ensure that completing the task won't block our send-loop.
             var completionSource = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
-            _queue.Add(new QueueItem(message, completionSource), cancellationToken);
+
+            TMessageType messageType = _context.GetMessageType<TMessageType>();
+            _queue.Add(new QueueItem(message, messageType, completionSource), cancellationToken);
 
             return completionSource.Task;
         }
@@ -93,10 +113,16 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                 // Iterate over all queued items (will block if the queue is empty)
                 foreach (QueueItem queueItem in _queue.GetConsumingEnumerable(cancellationToken))
                 {
+                    IOutgoingMessage<IOutgoingMessageType> message = queueItem.Message;
+                    IOutgoingMessageType messageType = queueItem.MessageType;
+
+                    if (_logger.IsEnabled(LogLevel.Debug))
+                        _logger.LogDebug("Sending {messageName}...", messageType.Name);
+
                     try
                     {
                         // Write message to transport stream
-                        queueItem.Message.Type.WriteToTransport(queueItem.Message, transport, cancellationToken);
+                        messageType.WriteToTransport(message, transport, cancellationToken);
                         queueItem.CompletionSource?.SetResult(null);
                     }
                     catch (Exception ex)
@@ -145,11 +171,14 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         {
             public IOutgoingMessage<IOutgoingMessageType> Message { get; }
 
+            public IOutgoingMessageType MessageType { get; }
+
             public TaskCompletionSource<object?>? CompletionSource { get; }
 
-            public QueueItem(IOutgoingMessage<IOutgoingMessageType> message, TaskCompletionSource<object?>? completionSource = null)
+            public QueueItem(IOutgoingMessage<IOutgoingMessageType> message, IOutgoingMessageType messageType, TaskCompletionSource<object?>? completionSource = null)
             {
                 Message = message;
+                MessageType = messageType;
                 CompletionSource = completionSource;
             }
         }

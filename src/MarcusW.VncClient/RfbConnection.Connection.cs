@@ -55,6 +55,7 @@ namespace MarcusW.VncClient
                 // Setup send and receive loops
                 context.MessageReceiver = ProtocolImplementation.CreateMessageReceiver(context);
                 context.MessageSender = ProtocolImplementation.CreateMessageSender(context);
+                context.MessageSender.EnqueueInitialMessages(cancellationToken);
                 context.MessageReceiver.StartReceiveLoop();
                 context.MessageSender.StartSendLoop();
             }

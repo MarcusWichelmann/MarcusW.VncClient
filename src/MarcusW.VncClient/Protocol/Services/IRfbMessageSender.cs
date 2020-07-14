@@ -21,6 +21,12 @@ namespace MarcusW.VncClient.Protocol.Services
         Task StopSendLoopAsync();
 
         /// <summary>
+        /// Enqueues some initial messages to get things rolling.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        void EnqueueInitialMessages(CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Adds the <paramref name="message"/> to the send queue and returns without waiting for it being sent.
         /// </summary>
         /// <param name="message">The message to send.</param>

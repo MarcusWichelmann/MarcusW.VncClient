@@ -43,7 +43,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             await SendClientInitAsync(transport, cancellationToken).ConfigureAwait(false);
 
             // Read ServerInit response
-            (FrameSize framebufferSize, PixelFormat pixelFormat, string desktopName) = await ReadServerInitAsync(transport, cancellationToken).ConfigureAwait(false);
+            (Size framebufferSize, PixelFormat pixelFormat, string desktopName) = await ReadServerInitAsync(transport, cancellationToken).ConfigureAwait(false);
             if (_logger.IsEnabled(LogLevel.Debug))
             {
                 _logger.LogDebug("Framebuffer size: {framebufferSize}", framebufferSize);
@@ -69,30 +69,30 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             await transport.Stream.WriteAsync(new[] { (byte)(shared ? 1 : 0) }, cancellationToken).ConfigureAwait(false);
         }
 
-        private async Task<(FrameSize framebufferSize, PixelFormat pixelFormat, string desktopName)> ReadServerInitAsync(ITransport transport,
+        private async Task<(Size framebufferSize, PixelFormat pixelFormat, string desktopName)> ReadServerInitAsync(ITransport transport,
             CancellationToken cancellationToken = default)
         {
             _logger.LogDebug("Reading server init message...");
 
             // Read the first part of the message of which the length is known
-            ReadOnlyMemory<byte> headerBytes = await transport.Stream.ReadAllBytesAsync(24, cancellationToken).ConfigureAwait(false);
-            FrameSize framebufferSize = GetFramebufferSize(headerBytes.Span[..4]);
+            ReadOnlyMemory<byte> headerBytes = await transport.Stream.ReadAllAsync(24, cancellationToken).ConfigureAwait(false);
+            Size framebufferSize = GetFramebufferSize(headerBytes.Span[..4]);
             PixelFormat pixelFormat = GetPixelFormat(headerBytes.Span[4..20]);
             uint desktopNameLength = BinaryPrimitives.ReadUInt32BigEndian(headerBytes.Span[20..24]);
 
             // Read desktop name
-            ReadOnlyMemory<byte> desktopNameBytes = await transport.Stream.ReadAllBytesAsync((int)desktopNameLength, cancellationToken).ConfigureAwait(false);
+            ReadOnlyMemory<byte> desktopNameBytes = await transport.Stream.ReadAllAsync((int)desktopNameLength, cancellationToken).ConfigureAwait(false);
             string desktopName = Encoding.UTF8.GetString(desktopNameBytes.Span);
 
             return (framebufferSize, pixelFormat, desktopName);
         }
 
-        private static FrameSize GetFramebufferSize(ReadOnlySpan<byte> headerBytes)
+        private static Size GetFramebufferSize(ReadOnlySpan<byte> headerBytes)
         {
             ushort framebufferWidth = BinaryPrimitives.ReadUInt16BigEndian(headerBytes[..2]);
             ushort framebufferHeight = BinaryPrimitives.ReadUInt16BigEndian(headerBytes[2..4]);
 
-            return new FrameSize(framebufferWidth, framebufferHeight);
+            return new Size(framebufferWidth, framebufferHeight);
         }
 
         private static PixelFormat GetPixelFormat(ReadOnlySpan<byte> headerBytes)

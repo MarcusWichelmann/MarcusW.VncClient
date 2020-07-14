@@ -21,7 +21,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         private readonly StateValue<IImmutableSet<IEncodingType>> _usedEncodingTypesValue = new StateValue<IImmutableSet<IEncodingType>>(ImmutableHashSet<IEncodingType>.Empty);
 
-        private readonly StateValue<FrameSize> _framebufferSizeValue = new StateValue<FrameSize>(FrameSize.Zero);
+        private readonly StateValue<Size> _framebufferSizeValue = new StateValue<Size>(Size.Zero);
 
         private readonly StateValue<PixelFormat> _framebufferFormatValue = new StateValue<PixelFormat>(PixelFormat.Unknown);
 
@@ -84,7 +84,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets or sets the current framebuffer size.
         /// </summary>
-        public FrameSize FramebufferSize
+        /// <remarks>
+        /// After the initialization is done, this property should only be written by received messages/encoding-types
+        /// because its value might get locally cached to improve message processing performance.
+        /// </remarks>
+        public Size FramebufferSize
         {
             get => _framebufferSizeValue.Value;
             set
@@ -97,6 +101,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets or sets the current framebuffer format.
         /// </summary>
+        /// <remarks>
+        /// After the initialization is done, this property should only be written by received messages/encoding-types
+        /// because its value might get locally cached to improve message processing performance.
+        /// </remarks>
         public PixelFormat FramebufferFormat
         {
             get => _framebufferFormatValue.Value;
@@ -144,8 +152,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             // Initialize UsedMessageTypes with all standard messages that need to be supported by the server by definition
             UsedMessageTypes = _context.SupportedMessageTypes.Where(mt => mt.IsStandardMessageType).ToImmutableHashSet();
 
-            // Initialize UsedEncodingTypes with all encoding types that don't require a confirmation by the server
-            UsedEncodingTypes = _context.SupportedEncodingTypes.Where(et => et.RequiresConfirmation).ToImmutableHashSet();
+            // Initialize UsedEncodingTypes with all encoding types that don't get confirmed by the server
+            UsedEncodingTypes = _context.SupportedEncodingTypes.Where(et => !et.GetsConfirmed).ToImmutableHashSet();
         }
 
         protected class StateValue<T>

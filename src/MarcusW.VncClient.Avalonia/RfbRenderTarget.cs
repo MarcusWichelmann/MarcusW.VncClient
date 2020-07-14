@@ -24,12 +24,12 @@ namespace MarcusW.VncClient.Avalonia
         private volatile bool _disposed;
 
         /// <inheritdoc />
-        IFramebufferReference IRenderTarget.GrabFramebufferReference(FrameSize frameSize)
+        IFramebufferReference IRenderTarget.GrabFramebufferReference(Size size)
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(RfbRenderTarget));
 
-            PixelSize requiredPixelSize = Conversions.GetPixelSize(frameSize);
+            PixelSize requiredPixelSize = Conversions.GetPixelSize(size);
 
             // Creation of a new buffer necessary?
             // No synchronization necessary, because the only conflicting write operation is
@@ -78,16 +78,16 @@ namespace MarcusW.VncClient.Avalonia
         }
 
         /// <inheritdoc />
-        protected override Size MeasureOverride(Size availableSize)
+        protected override global::Avalonia.Size MeasureOverride(global::Avalonia.Size availableSize)
         {
             // Retrieve bitmap size
-            Size? bitmapSize;
+            global::Avalonia.Size? bitmapSize;
             lock (_bitmapReplacementLock)
                 bitmapSize = _bitmap?.Size;
 
             // Has any bitmap been rendered yet?
             if (!bitmapSize.HasValue)
-                return Size.Empty;
+                return global::Avalonia.Size.Empty;
 
             // Request the size of the current bitmap
             return bitmapSize.Value;

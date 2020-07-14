@@ -26,7 +26,7 @@ namespace MarcusW.VncClient
         private IImmutableSet<IEncodingType> _usedEncodingTypes = ImmutableHashSet<IEncodingType>.Empty;
 
         private readonly object _framebufferSizeLock = new object();
-        private FrameSize _framebufferSize = FrameSize.Zero;
+        private Size _framebufferSize = Size.Zero;
 
         private readonly object _framebufferFormatLock = new object();
         private PixelFormat _framebufferFormat = PixelFormat.Unknown;
@@ -78,7 +78,7 @@ namespace MarcusW.VncClient
         /// Gets the current size of the remote view.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public FrameSize FramebufferSize
+        public Size FramebufferSize
         {
             get => GetWithLock(ref _framebufferSize, _framebufferSizeLock);
             internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _framebufferSize, value, _framebufferSizeLock);

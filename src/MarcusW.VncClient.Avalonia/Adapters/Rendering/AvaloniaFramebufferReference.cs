@@ -15,8 +15,8 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
             => _lockedFramebuffer?.Address ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
 
         /// <inheritdoc />
-        public FrameSize Size
-            => Conversions.GetFrameSize(_lockedFramebuffer?.Size
+        public Size Size
+            => Conversions.GetSize(_lockedFramebuffer?.Size
                 ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
 
         /// <inheritdoc />

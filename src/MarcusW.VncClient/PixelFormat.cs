@@ -127,7 +127,7 @@ namespace MarcusW.VncClient
         /// <param name="left">The first pixel format.</param>
         /// <param name="right">The second pixel format.</param>
         /// <returns>True if the sizes are unequal, otherwise false.</returns>
-        public static bool operator !=(PixelFormat left, PixelFormat right) => !(left == right);
+        public static bool operator !=(PixelFormat left, PixelFormat right) => !left.Equals(right);
 
         /// <inheritdoc />
         public bool Equals(PixelFormat other)
