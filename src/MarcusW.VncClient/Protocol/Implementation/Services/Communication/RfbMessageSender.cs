@@ -62,7 +62,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             EnqueueMessage(new SetEncodingsMessage(_context.SupportedEncodingTypes), cancellationToken);
 
             // Request full framebuffer update
-            EnqueueMessage(new FramebufferUpdateRequestMessage(false, new Rectangle(Position.Origin, _state.FramebufferSize)), cancellationToken);
+            EnqueueMessage(new FramebufferUpdateRequestMessage(false, new Rectangle(Position.Origin, _state.RemoteFramebufferSize)), cancellationToken);
         }
 
         /// <inheritdoc />

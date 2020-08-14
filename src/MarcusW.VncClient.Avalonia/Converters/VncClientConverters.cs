@@ -12,10 +12,5 @@ namespace MarcusW.VncClient.Avalonia.Converters
         /// A value converter that returns a readable string for a given <see cref="RfbProtocolVersion"/>.
         /// </summary>
         public static readonly IValueConverter RfbProtocolVersionToString = new FuncValueConverter<RfbProtocolVersion, string>(v => v.ToReadableString());
-
-        /// <summary>
-        /// A value converter that returns a short string representation for a given <see cref="PixelFormat"/>.
-        /// </summary>
-        public static readonly IValueConverter PixelFormatToShortString = new FuncValueConverter<PixelFormat, string>(f => f.ToShortString());
     }
 }

@@ -21,9 +21,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         private readonly StateValue<IImmutableSet<IEncodingType>> _usedEncodingTypesValue = new StateValue<IImmutableSet<IEncodingType>>(ImmutableHashSet<IEncodingType>.Empty);
 
-        private readonly StateValue<Size> _framebufferSizeValue = new StateValue<Size>(Size.Zero);
+        private readonly StateValue<Size> _remoteFramebufferSizeValue = new StateValue<Size>(Size.Zero);
 
-        private readonly StateValue<PixelFormat> _framebufferFormatValue = new StateValue<PixelFormat>(PixelFormat.Unknown);
+        private readonly StateValue<PixelFormat> _remoteFramebufferFormatValue = new StateValue<PixelFormat>(PixelFormat.Unknown);
 
         private readonly StateValue<string?> _desktopNameValue = new StateValue<string?>(null);
 
@@ -82,36 +82,36 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
-        /// Gets or sets the current framebuffer size.
+        /// Gets or sets the current remote framebuffer size.
         /// </summary>
         /// <remarks>
         /// After the initialization is done, this property should only be written by received messages/encoding-types
         /// because its value might get locally cached to improve message processing performance.
         /// </remarks>
-        public Size FramebufferSize
+        public Size RemoteFramebufferSize
         {
-            get => _framebufferSizeValue.Value;
+            get => _remoteFramebufferSizeValue.Value;
             set
             {
-                _framebufferSizeValue.Value = value;
-                _context.ConnectionDetails.SetFramebufferSize(value);
+                _remoteFramebufferSizeValue.Value = value;
+                _context.ConnectionDetails.SetRemoteFramebufferSize(value);
             }
         }
 
         /// <summary>
-        /// Gets or sets the current framebuffer format.
+        /// Gets or sets the current remote framebuffer format.
         /// </summary>
         /// <remarks>
         /// After the initialization is done, this property should only be written by received messages/encoding-types
         /// because its value might get locally cached to improve message processing performance.
         /// </remarks>
-        public PixelFormat FramebufferFormat
+        public PixelFormat RemoteFramebufferFormat
         {
-            get => _framebufferFormatValue.Value;
+            get => _remoteFramebufferFormatValue.Value;
             set
             {
-                _framebufferFormatValue.Value = value;
-                _context.ConnectionDetails.SetFramebufferFormat(value);
+                _remoteFramebufferFormatValue.Value = value;
+                _context.ConnectionDetails.SetRemoteFramebufferFormat(value);
             }
         }
 

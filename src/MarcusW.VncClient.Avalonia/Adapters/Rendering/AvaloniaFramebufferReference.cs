@@ -11,30 +11,19 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Rendering
         private readonly Action _invalidateVisual;
 
         /// <inheritdoc />
-        public IntPtr Address
-            => _lockedFramebuffer?.Address ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
+        public IntPtr Address => _lockedFramebuffer?.Address ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
 
         /// <inheritdoc />
-        public Size Size
-            => Conversions.GetSize(_lockedFramebuffer?.Size
-                ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
+        public Size Size => Conversions.GetSize(_lockedFramebuffer?.Size ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
 
         /// <inheritdoc />
-        public int RowBytes
-            => _lockedFramebuffer?.RowBytes ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
+        public PixelFormat Format => Conversions.GetPixelFormat(_lockedFramebuffer?.Format ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
 
         /// <inheritdoc />
-        public TargetFramebufferFormat Format
-            => Conversions.GetTargetFramebufferFormat(_lockedFramebuffer?.Format
-                ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference)));
+        public double HorizontalDpi => _lockedFramebuffer?.Dpi.X ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
 
         /// <inheritdoc />
-        public double HorizontalDpi
-            => _lockedFramebuffer?.Dpi.X ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
-
-        /// <inheritdoc />
-        public double VerticalDpi
-            => _lockedFramebuffer?.Dpi.Y ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
+        public double VerticalDpi => _lockedFramebuffer?.Dpi.Y ?? throw new ObjectDisposedException(nameof(AvaloniaFramebufferReference));
 
         internal AvaloniaFramebufferReference(ILockedFramebuffer lockedFramebuffer, Action invalidateVisual)
         {

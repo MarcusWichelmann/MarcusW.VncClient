@@ -27,9 +27,9 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
                     <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
-                    <TextBlock Text="{Binding RfbConnection.FramebufferSize, StringFormat=Framebuffer Size: \{0\}}" />
+                    <TextBlock Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
                     <TextBlock
-                        Text="{Binding RfbConnection.FramebufferFormat, Converter={x:Static vncconverters:VncClientConverters.PixelFormatToShortString}, StringFormat=Framebuffer Format: \{0\}}" />
+                        Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
                 </StackPanel>
             </StackPanel>
         </Border>

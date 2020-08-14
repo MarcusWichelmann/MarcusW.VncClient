@@ -52,8 +52,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             }
 
             // Update state
-            _state.FramebufferSize = framebufferSize;
-            _state.FramebufferFormat = pixelFormat;
+            _state.RemoteFramebufferSize = framebufferSize;
+            _state.RemoteFramebufferFormat = pixelFormat;
             _state.DesktopName = desktopName;
 
             // Some security types extend the ServerInit response and now have the chance to continue reading
@@ -114,7 +114,20 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             if (!trueColor)
                 throw new UnsupportedProtocolFeatureException("Color maps are currently not supported by this client.");
 
-            return new PixelFormat(bitsPerPixel, depth, bigEndian, trueColor, redMax, greenMax, blueMax, redShift, greenShift, blueShift);
+            // Generate a short name for this pixel format while following the RFB naming scheme (name describes the native byte order, e.g. 0xRGB).
+            string name;
+            if (blueShift == 0 && redShift > greenShift && greenShift > blueShift && blueMax == (1 << greenShift) - 1 && greenMax == (1 << (redShift - greenShift)) - 1
+                && redMax == (1 << (depth - redShift)) - 1)
+                name = $"RGB{depth - redShift}{redShift - greenShift}{greenShift}";
+            else if (redShift == 0 && blueShift > greenShift && greenShift > redShift && redMax == (1 << greenShift) - 1 && greenMax == (1 << (blueShift - greenShift)) - 1
+                && blueMax == (1 << (depth - blueShift)) - 1)
+                name = $"BGR{depth - blueShift}{blueShift - greenShift}{greenShift}";
+            else
+                throw new UnexpectedDataException("Received pixel format description is invalid.");
+
+            // Create pixel format without alpha support.
+            // For some pixel formats, servers will send alpha values anyway, but we ignore them because that's how it's described in the protocol.
+            return new PixelFormat($"RFB {name}", bitsPerPixel, depth, bigEndian, trueColor, false, redMax, greenMax, blueMax, 0, redShift, greenShift, blueShift, 0);
         }
     }
 }

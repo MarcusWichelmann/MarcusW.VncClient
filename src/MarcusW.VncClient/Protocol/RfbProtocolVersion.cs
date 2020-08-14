@@ -11,6 +11,7 @@ namespace MarcusW.VncClient.Protocol
     /// See: https://github.com/rfbproto/rfbproto/blob/master/rfbproto.rst#protocolversion
     /// </remarks>
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "CA1707")]
     public enum RfbProtocolVersion
     {
         /// <summary>

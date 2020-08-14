@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MarcusW.VncClient
 {
@@ -86,11 +87,46 @@ namespace MarcusW.VncClient
         public Rectangle WithSize(Size size) => new Rectangle(Position, size);
 
         /// <summary>
+        /// Returns whether this rectangle has no content (one side is zero)
+        /// </summary>
+        /// <returns>True if it has no content, otherwise false.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool IsEmpty() => Size.Width == 0 || Size.Height == 0;
+
+        /// <summary>
+        /// Returns whether this rectangle completely fits inside an area in the origin with the given size.
+        /// </summary>
+        /// <param name="areaSize">The size of the area in which the rectangle should fit in.</param>
+        /// <returns>True if it fits inside, otherwise false.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool FitsInside(in Size areaSize)
+        {
+            static bool InRange(int rectA, int rectB, int areaA, int areaB) => rectA >= areaA && rectB <= areaB;
+
+            return InRange(Position.X, Position.X + Size.Width, 0, areaSize.Width) && InRange(Position.Y, Position.Y + Size.Height, 0, areaSize.Height);
+        }
+
+        /// <summary>
+        /// Returns whether this rectangle completely fits inside the given area.
+        /// </summary>
+        /// <param name="area">The area in which the rectangle should fit in.</param>
+        /// <returns>True if it fits inside, otherwise false.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool FitsInside(in Rectangle area)
+        {
+            static bool InRange(int rectA, int rectB, int areaA, int areaB) => rectA >= areaA && rectB <= areaB;
+
+            return InRange(Position.X, Position.X + Size.Width, area.Position.X, area.Position.X + area.Size.Width)
+                && InRange(Position.Y, Position.Y + Size.Height, area.Position.Y, area.Position.Y + area.Size.Height);
+        }
+
+        /// <summary>
         /// Returns a new <see cref="Rectangle"/> that is reduced enough to make it fit inside the given area.
         /// </summary>
         /// <param name="area">The area in which the rectangle should fit in.</param>
         /// <returns>A new rectangle.</returns>
-        public Rectangle CroppedTo(Rectangle area)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Rectangle CroppedTo(in Rectangle area)
         {
             static void Normalize(ref int rectA, ref int rectB, int areaA, int areaB)
             {

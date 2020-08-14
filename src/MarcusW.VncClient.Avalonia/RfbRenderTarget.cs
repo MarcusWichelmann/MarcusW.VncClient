@@ -5,6 +5,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Threading;
+using JetBrains.Annotations;
 using MarcusW.VncClient.Avalonia.Adapters;
 using MarcusW.VncClient.Avalonia.Adapters.Rendering;
 using MarcusW.VncClient.Rendering;
@@ -37,24 +38,29 @@ namespace MarcusW.VncClient.Avalonia
             // ReSharper disable once InconsistentlySynchronizedField
             bool sizeChanged = _bitmap == null || _bitmap.PixelSize != requiredPixelSize;
 
+            WriteableBitmap bitmap;
             if (sizeChanged)
             {
-                // Create new bitmap with required size
-                // TODO: BGRA8888 is device-native and much faster?
+                // Create new bitmap with required size and the format that is preferred by the current platform (therefore 'null').
                 // TODO: Detect DPI dynamically
-                var newBitmap = new WriteableBitmap(requiredPixelSize, new Vector(96.0f, 96.0f), global::Avalonia.Platform.PixelFormat.Bgra8888);
+                bitmap = new WriteableBitmap(requiredPixelSize, new Vector(96.0f, 96.0f), null);
 
                 // Wait for the rendering being finished before replacing the bitmap
                 lock (_bitmapReplacementLock)
                 {
                     _bitmap?.Dispose();
-                    _bitmap = newBitmap;
+                    _bitmap = bitmap;
                 }
+            }
+            else
+            {
+                // ReSharper disable once InconsistentlySynchronizedField
+                bitmap = _bitmap!;
             }
 
             // Lock framebuffer and return as converted reference
             // ReSharper disable once InconsistentlySynchronizedField
-            ILockedFramebuffer lockedFramebuffer = _bitmap!.Lock();
+            ILockedFramebuffer lockedFramebuffer = bitmap.Lock();
 
             return new AvaloniaFramebufferReference(lockedFramebuffer, () => Dispatcher.UIThread.Post(() => {
                 if (sizeChanged)
@@ -64,8 +70,11 @@ namespace MarcusW.VncClient.Avalonia
         }
 
         /// <inheritdoc />
-        public override void Render(DrawingContext context)
+        public override void Render([NotNull] DrawingContext context)
         {
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+
             // Ensure the bitmap does not get disposed or replaced during rendering
             lock (_bitmapReplacementLock)
             {

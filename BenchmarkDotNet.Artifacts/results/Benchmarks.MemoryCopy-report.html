@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmarks.ImmutableDictionaryLookup-20200714-200711</title>
+<title>Benchmarks.MemoryCopy-20200726-183904</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,11 +22,10 @@ Intel Core i7-6700 CPU 3.40GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>   Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
 </tr>
-</thead><tbody><tr><td>Indexer</td><td>55.15 ns</td><td>0.766 ns</td><td>0.717 ns</td>
-</tr><tr><td>TryGet</td><td>26.91 ns</td><td>0.243 ns</td><td>0.227 ns</td>
-</tr><tr><td>TryCatch</td><td>29.24 ns</td><td>0.212 ns</td><td>0.188 ns</td>
+</thead><tbody><tr><td>MemCopy</td><td>0.0036 ns</td><td>0.0041 ns</td><td>0.0039 ns</td>
+</tr><tr><td>AssigningValues</td><td>1.4780 ns</td><td>0.0056 ns</td><td>0.0047 ns</td>
 </tr></tbody></table>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmarks.ImmutableDictionaryLookup-20200714-200711</title>
+<title>Benchmarks.BufferWriting-20200726-175816</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,11 +22,13 @@ Intel Core i7-6700 CPU 3.40GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>                         Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
 </tr>
-</thead><tbody><tr><td>Indexer</td><td>55.15 ns</td><td>0.766 ns</td><td>0.717 ns</td>
-</tr><tr><td>TryGet</td><td>26.91 ns</td><td>0.243 ns</td><td>0.227 ns</td>
-</tr><tr><td>TryCatch</td><td>29.24 ns</td><td>0.212 ns</td><td>0.188 ns</td>
+</thead><tbody><tr><td>UnsafeWithPointers</td><td>2.794 ms</td><td>0.0204 ms</td><td>0.0181 ms</td>
+</tr><tr><td>UnsafeWithPointersWithoutInlining</td><td>3.915 ms</td><td>0.0282 ms</td><td>0.0250 ms</td>
+</tr><tr><td>SafeWithSpans</td><td>3.867 ms</td><td>0.0096 ms</td><td>0.0089 ms</td>
+</tr><tr><td>SafeWithSpansWithoutInlining</td><td>14.446 ms</td><td>0.0227 ms</td><td>0.0212 ms</td>
+</tr><tr><td>SafeWithSpansWithoutInliningSpanByRef</td><td>6.242 ms</td><td>0.0118 ms</td><td>0.0105 ms</td>
 </tr></tbody></table>
 </body>
 </html>

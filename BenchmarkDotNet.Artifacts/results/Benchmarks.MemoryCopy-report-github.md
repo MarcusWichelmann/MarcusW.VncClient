@@ -8,8 +8,7 @@ Intel Core i7-6700 CPU 3.40GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
 
 
 ```
-|   Method |     Mean |    Error |   StdDev |
-|--------- |---------:|---------:|---------:|
-|  Indexer | 55.15 ns | 0.766 ns | 0.717 ns |
-|   TryGet | 26.91 ns | 0.243 ns | 0.227 ns |
-| TryCatch | 29.24 ns | 0.212 ns | 0.188 ns |
+|          Method |      Mean |     Error |    StdDev |
+|---------------- |----------:|----------:|----------:|
+|         MemCopy | 0.0036 ns | 0.0041 ns | 0.0039 ns |
+| AssigningValues | 1.4780 ns | 0.0056 ns | 0.0047 ns |

@@ -14,8 +14,8 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
         /// <param name="transportStream">The stream to read from.</param>
         /// <param name="renderTarget">The render target.</param>
         /// <param name="rectangle">The part of the frame to update.</param>
-        /// <param name="framebufferSize">The current size of the remote framebuffer.</param>
-        /// <param name="framebufferFormat">The current pixel format.</param>
-        void ReadFrameEncoding(Stream transportStream, IRenderTarget? renderTarget, in Rectangle rectangle, in Size framebufferSize, in PixelFormat framebufferFormat);
+        /// <param name="remoteFramebufferSize">The current size of the remote framebuffer.</param>
+        /// <param name="remoteFramebufferFormat">The current pixel format.</param>
+        void ReadFrameEncoding(Stream transportStream, IRenderTarget? renderTarget, in Rectangle rectangle, in Size remoteFramebufferSize, in PixelFormat remoteFramebufferFormat);
     }
 }

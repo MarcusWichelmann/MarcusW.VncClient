@@ -18,14 +18,9 @@ namespace MarcusW.VncClient.Rendering
         Size Size { get; }
 
         /// <summary>
-        /// Gets the number of bytes per row.
+        /// Gets the format of how the pixels are represented in memory.
         /// </summary>
-        int RowBytes { get; }
-
-        /// <summary>
-        /// Gets the format of how the pixels are stored in memory.
-        /// </summary>
-        TargetFramebufferFormat Format { get; }
+        PixelFormat Format { get; }
 
         /// <summary>
         /// Gets the horizontal DPI of the underlying screen.

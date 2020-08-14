@@ -22,11 +22,13 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
         private readonly IImmutableDictionary<int, (IEncodingType encodingType, bool usedPreviously)> _encodingTypesLookup;
 
+        private readonly Stopwatch _stopwatch = new Stopwatch();
+
         // Common buffer for all read operations in this method
         private readonly byte[] _buffer = new byte[4 * sizeof(ushort) + sizeof(int)];
 
-        private int _lastEncodingTypeId = -1;
-        private IEncodingType? _lastEncodingType = null;
+        private int? _lastEncodingTypeId;
+        private IEncodingType? _lastEncodingType;
 
         /// <inheritdoc />
         public byte Id => 0;
@@ -71,17 +73,20 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                 return;
 
             if (_logger.IsEnabled(LogLevel.Debug))
+            {
                 _logger.LogDebug("Receiving framebuffer update with " + (numberOfRectangles == 65535 ? "a dynamic count of rectangles..." : $"{numberOfRectangles} rectangles..."));
+                _stopwatch.Restart();
+            }
 
-            // Cache for framebuffer information. This assumes that the framebuffer size and format properties are only changed by received messages/pseudo-encodings.
-            var framebufferInfoChanged = true;
-            Size framebufferSize = default;
-            PixelFormat framebufferFormat = default;
+            // Cache for remote framebuffer information. This assumes that the framebuffer size and format properties are only changed by received messages/pseudo-encodings.
+            var remoteFramebufferInfoChanged = true;
+            Size remoteFramebufferSize = default;
+            PixelFormat remoteFramebufferFormat = default;
 
             // Read rectangles
-            for (var i = 0; i < numberOfRectangles; i++)
+            ushort rectanglesRead;
+            for (rectanglesRead = 0; rectanglesRead < numberOfRectangles; rectanglesRead++)
             {
-                // Read rectangle
                 transportStream.ReadAll(buffer, cancellationToken);
 
                 // Read encoding type first
@@ -110,21 +115,21 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     ushort height = BinaryPrimitives.ReadUInt16BigEndian(buffer[6..]);
                     Rectangle rectangle = new Rectangle(x, y, width, height);
 
-                    // Update framebuffer information
-                    if (framebufferInfoChanged)
+                    // Update remote framebuffer information
+                    if (remoteFramebufferInfoChanged)
                     {
                         // These properties are synchronized, so retrieving the values takes a bit longer.
-                        framebufferSize = _state.FramebufferSize;
-                        framebufferFormat = _state.FramebufferFormat;
+                        remoteFramebufferSize = _state.RemoteFramebufferSize;
+                        remoteFramebufferFormat = _state.RemoteFramebufferFormat;
 
-                        framebufferInfoChanged = false;
+                        remoteFramebufferInfoChanged = false;
                     }
 
                     // Get render target (cannot be cached because it could change at any time)
                     IRenderTarget? renderTarget = _context.Connection.RenderTarget;
 
                     // Read frame encoding
-                    frameEncodingType.ReadFrameEncoding(transportStream, renderTarget, rectangle, framebufferSize, framebufferFormat);
+                    frameEncodingType.ReadFrameEncoding(transportStream, renderTarget, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
                 }
                 else
                 {
@@ -135,13 +140,19 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     // TODO: is ILastRectPsuedoEncodingType --> break
                 }
             }
+
+            if (_logger.IsEnabled(LogLevel.Debug))
+            {
+                _stopwatch.Stop();
+                _logger.LogDebug("Received and rendered {rectangles} rectangles in {milliseconds}ms.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
+            }
         }
 
         private IEncodingType LookupEncodingType(in int id)
         {
             // Lookup encoding type
             if (!_encodingTypesLookup.TryGetValue(id, out (IEncodingType encodingType, bool usedPreviously) lookupEntry))
-                throw new UnexpectedDataException($"Server sent an encoding of type {id} that is not supported by this protocol implementation. "
+                throw new UnexpectedDataException($"Server sent an encoding of type {id} ({id:x8}) that is not supported by this protocol implementation. "
                     + "Servers should always check for client support before using protocol extensions.");
 
             // Is this the first use of this encoding type and do we need to mark it as used?

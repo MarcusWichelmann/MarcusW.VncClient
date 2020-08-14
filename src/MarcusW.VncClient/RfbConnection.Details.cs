@@ -25,11 +25,11 @@ namespace MarcusW.VncClient
         private readonly object _usedEncodingTypesLock = new object();
         private IImmutableSet<IEncodingType> _usedEncodingTypes = ImmutableHashSet<IEncodingType>.Empty;
 
-        private readonly object _framebufferSizeLock = new object();
-        private Size _framebufferSize = Size.Zero;
+        private readonly object _remoteFramebufferSizeLock = new object();
+        private Size _remoteFramebufferSize = Size.Zero;
 
-        private readonly object _framebufferFormatLock = new object();
-        private PixelFormat _framebufferFormat = PixelFormat.Unknown;
+        private readonly object _remoteFramebufferFormatLock = new object();
+        private PixelFormat _remoteFramebufferFormat = PixelFormat.Unknown;
 
         private readonly object _desktopNameLock = new object();
         private string? _desktopName;
@@ -78,20 +78,20 @@ namespace MarcusW.VncClient
         /// Gets the current size of the remote view.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public Size FramebufferSize
+        public Size RemoteFramebufferSize
         {
-            get => GetWithLock(ref _framebufferSize, _framebufferSizeLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _framebufferSize, value, _framebufferSizeLock);
+            get => GetWithLock(ref _remoteFramebufferSize, _remoteFramebufferSizeLock);
+            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _remoteFramebufferSize, value, _remoteFramebufferSizeLock);
         }
 
         /// <summary>
         /// Gets the current format of the remote view.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
-        public PixelFormat FramebufferFormat
+        public PixelFormat RemoteFramebufferFormat
         {
-            get => GetWithLock(ref _framebufferFormat, _framebufferFormatLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _framebufferFormat, value, _framebufferFormatLock);
+            get => GetWithLock(ref _remoteFramebufferFormat, _remoteFramebufferFormatLock);
+            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _remoteFramebufferFormat, value, _remoteFramebufferFormatLock);
         }
 
         /// <summary>

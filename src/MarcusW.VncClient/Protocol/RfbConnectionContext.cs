@@ -137,16 +137,16 @@ namespace MarcusW.VncClient.Protocol
             public void SetUsedEncodingTypes(IImmutableSet<IEncodingType> usedEncodingTypes) => _connection.UsedEncodingTypes = usedEncodingTypes;
 
             /// <summary>
-            /// Sets the value of the <seealso cref="RfbConnection.FramebufferSize"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.RemoteFramebufferSize"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            /// <param name="framebufferSize">The new framebuffer size.</param>
-            public void SetFramebufferSize(Size framebufferSize) => _connection.FramebufferSize = framebufferSize;
+            /// <param name="remoteFramebufferSize">The new framebuffer size.</param>
+            public void SetRemoteFramebufferSize(Size remoteFramebufferSize) => _connection.RemoteFramebufferSize = remoteFramebufferSize;
 
             /// <summary>
-            /// Sets the value of the <seealso cref="RfbConnection.FramebufferFormat"/> property on the <see cref="RfbConnection"/> object.
+            /// Sets the value of the <seealso cref="RfbConnection.RemoteFramebufferFormat"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
-            /// <param name="framebufferFormat">The new framebuffer format.</param>
-            public void SetFramebufferFormat(PixelFormat framebufferFormat) => _connection.FramebufferFormat = framebufferFormat;
+            /// <param name="remoteFramebufferFormat">The new framebuffer format.</param>
+            public void SetRemoteFramebufferFormat(PixelFormat remoteFramebufferFormat) => _connection.RemoteFramebufferFormat = remoteFramebufferFormat;
 
             /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.DesktopName"/> property on the <see cref="RfbConnection"/> object.
