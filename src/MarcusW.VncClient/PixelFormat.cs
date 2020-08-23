@@ -192,7 +192,7 @@ namespace MarcusW.VncClient
             string str =
                 $"{Name}, Depth {Depth} ({BitsPerPixel}bpp), {(BigEndian ? "BE" : "LE")}, {(TrueColor ? "True-Color" : "Color-Map")}, R: {RedMax} (>>{RedShift}), G: {GreenMax} (>>{GreenShift}), B: {BlueMax} (>>{BlueShift})";
             if (HasAlpha)
-                str += $", B: {AlphaMax} (>>{AlphaShift})";
+                str += $", A: {AlphaMax} (>>{AlphaShift})";
             return str;
         }
     }

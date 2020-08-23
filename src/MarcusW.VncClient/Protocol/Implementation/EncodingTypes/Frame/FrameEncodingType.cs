@@ -90,11 +90,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
 
             /// <summary>
-            /// Moves the cursor to the next pixel of the rectangle.
+            /// Tries to move the cursor to the next pixel of the rectangle.
             /// </summary>
             /// <returns>True if the cursor was successfully moved, otherwise false.</returns>
             [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-            public bool MoveNext()
+            public bool TryMoveNext()
             {
                 // Return to line start when line end is reached
                 if (_currentX == _lastColumn)
@@ -125,21 +125,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
             public void SetPixel(byte* pixelData, in PixelFormat pixelFormat)
             {
-                // Set pixel value
-                // TODO color conversion
-                Unsafe.CopyBlock(_positionPtr, pixelData, _framebufferFormat.BytesPerPixel);
-//                *_positionPtr = 0; // b
-//                *(_positionPtr + 1) = 0; // g
-//                *(_positionPtr + 2) = 255; // r
-//                *(_positionPtr + 3) = 255; // a
-//Unsafe.AsRef<>()
-    // TODO: Switch je nach Depth und dann reinterpret cast?
-
-                // TODO: source BE? -> Invert BE to LE
-                // TODO: Equal? -> Unsafe.CopyBlock
-                // TODO: Alpha Channel? Set to 255
-                // TODO: Copy by shift
-                // TODO: target BE? -> Invert LE to BE
+                PixelConversions.WritePixel(pixelData, pixelFormat,_positionPtr, _framebufferFormat);
             }
 
             /// <inheritdoc />

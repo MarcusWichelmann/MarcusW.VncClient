@@ -37,5 +37,12 @@ namespace Benchmarks
             *(_dstPtr + 2) = *(_srcPtr + 2);
             *(_dstPtr + 3) = *(_srcPtr + 3);
         }
+
+        [Benchmark]
+        public void ReinterpretCast()
+        {
+            uint val = Unsafe.AsRef<uint>(_srcPtr);
+            Unsafe.Write(_dstPtr, val);
+        }
     }
 }

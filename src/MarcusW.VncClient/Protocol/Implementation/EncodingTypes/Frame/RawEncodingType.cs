@@ -103,7 +103,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                             framebufferCursor.SetPixel(bufferPtr + processedBytes, remoteFramebufferFormat);
 
                             // Move the cursor to the next pixel (will fail for the last pixel of the rectangle, just ignore that)
-                            framebufferCursor.MoveNext();
+                            framebufferCursor.TryMoveNext();
                         }
                     }
                 }
