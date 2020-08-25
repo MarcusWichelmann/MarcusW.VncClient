@@ -35,6 +35,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         protected unsafe struct FramebufferCursor : IEquatable<FramebufferCursor>
         {
             private readonly PixelFormat _framebufferFormat;
+            private readonly byte _bytesPerPixel;
 
             private readonly int _lineStart;
             private readonly int _lastColumn;
@@ -72,21 +73,21 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                     throw new ArgumentException("Given rectangle lies (partially) outside of the framebuffer area.", nameof(rectangle));
 
                 _framebufferFormat = framebufferFormat;
-                byte bytesPerPixel = framebufferFormat.BytesPerPixel;
+                _bytesPerPixel = framebufferFormat.BytesPerPixel;
 
                 int lineLength = rectangle.Size.Width;
                 _lineStart = rectangle.Position.X;
                 _lastColumn = _lineStart + lineLength - 1;
                 _lastRow = rectangle.Position.Y + rectangle.Size.Height - 1;
 
-                int framebufferLineBytes = framebufferSize.Width * bytesPerPixel;
-                _lineBreakBytes = framebufferLineBytes - lineLength * bytesPerPixel + bytesPerPixel;
+                int framebufferLineBytes = framebufferSize.Width * _bytesPerPixel;
+                _lineBreakBytes = framebufferLineBytes - lineLength * _bytesPerPixel + _bytesPerPixel;
 
                 Debug.Assert(_lineBreakBytes > 0, "_lineBreakBytes > 0");
 
                 _currentX = _lineStart;
                 _currentY = rectangle.Position.Y;
-                _positionPtr = framebufferPtr + _currentY * framebufferLineBytes + _currentX * bytesPerPixel;
+                _positionPtr = framebufferPtr + _currentY * framebufferLineBytes + _currentX * _bytesPerPixel;
             }
 
             /// <summary>
@@ -111,7 +112,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                 {
                     // Move to next pixel in line
                     _currentX++;
-                    _positionPtr += _framebufferFormat.BytesPerPixel;
+                    _positionPtr += _bytesPerPixel;
                 }
 
                 return true;
