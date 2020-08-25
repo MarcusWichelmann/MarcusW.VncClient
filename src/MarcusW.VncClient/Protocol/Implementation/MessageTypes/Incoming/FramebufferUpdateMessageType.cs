@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using MarcusW.VncClient.Protocol.EncodingTypes;
+using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Rendering;
 using Microsoft.Extensions.Logging;
@@ -74,7 +75,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             if (_logger.IsEnabled(LogLevel.Debug))
             {
-                _logger.LogDebug("Receiving framebuffer update with " + (numberOfRectangles == 65535 ? "a dynamic count of rectangles..." : $"{numberOfRectangles} rectangles..."));
+                _logger.LogDebug("Receiving framebuffer update with "
+                    + (numberOfRectangles == 65535 ? "a dynamic amount of rectangles..." : $"{numberOfRectangles} rectangles..."));
                 _stopwatch.Restart();
             }
 
@@ -118,7 +120,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     // Update remote framebuffer information
                     if (remoteFramebufferInfoChanged)
                     {
-                        // These properties are synchronized, so retrieving the values takes a bit longer.
+                        // These properties are synchronized, so retrieving the values might take a bit longer.
                         remoteFramebufferSize = _state.RemoteFramebufferSize;
                         remoteFramebufferFormat = _state.RemoteFramebufferFormat;
 
@@ -146,6 +148,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                 _stopwatch.Stop();
                 _logger.LogDebug("Received and rendered {rectangles} rectangles in {milliseconds}ms.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
             }
+
+            // Ensure more framebuffer updates are coming
+            RequestNextFramebufferUpdate();
         }
 
         private IEncodingType LookupEncodingType(in int id)
@@ -168,6 +173,19 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             lookupEntry.usedPreviously = true;
 
             return lookupEntry.encodingType;
+        }
+
+        private void RequestNextFramebufferUpdate()
+        {
+            // Will this happen automatically?
+            if (_state.ContinuousUpdatesEnabled)
+                return;
+
+            // TODO: Enable continuous updates if supported.
+
+            // Request next incremental update
+            Debug.Assert(_context.MessageSender != null, "_context.MessageSender != null");
+            _context.MessageSender.EnqueueMessage(new FramebufferUpdateRequestMessage(true, new Rectangle(Position.Origin, _state.RemoteFramebufferSize)));
         }
     }
 }
