@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame;
+using MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.Implementation.SecurityTypes;
@@ -141,7 +142,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new RawEncodingType();
 
             // Pseudo
-            // TODO
+            yield return new ContinuousUpdatesPseudoEncodingType();
         }
     }
 }

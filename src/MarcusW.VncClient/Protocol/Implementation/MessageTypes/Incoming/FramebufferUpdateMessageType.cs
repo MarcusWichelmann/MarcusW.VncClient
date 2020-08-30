@@ -81,7 +81,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             }
 
             // Cache for remote framebuffer information. This assumes that the framebuffer size and format properties are only changed by received messages/pseudo-encodings.
-            var remoteFramebufferInfoChanged = true;
+            var remoteFramebufferCacheValid = false;
             Size remoteFramebufferSize = default;
             PixelFormat remoteFramebufferFormat = default;
 
@@ -118,13 +118,13 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     Rectangle rectangle = new Rectangle(x, y, width, height);
 
                     // Update remote framebuffer information
-                    if (remoteFramebufferInfoChanged)
+                    if (!remoteFramebufferCacheValid)
                     {
                         // These properties are synchronized, so retrieving the values might take a bit longer.
                         remoteFramebufferSize = _state.RemoteFramebufferSize;
                         remoteFramebufferFormat = _state.RemoteFramebufferFormat;
 
-                        remoteFramebufferInfoChanged = false;
+                        remoteFramebufferCacheValid = true;
                     }
 
                     // Get render target (cannot be cached because it could change at any time)
@@ -133,11 +133,14 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     // Read frame encoding
                     frameEncodingType.ReadFrameEncoding(transportStream, renderTarget, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
                 }
-                else
+                else if (encodingType is IPseudoEncodingType pseudoEncodingType)
                 {
-                    throw new NotImplementedException();
+                    // Pseudo encodings might change the stored framebuffer information, so don't trust our cache any longer.
+                    // Also, caching these information over the span of multiple received rectangles is optimization enough.
+                    remoteFramebufferCacheValid = false;
 
-                    // TODO: ref framebufferInfoChanged -> set to true if changed
+                    // Ignore the rectangle information and just call the pseudo encoding
+                    pseudoEncodingType.ReadPseudoEncoding(transportStream);
 
                     // TODO: is ILastRectPsuedoEncodingType --> break
                 }

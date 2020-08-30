@@ -32,6 +32,7 @@ namespace MarcusW.VncClient.Protocol.Services
         /// <param name="message">The message to send.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <typeparam name="TMessageType">The type of the message.</typeparam>
+        /// <remarks>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <see cref="RfbConnection.UsedMessageTypes"/>.</remarks>
         void EnqueueMessage<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default) where TMessageType : class, IOutgoingMessageType;
 
         /// <summary>
@@ -40,6 +41,7 @@ namespace MarcusW.VncClient.Protocol.Services
         /// <param name="message">The message to send.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <typeparam name="TMessageType">The type of the message.</typeparam>
+        /// <remarks>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <see cref="RfbConnection.UsedMessageTypes"/>.</remarks>
         Task SendMessageAsync<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default) where TMessageType : class, IOutgoingMessageType;
     }
 }
