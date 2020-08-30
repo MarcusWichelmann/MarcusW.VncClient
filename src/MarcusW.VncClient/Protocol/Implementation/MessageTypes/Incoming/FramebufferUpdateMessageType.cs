@@ -32,7 +32,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
         private IEncodingType? _lastEncodingType;
 
         /// <inheritdoc />
-        public byte Id => 0;
+        public byte Id => (byte)WellKnownIncomingMessageType.FramebufferUpdate;
 
         /// <inheritdoc />
         public string Name => "FramebufferUpdate";
@@ -50,7 +50,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             _logger = context.Connection.LoggerFactory.CreateLogger<FramebufferUpdateMessageType>();
             _state = context.GetState<ProtocolState>();
 
-            // Build a dictionary for fast lookup of encoding types
+            // Build a dictionary for faster lookup of encoding types
             _encodingTypesLookup = context.SupportedEncodingTypes.ToImmutableDictionary(et => et.Id, et => (et, false));
         }
 
@@ -163,14 +163,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                 throw new UnexpectedDataException($"Server sent an encoding of type {id} ({id:x8}) that is not supported by this protocol implementation. "
                     + "Servers should always check for client support before using protocol extensions.");
 
-            // Is this the first use of this encoding type and do we need to mark it as used?
+            // Ensure the encoding type is marked as used
             if (!lookupEntry.usedPreviously && lookupEntry.encodingType.GetsConfirmed)
-            {
-                // Ensure the encoding type is marked as used
-                IImmutableSet<IEncodingType> usedEncodingTypes = _state.UsedEncodingTypes;
-                if (!usedEncodingTypes.Contains(lookupEntry.encodingType))
-                    _state.UsedEncodingTypes = usedEncodingTypes.Add(lookupEntry.encodingType);
-            }
+                _state.MarkEncodingTypeAsUsed(lookupEntry.encodingType);
 
             // Remember, that it was used at least once so we can skip updating the used encoding types next time
             lookupEntry.usedPreviously = true;

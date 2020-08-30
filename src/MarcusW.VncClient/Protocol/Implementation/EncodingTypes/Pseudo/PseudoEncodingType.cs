@@ -3,6 +3,9 @@ using MarcusW.VncClient.Protocol.EncodingTypes;
 
 namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
 {
+    /// <summary>
+    /// Base class for <see cref="IPseudoEncodingType"/> implementations.
+    /// </summary>
     public abstract class PseudoEncodingType : IPseudoEncodingType
     {
         /// <inheritdoc />

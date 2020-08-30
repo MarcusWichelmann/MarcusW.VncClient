@@ -85,19 +85,69 @@ namespace MarcusW.VncClient.Protocol
         }
 
         /// <summary>
-        /// Finds the specified message type instance in the collection of supported message types.
+        /// Searches the specified security type instance in the collection of supported security types.
+        /// </summary>
+        /// <typeparam name="TSecurityType">The type of the security type.</typeparam>
+        /// <returns>The security type, if found.</returns>
+        public TSecurityType? FindSecurityType<TSecurityType>() where TSecurityType : class, ISecurityType
+        {
+            Debug.Assert(SupportedSecurityTypes != null, nameof(SupportedSecurityTypes) + " != null");
+            return SupportedSecurityTypes.OfType<TSecurityType>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Searches the specified security type instance in the collection of supported security types.
+        /// </summary>
+        /// <param name="id">The id of the security type.</param>
+        /// <returns>The security type, if found..</returns>
+        public ISecurityType? FindSecurityType(byte id)
+        {
+            Debug.Assert(SupportedSecurityTypes != null, nameof(SupportedSecurityTypes) + " != null");
+            return SupportedSecurityTypes.FirstOrDefault(st => st.Id == id);
+        }
+
+        /// <summary>
+        /// Searches the specified message type instance in the collection of supported message types.
         /// </summary>
         /// <typeparam name="TMessageType">The type of the message type.</typeparam>
-        /// <returns>The message type.</returns>
-        public TMessageType GetMessageType<TMessageType>() where TMessageType : class, IMessageType
+        /// <returns>The message type, if found..</returns>
+        public TMessageType FindMessageType<TMessageType>() where TMessageType : class, IMessageType
         {
             Debug.Assert(SupportedMessageTypes != null, nameof(SupportedMessageTypes) + " != null");
+            return SupportedMessageTypes.OfType<TMessageType>().FirstOrDefault();
+        }
 
-            TMessageType? messageType = SupportedMessageTypes.OfType<TMessageType>().FirstOrDefault();
-            if (messageType == null)
-                throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} in supported message types collection.");
+        /// <summary>
+        /// Searches the specified message type instance in the collection of supported message types.
+        /// </summary>
+        /// <param name="id">The id of the message type.</param>
+        /// <returns>The message type, if found..</returns>
+        public IMessageType FindMessageType(byte id)
+        {
+            Debug.Assert(SupportedMessageTypes != null, nameof(SupportedMessageTypes) + " != null");
+            return SupportedMessageTypes.FirstOrDefault(mt => mt.Id == id);
+        }
 
-            return messageType;
+        /// <summary>
+        /// Searches the specified encoding type instance in the collection of supported encoding types.
+        /// </summary>
+        /// <typeparam name="TEncodingType">The type of the encoding type.</typeparam>
+        /// <returns>The encoding type, if found..</returns>
+        public TEncodingType FindEncodingType<TEncodingType>() where TEncodingType : class, IEncodingType
+        {
+            Debug.Assert(SupportedEncodingTypes != null, nameof(SupportedEncodingTypes) + " != null");
+            return SupportedEncodingTypes.OfType<TEncodingType>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Searches the specified encoding type instance in the collection of supported message types.
+        /// </summary>
+        /// <param name="id">The id of the encoding type.</param>
+        /// <returns>The encoding type, if found..</returns>
+        public IEncodingType FindEncodingType(int id)
+        {
+            Debug.Assert(SupportedEncodingTypes != null, nameof(SupportedEncodingTypes) + " != null");
+            return SupportedEncodingTypes.FirstOrDefault(et => et.Id == id);
         }
 
         /// <summary>

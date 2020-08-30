@@ -16,7 +16,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
         private readonly ProtocolState _state;
 
         /// <inhertitdoc />
-        public byte Id => 1;
+        public byte Id => (byte)WellKnownSecurityType.None;
 
         /// <inhertitdoc />
         public string Name => "None";

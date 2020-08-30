@@ -115,8 +115,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
         private async Task<ISecurityType> NegotiateSecurityTypeAsync(ITransport transport, CancellationToken cancellationToken = default)
         {
-            Debug.Assert(_context.SupportedSecurityTypes != null, "_context.SupportedSecurityTypes != null");
-
             ISecurityType? usedSecurityType;
 
             if (_state.ProtocolVersion == RfbProtocolVersion.RFB_3_3)
@@ -124,7 +122,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 // Read the security type id that was decided by the server (is 0 if the connection/handshake failed)
                 ReadOnlyMemory<byte> securityTypeIdBytes = await transport.Stream.ReadAllAsync(4, cancellationToken).ConfigureAwait(false);
                 uint securityTypeId = BinaryPrimitives.ReadUInt32BigEndian(securityTypeIdBytes.Span);
-                if (securityTypeId == 0)
+                if (securityTypeId == (int)WellKnownSecurityType.Invalid)
                 {
                     string reason = await ReadFailureReasonAsync(transport, cancellationToken).ConfigureAwait(false);
                     throw new HandshakeFailedException($"Handshake failed. Server reported: {reason}");
@@ -135,7 +133,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 var id = (byte)securityTypeId;
 
                 // Search security type
-                usedSecurityType = _context.SupportedSecurityTypes.FirstOrDefault(st => st.Id == id);
+                usedSecurityType = _context.FindSecurityType(id);
                 if (usedSecurityType == null)
                     throw new HandshakeFailedException($"Server decided on the used security type, but no security type for the ID {id} is known.");
 
@@ -152,6 +150,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Read the security types supported by the server and find all security types that are known by our protocol implementation and supported by the server
             byte[] securityTypeIds = (await transport.Stream.ReadAllAsync(numberOfSecurityTypes, cancellationToken).ConfigureAwait(false)).ToArray();
+            Debug.Assert(_context.SupportedSecurityTypes != null, "_context.SupportedSecurityTypes != null");
             IEnumerable<ISecurityType> usableSecurityTypes = _context.SupportedSecurityTypes.Where(st => securityTypeIds.Contains(st.Id));
 
             if (_logger.IsEnabled(LogLevel.Debug))

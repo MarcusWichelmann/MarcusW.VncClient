@@ -121,6 +121,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // Incoming
             yield return new FramebufferUpdateMessageType(context);
+            yield return new ServerFenceMessageType(context);
 
             // Outgoing
             yield return new SetEncodingsMessageType();
@@ -142,6 +143,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new RawEncodingType();
 
             // Pseudo
+            yield return new FencePseudoEncodingType();
             yield return new ContinuousUpdatesPseudoEncodingType();
         }
     }

@@ -61,7 +61,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             ITransport transport = _context.Transport;
             Stream transportStream = transport.Stream;
 
-            // Build a dictionary for fast lookup of incoming message types
+            // Build a dictionary for faster lookup of incoming message types
             ImmutableDictionary<byte, IIncomingMessageType> incomingMessageLookup =
                 _context.SupportedMessageTypes.OfType<IIncomingMessageType>().ToImmutableDictionary(mt => mt.Id);
 
@@ -81,13 +81,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
                 _logger.LogDebug("Received message: {name}({id})", messageType.Name, messageTypeId);
 
-                // Mark the message type as used, if necessary
+                // Ensure the message type is marked as used
                 if (!messageType.IsStandardMessageType)
-                {
-                    IImmutableSet<IMessageType> usedMessageTypes = _state.UsedMessageTypes;
-                    if (!usedMessageTypes.Contains(messageType))
-                        _state.UsedMessageTypes = usedMessageTypes.Add(messageType);
-                }
+                    _state.MarkMessageTypeAsUsed(messageType);
 
                 // Read the message
                 messageType.ReadMessage(transport, cancellationToken);

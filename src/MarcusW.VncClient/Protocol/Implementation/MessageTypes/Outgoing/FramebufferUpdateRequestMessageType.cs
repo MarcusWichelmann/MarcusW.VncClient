@@ -13,7 +13,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
     public class FramebufferUpdateRequestMessageType : IOutgoingMessageType
     {
         /// <inheritdoc />
-        public byte Id => 3;
+        public byte Id => (byte)WellKnownOutgoingMessageType.FramebufferUpdateRequest;
 
         /// <inheritdoc />
         public string Name => "FramebufferUpdateRequest";

@@ -76,8 +76,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
             cancellationToken.ThrowIfCancellationRequested();
 
+            TMessageType messageType = GetAndCheckMessageType<TMessageType>();
+
             // Add message to queue
-            TMessageType messageType = _context.GetMessageType<TMessageType>();
             _queue.Add(new QueueItem(message, messageType), cancellationToken);
         }
 
@@ -92,10 +93,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
             cancellationToken.ThrowIfCancellationRequested();
 
+            TMessageType messageType = GetAndCheckMessageType<TMessageType>();
+
             // Create a completion source and ensure that completing the task won't block our send-loop.
             var completionSource = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-            TMessageType messageType = _context.GetMessageType<TMessageType>();
+            // Add message to queue
             _queue.Add(new QueueItem(message, messageType, completionSource), cancellationToken);
 
             return completionSource.Task;
@@ -158,6 +161,16 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             _disposed = true;
 
             base.Dispose(disposing);
+        }
+
+        private TMessageType GetAndCheckMessageType<TMessageType>() where TMessageType : class, IOutgoingMessageType
+        {
+            TMessageType? messageType = _context.FindMessageType<TMessageType>();
+
+            if (!_state.UsedMessageTypes.Contains(messageType))
+                throw new InvalidOperationException($"The message type {messageType.Name} must not be sent before checking for server-side support and marking it as used.");
+
+            return messageType;
         }
 
         private void SetQueueCancelled()

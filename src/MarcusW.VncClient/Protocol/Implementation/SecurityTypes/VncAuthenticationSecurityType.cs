@@ -19,7 +19,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
         private readonly RfbConnectionContext _context;
 
         /// <inhertitdoc />
-        public byte Id => 2;
+        public byte Id => (byte)WellKnownSecurityType.VncAuthentication;
 
         /// <inhertitdoc />
         public string Name => "VncAuth";

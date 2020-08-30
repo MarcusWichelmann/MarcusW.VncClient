@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Rendering;
 
 namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
@@ -17,7 +18,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         private readonly byte[] _buffer = new byte[ChunkSize];
 
         /// <inheritdoc />
-        public override int Id => 0;
+        public override int Id => (int)WellKnownEncodingType.Raw;
 
         /// <inheritdoc />
         public override string Name => "Raw";

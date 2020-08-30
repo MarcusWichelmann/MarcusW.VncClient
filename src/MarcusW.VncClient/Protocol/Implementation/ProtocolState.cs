@@ -27,6 +27,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         private readonly StateValue<string?> _desktopNameValue = new StateValue<string?>(null);
 
+        private readonly StateValue<bool> _serverSupportsFencesValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsContinuousUpdatesValue = new StateValue<bool>(false);
+
         private readonly StateValue<bool> _continuousUpdatesEnabledValue = new StateValue<bool>(false);
 
         /// <summary>
@@ -69,7 +72,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
-        /// Gets or sets the encoding types that are either known to be supported by both sides, or at least safe to use anyway.
+        /// Gets or sets the encoding types that are known to be supported by both sides.
         /// </summary>
         public IImmutableSet<IEncodingType> UsedEncodingTypes
         {
@@ -129,6 +132,24 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
+        /// Gets or sets whether the server supports fences.
+        /// </summary>
+        public bool ServerSupportsFences
+        {
+            get => _serverSupportsFencesValue.Value;
+            set => _serverSupportsFencesValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports continuous updates.
+        /// </summary>
+        public bool ServerSupportsContinuousUpdates
+        {
+            get => _serverSupportsContinuousUpdatesValue.Value;
+            set => _serverSupportsContinuousUpdatesValue.Value = value;
+        }
+
+        /// <summary>
         /// Gets or sets whether continuous updates are currently enabled.
         /// </summary>
         public bool ContinuousUpdatesEnabled
@@ -154,6 +175,82 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // Initialize UsedEncodingTypes with all encoding types that don't get confirmed by the server
             UsedEncodingTypes = _context.SupportedEncodingTypes.Where(et => !et.GetsConfirmed).ToImmutableHashSet();
+        }
+
+        /// <summary>
+        /// Marks the given message type as being supported by both sides, if that not already happened.
+        /// </summary>
+        /// <param name="messageType">The message type instance, if already at hand.</param>
+        /// <typeparam name="TMessageType">The type of the message type.</typeparam>
+        public void MarkMessageTypeAsUsed<TMessageType>(TMessageType? messageType = null) where TMessageType : class, IMessageType
+        {
+            // Lookup instance if not already available
+            messageType ??= _context.FindMessageType<TMessageType>();
+            if (messageType == null)
+                throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} in supported message types collection.");
+
+            // Mark as used
+            MarkMessageTypeAsUsedInternal(messageType);
+        }
+
+        /// <summary>
+        /// Marks the given message type as being supported by both sides, if that not already happened.
+        /// </summary>
+        /// <param name="id">The id of the message type.</param>
+        public void MarkMessageTypeAsUsed(byte id)
+        {
+            // Lookup instance
+            IMessageType messageType = _context.FindMessageType(id);
+
+            // Mark as used
+            MarkMessageTypeAsUsedInternal(messageType);
+        }
+
+        /// <summary>
+        /// Marks the given encoding type as being supported by both sides, if that not already happened.
+        /// </summary>
+        /// <param name="encodingType">The encoding type instance, if already at hand.</param>
+        /// <typeparam name="TEncodingType">The type of the encoding type.</typeparam>
+        public void MarkEncodingTypeAsUsed<TEncodingType>(TEncodingType? encodingType = null) where TEncodingType : class, IEncodingType
+        {
+            // Lookup instance if not already available
+            encodingType ??= _context.FindEncodingType<TEncodingType>();
+            if (encodingType == null)
+                throw new InvalidOperationException($"Could not find {typeof(TEncodingType).Name} in supported encoding types collection.");
+
+            // Mark as used
+            MarkEncodingTypeAsUsedInternal(encodingType);
+        }
+
+        /// <summary>
+        /// Marks the given encoding type as being supported by both sides, if that not already happened.
+        /// </summary>
+        /// <param name="id">The id of the encoding type.</param>
+        public void MarkEncodingTypeAsUsed(int id)
+        {
+            // Lookup instance
+            IEncodingType encodingType = _context.FindEncodingType(id);
+
+            // Mark as used
+            MarkEncodingTypeAsUsedInternal(encodingType);
+        }
+
+        private void MarkMessageTypeAsUsedInternal(IMessageType messageType)
+        {
+            IImmutableSet<IMessageType> usedMessageTypes = UsedMessageTypes;
+
+            // Update used message types only if it changes to avoid unnecessary change events.
+            if (!usedMessageTypes.Contains(messageType))
+                UsedMessageTypes = usedMessageTypes.Add(messageType);
+        }
+
+        private void MarkEncodingTypeAsUsedInternal(IEncodingType encodingType)
+        {
+            IImmutableSet<IEncodingType> usedEncodingTypes = UsedEncodingTypes;
+
+            // Update used encoding types only if it changes to avoid unnecessary change events.
+            if (!usedEncodingTypes.Contains(encodingType))
+                UsedEncodingTypes = usedEncodingTypes.Add(encodingType);
         }
 
         protected class StateValue<T>
