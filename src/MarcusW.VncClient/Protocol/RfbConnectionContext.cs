@@ -99,7 +99,7 @@ namespace MarcusW.VncClient.Protocol
         /// Searches the specified security type instance in the collection of supported security types.
         /// </summary>
         /// <param name="id">The id of the security type.</param>
-        /// <returns>The security type, if found..</returns>
+        /// <returns>The security type, if found.</returns>
         public ISecurityType? FindSecurityType(byte id)
         {
             Debug.Assert(SupportedSecurityTypes != null, nameof(SupportedSecurityTypes) + " != null");
@@ -110,8 +110,8 @@ namespace MarcusW.VncClient.Protocol
         /// Searches the specified message type instance in the collection of supported message types.
         /// </summary>
         /// <typeparam name="TMessageType">The type of the message type.</typeparam>
-        /// <returns>The message type, if found..</returns>
-        public TMessageType FindMessageType<TMessageType>() where TMessageType : class, IMessageType
+        /// <returns>The message type, if found.</returns>
+        public TMessageType? FindMessageType<TMessageType>() where TMessageType : class, IMessageType
         {
             Debug.Assert(SupportedMessageTypes != null, nameof(SupportedMessageTypes) + " != null");
             return SupportedMessageTypes.OfType<TMessageType>().FirstOrDefault();
@@ -121,8 +121,8 @@ namespace MarcusW.VncClient.Protocol
         /// Searches the specified message type instance in the collection of supported message types.
         /// </summary>
         /// <param name="id">The id of the message type.</param>
-        /// <returns>The message type, if found..</returns>
-        public IMessageType FindMessageType(byte id)
+        /// <returns>The message type, if found.</returns>
+        public IMessageType? FindMessageType(byte id)
         {
             Debug.Assert(SupportedMessageTypes != null, nameof(SupportedMessageTypes) + " != null");
             return SupportedMessageTypes.FirstOrDefault(mt => mt.Id == id);
@@ -132,8 +132,8 @@ namespace MarcusW.VncClient.Protocol
         /// Searches the specified encoding type instance in the collection of supported encoding types.
         /// </summary>
         /// <typeparam name="TEncodingType">The type of the encoding type.</typeparam>
-        /// <returns>The encoding type, if found..</returns>
-        public TEncodingType FindEncodingType<TEncodingType>() where TEncodingType : class, IEncodingType
+        /// <returns>The encoding type, if found.</returns>
+        public TEncodingType? FindEncodingType<TEncodingType>() where TEncodingType : class, IEncodingType
         {
             Debug.Assert(SupportedEncodingTypes != null, nameof(SupportedEncodingTypes) + " != null");
             return SupportedEncodingTypes.OfType<TEncodingType>().FirstOrDefault();
@@ -143,8 +143,8 @@ namespace MarcusW.VncClient.Protocol
         /// Searches the specified encoding type instance in the collection of supported message types.
         /// </summary>
         /// <param name="id">The id of the encoding type.</param>
-        /// <returns>The encoding type, if found..</returns>
-        public IEncodingType FindEncodingType(int id)
+        /// <returns>The encoding type, if found.</returns>
+        public IEncodingType? FindEncodingType(int id)
         {
             Debug.Assert(SupportedEncodingTypes != null, nameof(SupportedEncodingTypes) + " != null");
             return SupportedEncodingTypes.FirstOrDefault(et => et.Id == id);

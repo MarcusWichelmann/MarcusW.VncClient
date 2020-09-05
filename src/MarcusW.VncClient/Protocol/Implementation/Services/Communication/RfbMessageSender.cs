@@ -82,8 +82,17 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             _queue.Add(new QueueItem(message, messageType), cancellationToken);
         }
 
+
         /// <inheritdoc />
-        public Task SendMessageAsync<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default)
+        public void SendMessageAndWait<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default)
+            where TMessageType : class, IOutgoingMessageType
+        {
+            // ReSharper disable once AsyncConverter.AsyncWait
+            SendMessageAndWaitAsync(message, cancellationToken).Wait(cancellationToken);
+        }
+
+        /// <inheritdoc />
+        public Task SendMessageAndWaitAsync<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default)
             where TMessageType : class, IOutgoingMessageType
         {
             if (message == null)
@@ -166,6 +175,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         private TMessageType GetAndCheckMessageType<TMessageType>() where TMessageType : class, IOutgoingMessageType
         {
             TMessageType? messageType = _context.FindMessageType<TMessageType>();
+
+            if (messageType == null)
+                throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} in supported message types collection.");
 
             if (!_state.UsedMessageTypes.Contains(messageType))
                 throw new InvalidOperationException($"The message type {messageType.Name} must not be sent before checking for server-side support and marking it as used.");

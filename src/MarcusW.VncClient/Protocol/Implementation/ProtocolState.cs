@@ -200,7 +200,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public void MarkMessageTypeAsUsed(byte id)
         {
             // Lookup instance
-            IMessageType messageType = _context.FindMessageType(id);
+            IMessageType? messageType = _context.FindMessageType(id);
+            if (messageType == null)
+                throw new InvalidOperationException($"Could not find message type id {id} in supported message types collection.");
 
             // Mark as used
             MarkMessageTypeAsUsedInternal(messageType);
@@ -229,7 +231,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public void MarkEncodingTypeAsUsed(int id)
         {
             // Lookup instance
-            IEncodingType encodingType = _context.FindEncodingType(id);
+            IEncodingType? encodingType = _context.FindEncodingType(id);
+            if (encodingType == null)
+                throw new InvalidOperationException($"Could not find encoding type id {id} in supported encoding types collection.");
 
             // Mark as used
             MarkEncodingTypeAsUsedInternal(encodingType);

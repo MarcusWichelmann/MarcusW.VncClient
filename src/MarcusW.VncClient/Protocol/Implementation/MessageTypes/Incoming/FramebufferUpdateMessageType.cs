@@ -165,7 +165,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             // Ensure the encoding type is marked as used
             if (!lookupEntry.usedPreviously && lookupEntry.encodingType.GetsConfirmed)
+            {
+                _logger.LogDebug("Marking {encodingType} as used after seeing it for the first time...", lookupEntry.encodingType.Name);
                 _state.MarkEncodingTypeAsUsed(lookupEntry.encodingType);
+            }
 
             // Remember, that it was used at least once so we can skip updating the used encoding types next time
             lookupEntry.usedPreviously = true;
