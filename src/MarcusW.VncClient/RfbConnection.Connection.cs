@@ -128,7 +128,10 @@ namespace MarcusW.VncClient
             _activeConnection = null;
         }
 
-        // Forward to main class part
-        private void BackgroundThreadOnFailed(object? sender, BackgroundThreadFailedEventArgs e) => OnRunningConnectionFailed();
+        private void BackgroundThreadOnFailed(object? sender, BackgroundThreadFailedEventArgs e)
+        {
+            // Forward to main class part and ensure the event is processed in the thread pool and not in the background thread (that might be killed.)
+            ThreadPool.QueueUserWorkItem(state => OnRunningConnectionFailed(e.Exception));
+        }
     }
 }

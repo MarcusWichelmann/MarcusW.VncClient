@@ -10,8 +10,8 @@ namespace MarcusW.VncClient
     public partial class RfbConnection
     {
         // The properties in this class serve only the purpose to inform the API consumer about some connection details.
-        // Classes that are part of the protocol implementation should have their own fields/properties somewhere (e.g. in the connection-context)
-        // and not have to use these properties to avoid unnecessary locking.
+        // Classes that are part of the protocol implementation should have their own state somewhere else and not have
+        // to use below properties to avoid unnecessary locking.
 
         private readonly object _protocolVersionLock = new object();
         private RfbProtocolVersion _protocolVersion = RfbProtocolVersion.Unknown;
@@ -41,7 +41,7 @@ namespace MarcusW.VncClient
         public RfbProtocolVersion ProtocolVersion
         {
             get => GetWithLock(ref _protocolVersion, _protocolVersionLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _protocolVersion, value, _protocolVersionLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _protocolVersion, value, _protocolVersionLock);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace MarcusW.VncClient
         public ISecurityType? UsedSecurityType
         {
             get => GetWithLock(ref _usedSecurityType, _usedSecurityTypeLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedSecurityType, value, _usedSecurityTypeLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _usedSecurityType, value, _usedSecurityTypeLock);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace MarcusW.VncClient
         public IImmutableSet<IMessageType> UsedMessageTypes
         {
             get => GetWithLock(ref _usedMessageTypes, _usedMessageTypesLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedMessageTypes, value, _usedMessageTypesLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _usedMessageTypes, value, _usedMessageTypesLock);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace MarcusW.VncClient
         public IImmutableSet<IEncodingType> UsedEncodingTypes
         {
             get => GetWithLock(ref _usedEncodingTypes, _usedEncodingTypesLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _usedEncodingTypes, value, _usedEncodingTypesLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _usedEncodingTypes, value, _usedEncodingTypesLock);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace MarcusW.VncClient
         public Size RemoteFramebufferSize
         {
             get => GetWithLock(ref _remoteFramebufferSize, _remoteFramebufferSizeLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _remoteFramebufferSize, value, _remoteFramebufferSizeLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _remoteFramebufferSize, value, _remoteFramebufferSizeLock);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace MarcusW.VncClient
         public PixelFormat RemoteFramebufferFormat
         {
             get => GetWithLock(ref _remoteFramebufferFormat, _remoteFramebufferFormatLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _remoteFramebufferFormat, value, _remoteFramebufferFormatLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _remoteFramebufferFormat, value, _remoteFramebufferFormatLock);
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace MarcusW.VncClient
         public string? DesktopName
         {
             get => GetWithLock(ref _desktopName, _desktopNameLock);
-            internal set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _desktopName, value, _desktopNameLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _desktopName, value, _desktopNameLock);
         }
     }
 }

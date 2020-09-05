@@ -13,7 +13,7 @@ namespace MarcusW.VncClient
                 return backingField;
         }
 
-        private void RaiseAndSetIfChangedWithLockAndDisposedCheck<T>(ref T backingField, T newValue, object lockObject, [CallerMemberName] string propertyName = "")
+        private void RaiseAndSetIfChangedWithLock<T>(ref T backingField, T newValue, object lockObject, [CallerMemberName] string propertyName = "")
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(RfbConnection));

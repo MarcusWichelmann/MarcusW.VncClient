@@ -16,22 +16,26 @@
 
     <DockPanel>
         <Border DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
-            <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
-                <TextBlock Text="Not connected." IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
-                <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
-                    <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
-                    <TextBlock
-                        Text="{Binding RfbConnection.ProtocolVersion, Converter={x:Static vncconverters:VncClientConverters.RfbProtocolVersionToString}, StringFormat=Protocol Version: \{0\}}" />
-                    <TextBlock
-                        Text="{Binding RfbConnection.UsedSecurityType.Name, StringFormat=Security Type: \{0\}}" />
+            <Grid>
+                <TextBlock Text="Not connected." Margin="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
+                <StackPanel Orientation="Vertical" Margin="10" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
+                    <TextBlock Foreground="Red" Text="{Binding RfbConnection.InterruptionCause.Message, StringFormat=Error: \{0\}}"
+                               IsVisible="{Binding RfbConnection.InterruptionCause, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
+                        <TextBlock
+                            Text="{Binding RfbConnection.ProtocolVersion, Converter={x:Static vncconverters:VncClientConverters.RfbProtocolVersionToString}, StringFormat=Protocol Version: \{0\}}" />
+                        <TextBlock
+                            Text="{Binding RfbConnection.UsedSecurityType.Name, StringFormat=Security Type: \{0\}}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
+                        <TextBlock Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
+                        <TextBlock
+                            Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
-                    <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
-                    <TextBlock Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
-                    <TextBlock
-                        Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
-                </StackPanel>
-            </StackPanel>
+            </Grid>
         </Border>
 
         <StackPanel Orientation="Vertical" Margin="10" Spacing="10">

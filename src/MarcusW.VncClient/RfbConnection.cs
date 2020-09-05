@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol;
@@ -19,7 +20,9 @@ namespace MarcusW.VncClient
         private readonly object _renderTargetLock = new object();
         private IRenderTarget? _renderTarget;
 
-        private readonly object _connectionStateLock = new object();
+        private readonly object _interruptionCauseLock = new object();
+        private Exception? _interruptionCause;
+
         private ConnectionState _connectionState = ConnectionState.Uninitialized;
 
         private readonly object _startedLock = new object();
@@ -54,7 +57,17 @@ namespace MarcusW.VncClient
         public IRenderTarget? RenderTarget
         {
             get => GetWithLock(ref _renderTarget, _renderTargetLock);
-            set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _renderTarget, value, _renderTargetLock);
+            set => RaiseAndSetIfChangedWithLock(ref _renderTarget, value, _renderTargetLock);
+        }
+
+        /// <summary>
+        /// Gets the <see cref="Exception"/> that caused the last connection interruption.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        public Exception? InterruptionCause
+        {
+            get => GetWithLock(ref _interruptionCause, _interruptionCauseLock);
+            private set => RaiseAndSetIfChangedWithLock(ref _interruptionCause, value, _interruptionCauseLock);
         }
 
         /// <summary>
@@ -62,8 +75,13 @@ namespace MarcusW.VncClient
         /// </summary>
         public ConnectionState ConnectionState
         {
-            get => GetWithLock(ref _connectionState, _connectionStateLock);
-            private set => RaiseAndSetIfChangedWithLockAndDisposedCheck(ref _connectionState, value, _connectionStateLock);
+            // We use Interlocked here so we can use the connection state value for some synchronization.
+            get => (ConnectionState)Interlocked.CompareExchange(ref Unsafe.As<ConnectionState, int>(ref _connectionState), 0, 0);
+            private set
+            {
+                if (Interlocked.Exchange(ref Unsafe.As<ConnectionState, int>(ref _connectionState), (int)value) != (int)value)
+                    NotifyPropertyChanged();
+            }
         }
 
         /// <inheritdoc />
@@ -87,6 +105,7 @@ namespace MarcusW.VncClient
             {
                 await EstablishNewConnectionAsync(cancellationToken).ConfigureAwait(false);
                 ConnectionState = ConnectionState.Connected;
+                InterruptionCause = null;
             }
             finally
             {
@@ -145,8 +164,17 @@ namespace MarcusW.VncClient
         }
 
         // Is called by the other class part to signal us that the running connection has failed in the background.
-        private void OnRunningConnectionFailed()
+        private void OnRunningConnectionFailed(Exception exception)
         {
+            // Mark the connection as interrupted (also avoids that this handler gets called twice per connection)
+            if (Interlocked.CompareExchange(ref Unsafe.As<ConnectionState, int>(ref _connectionState), (int)ConnectionState.Interrupted, (int)ConnectionState.Connected)
+                != (int)ConnectionState.Connected)
+                return;
+            NotifyPropertyChanged(nameof(ConnectionState));
+
+            // Remember the interruption cause
+            InterruptionCause = exception;
+
             try
             {
                 // Reconnect in the background and store the task away, just for cleanliness.
@@ -161,8 +189,6 @@ namespace MarcusW.VncClient
         private async Task ReconnectAsync()
         {
             CancellationToken cancellationToken = _reconnectCts.Token;
-
-            ConnectionState = ConnectionState.Interrupted;
 
             // Synchronize connection management operations.
             await _connectionManagementSemaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
@@ -196,6 +222,8 @@ namespace MarcusW.VncClient
 
                         // This seems to have been successful.
                         ConnectionState = ConnectionState.Connected;
+                        InterruptionCause = null;
+
                         return;
                     }
                     catch (OperationCanceledException)
