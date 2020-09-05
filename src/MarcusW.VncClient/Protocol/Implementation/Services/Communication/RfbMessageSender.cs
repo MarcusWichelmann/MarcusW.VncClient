@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
@@ -81,7 +82,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             // Add message to queue
             _queue.Add(new QueueItem(message, messageType), cancellationToken);
         }
-
 
         /// <inheritdoc />
         public void SendMessageAndWait<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default)
@@ -174,8 +174,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
         private TMessageType GetAndCheckMessageType<TMessageType>() where TMessageType : class, IOutgoingMessageType
         {
-            TMessageType? messageType = _context.FindMessageType<TMessageType>();
+            Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
 
+            TMessageType? messageType = _context.SupportedMessageTypes.OfType<TMessageType>().FirstOrDefault();
             if (messageType == null)
                 throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} in supported message types collection.");
 

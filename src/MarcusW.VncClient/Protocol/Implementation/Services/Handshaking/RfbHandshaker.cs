@@ -133,7 +133,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 var id = (byte)securityTypeId;
 
                 // Search security type
-                usedSecurityType = _context.FindSecurityType(id);
+                Debug.Assert(_context.SupportedSecurityTypes != null, "_context.SupportedSecurityTypes != null");
+                usedSecurityType = _context.SupportedSecurityTypes.FirstOrDefault(st => st.Id == id);
                 if (usedSecurityType == null)
                     throw new HandshakeFailedException($"Server decided on the used security type, but no security type for the ID {id} is known.");
 

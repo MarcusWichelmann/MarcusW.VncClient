@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
@@ -171,9 +172,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public virtual void Prepare()
         {
             // Initialize UsedMessageTypes with all standard messages that need to be supported by the server by definition
+            Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
             UsedMessageTypes = _context.SupportedMessageTypes.Where(mt => mt.IsStandardMessageType).ToImmutableHashSet();
 
             // Initialize UsedEncodingTypes with all encoding types that don't get confirmed by the server
+            Debug.Assert(_context.SupportedEncodingTypes != null, "_context.SupportedEncodingTypes != null");
             UsedEncodingTypes = _context.SupportedEncodingTypes.Where(et => !et.GetsConfirmed).ToImmutableHashSet();
         }
 
@@ -181,78 +184,66 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Marks the given message type as being supported by both sides, if that not already happened.
         /// </summary>
         /// <param name="messageType">The message type instance, if already at hand.</param>
-        /// <typeparam name="TMessageType">The type of the message type.</typeparam>
-        public void MarkMessageTypeAsUsed<TMessageType>(TMessageType? messageType = null) where TMessageType : class, IMessageType
+        /// <param name="idFilter">An optional filter in case <typeparamref name="TMessageType"/> is not specific enough.</param>
+        /// <typeparam name="TMessageType">The type of the message type or a base type like <see cref="IIncomingMessageType"/>.</typeparam>
+        public void MarkMessageTypeAsUsed<TMessageType>(TMessageType? messageType = null, byte? idFilter = null) where TMessageType : class, IMessageType
         {
             // Lookup instance if not already available
-            messageType ??= _context.FindMessageType<TMessageType>();
             if (messageType == null)
-                throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} in supported message types collection.");
+            {
+                Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
+
+                IEnumerable<TMessageType> filtered = _context.SupportedMessageTypes.OfType<TMessageType>();
+                if (idFilter != null)
+                    filtered = filtered.Where(mt => mt.Id == idFilter);
+
+                messageType = filtered.FirstOrDefault();
+                if (messageType == null)
+                    throw new InvalidOperationException($"Could not find {typeof(TMessageType).Name} (ID filter: {idFilter}) in supported message types collection.");
+            }
+            else
+            {
+                // If an instance was already at hand, check that it has the right id.
+                if (idFilter != null && messageType.Id != idFilter)
+                    throw new ArgumentException("The given message type does not match the id filter.", nameof(messageType));
+            }
 
             // Mark as used
-            MarkMessageTypeAsUsedInternal(messageType);
-        }
-
-        /// <summary>
-        /// Marks the given message type as being supported by both sides, if that not already happened.
-        /// </summary>
-        /// <param name="id">The id of the message type.</param>
-        public void MarkMessageTypeAsUsed(byte id)
-        {
-            // Lookup instance
-            IMessageType? messageType = _context.FindMessageType(id);
-            if (messageType == null)
-                throw new InvalidOperationException($"Could not find message type id {id} in supported message types collection.");
-
-            // Mark as used
-            MarkMessageTypeAsUsedInternal(messageType);
+            IImmutableSet<IMessageType> usedMessageTypes = UsedMessageTypes;
+            if (!usedMessageTypes.Contains(messageType))
+                UsedMessageTypes = usedMessageTypes.Add(messageType);
         }
 
         /// <summary>
         /// Marks the given encoding type as being supported by both sides, if that not already happened.
         /// </summary>
         /// <param name="encodingType">The encoding type instance, if already at hand.</param>
-        /// <typeparam name="TEncodingType">The type of the encoding type.</typeparam>
-        public void MarkEncodingTypeAsUsed<TEncodingType>(TEncodingType? encodingType = null) where TEncodingType : class, IEncodingType
+        /// <param name="idFilter">An optional filter in case <typeparamref name="TEncodingType"/> is not specific enough.</param>
+        /// <typeparam name="TEncodingType">The type of the encoding type or a base type like <see cref="IFrameEncodingType"/>.</typeparam>
+        public void MarkEncodingTypeAsUsed<TEncodingType>(TEncodingType? encodingType = null, int? idFilter = null) where TEncodingType : class, IEncodingType
         {
             // Lookup instance if not already available
-            encodingType ??= _context.FindEncodingType<TEncodingType>();
             if (encodingType == null)
-                throw new InvalidOperationException($"Could not find {typeof(TEncodingType).Name} in supported encoding types collection.");
+            {
+                Debug.Assert(_context.SupportedEncodingTypes != null, "_context.SupportedEncodingTypes != null");
+
+                IEnumerable<TEncodingType> filtered = _context.SupportedEncodingTypes.OfType<TEncodingType>();
+                if (idFilter != null)
+                    filtered = filtered.Where(et => et.Id == idFilter);
+
+                encodingType = filtered.FirstOrDefault();
+                if (encodingType == null)
+                    throw new InvalidOperationException($"Could not find {typeof(TEncodingType).Name} (ID filter: {idFilter}) in supported encoding types collection.");
+            }
+            else
+            {
+                // If an instance was already at hand, check that it has the right id.
+                if (idFilter != null && encodingType.Id != idFilter)
+                    throw new ArgumentException("The given encoding type does not match the id filter.", nameof(encodingType));
+            }
 
             // Mark as used
-            MarkEncodingTypeAsUsedInternal(encodingType);
-        }
-
-        /// <summary>
-        /// Marks the given encoding type as being supported by both sides, if that not already happened.
-        /// </summary>
-        /// <param name="id">The id of the encoding type.</param>
-        public void MarkEncodingTypeAsUsed(int id)
-        {
-            // Lookup instance
-            IEncodingType? encodingType = _context.FindEncodingType(id);
-            if (encodingType == null)
-                throw new InvalidOperationException($"Could not find encoding type id {id} in supported encoding types collection.");
-
-            // Mark as used
-            MarkEncodingTypeAsUsedInternal(encodingType);
-        }
-
-        private void MarkMessageTypeAsUsedInternal(IMessageType messageType)
-        {
-            IImmutableSet<IMessageType> usedMessageTypes = UsedMessageTypes;
-
-            // Update used message types only if it changes to avoid unnecessary change events.
-            if (!usedMessageTypes.Contains(messageType))
-                UsedMessageTypes = usedMessageTypes.Add(messageType);
-        }
-
-        private void MarkEncodingTypeAsUsedInternal(IEncodingType encodingType)
-        {
             IImmutableSet<IEncodingType> usedEncodingTypes = UsedEncodingTypes;
-
-            // Update used encoding types only if it changes to avoid unnecessary change events.
             if (!usedEncodingTypes.Contains(encodingType))
                 UsedEncodingTypes = usedEncodingTypes.Add(encodingType);
         }
