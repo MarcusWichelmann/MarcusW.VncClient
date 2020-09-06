@@ -122,11 +122,13 @@ namespace MarcusW.VncClient.Protocol.Implementation
             // Incoming
             yield return new FramebufferUpdateMessageType(context);
             yield return new ServerFenceMessageType(context);
+            yield return new EndOfContinuousUpdatesMessageType(context);
 
             // Outgoing
             yield return new SetEncodingsMessageType();
             yield return new FramebufferUpdateRequestMessageType();
             yield return new ClientFenceMessageType();
+            yield return new EnableContinuousUpdatesMessageType();
         }
 
         /// <summary>

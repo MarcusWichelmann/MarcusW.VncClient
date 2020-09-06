@@ -6,6 +6,7 @@ using System.Linq;
 using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
+using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Protocol.Implementation
 {
@@ -13,6 +14,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
     public class ProtocolState : IRfbProtocolState
     {
         private readonly RfbConnectionContext _context;
+        private readonly ILogger<ProtocolState> _logger;
 
         private readonly StateValue<RfbProtocolVersion> _protocolVersionValue = new StateValue<RfbProtocolVersion>(RfbProtocolVersion.Unknown);
 
@@ -166,11 +168,14 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public ProtocolState(RfbConnectionContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _logger = context.Connection.LoggerFactory.CreateLogger<ProtocolState>();
         }
 
         /// <inheritdoc />
         public virtual void Prepare()
         {
+            _logger.LogDebug("Initializing sets for used message and encoding types...");
+
             // Initialize UsedMessageTypes with all standard messages that need to be supported by the server by definition
             Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
             UsedMessageTypes = _context.SupportedMessageTypes.Where(mt => mt.IsStandardMessageType).ToImmutableHashSet();
@@ -186,7 +191,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <param name="messageType">The message type instance, if already at hand.</param>
         /// <param name="idFilter">An optional filter in case <typeparamref name="TMessageType"/> is not specific enough.</param>
         /// <typeparam name="TMessageType">The type of the message type or a base type like <see cref="IIncomingMessageType"/>.</typeparam>
-        public void MarkMessageTypeAsUsed<TMessageType>(TMessageType? messageType = null, byte? idFilter = null) where TMessageType : class, IMessageType
+        public void EnsureMessageTypeIsMarkedAsUsed<TMessageType>(TMessageType? messageType = null, byte? idFilter = null) where TMessageType : class, IMessageType
         {
             // Lookup instance if not already available
             if (messageType == null)
@@ -211,7 +216,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
             // Mark as used
             IImmutableSet<IMessageType> usedMessageTypes = UsedMessageTypes;
             if (!usedMessageTypes.Contains(messageType))
+            {
+                _logger.LogDebug("Marking message type {messageType} as used...", messageType.Name);
                 UsedMessageTypes = usedMessageTypes.Add(messageType);
+            }
         }
 
         /// <summary>
@@ -220,7 +228,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <param name="encodingType">The encoding type instance, if already at hand.</param>
         /// <param name="idFilter">An optional filter in case <typeparamref name="TEncodingType"/> is not specific enough.</param>
         /// <typeparam name="TEncodingType">The type of the encoding type or a base type like <see cref="IFrameEncodingType"/>.</typeparam>
-        public void MarkEncodingTypeAsUsed<TEncodingType>(TEncodingType? encodingType = null, int? idFilter = null) where TEncodingType : class, IEncodingType
+        public void EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(TEncodingType? encodingType = null, int? idFilter = null) where TEncodingType : class, IEncodingType
         {
             // Lookup instance if not already available
             if (encodingType == null)
@@ -245,7 +253,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
             // Mark as used
             IImmutableSet<IEncodingType> usedEncodingTypes = UsedEncodingTypes;
             if (!usedEncodingTypes.Contains(encodingType))
+            {
+                _logger.LogDebug("Marking encoding type {encodingType} as used...", encodingType.Name);
                 UsedEncodingTypes = usedEncodingTypes.Add(encodingType);
+            }
         }
 
         protected class StateValue<T>

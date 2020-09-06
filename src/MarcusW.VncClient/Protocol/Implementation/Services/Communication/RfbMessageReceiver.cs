@@ -83,10 +83,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
                 // Ensure the message type is marked as used
                 if (!messageType.IsStandardMessageType)
-                {
-                    _logger.LogDebug("Marking {messageType} as used after seeing it for the first time...", messageType.Name);
-                    _state.MarkMessageTypeAsUsed(messageType);
-                }
+                    _state.EnsureMessageTypeIsMarkedAsUsed(messageType);
 
                 // Read the message
                 messageType.ReadMessage(transport, cancellationToken);

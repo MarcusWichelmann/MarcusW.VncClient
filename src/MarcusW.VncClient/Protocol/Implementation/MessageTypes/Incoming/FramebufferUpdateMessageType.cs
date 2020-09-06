@@ -165,10 +165,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             // Ensure the encoding type is marked as used
             if (!lookupEntry.usedPreviously && lookupEntry.encodingType.GetsConfirmed)
-            {
-                _logger.LogDebug("Marking {encodingType} as used after seeing it for the first time...", lookupEntry.encodingType.Name);
-                _state.MarkEncodingTypeAsUsed(lookupEntry.encodingType);
-            }
+                _state.EnsureEncodingTypeIsMarkedAsUsed(lookupEntry.encodingType);
 
             // Remember, that it was used at least once so we can skip updating the used encoding types next time
             lookupEntry.usedPreviously = true;
@@ -182,11 +179,20 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             if (_state.ContinuousUpdatesEnabled)
                 return;
 
-            // TODO: Enable continuous updates if supported.
+            Debug.Assert(_context.MessageSender != null, "_context.MessageSender != null");
+
+            var wholeScreenRectangle = new Rectangle(Position.Origin, _state.RemoteFramebufferSize);
+
+            // Can we enable continuous updates instead of requesting single updates?
+            if (_state.ServerSupportsContinuousUpdates)
+            {
+                _context.MessageSender.EnqueueMessage(new EnableContinuousUpdatesMessage(true, wholeScreenRectangle));
+                _state.ContinuousUpdatesEnabled = true;
+                return;
+            }
 
             // Request next incremental update
-            Debug.Assert(_context.MessageSender != null, "_context.MessageSender != null");
-            _context.MessageSender.EnqueueMessage(new FramebufferUpdateRequestMessage(true, new Rectangle(Position.Origin, _state.RemoteFramebufferSize)));
+            _context.MessageSender.EnqueueMessage(new FramebufferUpdateRequestMessage(true, wholeScreenRectangle));
         }
     }
 }

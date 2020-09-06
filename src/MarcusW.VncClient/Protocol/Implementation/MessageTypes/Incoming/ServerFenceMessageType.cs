@@ -50,11 +50,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             // Did we just learn that the server supports fences?
             if (!_state.ServerSupportsFences)
             {
-                _logger.LogDebug("Server supports fences extension. Marking Fence encoding and ClientFence message as used...");
+                _logger.LogDebug("Server supports fences extension.");
 
                 // Mark the encoding and message type as used
-                _state.MarkEncodingTypeAsUsed<IPseudoEncodingType>(null, (int)WellKnownEncodingType.Fence);
-                _state.MarkMessageTypeAsUsed<IOutgoingMessageType>(null, (byte)WellKnownOutgoingMessageType.ClientFence);
+                _state.EnsureEncodingTypeIsMarkedAsUsed<IPseudoEncodingType>(null, (int)WellKnownEncodingType.Fence);
+                _state.EnsureMessageTypeIsMarkedAsUsed<IOutgoingMessageType>(null, (byte)WellKnownOutgoingMessageType.ClientFence);
 
                 _state.ServerSupportsFences = true;
             }

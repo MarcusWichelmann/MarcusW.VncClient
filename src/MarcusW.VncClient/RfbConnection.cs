@@ -218,11 +218,11 @@ namespace MarcusW.VncClient
 
                         // Next try...
                         ConnectionState = ConnectionState.Reconnecting;
+                        InterruptionCause = null;
                         await EstablishNewConnectionAsync(cancellationToken).ConfigureAwait(false);
 
                         // This seems to have been successful.
                         ConnectionState = ConnectionState.Connected;
-                        InterruptionCause = null;
 
                         return;
                     }
