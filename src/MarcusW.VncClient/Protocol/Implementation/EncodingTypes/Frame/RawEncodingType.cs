@@ -110,7 +110,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                 // Copy all bytes that could not be processed yet to the start of the buffer so we can process them later when more bytes have been received.
                 unprocessedBytesInBuffer = availableBytes - processedBytes;
                 if (unprocessedBytesInBuffer > 0)
-                    buffer[^unprocessedBytesInBuffer..].CopyTo(buffer);
+                    buffer.Slice(processedBytes, unprocessedBytesInBuffer).CopyTo(buffer);
 
                 remainingBytesToRead -= read;
             }
