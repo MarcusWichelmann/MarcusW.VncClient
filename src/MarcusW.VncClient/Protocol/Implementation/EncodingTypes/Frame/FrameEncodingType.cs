@@ -26,7 +26,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public abstract bool GetsConfirmed { get; }
 
         /// <inheritdoc />
-        public abstract void ReadFrameEncoding(Stream transportStream, IRenderTarget? renderTarget, in Rectangle rectangle, in Size remoteFramebufferSize,
+        public abstract void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat);
 
         /// <summary>

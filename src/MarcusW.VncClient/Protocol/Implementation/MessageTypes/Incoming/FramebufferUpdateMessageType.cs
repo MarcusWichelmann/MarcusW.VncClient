@@ -23,6 +23,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
         private readonly IImmutableDictionary<int, (IEncodingType encodingType, bool usedPreviously)> _encodingTypesLookup;
 
+        private readonly bool _lockTargetByRectangle;
+
         private readonly Stopwatch _stopwatch = new Stopwatch();
 
         // Common buffer for all read operations in this method
@@ -52,6 +54,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             // Build a dictionary for faster lookup of encoding types
             _encodingTypesLookup = context.SupportedEncodingTypes.ToImmutableDictionary(et => et.Id, et => (et, false));
+
+            // Should the target framebuffer be locked by rectangle or by frame?
+            _lockTargetByRectangle = context.Connection.Parameters.RenderFlags.HasFlag(RenderFlags.UpdateByRectangle);
         }
 
         /// <inheritdoc />
@@ -81,69 +86,93 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             }
 
             // Cache for remote framebuffer information. This assumes that the framebuffer size and format properties are only changed by received messages/pseudo-encodings.
-            var remoteFramebufferCacheValid = false;
-            Size remoteFramebufferSize = default;
-            PixelFormat remoteFramebufferFormat = default;
+            Size remoteFramebufferSize = _state.RemoteFramebufferSize;
+            PixelFormat remoteFramebufferFormat = _state.RemoteFramebufferFormat;
 
-            // Read rectangles
-            ushort rectanglesRead;
-            for (rectanglesRead = 0; rectanglesRead < numberOfRectangles; rectanglesRead++)
+            // Get the current render target (can be null)
+            IRenderTarget? renderTarget = _context.Connection.RenderTarget;
+            IFramebufferReference? targetFramebuffer = null;
+
+            // Lock the target framebuffer if by-frame updates are enabled
+            if (!_lockTargetByRectangle && renderTarget != null)
             {
-                transportStream.ReadAll(buffer, cancellationToken);
+                targetFramebuffer = renderTarget.GrabFramebufferReference(remoteFramebufferSize);
+                if (targetFramebuffer.Size != remoteFramebufferSize)
+                    throw new RfbProtocolException("Framebuffer reference is not of the requested size.");
+            }
 
-                // Read encoding type first
-                int encodingTypeId = BinaryPrimitives.ReadInt32BigEndian(buffer[8..]);
-
-                IEncodingType encodingType;
-
-                // Skip lookup in case we receive the same encoding type multiple times
-                if (_lastEncodingTypeId == encodingTypeId)
+            ushort rectanglesRead;
+            try
+            {
+                // Read rectangles
+                for (rectanglesRead = 0; rectanglesRead < numberOfRectangles; rectanglesRead++)
                 {
-                    encodingType = _lastEncodingType!;
-                }
-                else
-                {
-                    // Lookup encoding type and remember it for next time
-                    encodingType = _lastEncodingType = LookupEncodingType(encodingTypeId);
-                    _lastEncodingTypeId = encodingTypeId;
-                }
+                    transportStream.ReadAll(buffer, cancellationToken);
 
-                if (encodingType is IFrameEncodingType frameEncodingType)
-                {
-                    // Read rectangle information
-                    ushort x = BinaryPrimitives.ReadUInt16BigEndian(buffer);
-                    ushort y = BinaryPrimitives.ReadUInt16BigEndian(buffer[2..]);
-                    ushort width = BinaryPrimitives.ReadUInt16BigEndian(buffer[4..]);
-                    ushort height = BinaryPrimitives.ReadUInt16BigEndian(buffer[6..]);
-                    Rectangle rectangle = new Rectangle(x, y, width, height);
+                    // Read encoding type first
+                    int encodingTypeId = BinaryPrimitives.ReadInt32BigEndian(buffer[8..]);
 
-                    // Update remote framebuffer information
-                    if (!remoteFramebufferCacheValid)
+                    IEncodingType encodingType;
+
+                    // Skip lookup in case we receive the same encoding type multiple times
+                    if (_lastEncodingTypeId == encodingTypeId)
                     {
-                        // These properties are synchronized, so retrieving the values might take a bit longer.
-                        remoteFramebufferSize = _state.RemoteFramebufferSize;
-                        remoteFramebufferFormat = _state.RemoteFramebufferFormat;
-
-                        remoteFramebufferCacheValid = true;
+                        encodingType = _lastEncodingType!;
+                    }
+                    else
+                    {
+                        // Lookup encoding type and remember it for next time
+                        encodingType = _lastEncodingType = LookupEncodingType(encodingTypeId);
+                        _lastEncodingTypeId = encodingTypeId;
                     }
 
-                    // Get render target (cannot be cached because it could change at any time)
-                    IRenderTarget? renderTarget = _context.Connection.RenderTarget;
+                    if (encodingType is IFrameEncodingType frameEncodingType)
+                    {
+                        // Read rectangle information
+                        ushort x = BinaryPrimitives.ReadUInt16BigEndian(buffer);
+                        ushort y = BinaryPrimitives.ReadUInt16BigEndian(buffer[2..]);
+                        ushort width = BinaryPrimitives.ReadUInt16BigEndian(buffer[4..]);
+                        ushort height = BinaryPrimitives.ReadUInt16BigEndian(buffer[6..]);
+                        Rectangle rectangle = new Rectangle(x, y, width, height);
 
-                    // Read frame encoding
-                    frameEncodingType.ReadFrameEncoding(transportStream, renderTarget, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
+                        // Lock the target framebuffer if by-rectangle updates are enabled
+                        if (_lockTargetByRectangle && renderTarget != null)
+                        {
+                            targetFramebuffer = renderTarget.GrabFramebufferReference(remoteFramebufferSize);
+                            if (targetFramebuffer.Size != remoteFramebufferSize)
+                                throw new RfbProtocolException("Framebuffer reference is not of the requested size.");
+                        }
+
+                        try
+                        {
+                            // Read frame encoding
+                            frameEncodingType.ReadFrameEncoding(transportStream, targetFramebuffer, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
+                        }
+                        finally
+                        {
+                            // Release the framebuffer reference if per-rectangle updates are enabled
+                            if (_lockTargetByRectangle)
+                                targetFramebuffer?.Dispose();
+                        }
+                    }
+                    else if (encodingType is IPseudoEncodingType pseudoEncodingType)
+                    {
+                        // Ignore the rectangle information and just call the pseudo encoding
+                        pseudoEncodingType.ReadPseudoEncoding(transportStream);
+
+                        // TODO: is ILastRectPsuedoEncodingType --> break
+
+                        // The pseudo encoding might have changed the cached framebuffer information.
+                        remoteFramebufferSize = _state.RemoteFramebufferSize;
+                        remoteFramebufferFormat = _state.RemoteFramebufferFormat;
+                    }
                 }
-                else if (encodingType is IPseudoEncodingType pseudoEncodingType)
-                {
-                    // Pseudo encodings might change the stored framebuffer information, so don't trust our cache any longer.
-                    // Also, caching these information over the span of multiple received rectangles is optimization enough.
-                    remoteFramebufferCacheValid = false;
-
-                    // Ignore the rectangle information and just call the pseudo encoding
-                    pseudoEncodingType.ReadPseudoEncoding(transportStream);
-
-                    // TODO: is ILastRectPsuedoEncodingType --> break
-                }
+            }
+            finally
+            {
+                // Release the framebuffer reference if per-frame updates are enabled
+                if (!_lockTargetByRectangle)
+                    targetFramebuffer?.Dispose();
             }
 
             if (_logger.IsEnabled(LogLevel.Debug))

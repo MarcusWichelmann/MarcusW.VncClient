@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AvaloniaVncClient.Services;
 using MarcusW.VncClient;
 using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
+using MarcusW.VncClient.Rendering;
 using ReactiveUI;
 using Splat;
 

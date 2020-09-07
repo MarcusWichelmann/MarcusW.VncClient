@@ -9,13 +9,14 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
     public interface IFrameEncodingType : IEncodingType
     {
         /// <summary>
-        /// Reads a (partial) frame from the transport stream, decodes it and renders it to the render target, if set.
+        /// Reads a (partial) frame from the transport stream, decodes it and renders it to the target framebuffer, if available.
         /// </summary>
         /// <param name="transportStream">The stream to read from.</param>
-        /// <param name="renderTarget">The render target.</param>
+        /// <param name="targetFramebuffer">The target framebuffer reference, or null if unavailable.</param>
         /// <param name="rectangle">The part of the frame to update.</param>
         /// <param name="remoteFramebufferSize">The current size of the remote framebuffer.</param>
         /// <param name="remoteFramebufferFormat">The current pixel format.</param>
-        void ReadFrameEncoding(Stream transportStream, IRenderTarget? renderTarget, in Rectangle rectangle, in Size remoteFramebufferSize, in PixelFormat remoteFramebufferFormat);
+        void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
+            in PixelFormat remoteFramebufferFormat);
     }
 }

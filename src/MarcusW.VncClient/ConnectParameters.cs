@@ -24,6 +24,7 @@ namespace MarcusW.VncClient
         private IAuthenticationHandler _authenticationHandler = null!;
         private bool _allowSharedConnection = true;
         private IRenderTarget? _initialRenderTarget;
+        private RenderFlags _renderFlags = RenderFlags.Default;
 
         /// <summary>
         /// Specifies the transport type and parameters to connect to.
@@ -91,6 +92,12 @@ namespace MarcusW.VncClient
             set => ThrowIfFrozen(() => _initialRenderTarget = value);
         }
 
+        public RenderFlags RenderFlags
+        {
+            get => _renderFlags;
+            set => ThrowIfFrozen(() => _renderFlags = value);
+        }
+
         /// <inhertitdoc />
         public override void Validate()
         {
@@ -100,6 +107,8 @@ namespace MarcusW.VncClient
                 throw new ConnectParametersValidationException($"{nameof(MaxReconnectAttempts)} parameter must be set to a positive value, or -1 for no limit.");
             if (AuthenticationHandler == null)
                 throw new ConnectParametersValidationException($"{nameof(AuthenticationHandler)} parameter must not be null.");
+            if (!Enum.IsDefined(typeof(RenderFlags), _renderFlags))
+                throw new ConnectParametersValidationException($"{nameof(RenderFlags)} parameter is invalid.");
         }
 
         /// <inheritdoc />

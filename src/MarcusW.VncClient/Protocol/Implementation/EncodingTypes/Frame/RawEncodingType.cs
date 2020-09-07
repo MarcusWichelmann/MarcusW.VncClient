@@ -30,7 +30,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public override bool GetsConfirmed => false; // All servers support this encoding type.
 
         /// <inheritdoc />
-        public override void ReadFrameEncoding(Stream transportStream, IRenderTarget? renderTarget, in Rectangle rectangle, in Size remoteFramebufferSize,
+        public override void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat)
         {
             if (transportStream == null)
@@ -38,20 +38,14 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
 
             // Calculate how many bytes we're going to receive
             byte bytesPerPixel = remoteFramebufferFormat.BytesPerPixel;
-            var totalBytesToRead = (int)(rectangle.Size.Width * rectangle.Size.Height * bytesPerPixel);
+            int totalBytesToRead = rectangle.Size.Width * rectangle.Size.Height * bytesPerPixel;
 
             // If there is nothing to render to, just skip the received bytes
-            if (renderTarget == null)
+            if (targetFramebuffer == null)
             {
                 transportStream.SkipAll(totalBytesToRead);
                 return;
             }
-
-            // Lock the target framebuffer
-            // TODO: Do one framebuffer update per encoded rectangle or per FramebufferUpdate message?
-            using IFramebufferReference targetFramebuffer = renderTarget.GrabFramebufferReference(remoteFramebufferSize);
-            if (targetFramebuffer.Size != remoteFramebufferSize)
-                throw new RfbProtocolException("Framebuffer reference is not of the requested size.");
 
             // Create a cursor for writing single pixels of the rectangle to the target framebuffer
             var framebufferCursor = new FramebufferCursor(targetFramebuffer, rectangle);

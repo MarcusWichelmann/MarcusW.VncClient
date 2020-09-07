@@ -19,7 +19,7 @@
             <Grid>
                 <TextBlock Text="Not connected." Margin="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
                 <StackPanel Orientation="Vertical" Margin="10" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
-                    <TextBlock Foreground="Red" Text="{Binding RfbConnection.InterruptionCause.Message, StringFormat=Error: \{0\}}"
+                    <TextBlock Foreground="Red" Text="{Binding RfbConnection.InterruptionCause, StringFormat=Error: \{0\}}"
                                IsVisible="{Binding RfbConnection.InterruptionCause, Converter={x:Static ObjectConverters.IsNotNull}}" />
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
