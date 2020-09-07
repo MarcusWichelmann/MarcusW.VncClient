@@ -87,18 +87,22 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
 
                 // Process all available bytes that are sufficient to form full pixels
                 int availableBytes = unprocessedBytesInBuffer + read;
-                int processedBytes;
+                int processedBytes = 0;
                 unsafe
                 {
                     fixed (byte* bufferPtr = buffer)
                     {
-                        for (processedBytes = 0; processedBytes < availableBytes; processedBytes += bytesPerPixel)
+                        // Process, while there are enough bytes available for the next full pixel
+                        while (processedBytes + bytesPerPixel <= availableBytes)
                         {
                             // Set the pixel
                             framebufferCursor.SetPixel(bufferPtr + processedBytes, remoteFramebufferFormat);
 
                             // Move the cursor to the next pixel (will fail for the last pixel of the rectangle, just ignore that)
                             framebufferCursor.TryMoveNext();
+
+                            // Move forward in buffer
+                            processedBytes += bytesPerPixel;
                         }
                     }
                 }
