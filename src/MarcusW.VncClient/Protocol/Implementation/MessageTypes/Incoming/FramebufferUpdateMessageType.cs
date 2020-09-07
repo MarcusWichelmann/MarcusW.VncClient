@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using MarcusW.VncClient.Protocol.EncodingTypes;
+using MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Rendering;
@@ -157,10 +158,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     }
                     else if (encodingType is IPseudoEncodingType pseudoEncodingType)
                     {
+                        // Stop after a LastRect encoding
+                        if (encodingType is ILastRectEncodingType)
+                            break;
+
                         // Ignore the rectangle information and just call the pseudo encoding
                         pseudoEncodingType.ReadPseudoEncoding(transportStream);
-
-                        // TODO: is ILastRectPsuedoEncodingType --> break
 
                         // The pseudo encoding might have changed the cached framebuffer information.
                         remoteFramebufferSize = _state.RemoteFramebufferSize;
@@ -178,7 +181,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             if (_logger.IsEnabled(LogLevel.Debug))
             {
                 _stopwatch.Stop();
-                _logger.LogDebug("Received and rendered {rectangles} rectangles in {milliseconds}ms.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
+                _logger.LogDebug("Received and rendered/processed {rectangles} rectangles in {milliseconds}ms.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
             }
 
             // Ensure more framebuffer updates are coming
