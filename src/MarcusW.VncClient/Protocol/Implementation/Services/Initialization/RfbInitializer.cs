@@ -114,6 +114,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             if (!trueColor)
                 throw new UnsupportedProtocolFeatureException("Color maps are currently not supported by this client.");
 
+            // Some clients like libvncserver advertise RGB888/BGR888 with 32 bit depth, but we just interpret it as 24 bit here
+            // because the protocol doesn't specify anything like AlphaShift and AlphaMax anyway.
+            if (bitsPerPixel == 32 && depth == 32)
+                depth = 24;
+
             // Generate a short name for this pixel format while following the RFB naming scheme (name describes the native byte order, e.g. 0xRGB).
             string name;
             if (blueShift == 0 && redShift > greenShift && greenShift > blueShift && blueMax == (1 << greenShift) - 1 && greenMax == (1 << (redShift - greenShift)) - 1
