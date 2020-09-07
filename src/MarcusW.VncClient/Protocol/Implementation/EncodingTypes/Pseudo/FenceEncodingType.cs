@@ -6,7 +6,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
     /// <summary>
     /// A pseudo encoding type to detect server-side support for fences.
     /// </summary>
-    public class FencePseudoEncodingType : PseudoEncodingType
+    public class FenceEncodingType : PseudoEncodingType
     {
         /// <inheritdoc />
         public override int Id => (int)WellKnownEncodingType.Fence;

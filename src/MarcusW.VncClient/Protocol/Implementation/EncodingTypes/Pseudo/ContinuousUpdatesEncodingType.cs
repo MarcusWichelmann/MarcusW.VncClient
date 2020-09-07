@@ -6,7 +6,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
     /// <summary>
     /// A pseudo encoding type to detect server-side support for continuous updates.
     /// </summary>
-    public class ContinuousUpdatesPseudoEncodingType : PseudoEncodingType
+    public class ContinuousUpdatesEncodingType : PseudoEncodingType
     {
         /// <inheritdoc />
         public override int Id => (int)WellKnownEncodingType.ContinuousUpdates;

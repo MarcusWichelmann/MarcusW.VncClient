@@ -146,8 +146,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new RawEncodingType();
 
             // Pseudo
-            yield return new FencePseudoEncodingType();
-            yield return new ContinuousUpdatesPseudoEncodingType();
+            yield return new FenceEncodingType();
+            yield return new ContinuousUpdatesEncodingType();
         }
     }
 }
