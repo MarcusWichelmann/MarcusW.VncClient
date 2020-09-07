@@ -17,6 +17,8 @@ namespace MarcusW.VncClient.Tests
         private readonly Mock<IRfbHandshaker> _rfbHandshakerMock;
         private readonly Mock<IRfbInitializer> _rfbInitializerMock;
         private readonly Mock<IRfbMessageReceiver> _messageReceiverMock;
+        private readonly Mock<IRfbMessageSender> _messageSenderMock;
+        private readonly Mock<IRfbProtocolState> _protocolStateMock;
 
         private readonly Mock<IRfbProtocolImplementation> _protocolMock;
 
@@ -30,12 +32,16 @@ namespace MarcusW.VncClient.Tests
             _rfbInitializerMock.Setup(i => i.InitializeAsync(It.IsAny<CancellationToken>()));
 
             _messageReceiverMock = new Mock<IRfbMessageReceiver>();
+            _messageSenderMock = new Mock<IRfbMessageSender>();
+            _protocolStateMock = new Mock<IRfbProtocolState>();
 
             _protocolMock = new Mock<IRfbProtocolImplementation>();
             _protocolMock.Setup(p => p.CreateTransportConnector(It.IsAny<RfbConnectionContext>())).Returns(_transportConnectorMock.Object);
             _protocolMock.Setup(p => p.CreateRfbHandshaker(It.IsAny<RfbConnectionContext>())).Returns(_rfbHandshakerMock.Object);
             _protocolMock.Setup(p => p.CreateRfbInitializer(It.IsAny<RfbConnectionContext>())).Returns(_rfbInitializerMock.Object);
             _protocolMock.Setup(p => p.CreateMessageReceiver(It.IsAny<RfbConnectionContext>())).Returns(_messageReceiverMock.Object);
+            _protocolMock.Setup(p => p.CreateMessageSender(It.IsAny<RfbConnectionContext>())).Returns(_messageSenderMock.Object);
+            _protocolMock.Setup(p => p.CreateStateObject(It.IsAny<RfbConnectionContext>())).Returns(_protocolStateMock.Object);
         }
 
         [Fact]
@@ -54,13 +60,17 @@ namespace MarcusW.VncClient.Tests
             await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState), () => rfbConnection.StartAsync());
             Assert.Equal(ConnectionState.Connected, rfbConnection.ConnectionState);
 
-            // Receive loop should have been started.
+            // Receive and send loops should have been started.
             _messageReceiverMock.Verify(receiver => receiver.StartReceiveLoop());
+            _messageSenderMock.Verify(sender => sender.StartSendLoop());
 
             // Status should update when connection is interrupted
-            Assert.PropertyChanged(rfbConnection, nameof(rfbConnection.ConnectionState), () => {
+            await Assert.PropertyChangedAsync(rfbConnection, nameof(rfbConnection.ConnectionState), () => {
                 // Let's simulate a failure
                 _messageReceiverMock.Raise(receiver => receiver.Failed += null, new BackgroundThreadFailedEventArgs(new Exception("Shit happens.")));
+
+                // Wait a bit because the event handler might run on a different thread
+                return Task.Delay(500);
             });
             Assert.Equal(ConnectionState.Interrupted, rfbConnection.ConnectionState);
 
