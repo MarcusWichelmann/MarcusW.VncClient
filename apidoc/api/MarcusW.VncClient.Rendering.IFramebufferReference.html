@@ -76,12 +76,6 @@
   <div class="markdown level0 summary"><p>A reference to the native framebuffer of the target device. Should be disposed after rendering is finished.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Rendering.html">MarcusW.VncClient.Rendering</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
   <h5 id="MarcusW_VncClient_Rendering_IFramebufferReference_syntax">Syntax</h5>
@@ -116,7 +110,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IntPtr</span></td>
+        <td><span class="xref">IntPtr</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -126,16 +120,16 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferReference_Format.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferReference.Format%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L28">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L23">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Rendering_IFramebufferReference_Format_" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.Format*"></a>
   <h4 id="MarcusW_VncClient_Rendering_IFramebufferReference_Format" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.Format">Format</h4>
-  <div class="markdown level1 summary"><p>Gets the format of how the pixels are stored in memory.</p>
+  <div class="markdown level1 summary"><p>Gets the format of how the pixels are represented in memory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TargetFramebufferFormat Format { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">PixelFormat Format { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,7 +141,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.Rendering.TargetFramebufferFormat.html">TargetFramebufferFormat</a></td>
+        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -157,7 +151,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferReference_HorizontalDpi.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferReference.HorizontalDpi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L33">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L28">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Rendering_IFramebufferReference_HorizontalDpi_" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.HorizontalDpi*"></a>
   <h4 id="MarcusW_VncClient_Rendering_IFramebufferReference_HorizontalDpi" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.HorizontalDpi">HorizontalDpi</h4>
@@ -185,37 +179,6 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferReference_RowBytes.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferReference.RowBytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L23">View Source</a>
-  </span>
-  <a id="MarcusW_VncClient_Rendering_IFramebufferReference_RowBytes_" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.RowBytes*"></a>
-  <h4 id="MarcusW_VncClient_Rendering_IFramebufferReference_RowBytes" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.RowBytes">RowBytes</h4>
-  <div class="markdown level1 summary"><p>Gets the number of bytes per row.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int RowBytes { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferReference_Size.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferReference.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -228,7 +191,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">FrameSize Size { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">Size Size { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -240,7 +203,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.FrameSize.html">FrameSize</a></td>
+        <td><a class="xref" href="MarcusW.VncClient.Size.html">Size</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -250,7 +213,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IFramebufferReference_VerticalDpi.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IFramebufferReference.VerticalDpi%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L38">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IFramebufferReference.cs/#L33">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Rendering_IFramebufferReference_VerticalDpi_" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.VerticalDpi*"></a>
   <h4 id="MarcusW_VncClient_Rendering_IFramebufferReference_VerticalDpi" data-uid="MarcusW.VncClient.Rendering.IFramebufferReference.VerticalDpi">VerticalDpi</h4>

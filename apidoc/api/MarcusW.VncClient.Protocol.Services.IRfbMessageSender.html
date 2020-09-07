@@ -73,15 +73,299 @@
   
   <h1 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender" class="text-break">Interface IRfbMessageSender
   </h1>
-  <div class="markdown level0 summary"><p>Provides methods for sending RFB protocol messages.</p>
+  <div class="markdown level0 summary"><p>Describes a background thread that sends queued messages and provides methods to add messages to the send queue.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Utils.IBackgroundThread.html#MarcusW_VncClient_Utils_IBackgroundThread_Failed">IBackgroundThread.Failed</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.html">MarcusW.VncClient.Protocol.Services</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
   <h5 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IRfbMessageSender</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IRfbMessageSender : IBackgroundThread, IDisposable</code></pre>
   </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueInitialMessages_CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender.EnqueueInitialMessages(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L27">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueInitialMessages_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.EnqueueInitialMessages*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueInitialMessages_CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.EnqueueInitialMessages(CancellationToken)">EnqueueInitialMessages(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Enqueues some initial messages to get things rolling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnqueueInitialMessages(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueMessage__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender.EnqueueMessage%60%601(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L36">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueMessage_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.EnqueueMessage*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueMessage__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.EnqueueMessage``1(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage{``0},CancellationToken)">EnqueueMessage&lt;TMessageType&gt;(IOutgoingMessage&lt;TMessageType&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds the <code data-dev-comment-type="paramref" class="paramref">message</code> to the send queue and returns without waiting for it being sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnqueueMessage&lt;TMessageType&gt;(IOutgoingMessage&lt;TMessageType&gt; message, CancellationToken cancellationToken = null)
+    where TMessageType : class, IOutgoingMessageType</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html">IOutgoingMessage</a>&lt;TMessageType&gt;</td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMessageType</span></td>
+        <td><p>The type of the message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_EnqueueMessage__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <a class="xref" href="MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_UsedMessageTypes">UsedMessageTypes</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWait__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender.SendMessageAndWait%60%601(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L45">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWait_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.SendMessageAndWait*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWait__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.SendMessageAndWait``1(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage{``0},CancellationToken)">SendMessageAndWait&lt;TMessageType&gt;(IOutgoingMessage&lt;TMessageType&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds the <code data-dev-comment-type="paramref" class="paramref">message</code> to the send queue and waits synchronously for the message being sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SendMessageAndWait&lt;TMessageType&gt;(IOutgoingMessage&lt;TMessageType&gt; message, CancellationToken cancellationToken = null)
+    where TMessageType : class, IOutgoingMessageType</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html">IOutgoingMessage</a>&lt;TMessageType&gt;</td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMessageType</span></td>
+        <td><p>The type of the message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWait__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <a class="xref" href="MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_UsedMessageTypes">UsedMessageTypes</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWaitAsync__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender.SendMessageAndWaitAsync%60%601(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L54">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWaitAsync_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.SendMessageAndWaitAsync*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWaitAsync__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.SendMessageAndWaitAsync``1(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage{``0},CancellationToken)">SendMessageAndWaitAsync&lt;TMessageType&gt;(IOutgoingMessage&lt;TMessageType&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds the <code data-dev-comment-type="paramref" class="paramref">message</code> to the send queue and returns a <see cref="!:Task"></see> that completes when the message was sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SendMessageAndWaitAsync&lt;TMessageType&gt;(IOutgoingMessage&lt;TMessageType&gt; message, CancellationToken cancellationToken = null)
+    where TMessageType : class, IOutgoingMessageType</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html">IOutgoingMessage</a>&lt;TMessageType&gt;</td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMessageType</span></td>
+        <td><p>The type of the message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_SendMessageAndWaitAsync__1_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage___0__CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <a class="xref" href="MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_UsedMessageTypes">UsedMessageTypes</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender_StartSendLoop.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender.StartSendLoop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L16">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_StartSendLoop_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.StartSendLoop*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_StartSendLoop" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.StartSendLoop">StartSendLoop()</h4>
+  <div class="markdown level1 summary"><p>Starts the send loop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void StartSendLoop()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender_StopSendLoopAsync.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender.StopSendLoopAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L21">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_StopSendLoopAsync_" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.StopSendLoopAsync*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IRfbMessageSender_StopSendLoopAsync" data-uid="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.StopSendLoopAsync">StopSendLoopAsync()</h4>
+  <div class="markdown level1 summary"><p>Stops the send loop and waits for completion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task StopSendLoopAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -93,7 +377,7 @@
                     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IRfbMessageSender.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IRfbMessageSender%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IRfbMessageSender.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

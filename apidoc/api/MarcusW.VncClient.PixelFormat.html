@@ -78,22 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a>&gt;</div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.ValueType.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a>&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.html">MarcusW.VncClient</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
@@ -105,19 +90,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat__ctor_System_Byte_System_Byte_System_Boolean_System_Boolean_System_UInt16_System_UInt16_System_UInt16_System_Byte_System_Byte_System_Byte_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.%23ctor(System.Byte%2CSystem.Byte%2CSystem.Boolean%2CSystem.Boolean%2CSystem.UInt16%2CSystem.UInt16%2CSystem.UInt16%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat__ctor_System_String_System_Byte_System_Byte_System_Boolean_System_Boolean_System_Boolean_System_UInt16_System_UInt16_System_UInt16_System_UInt16_System_Byte_System_Byte_System_Byte_System_Byte_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.%23ctor(System.String%2CSystem.Byte%2CSystem.Byte%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.UInt16%2CSystem.UInt16%2CSystem.UInt16%2CSystem.UInt16%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L101">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L111">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat__ctor_" data-uid="MarcusW.VncClient.PixelFormat.#ctor*"></a>
-  <h4 id="MarcusW_VncClient_PixelFormat__ctor_System_Byte_System_Byte_System_Boolean_System_Boolean_System_UInt16_System_UInt16_System_UInt16_System_Byte_System_Byte_System_Byte_" data-uid="MarcusW.VncClient.PixelFormat.#ctor(System.Byte,System.Byte,System.Boolean,System.Boolean,System.UInt16,System.UInt16,System.UInt16,System.Byte,System.Byte,System.Byte)">PixelFormat(Byte, Byte, Boolean, Boolean, UInt16, UInt16, UInt16, Byte, Byte, Byte)</h4>
+  <h4 id="MarcusW_VncClient_PixelFormat__ctor_System_String_System_Byte_System_Byte_System_Boolean_System_Boolean_System_Boolean_System_UInt16_System_UInt16_System_UInt16_System_UInt16_System_Byte_System_Byte_System_Byte_System_Byte_" data-uid="MarcusW.VncClient.PixelFormat.#ctor(System.String,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.Byte,System.Byte,System.Byte,System.Byte)">PixelFormat(String, Byte, Byte, Boolean, Boolean, Boolean, UInt16, UInt16, UInt16, UInt16, Byte, Byte, Byte, Byte)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a> structure.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PixelFormat(byte bitsPerPixel, byte depth, bool bigEndian, bool trueColor, ushort redMax, ushort greenMax, ushort blueMax, byte redShift, byte greenShift, byte blueShift)</code></pre>
+    <pre><code class="lang-csharp hljs">public PixelFormat(string name, byte bitsPerPixel, byte depth, bool bigEndian, bool trueColor, bool hasAlpha, ushort redMax, ushort greenMax, ushort blueMax, ushort alphaMax, byte redShift, byte greenShift, byte blueShift, byte alphaShift)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -129,6 +114,12 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the pixel format.</p>
+</td>
+      </tr>
       <tr>
         <td><span class="xref">System.Byte</span></td>
         <td><span class="parametername">bitsPerPixel</span></td>
@@ -154,6 +145,12 @@
 </td>
       </tr>
       <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hasAlpha</span></td>
+        <td><p>True if this pixel format contains an alpha channel, otherwise false.</p>
+</td>
+      </tr>
+      <tr>
         <td><span class="xref">System.UInt16</span></td>
         <td><span class="parametername">redMax</span></td>
         <td><p>The maximum value for the color red.</p>
@@ -169,6 +166,12 @@
         <td><span class="xref">System.UInt16</span></td>
         <td><span class="parametername">blueMax</span></td>
         <td><p>The maximum value for the color blue.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td><span class="parametername">alphaMax</span></td>
+        <td><p>The maximum value for the alpha value.</p>
 </td>
       </tr>
       <tr>
@@ -189,300 +192,16 @@
         <td><p>The number of right-shifts needed to get the blue value in a pixel.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">alphaShift</span></td>
+        <td><p>The number of right-shifts needed to get the alpha value in a pixel.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="fields">Fields
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BGR111.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BGR111%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L22">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_BGR111" data-uid="MarcusW.VncClient.PixelFormat.BGR111">BGR111</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat BGR111</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BGR222.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BGR222%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L25">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_BGR222" data-uid="MarcusW.VncClient.PixelFormat.BGR222">BGR222</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat BGR222</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BGR332.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BGR332%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L28">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_BGR332" data-uid="MarcusW.VncClient.PixelFormat.BGR332">BGR332</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat BGR332</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BGR565.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BGR565%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L31">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_BGR565" data-uid="MarcusW.VncClient.PixelFormat.BGR565">BGR565</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat BGR565</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BGR888.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BGR888%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L34">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_BGR888" data-uid="MarcusW.VncClient.PixelFormat.BGR888">BGR888</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat BGR888</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RGB111.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RGB111%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L21">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_RGB111" data-uid="MarcusW.VncClient.PixelFormat.RGB111">RGB111</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat RGB111</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RGB222.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RGB222%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L24">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_RGB222" data-uid="MarcusW.VncClient.PixelFormat.RGB222">RGB222</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat RGB222</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RGB332.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RGB332%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L27">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_RGB332" data-uid="MarcusW.VncClient.PixelFormat.RGB332">RGB332</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat RGB332</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RGB565.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RGB565%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L30">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_RGB565" data-uid="MarcusW.VncClient.PixelFormat.RGB565">RGB565</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat RGB565</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RGB888.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RGB888%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L33">View Source</a>
-  </span>
-  <h4 id="MarcusW_VncClient_PixelFormat_RGB888" data-uid="MarcusW.VncClient.PixelFormat.RGB888">RGB888</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly PixelFormat RGB888</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.PixelFormat.html">PixelFormat</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_Unknown.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.Unknown%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -517,10 +236,72 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_AlphaMax.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.AlphaMax%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L67">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_PixelFormat_AlphaMax_" data-uid="MarcusW.VncClient.PixelFormat.AlphaMax*"></a>
+  <h4 id="MarcusW_VncClient_PixelFormat_AlphaMax" data-uid="MarcusW.VncClient.PixelFormat.AlphaMax">AlphaMax</h4>
+  <div class="markdown level1 summary"><p>Gets the maximum value for the alpha value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort AlphaMax { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_AlphaShift.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.AlphaShift%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L87">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_PixelFormat_AlphaShift_" data-uid="MarcusW.VncClient.PixelFormat.AlphaShift*"></a>
+  <h4 id="MarcusW_VncClient_PixelFormat_AlphaShift" data-uid="MarcusW.VncClient.PixelFormat.AlphaShift">AlphaShift</h4>
+  <div class="markdown level1 summary"><p>Gets the number of right-shifts needed to get the alpha value in a pixel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte AlphaShift { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BigEndian.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BigEndian%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L51">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L37">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_BigEndian_" data-uid="MarcusW.VncClient.PixelFormat.BigEndian*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_BigEndian" data-uid="MarcusW.VncClient.PixelFormat.BigEndian">BigEndian</h4>
@@ -551,7 +332,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BitsPerPixel.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BitsPerPixel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L41">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L27">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_BitsPerPixel_" data-uid="MarcusW.VncClient.PixelFormat.BitsPerPixel*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_BitsPerPixel" data-uid="MarcusW.VncClient.PixelFormat.BitsPerPixel">BitsPerPixel</h4>
@@ -582,7 +363,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BlueMax.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BlueMax%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L71">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L62">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_BlueMax_" data-uid="MarcusW.VncClient.PixelFormat.BlueMax*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_BlueMax" data-uid="MarcusW.VncClient.PixelFormat.BlueMax">BlueMax</h4>
@@ -613,7 +394,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BlueShift.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BlueShift%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L86">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L82">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_BlueShift_" data-uid="MarcusW.VncClient.PixelFormat.BlueShift*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_BlueShift" data-uid="MarcusW.VncClient.PixelFormat.BlueShift">BlueShift</h4>
@@ -641,10 +422,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_BytesPerPixel.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.BytesPerPixel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L92">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_PixelFormat_BytesPerPixel_" data-uid="MarcusW.VncClient.PixelFormat.BytesPerPixel*"></a>
+  <h4 id="MarcusW_VncClient_PixelFormat_BytesPerPixel" data-uid="MarcusW.VncClient.PixelFormat.BytesPerPixel">BytesPerPixel</h4>
+  <div class="markdown level1 summary"><p>Gets the number of bytes used for each pixel on the wire.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte BytesPerPixel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_Depth.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.Depth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L46">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L32">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_Depth_" data-uid="MarcusW.VncClient.PixelFormat.Depth*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_Depth" data-uid="MarcusW.VncClient.PixelFormat.Depth">Depth</h4>
@@ -675,7 +487,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_GreenMax.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.GreenMax%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L66">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L57">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_GreenMax_" data-uid="MarcusW.VncClient.PixelFormat.GreenMax*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_GreenMax" data-uid="MarcusW.VncClient.PixelFormat.GreenMax">GreenMax</h4>
@@ -706,7 +518,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_GreenShift.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.GreenShift%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L81">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L77">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_GreenShift_" data-uid="MarcusW.VncClient.PixelFormat.GreenShift*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_GreenShift" data-uid="MarcusW.VncClient.PixelFormat.GreenShift">GreenShift</h4>
@@ -734,10 +546,72 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_HasAlpha.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.HasAlpha%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L47">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_PixelFormat_HasAlpha_" data-uid="MarcusW.VncClient.PixelFormat.HasAlpha*"></a>
+  <h4 id="MarcusW_VncClient_PixelFormat_HasAlpha" data-uid="MarcusW.VncClient.PixelFormat.HasAlpha">HasAlpha</h4>
+  <div class="markdown level1 summary"><p>Gets whether this pixel format contains an alpha channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAlpha { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_Name.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L22">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_PixelFormat_Name_" data-uid="MarcusW.VncClient.PixelFormat.Name*"></a>
+  <h4 id="MarcusW_VncClient_PixelFormat_Name" data-uid="MarcusW.VncClient.PixelFormat.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets the name of this pixel format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RedMax.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RedMax%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L61">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L52">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_RedMax_" data-uid="MarcusW.VncClient.PixelFormat.RedMax*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_RedMax" data-uid="MarcusW.VncClient.PixelFormat.RedMax">RedMax</h4>
@@ -768,7 +642,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_RedShift.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.RedShift%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L76">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L72">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_RedShift_" data-uid="MarcusW.VncClient.PixelFormat.RedShift*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_RedShift" data-uid="MarcusW.VncClient.PixelFormat.RedShift">RedShift</h4>
@@ -799,7 +673,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_TrueColor.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.TrueColor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L56">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L42">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_TrueColor_" data-uid="MarcusW.VncClient.PixelFormat.TrueColor*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_TrueColor" data-uid="MarcusW.VncClient.PixelFormat.TrueColor">TrueColor</h4>
@@ -832,7 +706,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_Equals_MarcusW_VncClient_PixelFormat_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.Equals(MarcusW.VncClient.PixelFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L133">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L147">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_Equals_" data-uid="MarcusW.VncClient.PixelFormat.Equals*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_Equals_MarcusW_VncClient_PixelFormat_" data-uid="MarcusW.VncClient.PixelFormat.Equals(MarcusW.VncClient.PixelFormat)">Equals(PixelFormat)</h4>
@@ -879,7 +753,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L138">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L164">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_Equals_" data-uid="MarcusW.VncClient.PixelFormat.Equals*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_Equals_System_Nullable_System_Object__" data-uid="MarcusW.VncClient.PixelFormat.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
@@ -926,7 +800,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_GetHashCode.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L141">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L167">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_GetHashCode_" data-uid="MarcusW.VncClient.PixelFormat.GetHashCode*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_GetHashCode" data-uid="MarcusW.VncClient.PixelFormat.GetHashCode">GetHashCode()</h4>
@@ -951,46 +825,12 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_ToShortString.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.ToShortString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L167">View Source</a>
-  </span>
-  <a id="MarcusW_VncClient_PixelFormat_ToShortString_" data-uid="MarcusW.VncClient.PixelFormat.ToShortString*"></a>
-  <h4 id="MarcusW_VncClient_PixelFormat_ToShortString" data-uid="MarcusW.VncClient.PixelFormat.ToShortString">ToShortString()</h4>
-  <div class="markdown level1 summary"><p>Gets a short string representation of this format (like RGB888).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToShortString()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>A short string.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_ToString.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L158">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L187">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_ToString_" data-uid="MarcusW.VncClient.PixelFormat.ToString*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_ToString" data-uid="MarcusW.VncClient.PixelFormat.ToString">ToString()</h4>
@@ -1015,8 +855,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.ToString()</span></div>
   <h3 id="operators">Operators
   </h3>
   <span class="small pull-right mobile-hide">
@@ -1024,7 +862,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_op_Equality_MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.op_Equality(MarcusW.VncClient.PixelFormat%2CMarcusW.VncClient.PixelFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L122">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L136">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_op_Equality_" data-uid="MarcusW.VncClient.PixelFormat.op_Equality*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_op_Equality_MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat_" data-uid="MarcusW.VncClient.PixelFormat.op_Equality(MarcusW.VncClient.PixelFormat,MarcusW.VncClient.PixelFormat)">Equality(PixelFormat, PixelFormat)</h4>
@@ -1080,7 +918,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_PixelFormat_op_Inequality_MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.PixelFormat.op_Inequality(MarcusW.VncClient.PixelFormat%2CMarcusW.VncClient.PixelFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L130">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/PixelFormat.cs/#L144">View Source</a>
   </span>
   <a id="MarcusW_VncClient_PixelFormat_op_Inequality_" data-uid="MarcusW.VncClient.PixelFormat.op_Inequality*"></a>
   <h4 id="MarcusW_VncClient_PixelFormat_op_Inequality_MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat_" data-uid="MarcusW.VncClient.PixelFormat.op_Inequality(MarcusW.VncClient.PixelFormat,MarcusW.VncClient.PixelFormat)">Inequality(PixelFormat, PixelFormat)</h4>
@@ -1133,7 +971,7 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IEquatable&lt;T&gt;</span>
+      <span class="xref">IEquatable&lt;&gt;</span>
   </div>
 </article>
           </div>
