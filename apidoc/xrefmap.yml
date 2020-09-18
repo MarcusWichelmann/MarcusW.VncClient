@@ -386,6 +386,138 @@ references:
   commentId: F:MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   fullName: MarcusW.VncClient.Avalonia.VncView.ConnectionProperty
   nameWithType: VncView.ConnectionProperty
+- uid: MarcusW.VncClient.Color
+  name: Color
+  href: api/MarcusW.VncClient.Color.html
+  commentId: T:MarcusW.VncClient.Color
+  fullName: MarcusW.VncClient.Color
+  nameWithType: Color
+- uid: MarcusW.VncClient.Color.#ctor(System.Byte,System.Byte,System.Byte)
+  name: Color(Byte, Byte, Byte)
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color__ctor_System_Byte_System_Byte_System_Byte_
+  commentId: M:MarcusW.VncClient.Color.#ctor(System.Byte,System.Byte,System.Byte)
+  fullName: MarcusW.VncClient.Color.Color(System.Byte, System.Byte, System.Byte)
+  nameWithType: Color.Color(Byte, Byte, Byte)
+- uid: MarcusW.VncClient.Color.#ctor*
+  name: Color
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color__ctor_
+  commentId: Overload:MarcusW.VncClient.Color.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.Color
+  nameWithType: Color.Color
+- uid: MarcusW.VncClient.Color.B
+  name: B
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_B
+  commentId: P:MarcusW.VncClient.Color.B
+  fullName: MarcusW.VncClient.Color.B
+  nameWithType: Color.B
+- uid: MarcusW.VncClient.Color.B*
+  name: B
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_B_
+  commentId: Overload:MarcusW.VncClient.Color.B
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.B
+  nameWithType: Color.B
+- uid: MarcusW.VncClient.Color.Equals(MarcusW.VncClient.Color)
+  name: Equals(Color)
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_Equals_MarcusW_VncClient_Color_
+  commentId: M:MarcusW.VncClient.Color.Equals(MarcusW.VncClient.Color)
+  fullName: MarcusW.VncClient.Color.Equals(MarcusW.VncClient.Color)
+  nameWithType: Color.Equals(Color)
+- uid: MarcusW.VncClient.Color.Equals(System.Nullable{System.Object})
+  name: Equals(Nullable<Object>)
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_Equals_System_Nullable_System_Object__
+  commentId: M:MarcusW.VncClient.Color.Equals(System.Nullable{System.Object})
+  name.vb: Equals(Nullable(Of Object))
+  fullName: MarcusW.VncClient.Color.Equals(System.Nullable<System.Object>)
+  fullName.vb: MarcusW.VncClient.Color.Equals(System.Nullable(Of System.Object))
+  nameWithType: Color.Equals(Nullable<Object>)
+  nameWithType.vb: Color.Equals(Nullable(Of Object))
+- uid: MarcusW.VncClient.Color.Equals*
+  name: Equals
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_Equals_
+  commentId: Overload:MarcusW.VncClient.Color.Equals
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.Equals
+  nameWithType: Color.Equals
+- uid: MarcusW.VncClient.Color.G
+  name: G
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_G
+  commentId: P:MarcusW.VncClient.Color.G
+  fullName: MarcusW.VncClient.Color.G
+  nameWithType: Color.G
+- uid: MarcusW.VncClient.Color.G*
+  name: G
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_G_
+  commentId: Overload:MarcusW.VncClient.Color.G
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.G
+  nameWithType: Color.G
+- uid: MarcusW.VncClient.Color.GetHashCode
+  name: GetHashCode()
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_GetHashCode
+  commentId: M:MarcusW.VncClient.Color.GetHashCode
+  fullName: MarcusW.VncClient.Color.GetHashCode()
+  nameWithType: Color.GetHashCode()
+- uid: MarcusW.VncClient.Color.GetHashCode*
+  name: GetHashCode
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_GetHashCode_
+  commentId: Overload:MarcusW.VncClient.Color.GetHashCode
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.GetHashCode
+  nameWithType: Color.GetHashCode
+- uid: MarcusW.VncClient.Color.op_Equality(MarcusW.VncClient.Color,MarcusW.VncClient.Color)
+  name: Equality(Color, Color)
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_op_Equality_MarcusW_VncClient_Color_MarcusW_VncClient_Color_
+  commentId: M:MarcusW.VncClient.Color.op_Equality(MarcusW.VncClient.Color,MarcusW.VncClient.Color)
+  fullName: MarcusW.VncClient.Color.Equality(MarcusW.VncClient.Color, MarcusW.VncClient.Color)
+  nameWithType: Color.Equality(Color, Color)
+- uid: MarcusW.VncClient.Color.op_Equality*
+  name: Equality
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_op_Equality_
+  commentId: Overload:MarcusW.VncClient.Color.op_Equality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.Equality
+  nameWithType: Color.Equality
+- uid: MarcusW.VncClient.Color.op_Inequality(MarcusW.VncClient.Color,MarcusW.VncClient.Color)
+  name: Inequality(Color, Color)
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_op_Inequality_MarcusW_VncClient_Color_MarcusW_VncClient_Color_
+  commentId: M:MarcusW.VncClient.Color.op_Inequality(MarcusW.VncClient.Color,MarcusW.VncClient.Color)
+  fullName: MarcusW.VncClient.Color.Inequality(MarcusW.VncClient.Color, MarcusW.VncClient.Color)
+  nameWithType: Color.Inequality(Color, Color)
+- uid: MarcusW.VncClient.Color.op_Inequality*
+  name: Inequality
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_op_Inequality_
+  commentId: Overload:MarcusW.VncClient.Color.op_Inequality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.Inequality
+  nameWithType: Color.Inequality
+- uid: MarcusW.VncClient.Color.R
+  name: R
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_R
+  commentId: P:MarcusW.VncClient.Color.R
+  fullName: MarcusW.VncClient.Color.R
+  nameWithType: Color.R
+- uid: MarcusW.VncClient.Color.R*
+  name: R
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_R_
+  commentId: Overload:MarcusW.VncClient.Color.R
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.R
+  nameWithType: Color.R
+- uid: MarcusW.VncClient.Color.ToString
+  name: ToString()
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_ToString
+  commentId: M:MarcusW.VncClient.Color.ToString
+  fullName: MarcusW.VncClient.Color.ToString()
+  nameWithType: Color.ToString()
+- uid: MarcusW.VncClient.Color.ToString*
+  name: ToString
+  href: api/MarcusW.VncClient.Color.html#MarcusW_VncClient_Color_ToString_
+  commentId: Overload:MarcusW.VncClient.Color.ToString
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Color.ToString
+  nameWithType: Color.ToString
 - uid: MarcusW.VncClient.ConnectionState
   name: ConnectionState
   href: api/MarcusW.VncClient.ConnectionState.html
@@ -843,6 +975,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.PixelFormat.Inequality
   nameWithType: PixelFormat.Inequality
+- uid: MarcusW.VncClient.PixelFormat.Plain
+  name: Plain
+  href: api/MarcusW.VncClient.PixelFormat.html#MarcusW_VncClient_PixelFormat_Plain
+  commentId: F:MarcusW.VncClient.PixelFormat.Plain
+  fullName: MarcusW.VncClient.PixelFormat.Plain
+  nameWithType: PixelFormat.Plain
 - uid: MarcusW.VncClient.PixelFormat.RedMax
   name: RedMax
   href: api/MarcusW.VncClient.PixelFormat.html#MarcusW_VncClient_PixelFormat_RedMax
@@ -1118,6 +1256,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding
   nameWithType: IFrameEncodingType.ReadFrameEncoding
+- uid: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.VisualizationColor
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IFrameEncodingType_VisualizationColor
+  commentId: P:MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.VisualizationColor
+  fullName: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.VisualizationColor
+  nameWithType: IFrameEncodingType.VisualizationColor
+- uid: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.VisualizationColor*
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IFrameEncodingType_VisualizationColor_
+  commentId: Overload:MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.VisualizationColor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.VisualizationColor
+  nameWithType: IFrameEncodingType.VisualizationColor
 - uid: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType
   name: IPseudoEncodingType
   href: api/MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.html
@@ -1506,127 +1657,6 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType
   nameWithType: FrameEncodingType
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor
-  name: FrameEncodingType.FramebufferCursor
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html
-  commentId: T:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor
-  nameWithType: FrameEncodingType.FramebufferCursor
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.#ctor(MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@)
-  name: FramebufferCursor(IFramebufferReference, Rectangle)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor__ctor_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.#ctor(MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@)
-  name.vb: FramebufferCursor(IFramebufferReference, ByRef Rectangle)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.FramebufferCursor(MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.FramebufferCursor(MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle)
-  nameWithType: FrameEncodingType.FramebufferCursor.FramebufferCursor(IFramebufferReference, Rectangle)
-  nameWithType.vb: FrameEncodingType.FramebufferCursor.FramebufferCursor(IFramebufferReference, ByRef Rectangle)
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.#ctor(System.Byte*,MarcusW.VncClient.PixelFormat@,MarcusW.VncClient.Size@,MarcusW.VncClient.Rectangle@)
-  name: FramebufferCursor(Byte*, PixelFormat, Size, Rectangle)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor__ctor_System_Byte__MarcusW_VncClient_PixelFormat__MarcusW_VncClient_Size__MarcusW_VncClient_Rectangle__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.#ctor(System.Byte*,MarcusW.VncClient.PixelFormat@,MarcusW.VncClient.Size@,MarcusW.VncClient.Rectangle@)
-  name.vb: FramebufferCursor(Byte*, ByRef PixelFormat, ByRef Size, ByRef Rectangle)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.FramebufferCursor(System.Byte*, MarcusW.VncClient.PixelFormat, MarcusW.VncClient.Size, MarcusW.VncClient.Rectangle)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.FramebufferCursor(System.Byte*, ByRef MarcusW.VncClient.PixelFormat, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.Rectangle)
-  nameWithType: FrameEncodingType.FramebufferCursor.FramebufferCursor(Byte*, PixelFormat, Size, Rectangle)
-  nameWithType.vb: FrameEncodingType.FramebufferCursor.FramebufferCursor(Byte*, ByRef PixelFormat, ByRef Size, ByRef Rectangle)
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.#ctor*
-  name: FramebufferCursor
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor__ctor_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.#ctor
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.FramebufferCursor
-  nameWithType: FrameEncodingType.FramebufferCursor.FramebufferCursor
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  name: Equals(FrameEncodingType.FramebufferCursor)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_Equals_MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  nameWithType: FrameEncodingType.FramebufferCursor.Equals(FrameEncodingType.FramebufferCursor)
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_Equals_System_Nullable_System_Object__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(System.Nullable<System.Object>)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals(System.Nullable(Of System.Object))
-  nameWithType: FrameEncodingType.FramebufferCursor.Equals(Nullable<Object>)
-  nameWithType.vb: FrameEncodingType.FramebufferCursor.Equals(Nullable(Of Object))
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals*
-  name: Equals
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_Equals_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equals
-  nameWithType: FrameEncodingType.FramebufferCursor.Equals
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.GetHashCode
-  name: GetHashCode()
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_GetHashCode
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.GetHashCode
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.GetHashCode()
-  nameWithType: FrameEncodingType.FramebufferCursor.GetHashCode()
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.GetHashCode*
-  name: GetHashCode
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_GetHashCode_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.GetHashCode
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.GetHashCode
-  nameWithType: FrameEncodingType.FramebufferCursor.GetHashCode
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Equality(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  name: Equality(FrameEncodingType.FramebufferCursor, FrameEncodingType.FramebufferCursor)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_op_Equality_MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Equality(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equality(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor, MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  nameWithType: FrameEncodingType.FramebufferCursor.Equality(FrameEncodingType.FramebufferCursor, FrameEncodingType.FramebufferCursor)
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Equality*
-  name: Equality
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_op_Equality_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Equality
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Equality
-  nameWithType: FrameEncodingType.FramebufferCursor.Equality
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Inequality(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  name: Inequality(FrameEncodingType.FramebufferCursor, FrameEncodingType.FramebufferCursor)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_op_Inequality_MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Inequality(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Inequality(MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor, MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor)
-  nameWithType: FrameEncodingType.FramebufferCursor.Inequality(FrameEncodingType.FramebufferCursor, FrameEncodingType.FramebufferCursor)
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Inequality*
-  name: Inequality
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_op_Inequality_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.op_Inequality
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.Inequality
-  nameWithType: FrameEncodingType.FramebufferCursor.Inequality
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel(System.Byte*,MarcusW.VncClient.PixelFormat@)
-  name: SetPixel(Byte*, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_SetPixel_System_Byte__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel(System.Byte*,MarcusW.VncClient.PixelFormat@)
-  name.vb: SetPixel(Byte*, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel(System.Byte*, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel(System.Byte*, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: FrameEncodingType.FramebufferCursor.SetPixel(Byte*, PixelFormat)
-  nameWithType.vb: FrameEncodingType.FramebufferCursor.SetPixel(Byte*, ByRef PixelFormat)
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel*
-  name: SetPixel
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_SetPixel_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.SetPixel
-  nameWithType: FrameEncodingType.FramebufferCursor.SetPixel
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.TryMoveNext
-  name: TryMoveNext()
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_TryMoveNext
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.TryMoveNext
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.TryMoveNext()
-  nameWithType: FrameEncodingType.FramebufferCursor.TryMoveNext()
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.TryMoveNext*
-  name: TryMoveNext
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_FramebufferCursor_TryMoveNext_
-  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.TryMoveNext
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.FramebufferCursor.TryMoveNext
-  nameWithType: FrameEncodingType.FramebufferCursor.TryMoveNext
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.GetsConfirmed
   name: GetsConfirmed
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_GetsConfirmed
@@ -1695,6 +1725,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding
   nameWithType: FrameEncodingType.ReadFrameEncoding
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.VisualizationColor
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_VisualizationColor
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.VisualizationColor
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.VisualizationColor
+  nameWithType: FrameEncodingType.VisualizationColor
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.VisualizationColor*
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_VisualizationColor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.VisualizationColor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.VisualizationColor
+  nameWithType: FrameEncodingType.VisualizationColor
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType
   name: RawEncodingType
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.html
@@ -1769,6 +1812,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding
   nameWithType: RawEncodingType.ReadFrameEncoding
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.VisualizationColor
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_RawEncodingType_VisualizationColor
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.VisualizationColor
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.VisualizationColor
+  nameWithType: RawEncodingType.VisualizationColor
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.VisualizationColor*
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_RawEncodingType_VisualizationColor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.VisualizationColor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.VisualizationColor
+  nameWithType: RawEncodingType.VisualizationColor
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType
   name: ZLibEncodingType
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html
@@ -1856,6 +1912,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding
   nameWithType: ZLibEncodingType.ReadFrameEncoding
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.VisualizationColor
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_VisualizationColor
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.VisualizationColor
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.VisualizationColor
+  nameWithType: ZLibEncodingType.VisualizationColor
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.VisualizationColor*
+  name: VisualizationColor
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_VisualizationColor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.VisualizationColor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.VisualizationColor
+  nameWithType: ZLibEncodingType.VisualizationColor
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
   name: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.html
@@ -2155,6 +2224,146 @@ references:
   commentId: F:MarcusW.VncClient.Protocol.Implementation.FenceFlags.SyncNext
   fullName: MarcusW.VncClient.Protocol.Implementation.FenceFlags.SyncNext
   nameWithType: FenceFlags.SyncNext
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor
+  name: FramebufferCursor
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor
+  nameWithType: FramebufferCursor
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.#ctor(MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@)
+  name: FramebufferCursor(IFramebufferReference, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor__ctor_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.#ctor(MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@)
+  name.vb: FramebufferCursor(IFramebufferReference, ByRef Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.FramebufferCursor(MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.FramebufferCursor(MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle)
+  nameWithType: FramebufferCursor.FramebufferCursor(IFramebufferReference, Rectangle)
+  nameWithType.vb: FramebufferCursor.FramebufferCursor(IFramebufferReference, ByRef Rectangle)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.#ctor(System.Byte*,MarcusW.VncClient.PixelFormat@,MarcusW.VncClient.Size@,MarcusW.VncClient.Rectangle@)
+  name: FramebufferCursor(Byte*, PixelFormat, Size, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor__ctor_System_Byte__MarcusW_VncClient_PixelFormat__MarcusW_VncClient_Size__MarcusW_VncClient_Rectangle__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.#ctor(System.Byte*,MarcusW.VncClient.PixelFormat@,MarcusW.VncClient.Size@,MarcusW.VncClient.Rectangle@)
+  name.vb: FramebufferCursor(Byte*, ByRef PixelFormat, ByRef Size, ByRef Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.FramebufferCursor(System.Byte*, MarcusW.VncClient.PixelFormat, MarcusW.VncClient.Size, MarcusW.VncClient.Rectangle)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.FramebufferCursor(System.Byte*, ByRef MarcusW.VncClient.PixelFormat, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.Rectangle)
+  nameWithType: FramebufferCursor.FramebufferCursor(Byte*, PixelFormat, Size, Rectangle)
+  nameWithType.vb: FramebufferCursor.FramebufferCursor(Byte*, ByRef PixelFormat, ByRef Size, ByRef Rectangle)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.#ctor*
+  name: FramebufferCursor
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.FramebufferCursor
+  nameWithType: FramebufferCursor.FramebufferCursor
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  name: Equals(FramebufferCursor)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_Equals_MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  nameWithType: FramebufferCursor.Equals(FramebufferCursor)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(System.Nullable{System.Object})
+  name: Equals(Nullable<Object>)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_Equals_System_Nullable_System_Object__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(System.Nullable{System.Object})
+  name.vb: Equals(Nullable(Of Object))
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(System.Nullable<System.Object>)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals(System.Nullable(Of System.Object))
+  nameWithType: FramebufferCursor.Equals(Nullable<Object>)
+  nameWithType.vb: FramebufferCursor.Equals(Nullable(Of Object))
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals*
+  name: Equals
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_Equals_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equals
+  nameWithType: FramebufferCursor.Equals
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.GetHashCode
+  name: GetHashCode()
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_GetHashCode
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.GetHashCode
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.GetHashCode()
+  nameWithType: FramebufferCursor.GetHashCode()
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.GetHashCode*
+  name: GetHashCode
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_GetHashCode_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.GetHashCode
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.GetHashCode
+  nameWithType: FramebufferCursor.GetHashCode
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Equality(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  name: Equality(FramebufferCursor, FramebufferCursor)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_op_Equality_MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Equality(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equality(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor, MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  nameWithType: FramebufferCursor.Equality(FramebufferCursor, FramebufferCursor)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Equality*
+  name: Equality
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_op_Equality_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Equality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Equality
+  nameWithType: FramebufferCursor.Equality
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Inequality(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  name: Inequality(FramebufferCursor, FramebufferCursor)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_op_Inequality_MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Inequality(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor,MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Inequality(MarcusW.VncClient.Protocol.Implementation.FramebufferCursor, MarcusW.VncClient.Protocol.Implementation.FramebufferCursor)
+  nameWithType: FramebufferCursor.Inequality(FramebufferCursor, FramebufferCursor)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Inequality*
+  name: Inequality
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_op_Inequality_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.op_Inequality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.Inequality
+  nameWithType: FramebufferCursor.Inequality
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(MarcusW.VncClient.Color)
+  name: SetPixel(Color)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_SetPixel_MarcusW_VncClient_Color_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(MarcusW.VncClient.Color)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(MarcusW.VncClient.Color)
+  nameWithType: FramebufferCursor.SetPixel(Color)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(System.Byte*,MarcusW.VncClient.PixelFormat@)
+  name: SetPixel(Byte*, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_SetPixel_System_Byte__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(System.Byte*,MarcusW.VncClient.PixelFormat@)
+  name.vb: SetPixel(Byte*, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(System.Byte*, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel(System.Byte*, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: FramebufferCursor.SetPixel(Byte*, PixelFormat)
+  nameWithType.vb: FramebufferCursor.SetPixel(Byte*, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel*
+  name: SetPixel
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_SetPixel_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixel
+  nameWithType: FramebufferCursor.SetPixel
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveForwardInLine(System.Int32)
+  name: TryMoveForwardInLine(Int32)
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_TryMoveForwardInLine_System_Int32_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveForwardInLine(System.Int32)
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveForwardInLine(System.Int32)
+  nameWithType: FramebufferCursor.TryMoveForwardInLine(Int32)
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveForwardInLine*
+  name: TryMoveForwardInLine
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_TryMoveForwardInLine_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveForwardInLine
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveForwardInLine
+  nameWithType: FramebufferCursor.TryMoveForwardInLine
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveNext
+  name: TryMoveNext()
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_TryMoveNext
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveNext
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveNext()
+  nameWithType: FramebufferCursor.TryMoveNext()
+- uid: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveNext*
+  name: TryMoveNext
+  href: api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html#MarcusW_VncClient_Protocol_Implementation_FramebufferCursor_TryMoveNext_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveNext
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.TryMoveNext
+  nameWithType: FramebufferCursor.TryMoveNext
 - uid: MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate
   name: MessagesCollectionBuilderDelegate
   href: api/MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate.html
@@ -5477,6 +5686,12 @@ references:
   commentId: F:MarcusW.VncClient.Rendering.RenderFlags.UpdateByRectangle
   fullName: MarcusW.VncClient.Rendering.RenderFlags.UpdateByRectangle
   nameWithType: RenderFlags.UpdateByRectangle
+- uid: MarcusW.VncClient.Rendering.RenderFlags.VisualizeRectangles
+  name: VisualizeRectangles
+  href: api/MarcusW.VncClient.Rendering.RenderFlags.html#MarcusW_VncClient_Rendering_RenderFlags_VisualizeRectangles
+  commentId: F:MarcusW.VncClient.Rendering.RenderFlags.VisualizeRectangles
+  fullName: MarcusW.VncClient.Rendering.RenderFlags.VisualizeRectangles
+  nameWithType: RenderFlags.VisualizeRectangles
 - uid: MarcusW.VncClient.RfbConnection
   name: RfbConnection
   href: api/MarcusW.VncClient.RfbConnection.html
