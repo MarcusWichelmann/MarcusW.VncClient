@@ -93,6 +93,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <inheritdoc />
         public virtual IRfbMessageSender CreateMessageSender(RfbConnectionContext context) => new RfbMessageSender(context);
 
+        /// <inheritdoc />
+        public IZLibInflater CreateZLibInflater(RfbConnectionContext context) => new ZLibInflater();
+
         /// <summary>
         /// Builds a collection with all RFB security types that are officially supported by this protocol implementation.
         /// Feel free to extend the returned enumerable with custom types.
@@ -144,6 +147,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // Frame
             yield return new RawEncodingType();
+            yield return new ZLibEncodingType(context);
 
             // Pseudo
             yield return new FenceEncodingType();

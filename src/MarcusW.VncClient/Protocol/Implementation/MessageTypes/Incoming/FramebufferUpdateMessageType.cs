@@ -181,7 +181,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             if (_logger.IsEnabled(LogLevel.Debug))
             {
                 _stopwatch.Stop();
-                _logger.LogDebug("Received and rendered/processed {rectangles} rectangles in {milliseconds}ms.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
+                _logger.LogDebug("Received and rendered/processed {rectangles} rectangles in {milliseconds}ms. Please note that debug builds are way less optimized.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
             }
 
             // Ensure more framebuffer updates are coming

@@ -32,6 +32,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
         /// <inheritdoc />
         public bool IsStandardMessageType => false;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServerFenceMessageType"/>.
+        /// </summary>
+        /// <param name="context">The connection context.</param>
         public ServerFenceMessageType(RfbConnectionContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));

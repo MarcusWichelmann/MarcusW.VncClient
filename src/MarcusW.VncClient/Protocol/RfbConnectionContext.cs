@@ -65,6 +65,11 @@ namespace MarcusW.VncClient.Protocol
         /// </summary>
         public IRfbMessageSender? MessageSender { get; internal set; }
 
+        /// <summary>
+        /// Gets the <see cref="IZLibInflater"/> for this connection.
+        /// </summary>
+        public IZLibInflater? ZLibInflater { get; internal set; }
+
         internal RfbConnectionContext(RfbConnection connection)
         {
             Connection = connection;

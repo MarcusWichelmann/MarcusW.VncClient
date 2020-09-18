@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
     /// </summary>
     public static class StreamExtensions
     {
+        private const int DefaultBufferSize = 81920;
+
         /// <summary>
         /// Reads a chunk of bytes from the stream and waits until all bytes are received.
         /// </summary>
@@ -79,20 +82,67 @@ namespace MarcusW.VncClient.Protocol.Implementation
             if (stream == null)
                 throw new ArgumentNullException(nameof(stream));
 
-            Span<byte> buffer = stackalloc byte[1024];
+            // Rent a buffer
+            int bufferSize = numBytes < DefaultBufferSize ? numBytes : DefaultBufferSize;
+            byte[] buffer = ArrayPool<byte>.Shared.Rent(bufferSize);
+            Span<byte> bufferSpan = buffer;
 
-            var bytesRead = 0;
+            int bytesToSkip = numBytes;
             do
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                int read = stream.Read(buffer);
+                // Always slice, because the rented buffer might be larger than requested.
+                int read = stream.Read(bufferSpan.Slice(0, Math.Min(bytesToSkip, bufferSize)));
                 if (read == 0)
                     throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to skip {numBytes} bytes.");
 
-                bytesRead += read;
+                bytesToSkip -= read;
             }
-            while (bytesRead < numBytes);
+            while (bytesToSkip > 0);
+        }
+
+        /// <summary>
+        /// Reads a specified amount of bytes from the current stream and writes them to another stream.
+        /// </summary>
+        /// <param name="stream">The stream to read from.</param>
+        /// <param name="target">The target stream to write to.</param>
+        /// <param name="numBytes">The number of bytes to copy.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        public static void CopyAllTo(this Stream stream, Stream target, int numBytes, CancellationToken cancellationToken = default)
+        {
+            if (stream == null)
+                throw new ArgumentNullException(nameof(stream));
+            if (target == null)
+                throw new ArgumentNullException(nameof(target));
+
+            // Rent a buffer
+            int bufferSize = numBytes < DefaultBufferSize ? numBytes : DefaultBufferSize;
+            byte[] buffer = ArrayPool<byte>.Shared.Rent(bufferSize);
+            Span<byte> bufferSpan = buffer;
+
+            try
+            {
+                int bytesToCopy = numBytes;
+                do
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+
+                    // Always slice, because the rented buffer might be larger than requested.
+                    int read = stream.Read(bufferSpan.Slice(0, Math.Min(bytesToCopy, bufferSize)));
+                    if (read == 0)
+                        throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to skip {numBytes} bytes.");
+
+                    target.Write(bufferSpan.Slice(0, read));
+
+                    bytesToCopy -= read;
+                }
+                while (bytesToCopy > 0);
+            }
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(buffer);
+            }
         }
     }
 }

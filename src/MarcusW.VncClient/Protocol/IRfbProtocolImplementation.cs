@@ -85,5 +85,12 @@ namespace MarcusW.VncClient.Protocol
         /// <param name="context">Details about the associated connection.</param>
         /// <returns>A new instance of the message sender.</returns>
         IRfbMessageSender CreateMessageSender(RfbConnectionContext context);
+
+        /// <summary>
+        /// Creates a new <see cref="IZLibInflater"/>.
+        /// </summary>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>A new instance of the zlib inflater.</returns>
+        IZLibInflater CreateZLibInflater(RfbConnectionContext context);
     }
 }
