@@ -30,6 +30,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         /// <inheritdoc />
         public override bool GetsConfirmed => true;
 
+        /// <inheritdoc />
+        public override Color VisualizationColor => new Color(0, 255, 0);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ZLibEncodingType"/>.
         /// </summary>

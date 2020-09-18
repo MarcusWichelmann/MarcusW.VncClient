@@ -17,6 +17,11 @@ namespace MarcusW.VncClient
         public static readonly PixelFormat Unknown = new PixelFormat("Unknown", 0, 0, false, false, false, 0, 0, 0, 0, 0, 0, 0, 0);
 
         /// <summary>
+        /// A very basic RGBA pixel format.
+        /// </summary>
+        public static readonly PixelFormat Plain = new PixelFormat("Plain RGBA", 32, 32, false, true, true, 255, 255, 255, 255, 24, 16, 8, 0);
+
+        /// <summary>
         /// Gets the name of this pixel format.
         /// </summary>
         public string Name { get; }

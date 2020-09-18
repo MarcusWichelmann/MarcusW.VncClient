@@ -30,6 +30,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public override bool GetsConfirmed => false; // All servers support this encoding type.
 
         /// <inheritdoc />
+        public override Color VisualizationColor => new Color(0, 0, 255);
+
+        /// <inheritdoc />
         public override void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat)
         {

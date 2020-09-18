@@ -25,6 +25,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
         private readonly IImmutableDictionary<int, (IEncodingType encodingType, bool usedPreviously)> _encodingTypesLookup;
 
         private readonly bool _lockTargetByRectangle;
+        private readonly bool _visualizeRectangles;
 
         private readonly Stopwatch _stopwatch = new Stopwatch();
 
@@ -58,6 +59,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             // Should the target framebuffer be locked by rectangle or by frame?
             _lockTargetByRectangle = context.Connection.Parameters.RenderFlags.HasFlag(RenderFlags.UpdateByRectangle);
+
+            // Should rectangles be visualized?
+            _visualizeRectangles = context.Connection.Parameters.RenderFlags.HasFlag(RenderFlags.VisualizeRectangles);
         }
 
         /// <inheritdoc />
@@ -140,6 +144,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                         {
                             // Read frame encoding
                             frameEncodingType.ReadFrameEncoding(transportStream, targetFramebuffer, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
+
+                            // Visualize rectangle
+                            if (targetFramebuffer != null && _visualizeRectangles)
+                                VisualizeRectangle(targetFramebuffer, rectangle, frameEncodingType.VisualizationColor);
                         }
                         finally
                         {
@@ -220,6 +228,46 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             // Request next incremental update
             _context.MessageSender.EnqueueMessage(new FramebufferUpdateRequestMessage(true, wholeScreenRectangle));
+        }
+
+        private void VisualizeRectangle(IFramebufferReference targetFramebuffer, in Rectangle rectangle, Color color)
+        {
+            const int borderThickness = 2;
+
+            var framebufferCursor = new FramebufferCursor(targetFramebuffer, rectangle);
+
+            void DrawPixels(int count)
+            {
+                for (var i = 0; i < count; i++)
+                {
+                    framebufferCursor.SetPixel(color);
+                    framebufferCursor.TryMoveNext();
+                }
+            }
+
+            // Rendering order:
+            // 0 1 2 3 - top line
+            // 4     5 - middle part
+            // 6 7 8 9 - bottom line
+
+            // Draw top line
+            DrawPixels(rectangle.Size.Width * borderThickness);
+
+            // Draw middle part
+            for (int y = borderThickness; y < rectangle.Size.Height - borderThickness; y++)
+            {
+                // Line start
+                DrawPixels(borderThickness);
+
+                // Skip middle part of line
+                framebufferCursor.TryMoveForwardInLine(rectangle.Size.Width - 2 * borderThickness);
+
+                // Line end
+                DrawPixels(borderThickness);
+            }
+
+            // Draw bottom line
+            DrawPixels(rectangle.Size.Width * borderThickness);
         }
     }
 }

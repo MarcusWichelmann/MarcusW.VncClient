@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient;
 using MarcusW.VncClient.Avalonia.Adapters.Logging;
+using MarcusW.VncClient.Rendering;
 using Microsoft.Extensions.Logging;
 using Splat;
 
@@ -16,8 +17,7 @@ namespace AvaloniaVncClient.Services
 
         public ConnectionManager(InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
         {
-            _interactiveAuthenticationHandler = interactiveAuthenticationHandler
-                ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()
+            _interactiveAuthenticationHandler = interactiveAuthenticationHandler ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()
                 ?? throw new ArgumentNullException(nameof(interactiveAuthenticationHandler));
 
             // Create and populate default logger factory for logging to Avalonia logging sinks
@@ -27,10 +27,12 @@ namespace AvaloniaVncClient.Services
             _vncClient = new VncClient(loggerFactory);
         }
 
-        public Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
-            CancellationToken cancellationToken = default)
+        public Task<RfbConnection> ConnectAsync(ConnectParameters parameters, CancellationToken cancellationToken = default)
         {
             parameters.AuthenticationHandler = _interactiveAuthenticationHandler;
+
+            // Uncomment for debugging/visualization purposes
+            //parameters.RenderFlags |= RenderFlags.VisualizeRectangles;
 
             return _vncClient.ConnectAsync(parameters, cancellationToken);
         }

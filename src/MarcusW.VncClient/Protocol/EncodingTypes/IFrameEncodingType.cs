@@ -9,6 +9,11 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
     public interface IFrameEncodingType : IEncodingType
     {
         /// <summary>
+        /// Gets a distinctive color for visualizing rectangles that were encoded with this type (when enabled).
+        /// </summary>
+        Color VisualizationColor { get; }
+
+        /// <summary>
         /// Reads a (partial) frame from the transport stream, decodes it and renders it to the target framebuffer, if available.
         /// </summary>
         /// <param name="transportStream">The stream to read from.</param>
