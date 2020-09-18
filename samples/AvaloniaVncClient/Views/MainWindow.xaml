@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vnc="clr-namespace:MarcusW.VncClient.Avalonia;assembly=MarcusW.VncClient.Avalonia"
         xmlns:vncconverters="clr-namespace:MarcusW.VncClient.Avalonia.Converters;assembly=MarcusW.VncClient.Avalonia"
-        mc:Ignorable="d" Width="800" Height="450"
+        mc:Ignorable="d" Width="1400" Height="1000"
         x:Class="AvaloniaVncClient.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia VNC Client">
