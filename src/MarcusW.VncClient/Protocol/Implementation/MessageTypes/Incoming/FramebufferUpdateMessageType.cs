@@ -94,14 +94,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             IRenderTarget? renderTarget = _context.Connection.RenderTarget;
             IFramebufferReference? targetFramebuffer = null;
 
-            // Lock the target framebuffer if by-frame updates are enabled
-            if (!_lockTargetByRectangle && renderTarget != null)
-            {
-                targetFramebuffer = renderTarget.GrabFramebufferReference(remoteFramebufferSize);
-                if (targetFramebuffer.Size != remoteFramebufferSize)
-                    throw new RfbProtocolException("Framebuffer reference is not of the requested size.");
-            }
-
             ushort rectanglesRead;
             try
             {
@@ -136,8 +128,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                         ushort height = BinaryPrimitives.ReadUInt16BigEndian(buffer[6..]);
                         Rectangle rectangle = new Rectangle(x, y, width, height);
 
-                        // Lock the target framebuffer if by-rectangle updates are enabled
-                        if (_lockTargetByRectangle && renderTarget != null)
+                        // Lock the target framebuffer, if there is no reference yet
+                        if (renderTarget != null && targetFramebuffer == null)
                         {
                             targetFramebuffer = renderTarget.GrabFramebufferReference(remoteFramebufferSize);
                             if (targetFramebuffer.Size != remoteFramebufferSize)
@@ -151,9 +143,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                         }
                         finally
                         {
-                            // Release the framebuffer reference if per-rectangle updates are enabled
+                            // Release the framebuffer reference if per-rectangle updates are enabled so a new one gets requested for the next rectangle.
                             if (_lockTargetByRectangle)
+                            {
                                 targetFramebuffer?.Dispose();
+                                targetFramebuffer = null;
+                            }
                         }
                     }
                     else if (encodingType is IPseudoEncodingType pseudoEncodingType)
@@ -173,15 +168,15 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             }
             finally
             {
-                // Release the framebuffer reference if per-frame updates are enabled
-                if (!_lockTargetByRectangle)
-                    targetFramebuffer?.Dispose();
+                // Release any remaining framebuffer reference
+                targetFramebuffer?.Dispose();
             }
 
             if (_logger.IsEnabled(LogLevel.Debug))
             {
                 _stopwatch.Stop();
-                _logger.LogDebug("Received and rendered/processed {rectangles} rectangles in {milliseconds}ms. Please note that debug builds are way less optimized.", rectanglesRead, _stopwatch.ElapsedMilliseconds);
+                _logger.LogDebug("Received and rendered/processed {rectangles} rectangles in {milliseconds}ms. Please note that debug builds are way less optimized.",
+                    rectanglesRead, _stopwatch.ElapsedMilliseconds);
             }
 
             // Ensure more framebuffer updates are coming
