@@ -1442,6 +1442,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateTransportConnector
   nameWithType: DefaultImplementation.CreateTransportConnector
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateZLibInflater(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateZLibInflater(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateZLibInflater_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateZLibInflater(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateZLibInflater(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: DefaultImplementation.CreateZLibInflater(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateZLibInflater*
+  name: CreateZLibInflater
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_CreateZLibInflater_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateZLibInflater
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.CreateZLibInflater
+  nameWithType: DefaultImplementation.CreateZLibInflater
 - uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.GetDefaultEncodingTypes(MarcusW.VncClient.Protocol.RfbConnectionContext)
   name: GetDefaultEncodingTypes(RfbConnectionContext)
   href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation_GetDefaultEncodingTypes_MarcusW_VncClient_Protocol_RfbConnectionContext_
@@ -1756,6 +1769,93 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding
   nameWithType: RawEncodingType.ReadFrameEncoding
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType
+  name: ZLibEncodingType
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType
+  nameWithType: ZLibEncodingType
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: ZLibEncodingType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ZLibEncodingType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: ZLibEncodingType.ZLibEncodingType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.#ctor*
+  name: ZLibEncodingType
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ZLibEncodingType
+  nameWithType: ZLibEncodingType.ZLibEncodingType
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.GetsConfirmed
+  name: GetsConfirmed
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_GetsConfirmed
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.GetsConfirmed
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.GetsConfirmed
+  nameWithType: ZLibEncodingType.GetsConfirmed
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.GetsConfirmed*
+  name: GetsConfirmed
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_GetsConfirmed_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.GetsConfirmed
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.GetsConfirmed
+  nameWithType: ZLibEncodingType.GetsConfirmed
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Id
+  nameWithType: ZLibEncodingType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Id
+  nameWithType: ZLibEncodingType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Name
+  nameWithType: ZLibEncodingType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Name
+  nameWithType: ZLibEncodingType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority
+  name: Priority
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_Priority
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority
+  nameWithType: ZLibEncodingType.Priority
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority*
+  name: Priority
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_Priority_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority
+  nameWithType: ZLibEncodingType.Priority
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: ZLibEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
+  nameWithType.vb: ZLibEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding*
+  name: ReadFrameEncoding
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_ReadFrameEncoding_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding
+  nameWithType: ZLibEncodingType.ReadFrameEncoding
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
   name: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.html
@@ -3338,6 +3438,38 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.Services.Communication.RfbMessageSender.ThreadWorker
   nameWithType: RfbMessageSender.ThreadWorker
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater
+  name: ZLibInflater
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater
+  nameWithType: ZLibInflater
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.html#MarcusW_VncClient_Protocol_Implementation_Services_Communication_ZLibInflater_Dispose
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.Dispose
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.Dispose()
+  nameWithType: ZLibInflater.Dispose()
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.html#MarcusW_VncClient_Protocol_Implementation_Services_Communication_ZLibInflater_Dispose_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.Dispose
+  nameWithType: ZLibInflater.Dispose
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.ReadAndInflate(Stream,System.Int32,CancellationToken)
+  name: ReadAndInflate(Stream, Int32, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.html#MarcusW_VncClient_Protocol_Implementation_Services_Communication_ZLibInflater_ReadAndInflate_Stream_System_Int32_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.ReadAndInflate(Stream,System.Int32,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.ReadAndInflate(Stream, System.Int32, CancellationToken)
+  nameWithType: ZLibInflater.ReadAndInflate(Stream, Int32, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.ReadAndInflate*
+  name: ReadAndInflate
+  href: api/MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.html#MarcusW_VncClient_Protocol_Implementation_Services_Communication_ZLibInflater_ReadAndInflate_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.ReadAndInflate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Services.Communication.ZLibInflater.ReadAndInflate
+  nameWithType: ZLibInflater.ReadAndInflate
 - uid: MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
   name: MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
   href: api/MarcusW.VncClient.Protocol.Implementation.Services.Handshaking.html
@@ -3587,6 +3719,19 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Implementation.StreamExtensions
   fullName: MarcusW.VncClient.Protocol.Implementation.StreamExtensions
   nameWithType: StreamExtensions
+- uid: MarcusW.VncClient.Protocol.Implementation.StreamExtensions.CopyAllTo(Stream,Stream,System.Int32,CancellationToken)
+  name: CopyAllTo(Stream, Stream, Int32, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.StreamExtensions.html#MarcusW_VncClient_Protocol_Implementation_StreamExtensions_CopyAllTo_Stream_Stream_System_Int32_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.StreamExtensions.CopyAllTo(Stream,Stream,System.Int32,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.StreamExtensions.CopyAllTo(Stream, Stream, System.Int32, CancellationToken)
+  nameWithType: StreamExtensions.CopyAllTo(Stream, Stream, Int32, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.StreamExtensions.CopyAllTo*
+  name: CopyAllTo
+  href: api/MarcusW.VncClient.Protocol.Implementation.StreamExtensions.html#MarcusW_VncClient_Protocol_Implementation_StreamExtensions_CopyAllTo_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.StreamExtensions.CopyAllTo
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.StreamExtensions.CopyAllTo
+  nameWithType: StreamExtensions.CopyAllTo
 - uid: MarcusW.VncClient.Protocol.Implementation.StreamExtensions.ReadAll(Stream,Span{System.Byte},CancellationToken)
   name: ReadAll(Stream, Span<Byte>, CancellationToken)
   href: api/MarcusW.VncClient.Protocol.Implementation.StreamExtensions.html#MarcusW_VncClient_Protocol_Implementation_StreamExtensions_ReadAll_Stream_Span_System_Byte__CancellationToken_
@@ -3752,6 +3897,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateTransportConnector
   nameWithType: IRfbProtocolImplementation.CreateTransportConnector
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateZLibInflater(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: CreateZLibInflater(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateZLibInflater_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateZLibInflater(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateZLibInflater(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: IRfbProtocolImplementation.CreateZLibInflater(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateZLibInflater*
+  name: CreateZLibInflater
+  href: api/MarcusW.VncClient.Protocol.IRfbProtocolImplementation.html#MarcusW_VncClient_Protocol_IRfbProtocolImplementation_CreateZLibInflater_
+  commentId: Overload:MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateZLibInflater
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.IRfbProtocolImplementation.CreateZLibInflater
+  nameWithType: IRfbProtocolImplementation.CreateZLibInflater
 - uid: MarcusW.VncClient.Protocol.IRfbProtocolState
   name: IRfbProtocolState
   href: api/MarcusW.VncClient.Protocol.IRfbProtocolState.html
@@ -4356,6 +4514,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.Transport
   nameWithType: RfbConnectionContext.Transport
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ZLibInflater
+  name: ZLibInflater
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ZLibInflater
+  commentId: P:MarcusW.VncClient.Protocol.RfbConnectionContext.ZLibInflater
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ZLibInflater
+  nameWithType: RfbConnectionContext.ZLibInflater
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ZLibInflater*
+  name: ZLibInflater
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ZLibInflater_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ZLibInflater
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ZLibInflater
+  nameWithType: RfbConnectionContext.ZLibInflater
 - uid: MarcusW.VncClient.Protocol.RfbProtocolException
   name: RfbProtocolException
   href: api/MarcusW.VncClient.Protocol.RfbProtocolException.html
@@ -4851,6 +5022,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Services.ITransportConnector.ConnectAsync
   nameWithType: ITransportConnector.ConnectAsync
+- uid: MarcusW.VncClient.Protocol.Services.IZLibInflater
+  name: IZLibInflater
+  href: api/MarcusW.VncClient.Protocol.Services.IZLibInflater.html
+  commentId: T:MarcusW.VncClient.Protocol.Services.IZLibInflater
+  fullName: MarcusW.VncClient.Protocol.Services.IZLibInflater
+  nameWithType: IZLibInflater
+- uid: MarcusW.VncClient.Protocol.Services.IZLibInflater.ReadAndInflate(Stream,System.Int32,CancellationToken)
+  name: ReadAndInflate(Stream, Int32, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Services.IZLibInflater.html#MarcusW_VncClient_Protocol_Services_IZLibInflater_ReadAndInflate_Stream_System_Int32_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Services.IZLibInflater.ReadAndInflate(Stream,System.Int32,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Services.IZLibInflater.ReadAndInflate(Stream, System.Int32, CancellationToken)
+  nameWithType: IZLibInflater.ReadAndInflate(Stream, Int32, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Services.IZLibInflater.ReadAndInflate*
+  name: ReadAndInflate
+  href: api/MarcusW.VncClient.Protocol.Services.IZLibInflater.html#MarcusW_VncClient_Protocol_Services_IZLibInflater_ReadAndInflate_
+  commentId: Overload:MarcusW.VncClient.Protocol.Services.IZLibInflater.ReadAndInflate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Services.IZLibInflater.ReadAndInflate
+  nameWithType: IZLibInflater.ReadAndInflate
 - uid: MarcusW.VncClient.Protocol.UnexpectedDataException
   name: UnexpectedDataException
   href: api/MarcusW.VncClient.Protocol.UnexpectedDataException.html
