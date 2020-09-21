@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Rendering;
 using MarcusW.VncClient.Security;
 using MarcusW.VncClient.Utils;
@@ -25,6 +26,7 @@ namespace MarcusW.VncClient
         private bool _allowSharedConnection = true;
         private IRenderTarget? _initialRenderTarget;
         private RenderFlags _renderFlags = RenderFlags.Default;
+        private IOutputHandler? _initialOutputHandler;
 
         /// <summary>
         /// Specifies the transport type and parameters to connect to.
@@ -92,10 +94,22 @@ namespace MarcusW.VncClient
             set => ThrowIfFrozen(() => _initialRenderTarget = value);
         }
 
+        /// <summary>
+        /// Gets or sets the flags that control, how the rendering to the target framebuffer should happen.
+        /// </summary>
         public RenderFlags RenderFlags
         {
             get => _renderFlags;
             set => ThrowIfFrozen(() => _renderFlags = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the handler for output events from the server, in case you want to set the handler from the start on.
+        /// </summary>
+        public IOutputHandler? InitialOutputHandler
+        {
+            get => _initialOutputHandler;
+            set => ThrowIfFrozen(() => _initialOutputHandler = value);
         }
 
         /// <inhertitdoc />

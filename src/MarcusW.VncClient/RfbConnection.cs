@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Rendering;
 using Microsoft.Extensions.Logging;
@@ -19,6 +20,9 @@ namespace MarcusW.VncClient
 
         private readonly object _renderTargetLock = new object();
         private IRenderTarget? _renderTarget;
+
+        private readonly object _outputHandlerLock = new object();
+        private IOutputHandler? _outputHandler;
 
         private readonly object _interruptionCauseLock = new object();
         private Exception? _interruptionCause;
@@ -61,6 +65,16 @@ namespace MarcusW.VncClient
         }
 
         /// <summary>
+        /// Gets or sets the handler for output events from the server.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        public IOutputHandler? OutputHandler
+        {
+            get => GetWithLock(ref _outputHandler, _outputHandlerLock);
+            set => RaiseAndSetIfChangedWithLock(ref _outputHandler, value, _outputHandlerLock);
+        }
+
+        /// <summary>
         /// Gets the <see cref="Exception"/> that caused the last connection interruption.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
@@ -93,6 +107,7 @@ namespace MarcusW.VncClient
             LoggerFactory = loggerFactory;
             Parameters = parameters;
             RenderTarget = parameters.InitialRenderTarget;
+            OutputHandler = parameters.InitialOutputHandler;
 
             _logger = loggerFactory.CreateLogger<RfbConnection>();
         }

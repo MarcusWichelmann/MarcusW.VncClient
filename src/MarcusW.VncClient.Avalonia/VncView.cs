@@ -29,12 +29,20 @@ namespace MarcusW.VncClient.Avalonia
             set
             {
                 // Detach view from previous connection
-                if (_connection != null && ReferenceEquals(_connection.RenderTarget, this))
-                    _connection.RenderTarget = null;
+                if (_connection != null)
+                {
+                    if (ReferenceEquals(_connection.RenderTarget, this))
+                        _connection.RenderTarget = null;
+                    if (ReferenceEquals(_connection.OutputHandler, this))
+                        _connection.OutputHandler = null;
+                }
 
                 // Attach view to new connection
                 if (value != null)
+                {
                     value.RenderTarget = this;
+                    value.OutputHandler = this;
+                }
 
                 SetAndRaise(ConnectionProperty, ref _connection, value);
             }

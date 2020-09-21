@@ -124,6 +124,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // Incoming
             yield return new FramebufferUpdateMessageType(context);
+            yield return new SetColourMapEntriesMessageType(context);
+            yield return new BellMessageType(context);
+            yield return new ServerCutTextMessageType(context);
             yield return new ServerFenceMessageType(context);
             yield return new EndOfContinuousUpdatesMessageType(context);
 

@@ -3,7 +3,7 @@ using System;
 namespace MarcusW.VncClient.Rendering
 {
     /// <summary>
-    /// Some flags to control how rendering to the target framebuffer show happen.
+    /// Some flags to control how rendering to the target framebuffer should happen.
     /// </summary>
     [Flags]
     public enum RenderFlags
