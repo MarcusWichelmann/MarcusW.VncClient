@@ -318,23 +318,32 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose
   nameWithType: RfbRenderTarget.Dispose
-- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.Size)
-  name: IRenderTarget.GrabFramebufferReference(Size)
-  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_
-  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference(MarcusW.VncClient.Size)
-  name.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(Size)
-  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  nameWithType: RfbRenderTarget.IRenderTarget.GrabFramebufferReference(Size)
-  nameWithType.vb: RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(Size)
-- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference*
-  name: IRenderTarget.GrabFramebufferReference
-  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_
-  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW#VncClient#Rendering#IRenderTarget#GrabFramebufferReference
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
+  name: GrabFramebufferReference(Size)
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
+  nameWithType: RfbRenderTarget.GrabFramebufferReference(Size)
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference*
+  name: GrabFramebufferReference
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_GrabFramebufferReference_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference
   isSpec: "True"
-  name.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
-  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
-  nameWithType: RfbRenderTarget.IRenderTarget.GrabFramebufferReference
-  nameWithType.vb: RfbRenderTarget.MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference
+  nameWithType: RfbRenderTarget.GrabFramebufferReference
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.HandleServerClipboardUpdate(System.String)
+  name: HandleServerClipboardUpdate(String)
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_HandleServerClipboardUpdate_System_String_
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.HandleServerClipboardUpdate(System.String)
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.HandleServerClipboardUpdate(System.String)
+  nameWithType: RfbRenderTarget.HandleServerClipboardUpdate(String)
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.HandleServerClipboardUpdate*
+  name: HandleServerClipboardUpdate
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_HandleServerClipboardUpdate_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.HandleServerClipboardUpdate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.HandleServerClipboardUpdate
+  nameWithType: RfbRenderTarget.HandleServerClipboardUpdate
 - uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.MeasureOverride(Avalonia.Size)
   name: MeasureOverride(Avalonia.Size)
   href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MeasureOverride_Avalonia_Size_
@@ -361,6 +370,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Render
   nameWithType: RfbRenderTarget.Render
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.RingBell
+  name: RingBell()
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_RingBell
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.RingBell
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.RingBell()
+  nameWithType: RfbRenderTarget.RingBell()
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.RingBell*
+  name: RingBell
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_RingBell_
+  commentId: Overload:MarcusW.VncClient.Avalonia.RfbRenderTarget.RingBell
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.RingBell
+  nameWithType: RfbRenderTarget.RingBell
 - uid: MarcusW.VncClient.Avalonia.VncView
   name: VncView
   href: api/MarcusW.VncClient.Avalonia.VncView.html
@@ -637,6 +659,19 @@ references:
   commentId: F:MarcusW.VncClient.ConnectParameters.InfiniteReconnects
   fullName: MarcusW.VncClient.ConnectParameters.InfiniteReconnects
   nameWithType: ConnectParameters.InfiniteReconnects
+- uid: MarcusW.VncClient.ConnectParameters.InitialOutputHandler
+  name: InitialOutputHandler
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InitialOutputHandler
+  commentId: P:MarcusW.VncClient.ConnectParameters.InitialOutputHandler
+  fullName: MarcusW.VncClient.ConnectParameters.InitialOutputHandler
+  nameWithType: ConnectParameters.InitialOutputHandler
+- uid: MarcusW.VncClient.ConnectParameters.InitialOutputHandler*
+  name: InitialOutputHandler
+  href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InitialOutputHandler_
+  commentId: Overload:MarcusW.VncClient.ConnectParameters.InitialOutputHandler
+  isSpec: "True"
+  fullName: MarcusW.VncClient.ConnectParameters.InitialOutputHandler
+  nameWithType: ConnectParameters.InitialOutputHandler
 - uid: MarcusW.VncClient.ConnectParameters.InitialRenderTarget
   name: InitialRenderTarget
   href: api/MarcusW.VncClient.ConnectParameters.html#MarcusW_VncClient_ConnectParameters_InitialRenderTarget
@@ -752,6 +787,44 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.ConnectParametersValidationException.ConnectParametersValidationException
   nameWithType: ConnectParametersValidationException.ConnectParametersValidationException
+- uid: MarcusW.VncClient.Output
+  name: MarcusW.VncClient.Output
+  href: api/MarcusW.VncClient.Output.html
+  commentId: N:MarcusW.VncClient.Output
+  fullName: MarcusW.VncClient.Output
+  nameWithType: MarcusW.VncClient.Output
+- uid: MarcusW.VncClient.Output.IOutputHandler
+  name: IOutputHandler
+  href: api/MarcusW.VncClient.Output.IOutputHandler.html
+  commentId: T:MarcusW.VncClient.Output.IOutputHandler
+  fullName: MarcusW.VncClient.Output.IOutputHandler
+  nameWithType: IOutputHandler
+- uid: MarcusW.VncClient.Output.IOutputHandler.HandleServerClipboardUpdate(System.String)
+  name: HandleServerClipboardUpdate(String)
+  href: api/MarcusW.VncClient.Output.IOutputHandler.html#MarcusW_VncClient_Output_IOutputHandler_HandleServerClipboardUpdate_System_String_
+  commentId: M:MarcusW.VncClient.Output.IOutputHandler.HandleServerClipboardUpdate(System.String)
+  fullName: MarcusW.VncClient.Output.IOutputHandler.HandleServerClipboardUpdate(System.String)
+  nameWithType: IOutputHandler.HandleServerClipboardUpdate(String)
+- uid: MarcusW.VncClient.Output.IOutputHandler.HandleServerClipboardUpdate*
+  name: HandleServerClipboardUpdate
+  href: api/MarcusW.VncClient.Output.IOutputHandler.html#MarcusW_VncClient_Output_IOutputHandler_HandleServerClipboardUpdate_
+  commentId: Overload:MarcusW.VncClient.Output.IOutputHandler.HandleServerClipboardUpdate
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Output.IOutputHandler.HandleServerClipboardUpdate
+  nameWithType: IOutputHandler.HandleServerClipboardUpdate
+- uid: MarcusW.VncClient.Output.IOutputHandler.RingBell
+  name: RingBell()
+  href: api/MarcusW.VncClient.Output.IOutputHandler.html#MarcusW_VncClient_Output_IOutputHandler_RingBell
+  commentId: M:MarcusW.VncClient.Output.IOutputHandler.RingBell
+  fullName: MarcusW.VncClient.Output.IOutputHandler.RingBell()
+  nameWithType: IOutputHandler.RingBell()
+- uid: MarcusW.VncClient.Output.IOutputHandler.RingBell*
+  name: RingBell
+  href: api/MarcusW.VncClient.Output.IOutputHandler.html#MarcusW_VncClient_Output_IOutputHandler_RingBell_
+  commentId: Overload:MarcusW.VncClient.Output.IOutputHandler.RingBell
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Output.IOutputHandler.RingBell
+  nameWithType: IOutputHandler.RingBell
 - uid: MarcusW.VncClient.PixelFormat
   name: PixelFormat
   href: api/MarcusW.VncClient.PixelFormat.html
@@ -2615,6 +2688,77 @@ references:
   commentId: N:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
   nameWithType: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType
+  name: BellMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType
+  nameWithType: BellMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: BellMessageType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.BellMessageType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: BellMessageType.BellMessageType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.#ctor*
+  name: BellMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.BellMessageType
+  nameWithType: BellMessageType.BellMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Id
+  nameWithType: BellMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Id
+  nameWithType: BellMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.IsStandardMessageType
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_IsStandardMessageType
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.IsStandardMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.IsStandardMessageType
+  nameWithType: BellMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.IsStandardMessageType*
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_IsStandardMessageType_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.IsStandardMessageType
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.IsStandardMessageType
+  nameWithType: BellMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Name
+  nameWithType: BellMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.Name
+  nameWithType: BellMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  name: ReadMessage(ITransport, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_ReadMessage_MarcusW_VncClient_Protocol_ITransport_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport, CancellationToken)
+  nameWithType: BellMessageType.ReadMessage(ITransport, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.ReadMessage*
+  name: ReadMessage
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_BellMessageType_ReadMessage_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.ReadMessage
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.BellMessageType.ReadMessage
+  nameWithType: BellMessageType.ReadMessage
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.EndOfContinuousUpdatesMessageType
   name: EndOfContinuousUpdatesMessageType
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.EndOfContinuousUpdatesMessageType.html
@@ -2757,6 +2901,77 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.FramebufferUpdateMessageType.ReadMessage
   nameWithType: FramebufferUpdateMessageType.ReadMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType
+  name: ServerCutTextMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType
+  nameWithType: ServerCutTextMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: ServerCutTextMessageType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ServerCutTextMessageType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: ServerCutTextMessageType.ServerCutTextMessageType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.#ctor*
+  name: ServerCutTextMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ServerCutTextMessageType
+  nameWithType: ServerCutTextMessageType.ServerCutTextMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Id
+  nameWithType: ServerCutTextMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Id
+  nameWithType: ServerCutTextMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.IsStandardMessageType
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_IsStandardMessageType
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.IsStandardMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.IsStandardMessageType
+  nameWithType: ServerCutTextMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.IsStandardMessageType*
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_IsStandardMessageType_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.IsStandardMessageType
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.IsStandardMessageType
+  nameWithType: ServerCutTextMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Name
+  nameWithType: ServerCutTextMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.Name
+  nameWithType: ServerCutTextMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  name: ReadMessage(ITransport, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_ReadMessage_MarcusW_VncClient_Protocol_ITransport_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport, CancellationToken)
+  nameWithType: ServerCutTextMessageType.ReadMessage(ITransport, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ReadMessage*
+  name: ReadMessage
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_ServerCutTextMessageType_ReadMessage_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ReadMessage
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerCutTextMessageType.ReadMessage
+  nameWithType: ServerCutTextMessageType.ReadMessage
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerFenceMessageType
   name: ServerFenceMessageType
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerFenceMessageType.html
@@ -2828,6 +3043,77 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.ServerFenceMessageType.ReadMessage
   nameWithType: ServerFenceMessageType.ReadMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType
+  name: SetColourMapEntriesMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType
+  nameWithType: SetColourMapEntriesMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: SetColourMapEntriesMessageType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.SetColourMapEntriesMessageType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: SetColourMapEntriesMessageType.SetColourMapEntriesMessageType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.#ctor*
+  name: SetColourMapEntriesMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.SetColourMapEntriesMessageType
+  nameWithType: SetColourMapEntriesMessageType.SetColourMapEntriesMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Id
+  nameWithType: SetColourMapEntriesMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Id
+  nameWithType: SetColourMapEntriesMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.IsStandardMessageType
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_IsStandardMessageType
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.IsStandardMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.IsStandardMessageType
+  nameWithType: SetColourMapEntriesMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.IsStandardMessageType*
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_IsStandardMessageType_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.IsStandardMessageType
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.IsStandardMessageType
+  nameWithType: SetColourMapEntriesMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Name
+  nameWithType: SetColourMapEntriesMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.Name
+  nameWithType: SetColourMapEntriesMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  name: ReadMessage(ITransport, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_ReadMessage_MarcusW_VncClient_Protocol_ITransport_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.ReadMessage(MarcusW.VncClient.Protocol.ITransport, CancellationToken)
+  nameWithType: SetColourMapEntriesMessageType.ReadMessage(ITransport, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.ReadMessage*
+  name: ReadMessage
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Incoming_SetColourMapEntriesMessageType_ReadMessage_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.ReadMessage
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.SetColourMapEntriesMessageType.ReadMessage
+  nameWithType: SetColourMapEntriesMessageType.ReadMessage
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
   name: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.html
@@ -6015,6 +6301,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.LoggerFactory
   nameWithType: RfbConnection.LoggerFactory
+- uid: MarcusW.VncClient.RfbConnection.OutputHandler
+  name: OutputHandler
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_OutputHandler
+  commentId: P:MarcusW.VncClient.RfbConnection.OutputHandler
+  fullName: MarcusW.VncClient.RfbConnection.OutputHandler
+  nameWithType: RfbConnection.OutputHandler
+- uid: MarcusW.VncClient.RfbConnection.OutputHandler*
+  name: OutputHandler
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_OutputHandler_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.OutputHandler
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.OutputHandler
+  nameWithType: RfbConnection.OutputHandler
 - uid: MarcusW.VncClient.RfbConnection.Parameters
   name: Parameters
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_Parameters

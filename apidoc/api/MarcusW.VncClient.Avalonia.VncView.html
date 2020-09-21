@@ -85,12 +85,19 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="MarcusW.VncClient.Rendering.IRenderTarget.html">IRenderTarget</a></div>
+    <div><a class="xref" href="MarcusW.VncClient.Output.IOutputHandler.html">IOutputHandler</a></div>
     <div><span class="xref">IDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_">RfbRenderTarget.IRenderTarget.GrabFramebufferReference(Size)</a>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_">RfbRenderTarget.GrabFramebufferReference(Size)</a>
+    </div>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_RingBell">RfbRenderTarget.RingBell()</a>
+    </div>
+    <div>
+      <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_HandleServerClipboardUpdate_System_String_">RfbRenderTarget.HandleServerClipboardUpdate(String)</a>
     </div>
     <div>
       <a class="xref" href="MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_Render_DrawingContext_">RfbRenderTarget.Render(DrawingContext)</a>
@@ -109,7 +116,7 @@
   <h6><strong>Assembly</strong>: MarcusW.VncClient.Avalonia.dll</h6>
   <h5 id="MarcusW_VncClient_Avalonia_VncView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class VncView : RfbRenderTarget, IRenderTarget, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class VncView : RfbRenderTarget, IRenderTarget, IOutputHandler, IDisposable</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
@@ -183,6 +190,9 @@ In case this property is set to <span class="xref">null</span>, no connection wi
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="MarcusW.VncClient.Rendering.IRenderTarget.html">IRenderTarget</a>
+  </div>
+  <div>
+      <a class="xref" href="MarcusW.VncClient.Output.IOutputHandler.html">IOutputHandler</a>
   </div>
   <div>
       <span class="xref">IDisposable</span>
