@@ -234,16 +234,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
         {
             const int borderThickness = 2;
 
-            var framebufferCursor = new FramebufferCursor(targetFramebuffer, rectangle);
+            // Visualize only rectangles that are large enough
+            if (rectangle.Size.Width < 2 * borderThickness || rectangle.Size.Height < 2 * borderThickness)
+                return;
 
-            void DrawPixels(int count)
-            {
-                for (var i = 0; i < count; i++)
-                {
-                    framebufferCursor.SetPixel(color);
-                    framebufferCursor.TryMoveNext();
-                }
-            }
+            var framebufferCursor = new FramebufferCursor(targetFramebuffer, rectangle);
 
             // Rendering order:
             // 0 1 2 3 - top line
@@ -251,23 +246,23 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             // 6 7 8 9 - bottom line
 
             // Draw top line
-            DrawPixels(rectangle.Size.Width * borderThickness);
+            framebufferCursor.SetPixelsSolid(color, rectangle.Size.Width * borderThickness);
 
             // Draw middle part
             for (int y = borderThickness; y < rectangle.Size.Height - borderThickness; y++)
             {
                 // Line start
-                DrawPixels(borderThickness);
+                framebufferCursor.SetPixelsSolid(color, borderThickness);
 
                 // Skip middle part of line
-                framebufferCursor.TryMoveForwardInLine(rectangle.Size.Width - 2 * borderThickness);
+                framebufferCursor.MoveForwardInLine(rectangle.Size.Width - 2 * borderThickness);
 
                 // Line end
-                DrawPixels(borderThickness);
+                framebufferCursor.SetPixelsSolid(color, borderThickness);
             }
 
             // Draw bottom line
-            DrawPixels(rectangle.Size.Width * borderThickness);
+            framebufferCursor.SetPixelsSolid(color, rectangle.Size.Width * borderThickness);
         }
     }
 }

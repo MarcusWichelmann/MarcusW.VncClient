@@ -97,6 +97,11 @@ namespace MarcusW.VncClient
         public byte BytesPerPixel => (byte)(BitsPerPixel / 8);
 
         /// <summary>
+        /// Gets if multi-byte pixels are interpreted as little endian.
+        /// </summary>
+        public bool LittleEndian => !BigEndian;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="PixelFormat"/> structure.
         /// </summary>
         /// <param name="name">The name of the pixel format.</param>

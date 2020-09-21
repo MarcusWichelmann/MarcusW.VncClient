@@ -104,6 +104,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             switch (pixelFormat.BitsPerPixel)
             {
                 case 32:
+                case 24: // Used for ZRLE compressed pixels which consist of only 3 bytes. The fourth read byte will be ignored then.
                     var u32 = Unsafe.AsRef<uint>(pixelPtr);
                     if (pixelFormat.BigEndian)
                         u32 = BinaryPrimitives.ReverseEndianness(u32);

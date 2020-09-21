@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MarcusW.VncClient
 {
@@ -34,6 +35,13 @@ namespace MarcusW.VncClient
             G = g;
             B = b;
         }
+
+        /// <summary>
+        /// Returns the pixel data for this color using the <see cref="PixelFormat.Plain"/> encoding.
+        /// </summary>
+        /// <returns>The pixel data.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint ToPlainPixel() => (uint)((R << 24) | (G << 16) | (B << 8) | 255);
 
         /// <summary>
         /// Checks for equality between two <see cref="Color"/>s.

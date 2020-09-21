@@ -33,6 +33,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public override Color VisualizationColor => new Color(0, 0, 255);
 
         /// <inheritdoc />
+        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
         public override void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat)
         {
@@ -100,9 +101,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                         {
                             // Set the pixel
                             framebufferCursor.SetPixel(bufferPtr + processedBytes, remoteFramebufferFormat);
-
-                            // Move the cursor to the next pixel (will fail for the last pixel of the rectangle, just ignore that)
-                            framebufferCursor.TryMoveNext();
+                            if (!framebufferCursor.GetEndReached())
+                                framebufferCursor.MoveNext();
 
                             // Move forward in buffer
                             processedBytes += bytesPerPixel;

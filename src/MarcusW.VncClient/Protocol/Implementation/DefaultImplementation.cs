@@ -148,6 +148,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             // Frame
             yield return new RawEncodingType();
             yield return new ZLibEncodingType(context);
+            yield return new ZrleEncodingType(context);
 
             // Pseudo
             yield return new FenceEncodingType();

@@ -131,7 +131,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
                     // Always slice, because the rented buffer might be larger than requested.
                     int read = stream.Read(bufferSpan.Slice(0, Math.Min(bytesToCopy, bufferSize)));
                     if (read == 0)
-                        throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to skip {numBytes} bytes.");
+                        throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to copy {numBytes} bytes.");
 
                     target.Write(bufferSpan.Slice(0, read));
 

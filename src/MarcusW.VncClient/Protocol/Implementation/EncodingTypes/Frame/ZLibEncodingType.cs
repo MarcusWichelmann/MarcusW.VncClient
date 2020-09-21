@@ -31,7 +31,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public override bool GetsConfirmed => true;
 
         /// <inheritdoc />
-        public override Color VisualizationColor => new Color(0, 255, 0);
+        public override Color VisualizationColor => new Color(255, 255, 0);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ZLibEncodingType"/>.
@@ -46,6 +46,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public override void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat)
         {
+            if (transportStream == null)
+                throw new ArgumentNullException(nameof(transportStream));
+
             // Ensure we have access to the raw encoding type
             if (_rawEncodingType == null)
             {
@@ -66,9 +69,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             Stream inflateStream = _context.ZLibInflater.ReadAndInflate(transportStream, (int)dataLength);
 
             _rawEncodingType.ReadFrameEncoding(inflateStream, targetFramebuffer, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
-
-            // TODO: During tests with vino VNC server (EOL), this encoding was a bit unstable after a few received frames because of the DeflateStream
-            // throwing InvalidDataExeptions. Time has to show, if this is also the case with more current VNC servers like TigerVNC.
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Threading;
@@ -24,6 +25,17 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                 throw new ObjectDisposedException(nameof(ZLibInflater));
 
             cancellationToken.ThrowIfCancellationRequested();
+
+            if (_inflateStream != null)
+            {
+                // Because we always read the exact size of bytes we need, it sometimes happens, that the inflate stream doesn't realize that all data has been read and therefore
+                // reads garbage when the buffer has been refilled. This is fixed by attempting an additional read of 1 byte after all bytes have been read.
+                // This read will not return any results, but it solves the problem. Believe me. :D
+                // This is also useful to throw a nice exception if somebody fucked up and didn't read the full buffer.
+                Span<byte> buf = stackalloc byte[1];
+                if (_inflateStream.Read(buf) != 0)
+                    throw new RfbProtocolException("Attempted to refill the zlib inflate stream before all bytes have been read. There was at least one byte pending to read.");
+            }
 
             // The data must be read and buffered in a memory stream, before passing it to the inflate stream.
             // This seems to be necessary to limit the inflate stream in the amount of bytes it has access to,
