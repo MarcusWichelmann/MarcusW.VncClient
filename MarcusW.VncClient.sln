@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2CB2F0BD-AABA-4047-AAEE-E3AA512EFE47}"
+ProjectSection(SolutionItems) = preProject
+	src\Directory.Build.props = src\Directory.Build.props
+EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcusW.VncClient", "src\MarcusW.VncClient\MarcusW.VncClient.csproj", "{90137400-5377-4EB1-AD8A-E200F9006B7D}"
 EndProject

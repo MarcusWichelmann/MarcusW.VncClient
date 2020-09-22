@@ -1,17 +1,18 @@
-name: Build
+name: Build and Publish
 on:
   - push
+  - pull_request
+  - release:
+      types: [published]
 
 jobs:
   test:
-    name: Test
+    name: Run Tests
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        # Static version numbering because of https://github.com/actions/setup-dotnet/issues/23
-        # See https://github.com/dotnet/core/blob/master/release-notes/releases-index.json
-        dotnet: [3.1.201]
+        dotnet: [3.1.x]
 
     steps:
       - name: Checkout
@@ -22,19 +23,14 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet }}
 
-      - name: Install dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test -c Release --verbosity normal
 
   apidoc:
-    name: API Documentation
+    name: Publish API Documentation
     runs-on: ubuntu-latest
 
+    # Runs only on commits to master
     if: github.ref == 'refs/heads/master'
     needs: test
 
@@ -55,3 +51,33 @@ jobs:
           FOLDER: docs/_site
           TARGET_FOLDER: apidoc
           CLEAN: true
+
+  nuget:
+    name: Publish NuGet Packages
+    runs-on: ubuntu-latest
+
+    # Runs only on commits to master or when publishing a release
+    if: github.ref == 'refs/heads/master' || github.event_name == 'release'
+    needs: test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core ${{ matrix.dotnet }}
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+
+      - name: Create Package
+        if: github.ref == 'refs/heads/master'
+        run: |
+          BUILD_NUMBER=${{ github.sha }}
+          dotnet pack src/MarcusW.VncClient -c Release -o packages -p:BuildNumber=$BUILD_NUMBER
+          dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages -p:BuildNumber=$BUILD_NUMBER
+
+      - name: Create Release-Package
+        if: github.event_name == 'release'
+        run: |
+          dotnet pack src/MarcusW.VncClient -c Release -o packages
+          dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages

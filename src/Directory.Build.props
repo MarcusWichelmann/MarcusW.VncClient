@@ -1,0 +1,32 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>CS1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Product>MarcusW VNC-Client</Product>
+        <VersionNumber>1.0.0-alpha1</VersionNumber>
+        <Title>High-performance cross-platform VNC-Client library for C#</Title>
+        <Authors>Marcus Wichelmann</Authors>
+        <Company>Marcus Wichelmann</Company>
+        <Copyright>Copyright 2020 &amp;#169; Marcus Wichelmann</Copyright>
+        <PackageTags>VNC;RFB;Client;Library;Performance;Modular;Cross-Plattform;Avalonia;WPF</PackageTags>
+        <PackageProjectUrl>http://vnc-client.marcusw.de</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReleaseNotes>https://github.com/MarcusWichelmann/MarcusW.VncClient/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/MarcusWichelmann/MarcusW.VncClient</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Version>$(VersionNumber)</Version>
+        <Version Condition=" '$(BuildNumber)' != '' ">$(VersionNumber)-$(BuildNumber)</Version>
+    </PropertyGroup>
+</Project>
