@@ -1,20 +1,34 @@
+using System;
 using Avalonia;
+using Avalonia.Input;
+using Avalonia.Threading;
+using JetBrains.Annotations;
+using MarcusW.VncClient.Output;
+using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 
 namespace MarcusW.VncClient.Avalonia
 {
     /// <summary>
     /// Displays a remote screen using the RFB protocol.
     /// </summary>
-    public class VncView : RfbRenderTarget
+    public partial class VncView : RfbRenderTarget, IOutputHandler
     {
         /// <summary>
         /// Defines the <see cref="Connection"/> property.
         /// </summary>
         public static readonly DirectProperty<VncView, RfbConnection?> ConnectionProperty =
-            AvaloniaProperty.RegisterDirect<VncView, RfbConnection?>(nameof(Connection), o => o.Connection,
-                (o, v) => o.Connection = v);
+            AvaloniaProperty.RegisterDirect<VncView, RfbConnection?>(nameof(Connection), o => o.Connection, (o, v) => o.Connection = v);
 
         private RfbConnection? _connection;
+
+        /// <summary>
+        /// Initializes static members of the <see cref="VncView"/> class.
+        /// </summary>
+        static VncView()
+        {
+            // Make the view focusable to receive key input events.
+            FocusableProperty.OverrideDefaultValue(typeof(VncView), true);
+        }
 
         /// <summary>
         /// Gets or sets the connection that is shown in this VNC view.
@@ -37,6 +51,9 @@ namespace MarcusW.VncClient.Avalonia
                         _connection.OutputHandler = null;
                 }
 
+                // Clear key input state
+                ResetKeyPresses();
+
                 // Attach view to new connection
                 if (value != null)
                 {
@@ -46,6 +63,22 @@ namespace MarcusW.VncClient.Avalonia
 
                 SetAndRaise(ConnectionProperty, ref _connection, value);
             }
+        }
+
+        /// <inheritdoc />
+        public virtual void RingBell()
+        {
+            // Ring the system bell
+            Console.Beep();
+        }
+
+        /// <inheritdoc />
+        public virtual void HandleServerClipboardUpdate(string text)
+        {
+            Dispatcher.UIThread.Post(async () => {
+                // Copy the text to the local clipboard
+                await Application.Current.Clipboard.SetTextAsync(text).ConfigureAwait(true);
+            });
         }
     }
 }

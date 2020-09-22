@@ -15,4 +15,13 @@
         <ProjectReference Include="..\MarcusW.VncClient\MarcusW.VncClient.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="VncView.MouseInput.cs">
+        <DependentUpon>VncView.cs</DependentUpon>
+      </Compile>
+      <Compile Update="VncView.KeyInput.cs">
+        <DependentUpon>VncView.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

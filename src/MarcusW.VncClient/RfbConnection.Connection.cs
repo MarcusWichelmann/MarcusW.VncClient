@@ -10,7 +10,7 @@ namespace MarcusW.VncClient
 {
     public partial class RfbConnection
     {
-        private RfbConnectionContext? _activeConnection;
+        private volatile RfbConnectionContext? _activeConnection;
 
         // Note: The connection management methods below should only be called in a synchronized manner!
         // In this case, this is ensured by the main part of this class.

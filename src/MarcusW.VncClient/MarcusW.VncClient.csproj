@@ -21,6 +21,9 @@
       <Compile Update="RfbConnection.Details.cs">
         <DependentUpon>RfbConnection.cs</DependentUpon>
       </Compile>
+      <Compile Update="RfbConnection.Messages.cs">
+        <DependentUpon>RfbConnection.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

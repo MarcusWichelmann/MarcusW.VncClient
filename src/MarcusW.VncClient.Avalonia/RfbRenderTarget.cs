@@ -8,7 +8,6 @@ using Avalonia.Threading;
 using JetBrains.Annotations;
 using MarcusW.VncClient.Avalonia.Adapters;
 using MarcusW.VncClient.Avalonia.Adapters.Rendering;
-using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Rendering;
 using IRenderTarget = MarcusW.VncClient.Rendering.IRenderTarget;
 using PixelFormat = Avalonia.Platform.PixelFormat;
@@ -18,7 +17,7 @@ namespace MarcusW.VncClient.Avalonia
     /// <summary>
     /// A control that provides access to a target framebuffer for rendering frames onto it.
     /// </summary>
-    public class RfbRenderTarget : Control, IRenderTarget, IOutputHandler, IDisposable
+    public class RfbRenderTarget : Control, IRenderTarget, IDisposable
     {
         private volatile WriteableBitmap? _bitmap;
         private readonly object _bitmapReplacementLock = new object();
@@ -68,22 +67,6 @@ namespace MarcusW.VncClient.Avalonia
                     InvalidateMeasure();
                 InvalidateVisual();
             }));
-        }
-
-        /// <inheritdoc />
-        public virtual void RingBell()
-        {
-            // Ring the system bell
-            Console.Beep();
-        }
-
-        /// <inheritdoc />
-        public virtual void HandleServerClipboardUpdate(string text)
-        {
-            Dispatcher.UIThread.Post(async () => {
-                // Copy the text to the local clipboard
-                await Application.Current.Clipboard.SetTextAsync(text).ConfigureAwait(true);
-            });
         }
 
         /// <inheritdoc />

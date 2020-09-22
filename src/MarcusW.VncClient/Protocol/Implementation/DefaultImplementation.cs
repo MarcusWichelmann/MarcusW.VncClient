@@ -135,6 +135,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new FramebufferUpdateRequestMessageType();
             yield return new ClientFenceMessageType();
             yield return new EnableContinuousUpdatesMessageType();
+            yield return new PointerEventMessageType();
+            yield return new KeyEventMessageType();
         }
 
         /// <summary>

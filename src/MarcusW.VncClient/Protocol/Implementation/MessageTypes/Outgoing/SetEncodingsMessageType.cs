@@ -16,7 +16,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
     public class SetEncodingsMessageType : IOutgoingMessageType
     {
         /// <inheritdoc />
-        public byte Id => 2;
+        public byte Id => (byte)WellKnownOutgoingMessageType.SetEncodings;
 
         /// <inheritdoc />
         public string Name => "SetEncodings";
