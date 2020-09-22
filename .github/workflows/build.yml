@@ -68,6 +68,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ matrix.dotnet }}
+          source-url: https://nuget.pkg.github.com/<owner>/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Create Package
         if: github.ref == 'refs/heads/master'
@@ -81,6 +84,9 @@ jobs:
         run: |
           dotnet pack src/MarcusW.VncClient -c Release -o packages
           dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages
+
+      - name: Push to GitHub Packages
+        run: dotnet nuget push packages/*.nupkg
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
