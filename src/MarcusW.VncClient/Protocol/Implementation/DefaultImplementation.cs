@@ -59,6 +59,12 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public DefaultImplementation(SecurityTypesCollectionBuilderDelegate securityTypesCollectionBuilder, MessagesCollectionBuilderDelegate messagesCollectionBuilder,
             EncodingTypesCollectionBuilderDelegate encodingTypesCollectionBuilder)
         {
+            // Implementation has currently only been tested on little-endian systems. I'm sure something will blow up when running with big-endian.
+            // But the code should be clean enough to add support quite easily.
+            if (!BitConverter.IsLittleEndian)
+                throw new InvalidOperationException(
+                    "This protocol implementation does not yet fully support big-endian systems. Please contact me over the issue tracker, if you're interested.");
+
             _securityTypesCollectionBuilder = securityTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(securityTypesCollectionBuilder));
             _messagesCollectionBuilder = messagesCollectionBuilder ?? throw new ArgumentNullException(nameof(messagesCollectionBuilder));
             _encodingTypesCollectionBuilder = encodingTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(encodingTypesCollectionBuilder));
