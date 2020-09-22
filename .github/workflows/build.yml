@@ -72,7 +72,7 @@ jobs:
       - name: Create Package
         if: github.ref == 'refs/heads/master'
         run: |
-          BUILD_NUMBER=${{ github.sha }}
+          BUILD_NUMBER=$(git rev-parse --short HEAD)
           dotnet pack src/MarcusW.VncClient -c Release -o packages -p:BuildNumber=$BUILD_NUMBER
           dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages -p:BuildNumber=$BUILD_NUMBER
 
@@ -81,3 +81,9 @@ jobs:
         run: |
           dotnet pack src/MarcusW.VncClient -c Release -o packages
           dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: packages
+          path: packages/
