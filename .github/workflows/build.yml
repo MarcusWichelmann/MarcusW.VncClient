@@ -1,9 +1,9 @@
-name: Build
+name: Build and Publish
 on:
-  - push
-  - pull_request
-  - release:
-      types: [published]
+  push
+  pull_request
+  release:
+    types: [published]
 
 jobs:
   test:
