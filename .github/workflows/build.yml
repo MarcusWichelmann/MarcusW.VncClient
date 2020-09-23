@@ -2,8 +2,6 @@ name: Build and Publish
 on:
   push:
   pull_request:
-  release:
-    types: [published]
 
 jobs:
   test:
@@ -56,8 +54,8 @@ jobs:
     name: Publish NuGet Packages
     runs-on: windows-latest
 
-    # Runs only on commits to master or when publishing a release
-    if: github.ref == 'refs/heads/master' || github.event_name == 'release'
+    # Runs only on commits to master or when creating a tag
+    if: github.ref == 'refs/heads/master' || contains(github.ref, 'refs/tags/')
     needs: test
 
     steps:
@@ -78,12 +76,12 @@ jobs:
       - name: Create Package
         if: github.ref == 'refs/heads/master'
         run: |
-          BUILD_NUMBER=$(git rev-parse --short HEAD)
-          dotnet pack src/MarcusW.VncClient -c Release -o packages -p:BuildNumber=$BUILD_NUMBER
-          dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages -p:BuildNumber=$BUILD_NUMBER
+          $buildNumber=git rev-parse --short HEAD
+          dotnet pack src/MarcusW.VncClient -c Release -o packages -p:BuildNumber=$buildNumber
+          dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages -p:BuildNumber=$buildNumber
 
       - name: Create Release-Package
-        if: github.event_name == 'release'
+        if: contains(github.ref, 'refs/tags/')
         run: |
           dotnet pack src/MarcusW.VncClient -c Release -o packages
           dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages
@@ -93,7 +91,7 @@ jobs:
         run: nuget.exe push "packages/*.nupkg" -SkipDuplicate
 
       - name: Push to nuget.org
-        if: github.event_name == 'release'
+        if: contains(github.ref, 'refs/tags/')
         run: dotnet nuget push "packages/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
 
       - name: Upload Artifacts
