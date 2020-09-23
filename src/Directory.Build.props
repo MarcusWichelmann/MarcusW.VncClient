@@ -26,6 +26,11 @@
     </PropertyGroup>
 
     <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <Version>$(VersionNumber)</Version>
         <Version Condition=" '$(BuildNumber)' != '' ">$(VersionNumber)-$(BuildNumber)</Version>
     </PropertyGroup>
