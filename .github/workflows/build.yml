@@ -92,7 +92,7 @@ jobs:
 
       - name: Push to nuget.org
         if: contains(github.ref, 'refs/tags/')
-        run: dotnet nuget push "packages/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
+        run: dotnet nuget push packages\*.nupkg -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
