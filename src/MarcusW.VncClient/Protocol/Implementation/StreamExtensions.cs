@@ -25,6 +25,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 throw new ArgumentNullException(nameof(stream));
 
             int numBytes = buffer.Length;
+            if (numBytes == 0)
+                return;
 
             var bytesRead = 0;
             do
@@ -56,17 +58,20 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             var buffer = new byte[numBytes];
 
-            // Read until all bytes are received
-            var bytesRead = 0;
-            do
+            if (numBytes > 0)
             {
-                int read = await stream.ReadAsync(buffer, bytesRead, numBytes - bytesRead, cancellationToken).ConfigureAwait(false);
-                if (read == 0)
-                    throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to read {numBytes} bytes.");
+                // Read until all bytes are received
+                var bytesRead = 0;
+                do
+                {
+                    int read = await stream.ReadAsync(buffer, bytesRead, numBytes - bytesRead, cancellationToken).ConfigureAwait(false);
+                    if (read == 0)
+                        throw new UnexpectedEndOfStreamException($"Stream reached its end while trying to read {numBytes} bytes.");
 
-                bytesRead += read;
+                    bytesRead += read;
+                }
+                while (bytesRead < numBytes);
             }
-            while (bytesRead < numBytes);
 
             return buffer.AsMemory();
         }
@@ -81,6 +86,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
         {
             if (stream == null)
                 throw new ArgumentNullException(nameof(stream));
+
+            if (numBytes == 0)
+                return;
 
             // Rent a buffer
             int bufferSize = numBytes < DefaultBufferSize ? numBytes : DefaultBufferSize;
@@ -115,6 +123,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 throw new ArgumentNullException(nameof(stream));
             if (target == null)
                 throw new ArgumentNullException(nameof(target));
+
+            if (numBytes == 0)
+                return;
 
             // Rent a buffer
             int bufferSize = numBytes < DefaultBufferSize ? numBytes : DefaultBufferSize;

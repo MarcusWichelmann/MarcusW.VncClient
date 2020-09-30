@@ -78,29 +78,32 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             StringBuilder stringBuilder = new StringBuilder((int)textLength);
             Encoding latin1Encoding = Encoding.GetEncoding("ISO-8859-1");
 
-            // Read cut text
-            byte[] buffer = ArrayPool<byte>.Shared.Rent(Math.Min(1024, (int)textLength));
-            Span<byte> bufferSpan = buffer;
-            try
+            if (textLength > 0)
             {
-                var bytesToRead = (int)textLength;
-                do
+                // Read cut text
+                byte[] buffer = ArrayPool<byte>.Shared.Rent(Math.Min(1024, (int)textLength));
+                Span<byte> bufferSpan = buffer;
+                try
                 {
-                    cancellationToken.ThrowIfCancellationRequested();
+                    var bytesToRead = (int)textLength;
+                    do
+                    {
+                        cancellationToken.ThrowIfCancellationRequested();
 
-                    int read = transportStream.Read(bytesToRead < bufferSpan.Length ? bufferSpan.Slice(0, bytesToRead) : bufferSpan);
-                    if (read == 0)
-                        throw new UnexpectedEndOfStreamException("Stream reached its end while trying to read the server cut text.");
+                        int read = transportStream.Read(bytesToRead < bufferSpan.Length ? bufferSpan.Slice(0, bytesToRead) : bufferSpan);
+                        if (read == 0)
+                            throw new UnexpectedEndOfStreamException("Stream reached its end while trying to read the server cut text.");
 
-                    stringBuilder.Append(latin1Encoding.GetString(bufferSpan.Slice(0, read)));
+                        stringBuilder.Append(latin1Encoding.GetString(bufferSpan.Slice(0, read)));
 
-                    bytesToRead -= read;
+                        bytesToRead -= read;
+                    }
+                    while (bytesToRead > 0);
                 }
-                while (bytesToRead > 0);
-            }
-            finally
-            {
-                ArrayPool<byte>.Shared.Return(buffer);
+                finally
+                {
+                    ArrayPool<byte>.Shared.Return(buffer);
+                }
             }
 
             _logger.LogDebug("Received server cut text of length {length}.", stringBuilder.Length);

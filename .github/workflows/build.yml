@@ -73,14 +73,14 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.0.1
 
-      - name: Create Package
+      - name: Create Packages
         if: github.ref == 'refs/heads/master'
         run: |
           $buildNumber=git rev-parse --short HEAD
           dotnet pack src/MarcusW.VncClient -c Release -o packages -p:BuildNumber=$buildNumber
           dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages -p:BuildNumber=$buildNumber
 
-      - name: Create Release-Package
+      - name: Create Release-Packages
         if: contains(github.ref, 'refs/tags/')
         run: |
           dotnet pack src/MarcusW.VncClient -c Release -o packages
