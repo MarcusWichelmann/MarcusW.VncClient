@@ -23,7 +23,11 @@ namespace AvaloniaVncClient
             LogEventLevel logLevel = LogEventLevel.Warning;
 #endif
 
-            return AppBuilder.Configure<App>().UsePlatformDetect().LogToDebug(logLevel).UseReactiveUI();
+            return AppBuilder.Configure<App>().UsePlatformDetect().With(new X11PlatformOptions {
+                EnableMultiTouch = true
+            }).With(new Win32PlatformOptions {
+                EnableMultitouch = true
+            }).LogToDebug(logLevel).UseReactiveUI();
         }
     }
 }

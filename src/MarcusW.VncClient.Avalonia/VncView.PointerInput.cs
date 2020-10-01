@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Input;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
@@ -6,6 +8,8 @@ namespace MarcusW.VncClient.Avalonia
 {
     public partial class VncView
     {
+        private Dictionary<IPointer, PointerPoint> _touchPointers = new Dictionary<IPointer, PointerPoint>();
+
         /// <inheritdoc />
         protected override void OnPointerMoved(PointerEventArgs e)
         {
@@ -13,8 +17,16 @@ namespace MarcusW.VncClient.Avalonia
             if (e.Handled)
                 return;
 
+            // Handle two-finger movements
+            if (_touchPointers.Count > 1)
+            {
+
+                e.Handled = true;
+                return;
+            }
+
             PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, Vector.Zero))
+            if (HandleMouseEvent(point, Vector.Zero))
                 e.Handled = true;
         }
 
@@ -26,7 +38,14 @@ namespace MarcusW.VncClient.Avalonia
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, Vector.Zero))
+
+            if (e.Pointer.Type == PointerType.Touch)
+            {
+                if (!_touchPointers.ContainsKey(e.Pointer))
+                    _touchPointers.Add(e.Pointer, point);
+            }
+
+            if (HandleMouseEvent(point, Vector.Zero))
                 e.Handled = true;
         }
 
@@ -38,7 +57,11 @@ namespace MarcusW.VncClient.Avalonia
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, Vector.Zero))
+
+            if (e.Pointer.Type == PointerType.Touch)
+                _touchPointers.Remove(e.Pointer);
+
+            if (HandleMouseEvent(point, Vector.Zero))
                 e.Handled = true;
         }
 
@@ -50,15 +73,16 @@ namespace MarcusW.VncClient.Avalonia
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, e.Delta))
+            if (HandleMouseEvent(point, e.Delta))
                 e.Handled = true;
         }
 
-        private bool HandlePointerEvent(PointerPoint pointerPoint, Vector wheelDelta)
+        private bool HandleMouseEvent(PointerPoint pointerPoint, Vector wheelDelta)
         {
             RfbConnection? connection = Connection;
             if (connection == null)
                 return false;
+            Console.WriteLine(wheelDelta);
 
             Position position = Conversions.GetPosition(pointerPoint.Position);
 
