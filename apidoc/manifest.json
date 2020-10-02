@@ -401,11 +401,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.html",
+          "hash": "zzPnhQKh3b9NM6TFqAXqwg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.yml",
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html",
-          "hash": "RNRqDaMNqCaseAOH2bA4OA=="
+          "hash": "mZxFPm2bzMP/iELW0CB3Zw=="
         }
       },
       "is_incremental": false,
@@ -453,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.html",
-          "hash": "rFgTCUSaOkh1ueuRfyjJ4Q=="
+          "hash": "SFvDNxfbnkRIwAZfkVp5fw=="
         }
       },
       "is_incremental": false,
@@ -561,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.html",
-          "hash": "AXyFD83OVsrFIZWaIH11XA=="
+          "hash": "TTD40sTeQ8UtHyqlBgF0vQ=="
         }
       },
       "is_incremental": false,
@@ -1401,7 +1413,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MarcusW.VncClient.Rectangle.html",
-          "hash": "izHFnjKA0LrdOCAR4NaDQA=="
+          "hash": "I13IwL0tkMOOdKuAV0WjxA=="
         }
       },
       "is_incremental": false,
@@ -1665,7 +1677,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "o87sY1iprCiV6dsNpQaYzQ=="
+          "hash": "aauCLHscpPp0XxXYObnU4Q=="
         }
       },
       "is_incremental": false,
@@ -1716,7 +1728,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 137,
+          "total_file_count": 138,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
