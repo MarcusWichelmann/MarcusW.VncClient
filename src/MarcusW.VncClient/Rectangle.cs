@@ -99,12 +99,7 @@ namespace MarcusW.VncClient
         /// <param name="areaSize">The size of the area in which the rectangle should fit in.</param>
         /// <returns>True if it fits inside, otherwise false.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool FitsInside(in Size areaSize)
-        {
-            static bool InRange(int rectA, int rectB, int areaA, int areaB) => rectA >= areaA && rectB <= areaB;
-
-            return InRange(Position.X, Position.X + Size.Width, 0, areaSize.Width) && InRange(Position.Y, Position.Y + Size.Height, 0, areaSize.Height);
-        }
+        public bool FitsInside(in Size areaSize) => FitsInside(new Rectangle(Position.Origin, areaSize));
 
         /// <summary>
         /// Returns whether this rectangle completely fits inside the given area.
@@ -118,6 +113,22 @@ namespace MarcusW.VncClient
 
             return InRange(Position.X, Position.X + Size.Width, area.Position.X, area.Position.X + area.Size.Width)
                 && InRange(Position.Y, Position.Y + Size.Height, area.Position.Y, area.Position.Y + area.Size.Height);
+        }
+
+        /// <summary>
+        /// Returns whether this rectangle overlaps the given area.
+        /// </summary>
+        /// <param name="area">The area to test for.</param>
+        /// <returns>True if they overlap, otherwise false.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Overlaps(in Rectangle area)
+        {
+            static bool IsValueInside(int value, int lower, int upper) => value >= lower && value <= upper;
+
+            bool overlapsX = IsValueInside(Position.X, area.Position.X, area.Position.X + area.Size.Width) || IsValueInside(area.Position.X, Position.X, Position.X + Size.Width);
+            bool overlapsY = IsValueInside(Position.Y, area.Position.Y, area.Position.Y + area.Size.Height) || IsValueInside(area.Position.Y, Position.Y, Position.Y + Size.Height);
+
+            return overlapsX && overlapsY;
         }
 
         /// <summary>

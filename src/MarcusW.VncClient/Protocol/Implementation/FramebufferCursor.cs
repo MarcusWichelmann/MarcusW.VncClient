@@ -11,8 +11,12 @@ namespace MarcusW.VncClient.Protocol.Implementation
     public unsafe struct FramebufferCursor : IEquatable<FramebufferCursor>
     {
         public PixelFormat FramebufferFormat { get; }
+        public Rectangle Rectangle { get; }
         public byte BytesPerPixel { get; }
 
+        public int FramebufferLineBytes { get; }
+
+        public int LineLength { get; }
         public int LineStart { get; }
         public int LastColumn { get; }
         public int LastLine { get; }
@@ -49,21 +53,23 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 throw new ArgumentException("Given rectangle lies (partially) outside of the framebuffer area.", nameof(rectangle));
 
             FramebufferFormat = framebufferFormat;
+            Rectangle = rectangle;
             BytesPerPixel = framebufferFormat.BytesPerPixel;
 
-            int lineLength = rectangle.Size.Width;
+            FramebufferLineBytes = framebufferSize.Width * BytesPerPixel;
+
+            LineLength = rectangle.Size.Width;
             LineStart = rectangle.Position.X;
-            LastColumn = LineStart + lineLength - 1;
+            LastColumn = LineStart + LineLength - 1;
             LastLine = rectangle.Position.Y + rectangle.Size.Height - 1;
 
-            int framebufferLineBytes = framebufferSize.Width * BytesPerPixel;
-            LineBreakBytes = framebufferLineBytes - lineLength * BytesPerPixel + BytesPerPixel;
+            LineBreakBytes = FramebufferLineBytes - LineLength * BytesPerPixel + BytesPerPixel;
 
             Debug.Assert(LineBreakBytes > 0, "_lineBreakBytes > 0");
 
             _currentX = LineStart;
             _currentY = rectangle.Position.Y;
-            _positionPtr = framebufferPtr + _currentY * framebufferLineBytes + _currentX * BytesPerPixel;
+            _positionPtr = framebufferPtr + _currentY * FramebufferLineBytes + _currentX * BytesPerPixel;
         }
 
         /// <summary>
@@ -167,6 +173,72 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 if (!GetEndReached())
                     MoveNext();
             }
+        }
+
+        /// <summary>
+        /// Copies all pixels accessible by an other cursor to the current rectangle when both rectangles have the same size.
+        /// </summary>
+        /// <param name="otherCursor">The other cursor.</param>
+        /// <remarks>
+        /// Both cursors must point to the start of their rectangle.
+        /// The current cursor position is advanced by the written pixels, the other cursor won't be touched.
+        /// </remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+        public void CopyAllFrom(ref FramebufferCursor otherCursor)
+        {
+            Rectangle otherRectangle = otherCursor.Rectangle;
+
+            if (otherRectangle.Size != Rectangle.Size || otherCursor.BytesPerPixel != BytesPerPixel)
+                throw new InvalidOperationException("The other cursor is not equal enough to attempt a full copy.");
+
+            if (_currentX != LineStart || otherCursor._currentX != otherCursor.LineStart || _currentY != Rectangle.Position.Y || otherCursor._currentY != otherRectangle.Position.Y)
+                throw new InvalidOperationException("Both cursors must point to the start of their rectangle.");
+
+            // If the rectangles are equal, we have nothing to do
+            if (otherCursor._positionPtr == _positionPtr)
+                return;
+
+            // When both rectangles overlap and the target rectangle is lower than the source rectangle, we would overwrite the lines we still need to copy later.
+            // We can fix this case by starting from the bottom when copying.
+            bool startFromBottom = otherRectangle.Overlaps(Rectangle) && Rectangle.Position.Y > otherRectangle.Position.Y;
+
+            // This method will not advance the cursor iteratively as normal, so we work with an offset variable instead.
+            var ptrOffset = 0;
+            int bytesPerLine = LineLength * BytesPerPixel;
+            int firstLine = Rectangle.Position.Y;
+
+            // Prepare for start from bottom
+            if (startFromBottom)
+            {
+                _currentY = LastLine;
+                ptrOffset = (Rectangle.Size.Height - 1) * FramebufferLineBytes;
+            }
+
+            while (true)
+            {
+                Unsafe.CopyBlock(_positionPtr + ptrOffset, otherCursor._positionPtr + ptrOffset, (uint)bytesPerLine);
+
+                // Go to next line
+                if (!startFromBottom && _currentY < LastLine)
+                {
+                    _currentY++;
+                    ptrOffset += FramebufferLineBytes;
+                }
+                else if (startFromBottom && _currentY > firstLine)
+                {
+                    _currentY--;
+                    ptrOffset -= FramebufferLineBytes;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            // Set the cursor position to the end of the rectangle
+            _currentX = LastColumn;
+            _currentY = LastLine;
+            _positionPtr += Rectangle.Size.Height * bytesPerLine - BytesPerPixel;
         }
 
         public static bool operator ==(FramebufferCursor left, FramebufferCursor right) => left.Equals(right);
