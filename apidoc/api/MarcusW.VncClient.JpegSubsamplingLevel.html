@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace MarcusW.VncClient.Protocol.Services
+    <title>Enum JpegSubsamplingLevel
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace MarcusW.VncClient.Protocol.Services
+    <meta name="title" content="Enum JpegSubsamplingLevel
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,36 +68,67 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.JpegSubsamplingLevel">
   
-  <h1 id="MarcusW_VncClient_Protocol_Services" data-uid="MarcusW.VncClient.Protocol.Services" class="text-break">Namespace MarcusW.VncClient.Protocol.Services
+  
+  <h1 id="MarcusW_VncClient_JpegSubsamplingLevel" data-uid="MarcusW.VncClient.JpegSubsamplingLevel" class="text-break">Enum JpegSubsamplingLevel
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>The different JPEG subsampling levels.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="interfaces">Interfaces
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.html">MarcusW.VncClient</a></h6>
+  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
+  <h5 id="MarcusW_VncClient_JpegSubsamplingLevel_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum JpegSubsamplingLevel : int</code></pre>
+  </div>
+  <h3 id="fields">Fields
   </h3>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.IImageDecoder.html">IImageDecoder</a></h4>
-      <section><p>Provides methods for decoding some image compression formats used by the RFB protocol.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.IRfbHandshaker.html">IRfbHandshaker</a></h4>
-      <section><p>Provides methods for doing a RFB compliant handshake.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.IRfbInitializer.html">IRfbInitializer</a></h4>
-      <section><p>Provides methods for doing a RFB compliant initialization.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.IRfbMessageReceiver.html">IRfbMessageReceiver</a></h4>
-      <section><p>Describes a background thread that receives and processes RFB protocol messages.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.IRfbMessageSender.html">IRfbMessageSender</a></h4>
-      <section><p>Describes a background thread that sends queued messages and provides methods to add messages to the send queue.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.ITransportConnector.html">ITransportConnector</a></h4>
-      <section><p>Provides methods for establishing transport connections used for the RFB protocol.</p>
-</section>
-      <h4><a class="xref" href="MarcusW.VncClient.Protocol.Services.IZLibInflater.html">IZLibInflater</a></h4>
-      <section><p>Provides methods for inflating (decompressing) received data using per-connection zlib streams.</p>
-</section>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="MarcusW_VncClient_JpegSubsamplingLevel_ChrominanceSubsampling16X">ChrominanceSubsampling16X</td>
+        <td><p>Chrominance components are sent for every 16th pixel in the source image.
+This would typically be implemented using 4X subsampling in both X and Y directions.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_JpegSubsamplingLevel_ChrominanceSubsampling2X">ChrominanceSubsampling2X</td>
+        <td><p>2X chrominance subsampling. Chrominance components are sent for every other pixel in the source image.
+This would typically be implemented using 4:2:2 subsampling (2X subsampling in the X direction.)</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_JpegSubsamplingLevel_ChrominanceSubsampling4X">ChrominanceSubsampling4X</td>
+        <td><p>Chrominance components are sent for every fourth pixel in the source image.
+This would typically be implemented using 4:2:0 subsampling (2X subsampling in both X and Y directions), but it could also be implemented using 4:1:1
+subsampling (4X subsampling in the X direction.)</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_JpegSubsamplingLevel_ChrominanceSubsampling8X">ChrominanceSubsampling8X</td>
+        <td><p>Chrominance components are sent for every 8th pixel in the source image.
+This would typically be implemented using 4:1:0 subsampling (4X subsampling in the X direction and 2X subsampling in the Y direction.)</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_JpegSubsamplingLevel_Grayscale">Grayscale</td>
+        <td><p>All chrominance components in the source image are discarded.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="MarcusW_VncClient_JpegSubsamplingLevel_None">None</td>
+        <td><p>Chrominance components are sent for every pixel in the source image.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
 </article>
           </div>
           
@@ -105,6 +136,12 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_JpegSubsamplingLevel.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.JpegSubsamplingLevel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/JpegSubsamplingLevel.cs/#L6" class="contribution-link">View Source</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
