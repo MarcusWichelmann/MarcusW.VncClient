@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -10,13 +12,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
     /// <inhertitdoc />
     public sealed class ZLibInflater : IZLibInflater
     {
-        private MemoryStream? _memoryStream;
-        private DeflateStream? _inflateStream;
+        private readonly Dictionary<int, Inflater> _inflaters = new Dictionary<int, Inflater>();
 
         private volatile bool _disposed;
 
         /// <inheritdoc />
-        public Stream ReadAndInflate(Stream source, int sourceLength, CancellationToken cancellationToken = default)
+        public Stream ReadAndInflate(Stream source, int sourceLength, int zlibStreamId = -1, CancellationToken cancellationToken = default)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
@@ -26,43 +27,59 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
             cancellationToken.ThrowIfCancellationRequested();
 
-            if (_inflateStream != null)
+            bool hasExisting = _inflaters.TryGetValue(zlibStreamId, out Inflater? inflater);
+
+            if (hasExisting)
             {
                 // Because we always read the exact size of bytes we need, it sometimes happens, that the inflate stream doesn't realize that all data has been read and therefore
                 // reads garbage when the buffer has been refilled. This is fixed by attempting an additional read of 1 byte after all bytes have been read.
                 // This read will not return any results, but it solves the problem. Believe me. :D
                 // This is also useful to throw a nice exception if somebody fucked up and didn't read the full buffer.
                 Span<byte> buf = stackalloc byte[1];
-                if (_inflateStream.Read(buf) != 0)
-                    throw new RfbProtocolException("Attempted to refill the zlib inflate stream before all bytes have been read. There was at least one byte pending to read.");
+                if (inflater!.DeflateStream.Read(buf) != 0)
+                    throw new RfbProtocolException(
+                        $"Attempted to refill the zlib inflate stream before all bytes have been read. There was at least one byte pending to read. Stream id: {zlibStreamId}");
             }
 
             // The data must be read and buffered in a memory stream, before passing it to the inflate stream.
             // This seems to be necessary to limit the inflate stream in the amount of bytes it has access to,
             // so it doesn't read more bytes than wanted.
             // Inspiration taken from: https://github.com/quamotion/remoteviewing/blob/926d2baf8de446252fdc3a59054d0af51cdb065d/RemoteViewing/Vnc/VncClient.Framebuffer.cs#L208
+            // TODO: Can this limit somehow be implemented without having to copy all the data? Maybe a custom Stream implementation?
 
-            // Create a new memory stream, if necessary.
-            _memoryStream ??= new MemoryStream(sourceLength);
-
-            // Write the source data to the memory stream to buffer it
-            _memoryStream.Position = 0;
-            source.CopyAllTo(_memoryStream, sourceLength, cancellationToken);
-            _memoryStream.SetLength(sourceLength);
-            _memoryStream.Position = 0;
-
-            // Create a new inflate stream, if necessary.
-            if (_inflateStream == null)
+            // Create a new inflater, if necessary
+            if (!hasExisting)
             {
-                // Skip the two bytes of the ZLib header (see RFC1950)
-                if (sourceLength < 2)
-                    throw new InvalidOperationException("Inflater cannot be initialized with less than two bytes.");
-                _memoryStream.Position = 2;
-
-                _inflateStream = new DeflateStream(_memoryStream, CompressionMode.Decompress, false);
+                inflater = new Inflater();
+                _inflaters.Add(zlibStreamId, inflater);
             }
 
-            return _inflateStream;
+            // Write the source data to the memory stream to buffer it
+            inflater!.MemoryStream.Position = 0;
+            source.CopyAllTo(inflater.MemoryStream, sourceLength, cancellationToken);
+            inflater.MemoryStream.SetLength(sourceLength);
+            inflater.MemoryStream.Position = 0;
+
+            // Skip the two bytes of the ZLib header (see RFC1950) when a new stream was created
+            if (!hasExisting)
+            {
+                if (sourceLength < 2)
+                    throw new InvalidOperationException("Inflater cannot be initialized with less than two bytes.");
+                inflater.MemoryStream.Position = 2;
+            }
+
+            return inflater.DeflateStream;
+        }
+
+        /// <inheritdoc />
+        public void ResetZlibStream(int id)
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(ZLibInflater));
+
+            if (_inflaters.TryGetValue(id, out Inflater? inflater))
+                inflater.Dispose();
+            _inflaters.Remove(id);
         }
 
         /// <inheritdoc />
@@ -71,10 +88,29 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             if (_disposed)
                 return;
 
-            _memoryStream?.Dispose();
-            _inflateStream?.Dispose();
+            foreach (Inflater inflater in _inflaters.Values)
+                inflater.Dispose();
 
             _disposed = true;
+        }
+
+        private sealed class Inflater : IDisposable
+        {
+            public MemoryStream MemoryStream { get; set; }
+
+            public DeflateStream DeflateStream { get; set; }
+
+            public Inflater()
+            {
+                MemoryStream = new MemoryStream();
+                DeflateStream = new DeflateStream(MemoryStream, CompressionMode.Decompress, false);
+            }
+
+            public void Dispose()
+            {
+                MemoryStream.Dispose();
+                DeflateStream.Dispose();
+            }
         }
     }
 }

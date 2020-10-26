@@ -70,6 +70,11 @@ namespace MarcusW.VncClient.Protocol
         /// </summary>
         public IZLibInflater? ZLibInflater { get; internal set; }
 
+        /// <summary>
+        /// Gets the <see cref="IImageDecoder"/> for this connection.
+        /// </summary>
+        public IImageDecoder? ImageDecoder { get; internal set; }
+
         internal RfbConnectionContext(RfbConnection connection)
         {
             Connection = connection;

@@ -92,5 +92,12 @@ namespace MarcusW.VncClient.Protocol
         /// <param name="context">Details about the associated connection.</param>
         /// <returns>A new instance of the zlib inflater.</returns>
         IZLibInflater CreateZLibInflater(RfbConnectionContext context);
+
+        /// <summary>
+        /// Creates a new <see cref="IImageDecoder"/>.
+        /// </summary>
+        /// <param name="context">Details about the associated connection.</param>
+        /// <returns>A new instance of the image decoder.</returns>
+        IImageDecoder CreateImageDecoder(RfbConnectionContext context);
     }
 }

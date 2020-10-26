@@ -16,10 +16,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         public int FramebufferLineBytes { get; }
 
-        public int LineLength { get; }
-        public int LineStart { get; }
-        public int LastColumn { get; }
-        public int LastLine { get; }
+        public int LineWidth { get; }
+        public int FirstX { get; }
+        public int LastX { get; }
+        public int LastY { get; }
         public int LineBreakBytes { get; }
 
         private int _currentX;
@@ -58,16 +58,16 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             FramebufferLineBytes = framebufferSize.Width * BytesPerPixel;
 
-            LineLength = rectangle.Size.Width;
-            LineStart = rectangle.Position.X;
-            LastColumn = LineStart + LineLength - 1;
-            LastLine = rectangle.Position.Y + rectangle.Size.Height - 1;
+            LineWidth = rectangle.Size.Width;
+            FirstX = rectangle.Position.X;
+            LastX = FirstX + LineWidth - 1;
+            LastY = rectangle.Position.Y + rectangle.Size.Height - 1;
 
-            LineBreakBytes = FramebufferLineBytes - LineLength * BytesPerPixel + BytesPerPixel;
+            LineBreakBytes = FramebufferLineBytes - LineWidth * BytesPerPixel + BytesPerPixel;
 
             Debug.Assert(LineBreakBytes > 0, "_lineBreakBytes > 0");
 
-            _currentX = LineStart;
+            _currentX = FirstX;
             _currentY = rectangle.Position.Y;
             _positionPtr = framebufferPtr + _currentY * FramebufferLineBytes + _currentX * BytesPerPixel;
         }
@@ -76,7 +76,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Gets whether the cursor reached the last pixel of the rectangle.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-        public bool GetEndReached() => _currentY == LastLine && _currentX == LastColumn;
+        public bool GetEndReached() => _currentY == LastY && _currentX == LastX;
 
         /// <summary>
         /// Moves the cursor to the next pixel of the rectangle.
@@ -85,13 +85,13 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public void MoveNext()
         {
             // Return to line start when line end is reached
-            if (_currentX == LastColumn)
+            if (_currentX == LastX)
             {
                 // Check if rectangle end is reached
-                if (_currentY == LastLine)
+                if (_currentY == LastY)
                     throw new RfbProtocolException("Cannot move the framebuffer cursor beyond the end of the rectangle.");
 
-                _currentX = LineStart;
+                _currentX = FirstX;
                 _currentY++;
                 _positionPtr += LineBreakBytes;
             }
@@ -111,7 +111,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public void MoveForwardInLine(int count)
         {
             // Check for line overflow
-            if (_currentX + count > LastColumn)
+            if (_currentX + count > LastX)
                 throw new RfbProtocolException($"Moving the framebuffer cursor {count} pixels forward in line would exceed the line end.");
 
             // Move cursor to the right
@@ -176,6 +176,69 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
+        /// Sets <see cref="numPixels"/> pixels and advances the cursor accordingly.
+        /// </summary>
+        /// <param name="pixelData">A pointer to a memory location where the data for <see cref="numPixels"/> is stored.</param>
+        /// <param name="pixelFormat">The format of the pixel data.</param>
+        /// <param name="numPixels">The number of pixels to set.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+        public void SetPixels(byte* pixelData, in PixelFormat pixelFormat, int numPixels)
+        {
+            // Fast path: When no conversion is necessary, we can copy the data line by line
+            if (pixelFormat.IsBinaryCompatibleTo(FramebufferFormat))
+            {
+                byte* srcPtr = pixelData;
+                int pixelsRemaining = numPixels;
+                while (pixelsRemaining > 0)
+                {
+                    // How many more pixels can we fill?
+                    int copyPixels = LastX - _currentX + 1;
+                    var lineFilled = true;
+                    if (pixelsRemaining < copyPixels)
+                    {
+                        lineFilled = false;
+                        copyPixels = pixelsRemaining;
+                    }
+
+                    // Fill (the rest of) the line if possible
+                    int copyBytes = copyPixels * BytesPerPixel;
+                    Unsafe.CopyBlock(_positionPtr, srcPtr, (uint)copyBytes);
+
+                    pixelsRemaining -= copyPixels;
+                    srcPtr += copyBytes;
+
+                    // Pixels remaining but last line just filled?
+                    if (pixelsRemaining > 0 && _currentY == LastY)
+                        throw new RfbProtocolException("There are pixels remaining in the buffer but the cursor already reached the end of the rectangle.");
+
+                    // Advance cursor position
+                    if (lineFilled)
+                    {
+                        _positionPtr += copyBytes - BytesPerPixel + LineBreakBytes;
+                        _currentX = FirstX;
+                        _currentY++;
+                    }
+                    else
+                    {
+                        _positionPtr += copyBytes;
+                        _currentX += copyPixels;
+                    }
+                }
+
+                return;
+            }
+
+            // Convert and set the pixels one by one
+            byte* pixelPtr = pixelData;
+            for (var i = 0; i < numPixels; i++, pixelPtr += BytesPerPixel)
+            {
+                PixelConversions.WritePixel(pixelPtr, pixelFormat, _positionPtr, FramebufferFormat);
+                if (!GetEndReached())
+                    MoveNext();
+            }
+        }
+
+        /// <summary>
         /// Copies all pixels accessible by an other cursor to the current rectangle when both rectangles have the same size.
         /// </summary>
         /// <param name="otherCursor">The other cursor.</param>
@@ -191,7 +254,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             if (otherRectangle.Size != Rectangle.Size || otherCursor.BytesPerPixel != BytesPerPixel)
                 throw new InvalidOperationException("The other cursor is not equal enough to attempt a full copy.");
 
-            if (_currentX != LineStart || otherCursor._currentX != otherCursor.LineStart || _currentY != Rectangle.Position.Y || otherCursor._currentY != otherRectangle.Position.Y)
+            if (_currentX != FirstX || otherCursor._currentX != otherCursor.FirstX || _currentY != Rectangle.Position.Y || otherCursor._currentY != otherRectangle.Position.Y)
                 throw new InvalidOperationException("Both cursors must point to the start of their rectangle.");
 
             // If the rectangles are equal, we have nothing to do
@@ -204,13 +267,13 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // This method will not advance the cursor iteratively as normal, so we work with an offset variable instead.
             var ptrOffset = 0;
-            int bytesPerLine = LineLength * BytesPerPixel;
-            int firstLine = Rectangle.Position.Y;
+            int bytesPerLine = LineWidth * BytesPerPixel;
+            int firstY = Rectangle.Position.Y;
 
             // Prepare for start from bottom
             if (startFromBottom)
             {
-                _currentY = LastLine;
+                _currentY = LastY;
                 ptrOffset = (Rectangle.Size.Height - 1) * FramebufferLineBytes;
             }
 
@@ -219,12 +282,12 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 Unsafe.CopyBlock(_positionPtr + ptrOffset, otherCursor._positionPtr + ptrOffset, (uint)bytesPerLine);
 
                 // Go to next line
-                if (!startFromBottom && _currentY < LastLine)
+                if (!startFromBottom && _currentY < LastY)
                 {
                     _currentY++;
                     ptrOffset += FramebufferLineBytes;
                 }
-                else if (startFromBottom && _currentY > firstLine)
+                else if (startFromBottom && _currentY > firstY)
                 {
                     _currentY--;
                     ptrOffset -= FramebufferLineBytes;
@@ -236,8 +299,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             }
 
             // Set the cursor position to the end of the rectangle
-            _currentX = LastColumn;
-            _currentY = LastLine;
+            _currentX = LastX;
+            _currentY = LastY;
             _positionPtr += Rectangle.Size.Height * bytesPerLine - BytesPerPixel;
         }
 
@@ -247,13 +310,12 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
         /// <inheritdoc />
         public bool Equals(FramebufferCursor other)
-            => FramebufferFormat == other.FramebufferFormat && LineStart == other.LineStart && LastColumn == other.LastColumn && LastLine == other.LastLine
-                && LineBreakBytes == other.LineBreakBytes;
+            => FramebufferFormat == other.FramebufferFormat && FirstX == other.FirstX && LastX == other.LastX && LastY == other.LastY && LineBreakBytes == other.LineBreakBytes;
 
         /// <inheritdoc />
         public override bool Equals(object? obj) => obj is FramebufferCursor other && Equals(other);
 
         /// <inheritdoc />
-        public override int GetHashCode() => HashCode.Combine(FramebufferFormat, LineStart, LastColumn, LastLine, LineBreakBytes);
+        public override int GetHashCode() => HashCode.Combine(FramebufferFormat, FirstX, LastX, LastY, LineBreakBytes);
     }
 }

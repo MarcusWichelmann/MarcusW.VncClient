@@ -138,6 +138,36 @@ namespace MarcusW.VncClient
         }
 
         /// <summary>
+        /// Checks if a pixel encoded using this pixel format would be binary compatible with one encoded using another one.
+        /// </summary>
+        /// <remarks>
+        /// This method does not yet support comparisons because little-endian and big-endian pixel formats.
+        /// </remarks>
+        /// <param name="other">The other pixel format.</param>
+        /// <param name="ignoreAlpha">If true, the presence and encoding of the alpha channel will be ignored during this check.</param>
+        /// <returns>True if they are binary compatible, otherwise false.</returns>
+        public bool IsBinaryCompatibleTo(PixelFormat other, bool ignoreAlpha = false)
+        {
+            if (BitsPerPixel != other.BitsPerPixel || BigEndian != other.BigEndian || TrueColor != other.TrueColor)
+                return false;
+
+            if (RedMax != other.RedMax || GreenMax != other.GreenMax || BlueMax != other.BlueMax || RedShift != other.RedShift || GreenShift != other.GreenShift
+                || BlueShift != other.BlueShift)
+                return false;
+
+            if (!ignoreAlpha)
+            {
+                if (HasAlpha != other.HasAlpha)
+                    return false;
+
+                if (AlphaMax != other.AlphaMax || AlphaShift != other.AlphaShift)
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Checks for equality between two <see cref="PixelFormat"/>s.
         /// </summary>
         /// <param name="left">The first pixel format.</param>
@@ -154,21 +184,7 @@ namespace MarcusW.VncClient
         public static bool operator !=(PixelFormat left, PixelFormat right) => !left.Equals(right);
 
         /// <inheritdoc />
-        public bool Equals(PixelFormat other)
-        {
-            if (BitsPerPixel != other.BitsPerPixel || Depth != other.Depth || BigEndian != other.BigEndian || TrueColor != other.TrueColor || HasAlpha != other.HasAlpha
-                || RedMax != other.RedMax || GreenMax != other.GreenMax || BlueMax != other.BlueMax || RedShift != other.RedShift || GreenShift != other.GreenShift
-                || BlueShift != other.BlueShift)
-                return false;
-
-            if (HasAlpha)
-            {
-                if (AlphaMax != other.AlphaMax || AlphaShift != other.AlphaShift)
-                    return false;
-            }
-
-            return true;
-        }
+        public bool Equals(PixelFormat other) => Name == other.Name && Depth == other.Depth && IsBinaryCompatibleTo(other);
 
         /// <inheritdoc />
         public override bool Equals(object? obj) => obj is PixelFormat other && Equals(other);
@@ -177,6 +193,7 @@ namespace MarcusW.VncClient
         public override int GetHashCode()
         {
             var hashCode = new HashCode();
+            hashCode.Add(Name);
             hashCode.Add(BitsPerPixel);
             hashCode.Add(Depth);
             hashCode.Add(BigEndian);

@@ -27,6 +27,8 @@ namespace MarcusW.VncClient
         private IRenderTarget? _initialRenderTarget;
         private RenderFlags _renderFlags = RenderFlags.Default;
         private IOutputHandler? _initialOutputHandler;
+        private int _jpegQualityLevel = 100;
+        private JpegSubsamplingLevel _jpegSubsamplingLevel = JpegSubsamplingLevel.None;
 
         /// <summary>
         /// Specifies the transport type and parameters to connect to.
@@ -112,6 +114,24 @@ namespace MarcusW.VncClient
             set => ThrowIfFrozen(() => _initialOutputHandler = value);
         }
 
+        /// <summary>
+        /// Gets or sets the JPEG quality level in percent (0 to 100).
+        /// </summary>
+        public int JpegQualityLevel
+        {
+            get => _jpegQualityLevel;
+            set => ThrowIfFrozen(() => _jpegQualityLevel = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the JPEG subsampling level.
+        /// </summary>
+        public JpegSubsamplingLevel JpegSubsamplingLevel
+        {
+            get => _jpegSubsamplingLevel;
+            set => ThrowIfFrozen(() => _jpegSubsamplingLevel = value);
+        }
+
         /// <inhertitdoc />
         public override void Validate()
         {
@@ -121,8 +141,12 @@ namespace MarcusW.VncClient
                 throw new ConnectParametersValidationException($"{nameof(MaxReconnectAttempts)} parameter must be set to a positive value, or -1 for no limit.");
             if (AuthenticationHandler == null)
                 throw new ConnectParametersValidationException($"{nameof(AuthenticationHandler)} parameter must not be null.");
-            if (!Enum.IsDefined(typeof(RenderFlags), _renderFlags))
+            if (!Enum.IsDefined(typeof(RenderFlags), RenderFlags))
                 throw new ConnectParametersValidationException($"{nameof(RenderFlags)} parameter is invalid.");
+            if (JpegQualityLevel < 0 || JpegQualityLevel > 100)
+                throw new ConnectParametersValidationException($"{nameof(JpegQualityLevel)} parameter is not a valid percentage.");
+            if (!Enum.IsDefined(typeof(JpegSubsamplingLevel), JpegSubsamplingLevel))
+                throw new ConnectParametersValidationException($"{nameof(JpegSubsamplingLevel)} parameter is invalid.");
         }
 
         /// <inheritdoc />

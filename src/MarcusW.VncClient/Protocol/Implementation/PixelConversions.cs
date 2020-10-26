@@ -42,11 +42,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 // Simple case: Do both formats have an alpha channel?
                 if (pixelFormat.HasAlpha && targetFormat.HasAlpha)
                 {
-                    // Is the color representation the same?
-                    if (pixelFormat.BitsPerPixel == targetFormat.BitsPerPixel && pixelFormat.RedMax == targetFormat.RedMax && pixelFormat.GreenMax == targetFormat.GreenMax
-                        && pixelFormat.BlueMax == targetFormat.BlueMax && pixelFormat.AlphaMax == targetFormat.AlphaMax && pixelFormat.RedShift == targetFormat.RedShift
-                        && pixelFormat.GreenShift == targetFormat.GreenShift && pixelFormat.BlueShift == targetFormat.BlueShift
-                        && pixelFormat.AlphaShift == targetFormat.AlphaShift)
+                    // Is the binary representation the same?
+                    if (pixelFormat.IsBinaryCompatibleTo(targetFormat))
                     {
                         // Do a memcopy and call it a day.
                         Unsafe.CopyBlock(targetPtr, pixelPtr, pixelFormat.BytesPerPixel);
@@ -59,10 +56,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 // If both formats don't have one, it's trivial.
                 else
                 {
-                    // Is the color representation the same?
-                    if (pixelFormat.BitsPerPixel == targetFormat.BitsPerPixel && pixelFormat.RedMax == targetFormat.RedMax && pixelFormat.GreenMax == targetFormat.GreenMax
-                        && pixelFormat.BlueMax == targetFormat.BlueMax && pixelFormat.RedShift == targetFormat.RedShift && pixelFormat.GreenShift == targetFormat.GreenShift
-                        && pixelFormat.BlueShift == targetFormat.BlueShift)
+                    // Is the binary representation the same when ignoring the alpha channel?
+                    if (pixelFormat.IsBinaryCompatibleTo(targetFormat, true))
                     {
                         // This will memcopy all bits (bpp), even though only depth-bits are actually relevant.
                         // But in case there were left bits for the alpha channel, they will get overwritten now, anyway.
@@ -104,7 +99,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             switch (pixelFormat.BitsPerPixel)
             {
                 case 32:
-                case 24: // Used for ZRLE compressed pixels which consist of only 3 bytes. The fourth read byte will be ignored then.
+                case 24: // Used for ZRLE/Tight compressed pixels which consist of only 3 bytes. The fourth read byte will be ignored then.
                     var u32 = Unsafe.AsRef<uint>(pixelPtr);
                     if (pixelFormat.BigEndian)
                         u32 = BinaryPrimitives.ReverseEndianness(u32);

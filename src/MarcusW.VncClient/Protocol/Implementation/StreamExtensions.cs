@@ -131,7 +131,6 @@ namespace MarcusW.VncClient.Protocol.Implementation
             int bufferSize = numBytes < DefaultBufferSize ? numBytes : DefaultBufferSize;
             byte[] buffer = ArrayPool<byte>.Shared.Rent(bufferSize);
             Span<byte> bufferSpan = buffer;
-
             try
             {
                 int bytesToCopy = numBytes;

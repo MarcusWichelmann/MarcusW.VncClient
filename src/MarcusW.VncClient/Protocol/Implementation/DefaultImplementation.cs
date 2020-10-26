@@ -102,6 +102,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <inheritdoc />
         public IZLibInflater CreateZLibInflater(RfbConnectionContext context) => new ZLibInflater();
 
+        /// <inheritdoc />
+        public IImageDecoder CreateImageDecoder(RfbConnectionContext context) => new ImageDecoder();
+
         /// <summary>
         /// Builds a collection with all RFB security types that are officially supported by this protocol implementation.
         /// Feel free to extend the returned enumerable with custom types.
@@ -161,11 +164,15 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new CopyRectEncodingType();
             yield return new ZLibEncodingType(context);
             yield return new ZrleEncodingType(context);
+            yield return new TightEncodingType(context);
 
             // Pseudo
             yield return new FenceEncodingType();
             yield return new ContinuousUpdatesEncodingType();
             yield return new LastRectEncodingType();
+            yield return new JpegQualityLevelEncodingType(context);
+            yield return new JpegFineGrainedQualityLevelEncodingType(context);
+            yield return new JpegSubsamplingLevelEncodingType(context);
         }
     }
 }

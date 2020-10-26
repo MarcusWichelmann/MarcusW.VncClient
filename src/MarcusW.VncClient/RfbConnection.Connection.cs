@@ -29,6 +29,7 @@ namespace MarcusW.VncClient
             var context = new RfbConnectionContext(this);
             context.State = ProtocolImplementation.CreateStateObject(context);
             context.ZLibInflater = ProtocolImplementation.CreateZLibInflater(context);
+            context.ImageDecoder = ProtocolImplementation.CreateImageDecoder(context);
 
             // Create message and encoding types collections in an order which allows e.g. the message types to get an overview about all registered encodings.
             context.SupportedEncodingTypes = ProtocolImplementation.CreateEncodingTypesCollection(context);
@@ -125,6 +126,9 @@ namespace MarcusW.VncClient
 
             _activeConnection.ZLibInflater?.Dispose();
             _activeConnection.ZLibInflater = null;
+
+            _activeConnection.ImageDecoder?.Dispose();
+            _activeConnection.ImageDecoder = null;
 
             _activeConnection = null;
         }

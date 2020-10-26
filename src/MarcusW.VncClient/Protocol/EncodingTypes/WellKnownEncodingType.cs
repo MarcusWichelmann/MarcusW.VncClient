@@ -17,6 +17,8 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
         Tight = 7,
         ZLibHex = 8,
         ZRLE = 16,
+        JpegQualityLevelHigh = -23,
+        JpegQualityLevelLow = -32,
         DesktopSize = -223,
         LastRect = -224,
         Cursor = -239,
@@ -26,6 +28,10 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
         ExtendedDesktopSize = -308,
         Fence = -312,
         ContinuousUpdates = -313,
-        CursorWithAlpha = -314
+        CursorWithAlpha = -314,
+        JpegFineGrainedQualityLevelHigh = -412,
+        JpegFineGrainedQualityLevelLow = -512,
+        JpegSubsamplingLevelLow = -763,
+        JpegSubsamplingLevelHigh = -768
     }
 }
