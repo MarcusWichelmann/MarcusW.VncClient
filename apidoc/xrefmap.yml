@@ -14232,12 +14232,12 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType
   fullName: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType
   nameWithType: IPseudoEncodingType
-- uid: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IPseudoEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: IPseudoEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IPseudoEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: IPseudoEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.EncodingTypes.IPseudoEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IPseudoEncodingType_ReadPseudoEncoding_
@@ -15269,12 +15269,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.Name
   nameWithType: ContinuousUpdatesEncodingType.Name
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ContinuousUpdatesEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ContinuousUpdatesEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: ContinuousUpdatesEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ContinuousUpdatesEncodingType_ReadPseudoEncoding_
@@ -15282,6 +15282,77 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ContinuousUpdatesEncodingType.ReadPseudoEncoding
   nameWithType: ContinuousUpdatesEncodingType.ReadPseudoEncoding
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType
+  name: DesktopSizeEncodingType
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType
+  nameWithType: DesktopSizeEncodingType
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: DesktopSizeEncodingType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.DesktopSizeEncodingType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: DesktopSizeEncodingType.DesktopSizeEncodingType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.#ctor*
+  name: DesktopSizeEncodingType
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.DesktopSizeEncodingType
+  nameWithType: DesktopSizeEncodingType.DesktopSizeEncodingType
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.GetsConfirmed
+  name: GetsConfirmed
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_GetsConfirmed
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.GetsConfirmed
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.GetsConfirmed
+  nameWithType: DesktopSizeEncodingType.GetsConfirmed
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.GetsConfirmed*
+  name: GetsConfirmed
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_GetsConfirmed_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.GetsConfirmed
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.GetsConfirmed
+  nameWithType: DesktopSizeEncodingType.GetsConfirmed
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Id
+  nameWithType: DesktopSizeEncodingType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Id
+  nameWithType: DesktopSizeEncodingType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Name
+  nameWithType: DesktopSizeEncodingType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.Name
+  nameWithType: DesktopSizeEncodingType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: DesktopSizeEncodingType.ReadPseudoEncoding(Stream, Rectangle)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding*
+  name: ReadPseudoEncoding
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_DesktopSizeEncodingType_ReadPseudoEncoding_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding
+  nameWithType: DesktopSizeEncodingType.ReadPseudoEncoding
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType
   name: FenceEncodingType
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.html
@@ -15327,12 +15398,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.Name
   nameWithType: FenceEncodingType.Name
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_FenceEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: FenceEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_FenceEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: FenceEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_FenceEncodingType_ReadPseudoEncoding_
@@ -15404,12 +15475,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.Name
   nameWithType: JpegFineGrainedQualityLevelEncodingType.Name
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegFineGrainedQualityLevelEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegFineGrainedQualityLevelEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegFineGrainedQualityLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegFineGrainedQualityLevelEncodingType_ReadPseudoEncoding_
@@ -15475,12 +15546,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.Name
   nameWithType: JpegQualityLevelEncodingType.Name
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegQualityLevelEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegQualityLevelEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: JpegQualityLevelEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegQualityLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegQualityLevelEncodingType_ReadPseudoEncoding_
@@ -15546,12 +15617,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.Name
   nameWithType: JpegSubsamplingLevelEncodingType.Name
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegSubsamplingLevelEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegSubsamplingLevelEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: JpegSubsamplingLevelEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.JpegSubsamplingLevelEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_JpegSubsamplingLevelEncodingType_ReadPseudoEncoding_
@@ -15604,12 +15675,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.Name
   nameWithType: LastRectEncodingType.Name
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_LastRectEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: LastRectEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_LastRectEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: LastRectEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.LastRectEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_LastRectEncodingType_ReadPseudoEncoding_
@@ -15675,12 +15746,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.Priority
   nameWithType: PseudoEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding(Stream)
-  name: ReadPseudoEncoding(Stream)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_PseudoEncodingType_ReadPseudoEncoding_Stream_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding(Stream)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding(Stream)
-  nameWithType: PseudoEncodingType.ReadPseudoEncoding(Stream)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_PseudoEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: PseudoEncodingType.ReadPseudoEncoding(Stream, Rectangle)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.ReadPseudoEncoding*
   name: ReadPseudoEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.PseudoEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_PseudoEncodingType_ReadPseudoEncoding_
@@ -16533,6 +16604,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.Flags
   nameWithType: ClientFenceMessage.Flags
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_ClientFenceMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.GetParametersOverview()
+  nameWithType: ClientFenceMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_ClientFenceMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.GetParametersOverview
+  nameWithType: ClientFenceMessage.GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.Payload
   name: Payload
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.ClientFenceMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_ClientFenceMessage_Payload
@@ -16639,6 +16723,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.Enable
   nameWithType: EnableContinuousUpdatesMessage.Enable
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_EnableContinuousUpdatesMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.GetParametersOverview()
+  nameWithType: EnableContinuousUpdatesMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_EnableContinuousUpdatesMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.GetParametersOverview
+  nameWithType: EnableContinuousUpdatesMessage.GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.Rectangle
   name: Rectangle
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.EnableContinuousUpdatesMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_EnableContinuousUpdatesMessage_Rectangle
@@ -16732,6 +16829,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.FramebufferUpdateRequestMessage
   nameWithType: FramebufferUpdateRequestMessage.FramebufferUpdateRequestMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_FramebufferUpdateRequestMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.GetParametersOverview()
+  nameWithType: FramebufferUpdateRequestMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_FramebufferUpdateRequestMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.GetParametersOverview
+  nameWithType: FramebufferUpdateRequestMessage.GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.Incremental
   name: Incremental
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.FramebufferUpdateRequestMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_FramebufferUpdateRequestMessage_Incremental
@@ -16851,6 +16961,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.DownFlag
   nameWithType: KeyEventMessage.DownFlag
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_KeyEventMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.GetParametersOverview()
+  nameWithType: KeyEventMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_KeyEventMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.GetParametersOverview
+  nameWithType: KeyEventMessage.GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.KeySymbol
   name: KeySymbol
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.KeyEventMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_KeyEventMessage_KeySymbol
@@ -16944,6 +17067,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.PointerEventMessage
   nameWithType: PointerEventMessage.PointerEventMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_PointerEventMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.GetParametersOverview()
+  nameWithType: PointerEventMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_PointerEventMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.GetParametersOverview
+  nameWithType: PointerEventMessage.GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.PointerPosition
   name: PointerPosition
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_PointerEventMessage_PointerPosition
@@ -17053,6 +17189,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.SetEncodingsMessage
   nameWithType: SetEncodingsMessage.SetEncodingsMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetEncodingsMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.GetParametersOverview()
+  nameWithType: SetEncodingsMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetEncodingsMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.GetParametersOverview
+  nameWithType: SetEncodingsMessage.GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.SupportedEncodingTypes
   name: SupportedEncodingTypes
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetEncodingsMessage_SupportedEncodingTypes
@@ -18425,6 +18574,23 @@ references:
   fullName.vb: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage(Of TMessageType)
   nameWithType: IOutgoingMessage<TMessageType>
   nameWithType.vb: IOutgoingMessage(Of TMessageType)
+- uid: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage`1.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html#MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage_1_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage`1.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage<TMessageType>.GetParametersOverview()
+  fullName.vb: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage(Of TMessageType).GetParametersOverview()
+  nameWithType: IOutgoingMessage<TMessageType>.GetParametersOverview()
+  nameWithType.vb: IOutgoingMessage(Of TMessageType).GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage`1.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html#MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage_1_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage`1.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage<TMessageType>.GetParametersOverview
+  fullName.vb: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage(Of TMessageType).GetParametersOverview
+  nameWithType: IOutgoingMessage<TMessageType>.GetParametersOverview
+  nameWithType.vb: IOutgoingMessage(Of TMessageType).GetParametersOverview
 - uid: MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessageType
   name: IOutgoingMessageType
   href: api/MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessageType.html
@@ -18689,6 +18855,19 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled(System.Boolean)
+  name: SetContinuousUpdatesEnabled(Boolean)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetContinuousUpdatesEnabled_System_Boolean_
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled(System.Boolean)
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled(System.Boolean)
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled(Boolean)
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled*
+  name: SetContinuousUpdatesEnabled
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetContinuousUpdatesEnabled_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.Nullable{System.String})
   name: SetDesktopName(Nullable<String>)
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopName_System_Nullable_System_String__
@@ -19964,6 +20143,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.ConnectionState
   nameWithType: RfbConnection.ConnectionState
+- uid: MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled
+  name: ContinuousUpdatesEnabled
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_ContinuousUpdatesEnabled
+  commentId: P:MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled
+  fullName: MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled
+  nameWithType: RfbConnection.ContinuousUpdatesEnabled
+- uid: MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled*
+  name: ContinuousUpdatesEnabled
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_ContinuousUpdatesEnabled_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled
+  nameWithType: RfbConnection.ContinuousUpdatesEnabled
 - uid: MarcusW.VncClient.RfbConnection.DesktopName
   name: DesktopName
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_DesktopName
