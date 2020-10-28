@@ -91,5 +91,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
         {
             SupportedEncodingTypes = supportedEncodingTypes ?? throw new ArgumentNullException(nameof(supportedEncodingTypes));
         }
+
+        /// <inheritdoc />
+        public string? GetParametersOverview() => $"SupportedEncodingTypes: {string.Join(", ", SupportedEncodingTypes.Select(et => et.Name))}";
     }
 }

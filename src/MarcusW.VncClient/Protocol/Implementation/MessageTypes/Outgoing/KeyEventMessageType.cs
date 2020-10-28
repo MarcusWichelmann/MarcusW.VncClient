@@ -72,5 +72,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
             DownFlag = downFlag;
             KeySymbol = keySymbol;
         }
+
+        /// <inheritdoc />
+        public string? GetParametersOverview() => $"DownFlag: {DownFlag}, KeySymbol: {KeySymbol}";
     }
 }

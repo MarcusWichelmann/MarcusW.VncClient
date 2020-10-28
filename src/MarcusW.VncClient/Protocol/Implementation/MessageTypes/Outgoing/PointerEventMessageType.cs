@@ -78,5 +78,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
             PointerPosition = pointerPosition;
             PressedButtons = pressedButtons;
         }
+
+        /// <inheritdoc />
+        public string? GetParametersOverview() => $"PointerPosition: {PointerPosition}, PressedButtons: {PressedButtons}";
     }
 }

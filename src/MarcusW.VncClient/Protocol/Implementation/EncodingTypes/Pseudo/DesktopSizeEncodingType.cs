@@ -41,7 +41,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         public override void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle)
         {
             Size newSize = rectangle.Size;
-            var wholeScreenRectangle = new Rectangle(Position.Origin, _state.RemoteFramebufferSize);
+            var wholeScreenRectangle = new Rectangle(Position.Origin, newSize);
 
             _logger.LogDebug("Remote framebuffer size updated to {newSize}.", newSize);
 
@@ -51,7 +51,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
             Debug.Assert(_context.MessageSender != null, "_context.MessageSender != null");
 
             // If continuous updates were enabled, enable it again to update it's coordinates
-            if(_state.ServerSupportsContinuousUpdates && _state.ContinuousUpdatesEnabled)
+            if (_state.ServerSupportsContinuousUpdates && _state.ContinuousUpdatesEnabled)
                 _context.MessageSender.EnqueueMessage(new EnableContinuousUpdatesMessage(true, wholeScreenRectangle));
 
             // Request a whole-screen non-incremental update just to be sure. The protocol explicitly allows this.

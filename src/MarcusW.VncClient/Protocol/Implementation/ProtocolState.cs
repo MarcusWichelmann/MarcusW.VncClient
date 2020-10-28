@@ -90,10 +90,6 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets or sets the current remote framebuffer size.
         /// </summary>
-        /// <remarks>
-        /// After the initialization is done, this property should only be written by received messages/pseudo-encodings
-        /// because its value might get locally cached to improve message processing performance.
-        /// </remarks>
         public Size RemoteFramebufferSize
         {
             get => _remoteFramebufferSizeValue.Value;
@@ -107,10 +103,6 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets or sets the current remote framebuffer format.
         /// </summary>
-        /// <remarks>
-        /// After the initialization is done, this property should only be written by received messages/pseudo-encodings
-        /// because its value might get locally cached to improve message processing performance.
-        /// </remarks>
         public PixelFormat RemoteFramebufferFormat
         {
             get => _remoteFramebufferFormatValue.Value;

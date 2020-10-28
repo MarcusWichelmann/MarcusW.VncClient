@@ -89,5 +89,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
             if (payload.Length > 64)
                 throw new ArgumentException("Payload length must not exceed 64 bytes.", nameof(payload));
         }
+
+        /// <inheritdoc />
+        public string? GetParametersOverview() => $"Flags: {Flags}, Payload: {BitConverter.ToString(Payload)}";
     }
 }

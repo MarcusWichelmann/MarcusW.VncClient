@@ -129,7 +129,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                     IOutgoingMessageType messageType = queueItem.MessageType;
 
                     if (_logger.IsEnabled(LogLevel.Debug))
-                        _logger.LogDebug("Sending {messageName}...", messageType.Name);
+                    {
+                        string? parametersOverview = message.GetParametersOverview();
+                        _logger.LogDebug("Sending {messageName} message ({parameters})...", messageType.Name, parametersOverview ?? "no parameters");
+                    }
 
                     try
                     {

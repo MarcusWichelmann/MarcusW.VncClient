@@ -83,5 +83,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
             Incremental = incremental;
             Rectangle = rectangle;
         }
+
+        /// <inheritdoc />
+        public string? GetParametersOverview() => $"Incremental: {Incremental}, Rectangle: {Rectangle}";
     }
 }

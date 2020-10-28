@@ -82,5 +82,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
             Enable = enable;
             Rectangle = rectangle;
         }
+
+        /// <inheritdoc />
+        public string? GetParametersOverview() => $"Enable: {Enable}, Rectangle: {Rectangle}";
     }
 }

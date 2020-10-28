@@ -2,6 +2,7 @@ using System;
 using System.Buffers.Binary;
 using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Threading;
 using MarcusW.VncClient.Protocol.EncodingTypes;
@@ -85,14 +86,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             if (_logger.IsEnabled(LogLevel.Debug))
             {
-                _logger.LogDebug("Receiving framebuffer update with "
-                    + (numberOfRectangles == 65535 ? "a dynamic amount of rectangles..." : $"{numberOfRectangles} rectangles..."));
+                _logger.LogDebug("Receiving framebuffer update with {rectangles} rectangles. Current framebuffer size: {framebufferSize}",
+                    numberOfRectangles == 65535 ? "a dynamic amount of" : numberOfRectangles.ToString(CultureInfo.CurrentCulture), _state.RemoteFramebufferSize);
                 _stopwatch.Restart();
             }
-
-            // Cache for remote framebuffer information. This assumes that the framebuffer size and format properties are only changed by received messages/pseudo-encodings.
-            Size remoteFramebufferSize = _state.RemoteFramebufferSize;
-            PixelFormat remoteFramebufferFormat = _state.RemoteFramebufferFormat;
 
             // Get the current render target (can be null)
             IRenderTarget? renderTarget = _context.Connection.RenderTarget;
@@ -131,18 +128,21 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
                     if (encodingType is IFrameEncodingType frameEncodingType)
                     {
+                        if (_logger.IsEnabled(LogLevel.Trace))
+                            _logger.LogTrace("Reading frame encoding type {encodingType} for rectangle {rectangle}.", frameEncodingType.Name, rectangle);
+
                         // Lock the target framebuffer, if there is no reference yet
                         if (renderTarget != null && targetFramebuffer == null)
                         {
-                            targetFramebuffer = renderTarget.GrabFramebufferReference(remoteFramebufferSize);
-                            if (targetFramebuffer.Size != remoteFramebufferSize)
+                            targetFramebuffer = renderTarget.GrabFramebufferReference(_state.RemoteFramebufferSize);
+                            if (targetFramebuffer.Size != _state.RemoteFramebufferSize)
                                 throw new RfbProtocolException("Framebuffer reference is not of the requested size.");
                         }
 
                         try
                         {
                             // Read frame encoding
-                            frameEncodingType.ReadFrameEncoding(transportStream, targetFramebuffer, rectangle, remoteFramebufferSize, remoteFramebufferFormat);
+                            frameEncodingType.ReadFrameEncoding(transportStream, targetFramebuffer, rectangle, _state.RemoteFramebufferSize, _state.RemoteFramebufferFormat);
 
                             // Visualize rectangle
                             if (targetFramebuffer != null && _visualizeRectangles)
@@ -160,16 +160,15 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     }
                     else if (encodingType is IPseudoEncodingType pseudoEncodingType)
                     {
+                        if (_logger.IsEnabled(LogLevel.Trace))
+                            _logger.LogTrace("Reading pseudo encoding type {encodingType} for rectangle {rectangle}.", pseudoEncodingType.Name, rectangle);
+
                         // Stop after a LastRect encoding
                         if (encodingType is ILastRectEncodingType)
                             break;
 
                         // Ignore the rectangle information and just call the pseudo encoding
                         pseudoEncodingType.ReadPseudoEncoding(transportStream, rectangle);
-
-                        // The pseudo encoding might have changed the cached framebuffer information.
-                        remoteFramebufferSize = _state.RemoteFramebufferSize;
-                        remoteFramebufferFormat = _state.RemoteFramebufferFormat;
                     }
                 }
             }
