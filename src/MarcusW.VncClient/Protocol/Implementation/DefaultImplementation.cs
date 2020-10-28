@@ -100,10 +100,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public virtual IRfbMessageSender CreateMessageSender(RfbConnectionContext context) => new RfbMessageSender(context);
 
         /// <inheritdoc />
-        public IZLibInflater CreateZLibInflater(RfbConnectionContext context) => new ZLibInflater();
+        public virtual IZLibInflater CreateZLibInflater(RfbConnectionContext context) => new ZLibInflater();
 
         /// <inheritdoc />
-        public IImageDecoder CreateImageDecoder(RfbConnectionContext context) => new ImageDecoder();
+        public virtual IImageDecoder CreateImageDecoder(RfbConnectionContext context) => new ImageDecoder();
 
         /// <summary>
         /// Builds a collection with all RFB security types that are officially supported by this protocol implementation.
@@ -173,6 +173,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new JpegQualityLevelEncodingType(context);
             yield return new JpegFineGrainedQualityLevelEncodingType(context);
             yield return new JpegSubsamplingLevelEncodingType(context);
+            yield return new DesktopSizeEncodingType(context);
         }
     }
 }

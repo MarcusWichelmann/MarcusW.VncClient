@@ -34,6 +34,9 @@ namespace MarcusW.VncClient
         private readonly object _desktopNameLock = new object();
         private string? _desktopName;
 
+        private readonly object _continuousUpdatesEnabledLock = new object();
+        private bool _continuousUpdatesEnabled = false;
+
         /// <summary>
         /// Gets the version of the protocol used for remote communication.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
@@ -102,6 +105,16 @@ namespace MarcusW.VncClient
         {
             get => GetWithLock(ref _desktopName, _desktopNameLock);
             internal set => RaiseAndSetIfChangedWithLock(ref _desktopName, value, _desktopNameLock);
+        }
+
+        /// <summary>
+        /// Gets the current state of the continuous update protocol feature.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        public bool ContinuousUpdatesEnabled
+        {
+            get => GetWithLock(ref _continuousUpdatesEnabled, _continuousUpdatesEnabledLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _continuousUpdatesEnabled, value, _continuousUpdatesEnabledLock);
         }
     }
 }

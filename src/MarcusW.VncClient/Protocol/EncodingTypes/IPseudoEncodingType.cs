@@ -11,6 +11,7 @@ namespace MarcusW.VncClient.Protocol.EncodingTypes
         /// Reads a pseudo encoding from the transport stream, decodes it and acts accordingly.
         /// </summary>
         /// <param name="transportStream">The stream to read from.</param>
-        void ReadPseudoEncoding(Stream transportStream);
+        /// <param name="rectangle">The rectangle that was received with the pseudo encoding. Might be relevant sometimes.</param>
+        void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle);
     }
 }

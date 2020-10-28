@@ -158,7 +158,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public bool ContinuousUpdatesEnabled
         {
             get => _continuousUpdatesEnabledValue.Value;
-            set => _continuousUpdatesEnabledValue.Value = value;
+            set
+            {
+                _continuousUpdatesEnabledValue.Value = value;
+                _context.ConnectionDetails.SetContinuousUpdatesEnabled(value);
+            }
         }
 
         /// <summary>

@@ -106,14 +106,20 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                 {
                     transportStream.ReadAll(buffer, cancellationToken);
 
-                    // Read encoding type first
+                    // Read rectangle information
+                    ushort x = BinaryPrimitives.ReadUInt16BigEndian(buffer);
+                    ushort y = BinaryPrimitives.ReadUInt16BigEndian(buffer[2..]);
+                    ushort width = BinaryPrimitives.ReadUInt16BigEndian(buffer[4..]);
+                    ushort height = BinaryPrimitives.ReadUInt16BigEndian(buffer[6..]);
+                    Rectangle rectangle = new Rectangle(x, y, width, height);
+
+                    // Read encoding type
                     int encodingTypeId = BinaryPrimitives.ReadInt32BigEndian(buffer[8..]);
 
                     IEncodingType encodingType;
-
-                    // Skip lookup in case we receive the same encoding type multiple times
                     if (_lastEncodingTypeId == encodingTypeId)
                     {
+                        // Skip lookup in case we receive the same encoding type multiple times
                         encodingType = _lastEncodingType!;
                     }
                     else
@@ -125,13 +131,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
                     if (encodingType is IFrameEncodingType frameEncodingType)
                     {
-                        // Read rectangle information
-                        ushort x = BinaryPrimitives.ReadUInt16BigEndian(buffer);
-                        ushort y = BinaryPrimitives.ReadUInt16BigEndian(buffer[2..]);
-                        ushort width = BinaryPrimitives.ReadUInt16BigEndian(buffer[4..]);
-                        ushort height = BinaryPrimitives.ReadUInt16BigEndian(buffer[6..]);
-                        Rectangle rectangle = new Rectangle(x, y, width, height);
-
                         // Lock the target framebuffer, if there is no reference yet
                         if (renderTarget != null && targetFramebuffer == null)
                         {
@@ -166,7 +165,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                             break;
 
                         // Ignore the rectangle information and just call the pseudo encoding
-                        pseudoEncodingType.ReadPseudoEncoding(transportStream);
+                        pseudoEncodingType.ReadPseudoEncoding(transportStream, rectangle);
 
                         // The pseudo encoding might have changed the cached framebuffer information.
                         remoteFramebufferSize = _state.RemoteFramebufferSize;

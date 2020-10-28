@@ -21,6 +21,6 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         public abstract bool GetsConfirmed { get; }
 
         /// <inheritdoc />
-        public abstract void ReadPseudoEncoding(Stream transportStream);
+        public abstract void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle);
     }
 }

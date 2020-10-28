@@ -251,7 +251,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         {
             Rectangle otherRectangle = otherCursor.Rectangle;
 
-            if (otherRectangle.Size != Rectangle.Size || otherCursor.BytesPerPixel != BytesPerPixel)
+            if (otherRectangle.Size != Rectangle.Size || otherCursor.BytesPerPixel != BytesPerPixel || otherCursor.FramebufferFormat != FramebufferFormat)
                 throw new InvalidOperationException("The other cursor is not equal enough to attempt a full copy.");
 
             if (_currentX != FirstX || otherCursor._currentX != otherCursor.FirstX || _currentY != Rectangle.Position.Y || otherCursor._currentY != otherRectangle.Position.Y)

@@ -18,7 +18,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         public override bool GetsConfirmed => true;
 
         /// <inheritdoc />
-        public override void ReadPseudoEncoding(Stream transportStream)
+        public override void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle)
         {
             // Do nothing. The FramebufferUpdate message type will detect that this encoding implements ILastRectEncodingType.
         }

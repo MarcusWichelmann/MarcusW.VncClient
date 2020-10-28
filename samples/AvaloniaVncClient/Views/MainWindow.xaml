@@ -33,6 +33,8 @@
                         <TextBlock Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
                         <TextBlock
                             Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
+                        <TextBlock
+                            Text="{Binding RfbConnection.ContinuousUpdatesEnabled, StringFormat=Continuous Updates: \{0\}}" />
                     </StackPanel>
                 </StackPanel>
             </Grid>

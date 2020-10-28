@@ -30,7 +30,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         }
 
         /// <inheritdoc />
-        public override void ReadPseudoEncoding(Stream transportStream)
+        public override void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle)
         {
             // Do nothing.
         }

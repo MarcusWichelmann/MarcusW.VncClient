@@ -18,7 +18,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         public override bool GetsConfirmed => true; // The server will send a ServerFence message for confirmation.
 
         /// <inheritdoc />
-        public override void ReadPseudoEncoding(Stream transportStream)
+        public override void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle)
         {
             // Do nothing. This pseudo encoding only exists to check for server-side support.
         }
