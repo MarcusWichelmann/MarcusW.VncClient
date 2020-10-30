@@ -23,7 +23,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
         public byte Id => (byte)WellKnownIncomingMessageType.SetColourMapEntries;
 
         /// <inheritdoc />
-        public string Name => "SetColourMapEntries";
+        public string Name => "SetColourMapEntries (unsupported)";
 
         /// <inheritdoc />
         public bool IsStandardMessageType => true;

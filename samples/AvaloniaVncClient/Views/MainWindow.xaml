@@ -27,9 +27,9 @@
                             Text="{Binding RfbConnection.ProtocolVersion, Converter={x:Static vncconverters:VncClientConverters.RfbProtocolVersionToString}, StringFormat=Protocol Version: \{0\}}" />
                         <TextBlock
                             Text="{Binding RfbConnection.UsedSecurityType.Name, StringFormat=Security Type: \{0\}}" />
+                        <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Spacing="10">
-                        <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
                         <TextBlock Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
                         <TextBlock
                             Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
