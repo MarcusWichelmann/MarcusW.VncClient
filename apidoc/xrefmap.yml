@@ -331,12 +331,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.Dispose
   nameWithType: RfbRenderTarget.Dispose
-- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  name: GrabFramebufferReference(Size)
-  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_
-  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  nameWithType: RfbRenderTarget.GrabFramebufferReference(Size)
+- uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size,IImmutableSet{MarcusW.VncClient.Screen})
+  name: GrabFramebufferReference(Size, IImmutableSet<Screen>)
+  href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_IImmutableSet_MarcusW_VncClient_Screen__
+  commentId: M:MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size,IImmutableSet{MarcusW.VncClient.Screen})
+  name.vb: GrabFramebufferReference(Size, IImmutableSet(Of Screen))
+  fullName: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size, IImmutableSet<MarcusW.VncClient.Screen>)
+  fullName.vb: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size, IImmutableSet(Of MarcusW.VncClient.Screen))
+  nameWithType: RfbRenderTarget.GrabFramebufferReference(Size, IImmutableSet<Screen>)
+  nameWithType.vb: RfbRenderTarget.GrabFramebufferReference(Size, IImmutableSet(Of Screen))
 - uid: MarcusW.VncClient.Avalonia.RfbRenderTarget.GrabFramebufferReference*
   name: GrabFramebufferReference
   href: api/MarcusW.VncClient.Avalonia.RfbRenderTarget.html#MarcusW_VncClient_Avalonia_RfbRenderTarget_GrabFramebufferReference_
@@ -15353,6 +15356,77 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.DesktopSizeEncodingType.ReadPseudoEncoding
   nameWithType: DesktopSizeEncodingType.ReadPseudoEncoding
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType
+  name: ExtendedDesktopSizeEncodingType
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType
+  nameWithType: ExtendedDesktopSizeEncodingType
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: ExtendedDesktopSizeEncodingType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ExtendedDesktopSizeEncodingType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: ExtendedDesktopSizeEncodingType.ExtendedDesktopSizeEncodingType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.#ctor*
+  name: ExtendedDesktopSizeEncodingType
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ExtendedDesktopSizeEncodingType
+  nameWithType: ExtendedDesktopSizeEncodingType.ExtendedDesktopSizeEncodingType
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.GetsConfirmed
+  name: GetsConfirmed
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_GetsConfirmed
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.GetsConfirmed
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.GetsConfirmed
+  nameWithType: ExtendedDesktopSizeEncodingType.GetsConfirmed
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.GetsConfirmed*
+  name: GetsConfirmed
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_GetsConfirmed_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.GetsConfirmed
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.GetsConfirmed
+  nameWithType: ExtendedDesktopSizeEncodingType.GetsConfirmed
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Id
+  nameWithType: ExtendedDesktopSizeEncodingType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Id
+  nameWithType: ExtendedDesktopSizeEncodingType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Name
+  nameWithType: ExtendedDesktopSizeEncodingType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.Name
+  nameWithType: ExtendedDesktopSizeEncodingType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  name: ReadPseudoEncoding(Stream, Rectangle)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_ReadPseudoEncoding_Stream_MarcusW_VncClient_Rectangle_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ReadPseudoEncoding(Stream,MarcusW.VncClient.Rectangle)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ReadPseudoEncoding(Stream, MarcusW.VncClient.Rectangle)
+  nameWithType: ExtendedDesktopSizeEncodingType.ReadPseudoEncoding(Stream, Rectangle)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ReadPseudoEncoding*
+  name: ReadPseudoEncoding
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Pseudo_ExtendedDesktopSizeEncodingType_ReadPseudoEncoding_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ReadPseudoEncoding
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.ExtendedDesktopSizeEncodingType.ReadPseudoEncoding
+  nameWithType: ExtendedDesktopSizeEncodingType.ReadPseudoEncoding
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType
   name: FenceEncodingType
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo.FenceEncodingType.html
@@ -17167,6 +17241,86 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.PointerEventMessageType.WriteToTransport
   nameWithType: PointerEventMessageType.WriteToTransport
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage
+  name: SetDesktopSizeMessage
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage
+  nameWithType: SetDesktopSizeMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview
+  name: GetParametersOverview()
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview()
+  nameWithType: SetDesktopSizeMessage.GetParametersOverview()
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview*
+  name: GetParametersOverview
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview
+  nameWithType: SetDesktopSizeMessage.GetParametersOverview
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType
+  name: SetDesktopSizeMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType
+  nameWithType: SetDesktopSizeMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_Id
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id
+  nameWithType: SetDesktopSizeMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_Id_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id
+  nameWithType: SetDesktopSizeMessageType.Id
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.IsStandardMessageType
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_IsStandardMessageType
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.IsStandardMessageType
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.IsStandardMessageType
+  nameWithType: SetDesktopSizeMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.IsStandardMessageType*
+  name: IsStandardMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_IsStandardMessageType_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.IsStandardMessageType
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.IsStandardMessageType
+  nameWithType: SetDesktopSizeMessageType.IsStandardMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Name
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_Name
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Name
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Name
+  nameWithType: SetDesktopSizeMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Name*
+  name: Name
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_Name_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Name
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Name
+  nameWithType: SetDesktopSizeMessageType.Name
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage{MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessageType},MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  name: WriteToTransport(IOutgoingMessage<IOutgoingMessageType>, ITransport, CancellationToken)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_WriteToTransport_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessage_MarcusW_VncClient_Protocol_MessageTypes_IOutgoingMessageType__MarcusW_VncClient_Protocol_ITransport_CancellationToken_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage{MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessageType},MarcusW.VncClient.Protocol.ITransport,CancellationToken)
+  name.vb: WriteToTransport(IOutgoingMessage(Of IOutgoingMessageType), ITransport, CancellationToken)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage<MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessageType>, MarcusW.VncClient.Protocol.ITransport, CancellationToken)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport(MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage(Of MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessageType), MarcusW.VncClient.Protocol.ITransport, CancellationToken)
+  nameWithType: SetDesktopSizeMessageType.WriteToTransport(IOutgoingMessage<IOutgoingMessageType>, ITransport, CancellationToken)
+  nameWithType.vb: SetDesktopSizeMessageType.WriteToTransport(IOutgoingMessage(Of IOutgoingMessageType), ITransport, CancellationToken)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport*
+  name: WriteToTransport
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_WriteToTransport_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.WriteToTransport
+  nameWithType: SetDesktopSizeMessageType.WriteToTransport
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage
   name: SetEncodingsMessage
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessage.html
@@ -17414,6 +17568,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferFormat
   nameWithType: ProtocolState.RemoteFramebufferFormat
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferLayout
+  name: RemoteFramebufferLayout
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_RemoteFramebufferLayout
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferLayout
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferLayout
+  nameWithType: ProtocolState.RemoteFramebufferLayout
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferLayout*
+  name: RemoteFramebufferLayout
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_RemoteFramebufferLayout_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferLayout
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferLayout
+  nameWithType: ProtocolState.RemoteFramebufferLayout
 - uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.RemoteFramebufferSize
   name: RemoteFramebufferSize
   href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_RemoteFramebufferSize
@@ -17440,6 +17607,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsContinuousUpdates
   nameWithType: ProtocolState.ServerSupportsContinuousUpdates
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsExtendedDesktopSize
+  name: ServerSupportsExtendedDesktopSize
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ServerSupportsExtendedDesktopSize
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsExtendedDesktopSize
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsExtendedDesktopSize
+  nameWithType: ProtocolState.ServerSupportsExtendedDesktopSize
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsExtendedDesktopSize*
+  name: ServerSupportsExtendedDesktopSize
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ServerSupportsExtendedDesktopSize_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsExtendedDesktopSize
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsExtendedDesktopSize
+  nameWithType: ProtocolState.ServerSupportsExtendedDesktopSize
 - uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.ServerSupportsFences
   name: ServerSupportsFences
   href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_ServerSupportsFences
@@ -18910,6 +19090,22 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferFormat
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferFormat
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout(IImmutableSet{MarcusW.VncClient.Screen})
+  name: SetRemoteFramebufferLayout(IImmutableSet<Screen>)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetRemoteFramebufferLayout_IImmutableSet_MarcusW_VncClient_Screen__
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout(IImmutableSet{MarcusW.VncClient.Screen})
+  name.vb: SetRemoteFramebufferLayout(IImmutableSet(Of Screen))
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout(IImmutableSet<MarcusW.VncClient.Screen>)
+  fullName.vb: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout(IImmutableSet(Of MarcusW.VncClient.Screen))
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout(IImmutableSet<Screen>)
+  nameWithType.vb: RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout(IImmutableSet(Of Screen))
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout*
+  name: SetRemoteFramebufferLayout
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetRemoteFramebufferLayout_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferLayout
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetRemoteFramebufferSize(MarcusW.VncClient.Size)
   name: SetRemoteFramebufferSize(Size)
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetRemoteFramebufferSize_MarcusW_VncClient_Size_
@@ -20074,12 +20270,15 @@ references:
   commentId: T:MarcusW.VncClient.Rendering.IRenderTarget
   fullName: MarcusW.VncClient.Rendering.IRenderTarget
   nameWithType: IRenderTarget
-- uid: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  name: GrabFramebufferReference(Size)
-  href: api/MarcusW.VncClient.Rendering.IRenderTarget.html#MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_
-  commentId: M:MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  fullName: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size)
-  nameWithType: IRenderTarget.GrabFramebufferReference(Size)
+- uid: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size,IImmutableSet{MarcusW.VncClient.Screen})
+  name: GrabFramebufferReference(Size, IImmutableSet<Screen>)
+  href: api/MarcusW.VncClient.Rendering.IRenderTarget.html#MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_IImmutableSet_MarcusW_VncClient_Screen__
+  commentId: M:MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size,IImmutableSet{MarcusW.VncClient.Screen})
+  name.vb: GrabFramebufferReference(Size, IImmutableSet(Of Screen))
+  fullName: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size, IImmutableSet<MarcusW.VncClient.Screen>)
+  fullName.vb: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size, IImmutableSet(Of MarcusW.VncClient.Screen))
+  nameWithType: IRenderTarget.GrabFramebufferReference(Size, IImmutableSet<Screen>)
+  nameWithType.vb: IRenderTarget.GrabFramebufferReference(Size, IImmutableSet(Of Screen))
 - uid: MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference*
   name: GrabFramebufferReference
   href: api/MarcusW.VncClient.Rendering.IRenderTarget.html#MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_
@@ -20295,6 +20494,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.RemoteFramebufferFormat
   nameWithType: RfbConnection.RemoteFramebufferFormat
+- uid: MarcusW.VncClient.RfbConnection.RemoteFramebufferLayout
+  name: RemoteFramebufferLayout
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RemoteFramebufferLayout
+  commentId: P:MarcusW.VncClient.RfbConnection.RemoteFramebufferLayout
+  fullName: MarcusW.VncClient.RfbConnection.RemoteFramebufferLayout
+  nameWithType: RfbConnection.RemoteFramebufferLayout
+- uid: MarcusW.VncClient.RfbConnection.RemoteFramebufferLayout*
+  name: RemoteFramebufferLayout
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RemoteFramebufferLayout_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.RemoteFramebufferLayout
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.RemoteFramebufferLayout
+  nameWithType: RfbConnection.RemoteFramebufferLayout
 - uid: MarcusW.VncClient.RfbConnection.RemoteFramebufferSize
   name: RemoteFramebufferSize
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_RemoteFramebufferSize
@@ -20376,6 +20588,138 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.UsedSecurityType
   nameWithType: RfbConnection.UsedSecurityType
+- uid: MarcusW.VncClient.Screen
+  name: Screen
+  href: api/MarcusW.VncClient.Screen.html
+  commentId: T:MarcusW.VncClient.Screen
+  fullName: MarcusW.VncClient.Screen
+  nameWithType: Screen
+- uid: MarcusW.VncClient.Screen.#ctor(System.UInt32,MarcusW.VncClient.Rectangle,System.UInt32)
+  name: Screen(UInt32, Rectangle, UInt32)
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen__ctor_System_UInt32_MarcusW_VncClient_Rectangle_System_UInt32_
+  commentId: M:MarcusW.VncClient.Screen.#ctor(System.UInt32,MarcusW.VncClient.Rectangle,System.UInt32)
+  fullName: MarcusW.VncClient.Screen.Screen(System.UInt32, MarcusW.VncClient.Rectangle, System.UInt32)
+  nameWithType: Screen.Screen(UInt32, Rectangle, UInt32)
+- uid: MarcusW.VncClient.Screen.#ctor*
+  name: Screen
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen__ctor_
+  commentId: Overload:MarcusW.VncClient.Screen.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Screen
+  nameWithType: Screen.Screen
+- uid: MarcusW.VncClient.Screen.Equals(MarcusW.VncClient.Screen)
+  name: Equals(Screen)
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Equals_MarcusW_VncClient_Screen_
+  commentId: M:MarcusW.VncClient.Screen.Equals(MarcusW.VncClient.Screen)
+  fullName: MarcusW.VncClient.Screen.Equals(MarcusW.VncClient.Screen)
+  nameWithType: Screen.Equals(Screen)
+- uid: MarcusW.VncClient.Screen.Equals(System.Nullable{System.Object})
+  name: Equals(Nullable<Object>)
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Equals_System_Nullable_System_Object__
+  commentId: M:MarcusW.VncClient.Screen.Equals(System.Nullable{System.Object})
+  name.vb: Equals(Nullable(Of Object))
+  fullName: MarcusW.VncClient.Screen.Equals(System.Nullable<System.Object>)
+  fullName.vb: MarcusW.VncClient.Screen.Equals(System.Nullable(Of System.Object))
+  nameWithType: Screen.Equals(Nullable<Object>)
+  nameWithType.vb: Screen.Equals(Nullable(Of Object))
+- uid: MarcusW.VncClient.Screen.Equals*
+  name: Equals
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Equals_
+  commentId: Overload:MarcusW.VncClient.Screen.Equals
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Equals
+  nameWithType: Screen.Equals
+- uid: MarcusW.VncClient.Screen.Flags
+  name: Flags
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Flags
+  commentId: P:MarcusW.VncClient.Screen.Flags
+  fullName: MarcusW.VncClient.Screen.Flags
+  nameWithType: Screen.Flags
+- uid: MarcusW.VncClient.Screen.Flags*
+  name: Flags
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Flags_
+  commentId: Overload:MarcusW.VncClient.Screen.Flags
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Flags
+  nameWithType: Screen.Flags
+- uid: MarcusW.VncClient.Screen.GetHashCode
+  name: GetHashCode()
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_GetHashCode
+  commentId: M:MarcusW.VncClient.Screen.GetHashCode
+  fullName: MarcusW.VncClient.Screen.GetHashCode()
+  nameWithType: Screen.GetHashCode()
+- uid: MarcusW.VncClient.Screen.GetHashCode*
+  name: GetHashCode
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_GetHashCode_
+  commentId: Overload:MarcusW.VncClient.Screen.GetHashCode
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.GetHashCode
+  nameWithType: Screen.GetHashCode
+- uid: MarcusW.VncClient.Screen.Id
+  name: Id
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Id
+  commentId: P:MarcusW.VncClient.Screen.Id
+  fullName: MarcusW.VncClient.Screen.Id
+  nameWithType: Screen.Id
+- uid: MarcusW.VncClient.Screen.Id*
+  name: Id
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Id_
+  commentId: Overload:MarcusW.VncClient.Screen.Id
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Id
+  nameWithType: Screen.Id
+- uid: MarcusW.VncClient.Screen.op_Equality(MarcusW.VncClient.Screen,MarcusW.VncClient.Screen)
+  name: Equality(Screen, Screen)
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_op_Equality_MarcusW_VncClient_Screen_MarcusW_VncClient_Screen_
+  commentId: M:MarcusW.VncClient.Screen.op_Equality(MarcusW.VncClient.Screen,MarcusW.VncClient.Screen)
+  fullName: MarcusW.VncClient.Screen.Equality(MarcusW.VncClient.Screen, MarcusW.VncClient.Screen)
+  nameWithType: Screen.Equality(Screen, Screen)
+- uid: MarcusW.VncClient.Screen.op_Equality*
+  name: Equality
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_op_Equality_
+  commentId: Overload:MarcusW.VncClient.Screen.op_Equality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Equality
+  nameWithType: Screen.Equality
+- uid: MarcusW.VncClient.Screen.op_Inequality(MarcusW.VncClient.Screen,MarcusW.VncClient.Screen)
+  name: Inequality(Screen, Screen)
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_op_Inequality_MarcusW_VncClient_Screen_MarcusW_VncClient_Screen_
+  commentId: M:MarcusW.VncClient.Screen.op_Inequality(MarcusW.VncClient.Screen,MarcusW.VncClient.Screen)
+  fullName: MarcusW.VncClient.Screen.Inequality(MarcusW.VncClient.Screen, MarcusW.VncClient.Screen)
+  nameWithType: Screen.Inequality(Screen, Screen)
+- uid: MarcusW.VncClient.Screen.op_Inequality*
+  name: Inequality
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_op_Inequality_
+  commentId: Overload:MarcusW.VncClient.Screen.op_Inequality
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Inequality
+  nameWithType: Screen.Inequality
+- uid: MarcusW.VncClient.Screen.Rectangle
+  name: Rectangle
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Rectangle
+  commentId: P:MarcusW.VncClient.Screen.Rectangle
+  fullName: MarcusW.VncClient.Screen.Rectangle
+  nameWithType: Screen.Rectangle
+- uid: MarcusW.VncClient.Screen.Rectangle*
+  name: Rectangle
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_Rectangle_
+  commentId: Overload:MarcusW.VncClient.Screen.Rectangle
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.Rectangle
+  nameWithType: Screen.Rectangle
+- uid: MarcusW.VncClient.Screen.ToString
+  name: ToString()
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_ToString
+  commentId: M:MarcusW.VncClient.Screen.ToString
+  fullName: MarcusW.VncClient.Screen.ToString()
+  nameWithType: Screen.ToString()
+- uid: MarcusW.VncClient.Screen.ToString*
+  name: ToString
+  href: api/MarcusW.VncClient.Screen.html#MarcusW_VncClient_Screen_ToString_
+  commentId: Overload:MarcusW.VncClient.Screen.ToString
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Screen.ToString
+  nameWithType: Screen.ToString
 - uid: MarcusW.VncClient.Security
   name: MarcusW.VncClient.Security
   href: api/MarcusW.VncClient.Security.html

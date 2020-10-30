@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IRenderTarget
+    <title>Class SetDesktopSizeMessage
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IRenderTarget
+    <meta name="title" content="Class SetDesktopSizeMessage
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,67 +68,45 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Rendering.IRenderTarget">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage">
   
   
-  <h1 id="MarcusW_VncClient_Rendering_IRenderTarget" data-uid="MarcusW.VncClient.Rendering.IRenderTarget" class="text-break">Interface IRenderTarget
+  <h1 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage" class="text-break">Class SetDesktopSizeMessage
   </h1>
-  <div class="markdown level0 summary"><p>Provides access to a target framebuffer for rendering frames.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Rendering.html">MarcusW.VncClient.Rendering</a></h6>
-  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Rendering_IRenderTarget_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IRenderTarget</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SetDesktopSizeMessage</span></div>
   </div>
-  <h5 id="MarcusW_VncClient_Rendering_IRenderTarget_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>This is an abstraction around the different framebuffer access methods for rendering backends like Avalonia (Skia, Direct2D, ...), WPF and others.</p>
-</div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html">IOutgoingMessage</a>&lt;<a class="xref" href="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html">SetDesktopSizeMessageType</a>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.html">MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing</a></h6>
+  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
+  <h5 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SetDesktopSizeMessage : object, IOutgoingMessage&lt;SetDesktopSizeMessageType&gt;</code></pre>
+  </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_IImmutableSet_MarcusW_VncClient_Screen__.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size%2CIImmutableSet%7BMarcusW.VncClient.Screen%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IRenderTarget.cs/#L21">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L32">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_" data-uid="MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference*"></a>
-  <h4 id="MarcusW_VncClient_Rendering_IRenderTarget_GrabFramebufferReference_MarcusW_VncClient_Size_IImmutableSet_MarcusW_VncClient_Screen__" data-uid="MarcusW.VncClient.Rendering.IRenderTarget.GrabFramebufferReference(MarcusW.VncClient.Size,IImmutableSet{MarcusW.VncClient.Screen})">GrabFramebufferReference(Size, IImmutableSet&lt;Screen&gt;)</h4>
-  <div class="markdown level1 summary"><p>Locks the native framebuffer in memory and returns a reference to it. The returned object should be disposed after rendering is finished.
-Must only be used by one thread at a time.
-The framebuffer should be re-created in case the <code data-dev-comment-type="paramref" class="paramref">size</code> changes.</p>
-</div>
+  <a id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview_" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview">GetParametersOverview()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IFramebufferReference GrabFramebufferReference(Size size, IImmutableSet&lt;Screen&gt; layout)</code></pre>
+    <pre><code class="lang-csharp hljs">public string? GetParametersOverview()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="MarcusW.VncClient.Size.html">Size</a></td>
-        <td><span class="parametername">size</span></td>
-        <td><p>The required frame size.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">IImmutableSet</span>&lt;<a class="xref" href="MarcusW.VncClient.Screen.html">Screen</a>&gt;</td>
-        <td><span class="parametername">layout</span></td>
-        <td><p>The screens that are contained by the frame (if supported).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -139,12 +117,15 @@ The framebuffer should be re-created in case the <code data-dev-comment-type="pa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="MarcusW.VncClient.Rendering.IFramebufferReference.html">IFramebufferReference</a></td>
-        <td><p>The framebuffer reference.</p>
-</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="MarcusW.VncClient.Protocol.MessageTypes.IOutgoingMessage-1.html">IOutgoingMessage&lt;TMessageType&gt;</a>
+  </div>
 </article>
           </div>
           
@@ -153,10 +134,10 @@ The framebuffer should be re-created in case the <code data-dev-comment-type="pa
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Rendering_IRenderTarget.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Rendering.IRenderTarget%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Rendering/IRenderTarget.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L27" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
