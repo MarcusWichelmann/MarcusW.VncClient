@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -17,6 +18,9 @@ namespace MarcusW.VncClient.Avalonia
     /// <summary>
     /// A control that provides access to a target framebuffer for rendering frames onto it.
     /// </summary>
+    /// <remarks>
+    /// This control ignores the VNC multi-screen feature and therefore renders all screens (the whole framebuffer) in one piece.
+    /// </remarks>
     public class RfbRenderTarget : Control, IRenderTarget, IDisposable
     {
         private volatile WriteableBitmap? _bitmap;
@@ -25,7 +29,7 @@ namespace MarcusW.VncClient.Avalonia
         private volatile bool _disposed;
 
         /// <inheritdoc />
-        public virtual IFramebufferReference GrabFramebufferReference(Size size)
+        public virtual IFramebufferReference GrabFramebufferReference(Size size, IImmutableSet<Screen> layout)
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(RfbRenderTarget));

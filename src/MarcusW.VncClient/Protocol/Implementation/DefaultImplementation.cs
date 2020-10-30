@@ -146,6 +146,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new EnableContinuousUpdatesMessageType();
             yield return new PointerEventMessageType();
             yield return new KeyEventMessageType();
+            yield return new SetDesktopSizeMessageType();
         }
 
         /// <summary>
@@ -174,6 +175,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new JpegFineGrainedQualityLevelEncodingType(context);
             yield return new JpegSubsamplingLevelEncodingType(context);
             yield return new DesktopSizeEncodingType(context);
+            yield return new ExtendedDesktopSizeEncodingType(context);
         }
     }
 }

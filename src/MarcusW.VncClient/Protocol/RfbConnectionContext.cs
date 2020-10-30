@@ -143,6 +143,12 @@ namespace MarcusW.VncClient.Protocol
             public void SetRemoteFramebufferFormat(PixelFormat remoteFramebufferFormat) => _connection.RemoteFramebufferFormat = remoteFramebufferFormat;
 
             /// <summary>
+            /// Sets the value of the <seealso cref="RfbConnection.RemoteFramebufferLayout"/> property on the <see cref="RfbConnection"/> object.
+            /// </summary>
+            /// <param name="remoteFramebufferLayout">The new framebuffer layout.</param>
+            public void SetRemoteFramebufferLayout(IImmutableSet<Screen> remoteFramebufferLayout) => _connection.RemoteFramebufferLayout = remoteFramebufferLayout;
+
+            /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.DesktopName"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
             /// <param name="desktopName">The new desktop name.</param>

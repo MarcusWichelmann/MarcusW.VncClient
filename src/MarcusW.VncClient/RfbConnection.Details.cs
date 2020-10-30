@@ -31,6 +31,9 @@ namespace MarcusW.VncClient
         private readonly object _remoteFramebufferFormatLock = new object();
         private PixelFormat _remoteFramebufferFormat = PixelFormat.Unknown;
 
+        private readonly object _remoteFramebufferLayoutLock = new object();
+        private IImmutableSet<Screen> _remoteFramebufferLayout = ImmutableHashSet<Screen>.Empty;
+
         private readonly object _desktopNameLock = new object();
         private string? _desktopName;
 
@@ -95,6 +98,16 @@ namespace MarcusW.VncClient
         {
             get => GetWithLock(ref _remoteFramebufferFormat, _remoteFramebufferFormatLock);
             internal set => RaiseAndSetIfChangedWithLock(ref _remoteFramebufferFormat, value, _remoteFramebufferFormatLock);
+        }
+
+        /// <summary>
+        /// Gets the current layout of the remote view.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        public IImmutableSet<Screen> RemoteFramebufferLayout
+        {
+            get => GetWithLock(ref _remoteFramebufferLayout, _remoteFramebufferLayoutLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _remoteFramebufferLayout, value, _remoteFramebufferLayoutLock);
         }
 
         /// <summary>

@@ -19,19 +19,18 @@ namespace MarcusW.VncClient.Protocol.Implementation
         private readonly StateValue<RfbProtocolVersion> _protocolVersionValue = new StateValue<RfbProtocolVersion>(RfbProtocolVersion.Unknown);
 
         private readonly StateValue<ISecurityType?> _usedSecurityTypeValue = new StateValue<ISecurityType?>(null);
-
         private readonly StateValue<IImmutableSet<IMessageType>> _usedMessageTypesValue = new StateValue<IImmutableSet<IMessageType>>(ImmutableHashSet<IMessageType>.Empty);
-
         private readonly StateValue<IImmutableSet<IEncodingType>> _usedEncodingTypesValue = new StateValue<IImmutableSet<IEncodingType>>(ImmutableHashSet<IEncodingType>.Empty);
 
         private readonly StateValue<Size> _remoteFramebufferSizeValue = new StateValue<Size>(Size.Zero);
-
         private readonly StateValue<PixelFormat> _remoteFramebufferFormatValue = new StateValue<PixelFormat>(PixelFormat.Unknown);
+        private readonly StateValue<IImmutableSet<Screen>> _remoteFramebufferLayoutValue = new StateValue<IImmutableSet<Screen>>(ImmutableHashSet<Screen>.Empty);
 
         private readonly StateValue<string?> _desktopNameValue = new StateValue<string?>(null);
 
         private readonly StateValue<bool> _serverSupportsFencesValue = new StateValue<bool>(false);
         private readonly StateValue<bool> _serverSupportsContinuousUpdatesValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsExtendedDesktopSizeValue = new StateValue<bool>(false);
 
         private readonly StateValue<bool> _continuousUpdatesEnabledValue = new StateValue<bool>(false);
 
@@ -114,6 +113,19 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
+        /// Gets or sets the current remote framebuffer layout.
+        /// </summary>
+        public IImmutableSet<Screen> RemoteFramebufferLayout
+        {
+            get => _remoteFramebufferLayoutValue.Value;
+            set
+            {
+                _remoteFramebufferLayoutValue.Value = value;
+                _context.ConnectionDetails.SetRemoteFramebufferLayout(value);
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the current desktop name.
         /// </summary>
         public string? DesktopName
@@ -142,6 +154,15 @@ namespace MarcusW.VncClient.Protocol.Implementation
         {
             get => _serverSupportsContinuousUpdatesValue.Value;
             set => _serverSupportsContinuousUpdatesValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports the extended desktop size extension.
+        /// </summary>
+        public bool ServerSupportsExtendedDesktopSize
+        {
+            get => _serverSupportsExtendedDesktopSizeValue.Value;
+            set => _serverSupportsExtendedDesktopSizeValue.Value = value;
         }
 
         /// <summary>

@@ -134,7 +134,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                         // Lock the target framebuffer, if there is no reference yet
                         if (renderTarget != null && targetFramebuffer == null)
                         {
-                            targetFramebuffer = renderTarget.GrabFramebufferReference(_state.RemoteFramebufferSize);
+                            targetFramebuffer = renderTarget.GrabFramebufferReference(_state.RemoteFramebufferSize, _state.RemoteFramebufferLayout);
                             if (targetFramebuffer.Size != _state.RemoteFramebufferSize)
                                 throw new RfbProtocolException("Framebuffer reference is not of the requested size.");
                         }

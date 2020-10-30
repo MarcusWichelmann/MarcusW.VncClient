@@ -40,8 +40,13 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         /// <inheritdoc />
         public override void ReadPseudoEncoding(Stream transportStream, Rectangle rectangle)
         {
+            // This encoding type must not be used when the extended desktop size extension is supported.
+            if (_state.ServerSupportsExtendedDesktopSize)
+                throw new UnexpectedDataException("The server sent the DesktopSize pseudo encoding type although both sides support the ExtendedDesktopSize protocol extension.");
+
             Size newSize = rectangle.Size;
-            var wholeScreenRectangle = new Rectangle(Position.Origin, newSize);
+            if (newSize == _state.RemoteFramebufferSize)
+                return;
 
             _logger.LogDebug("Remote framebuffer size updated to {newSize}.", newSize);
 
@@ -49,6 +54,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
             _state.RemoteFramebufferSize = newSize;
 
             Debug.Assert(_context.MessageSender != null, "_context.MessageSender != null");
+            var wholeScreenRectangle = new Rectangle(Position.Origin, newSize);
 
             // If continuous updates were enabled, enable it again to update it's coordinates
             if (_state.ServerSupportsContinuousUpdates && _state.ContinuousUpdatesEnabled)
