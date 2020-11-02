@@ -12,7 +12,7 @@
 
     <PropertyGroup>
         <Product>MarcusW VNC-Client</Product>
-        <VersionNumber>1.0.0-alpha2</VersionNumber>
+        <VersionNumber>1.0.0-alpha3</VersionNumber>
         <Title>High-performance cross-platform VNC-Client library for C#</Title>
         <Authors>Marcus Wichelmann</Authors>
         <Company>Marcus Wichelmann</Company>
