@@ -73,7 +73,8 @@
   
   <h1 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage" class="text-break">Class SetDesktopSizeMessage
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A message for updating the remote framebuffer size and layout.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -90,6 +91,77 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class SetDesktopSizeMessage : object, IOutgoingMessage&lt;SetDesktopSizeMessageType&gt;</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage__ctor_MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFuncDelegate_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.%23ctor(MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L126">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage__ctor_" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.#ctor*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage__ctor_MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFuncDelegate_" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.#ctor(MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate)">SetDesktopSizeMessage(SetDesktopSizeMessage.MutationFuncDelegate)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html">SetDesktopSizeMessage</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SetDesktopSizeMessage(SetDesktopSizeMessage.MutationFuncDelegate mutationFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate.html">SetDesktopSizeMessage.MutationFuncDelegate</a></td>
+        <td><span class="parametername">mutationFunc</span></td>
+        <td><p>The function that mutates the current remote framebuffer size and layout.
+It will be called by the sender thread right before the message gets sent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFunc.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L117">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFunc_" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFunc" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc">MutationFunc</h4>
+  <div class="markdown level1 summary"><p>Gets the function that mutates the current remote framebuffer size and layout.
+It will be called by the sender thread right before the message gets sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SetDesktopSizeMessage.MutationFuncDelegate MutationFunc { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate.html">SetDesktopSizeMessage.MutationFuncDelegate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -97,7 +169,7 @@
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L32">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L132">View Source</a>
   </span>
   <a id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview_" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview*"></a>
   <h4 id="MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview" data-uid="MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview">GetParametersOverview()</h4>
@@ -137,7 +209,7 @@
                     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L27" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/MessageTypes/Outgoing/SetDesktopSizeMessageType.cs/#L104" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

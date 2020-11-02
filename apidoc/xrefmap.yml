@@ -379,6 +379,38 @@ references:
   commentId: T:MarcusW.VncClient.Avalonia.VncView
   fullName: MarcusW.VncClient.Avalonia.VncView
   nameWithType: VncView
+- uid: MarcusW.VncClient.Avalonia.VncView.#ctor
+  name: VncView()
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor
+  commentId: M:MarcusW.VncClient.Avalonia.VncView.#ctor
+  fullName: MarcusW.VncClient.Avalonia.VncView.VncView()
+  nameWithType: VncView.VncView()
+- uid: MarcusW.VncClient.Avalonia.VncView.#ctor*
+  name: VncView
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView__ctor_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.VncView.VncView
+  nameWithType: VncView.VncView
+- uid: MarcusW.VncClient.Avalonia.VncView.AutoResizeRemote
+  name: AutoResizeRemote
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_AutoResizeRemote
+  commentId: P:MarcusW.VncClient.Avalonia.VncView.AutoResizeRemote
+  fullName: MarcusW.VncClient.Avalonia.VncView.AutoResizeRemote
+  nameWithType: VncView.AutoResizeRemote
+- uid: MarcusW.VncClient.Avalonia.VncView.AutoResizeRemote*
+  name: AutoResizeRemote
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_AutoResizeRemote_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.AutoResizeRemote
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.VncView.AutoResizeRemote
+  nameWithType: VncView.AutoResizeRemote
+- uid: MarcusW.VncClient.Avalonia.VncView.AutoResizeRemoteProperty
+  name: AutoResizeRemoteProperty
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_AutoResizeRemoteProperty
+  commentId: F:MarcusW.VncClient.Avalonia.VncView.AutoResizeRemoteProperty
+  fullName: MarcusW.VncClient.Avalonia.VncView.AutoResizeRemoteProperty
+  nameWithType: VncView.AutoResizeRemoteProperty
 - uid: MarcusW.VncClient.Avalonia.VncView.Connection
   name: Connection
   href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_Connection
@@ -515,6 +547,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.VncView.OnTextInput
   nameWithType: VncView.OnTextInput
+- uid: MarcusW.VncClient.Avalonia.VncView.OptimalSize
+  name: OptimalSize
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_OptimalSize
+  commentId: P:MarcusW.VncClient.Avalonia.VncView.OptimalSize
+  fullName: MarcusW.VncClient.Avalonia.VncView.OptimalSize
+  nameWithType: VncView.OptimalSize
+- uid: MarcusW.VncClient.Avalonia.VncView.OptimalSize*
+  name: OptimalSize
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_OptimalSize_
+  commentId: Overload:MarcusW.VncClient.Avalonia.VncView.OptimalSize
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.VncView.OptimalSize
+  nameWithType: VncView.OptimalSize
+- uid: MarcusW.VncClient.Avalonia.VncView.OptimalSizeProperty
+  name: OptimalSizeProperty
+  href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_OptimalSizeProperty
+  commentId: F:MarcusW.VncClient.Avalonia.VncView.OptimalSizeProperty
+  fullName: MarcusW.VncClient.Avalonia.VncView.OptimalSizeProperty
+  nameWithType: VncView.OptimalSizeProperty
 - uid: MarcusW.VncClient.Avalonia.VncView.RingBell
   name: RingBell()
   href: api/MarcusW.VncClient.Avalonia.VncView.html#MarcusW_VncClient_Avalonia_VncView_RingBell
@@ -17247,6 +17298,19 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage
   nameWithType: SetDesktopSizeMessage
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.#ctor(MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate)
+  name: SetDesktopSizeMessage(SetDesktopSizeMessage.MutationFuncDelegate)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage__ctor_MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFuncDelegate_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.#ctor(MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.SetDesktopSizeMessage(MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate)
+  nameWithType: SetDesktopSizeMessage.SetDesktopSizeMessage(SetDesktopSizeMessage.MutationFuncDelegate)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.#ctor*
+  name: SetDesktopSizeMessage
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.SetDesktopSizeMessage
+  nameWithType: SetDesktopSizeMessage.SetDesktopSizeMessage
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview
   name: GetParametersOverview()
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_GetParametersOverview
@@ -17260,12 +17324,44 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.GetParametersOverview
   nameWithType: SetDesktopSizeMessage.GetParametersOverview
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc
+  name: MutationFunc
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFunc
+  commentId: P:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc
+  nameWithType: SetDesktopSizeMessage.MutationFunc
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc*
+  name: MutationFunc
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessage_MutationFunc_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFunc
+  nameWithType: SetDesktopSizeMessage.MutationFunc
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate
+  name: SetDesktopSizeMessage.MutationFuncDelegate
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessage.MutationFuncDelegate
+  nameWithType: SetDesktopSizeMessage.MutationFuncDelegate
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType
   name: SetDesktopSizeMessageType
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html
   commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType
   nameWithType: SetDesktopSizeMessageType
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  name: SetDesktopSizeMessageType(RfbConnectionContext)
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType__ctor_MarcusW_VncClient_Protocol_RfbConnectionContext_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.#ctor(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.SetDesktopSizeMessageType(MarcusW.VncClient.Protocol.RfbConnectionContext)
+  nameWithType: SetDesktopSizeMessageType.SetDesktopSizeMessageType(RfbConnectionContext)
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.#ctor*
+  name: SetDesktopSizeMessageType
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType__ctor_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.#ctor
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.SetDesktopSizeMessageType
+  nameWithType: SetDesktopSizeMessageType.SetDesktopSizeMessageType
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.Id
   name: Id
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetDesktopSizeMessageType.html#MarcusW_VncClient_Protocol_Implementation_MessageTypes_Outgoing_SetDesktopSizeMessageType_Id
@@ -19048,6 +19144,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetContinuousUpdatesEnabled
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable(System.Boolean)
+  name: SetDesktopIsResizable(Boolean)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopIsResizable_System_Boolean_
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable(System.Boolean)
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable(System.Boolean)
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable(Boolean)
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable*
+  name: SetDesktopIsResizable
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopIsResizable_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopIsResizable
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetDesktopName(System.Nullable{System.String})
   name: SetDesktopName(Nullable<String>)
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetDesktopName_System_Nullable_System_String__
@@ -20355,6 +20464,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.RfbConnection.ContinuousUpdatesEnabled
   nameWithType: RfbConnection.ContinuousUpdatesEnabled
+- uid: MarcusW.VncClient.RfbConnection.DesktopIsResizable
+  name: DesktopIsResizable
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_DesktopIsResizable
+  commentId: P:MarcusW.VncClient.RfbConnection.DesktopIsResizable
+  fullName: MarcusW.VncClient.RfbConnection.DesktopIsResizable
+  nameWithType: RfbConnection.DesktopIsResizable
+- uid: MarcusW.VncClient.RfbConnection.DesktopIsResizable*
+  name: DesktopIsResizable
+  href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_DesktopIsResizable_
+  commentId: Overload:MarcusW.VncClient.RfbConnection.DesktopIsResizable
+  isSpec: "True"
+  fullName: MarcusW.VncClient.RfbConnection.DesktopIsResizable
+  nameWithType: RfbConnection.DesktopIsResizable
 - uid: MarcusW.VncClient.RfbConnection.DesktopName
   name: DesktopName
   href: api/MarcusW.VncClient.RfbConnection.html#MarcusW_VncClient_RfbConnection_DesktopName
