@@ -34,7 +34,7 @@ namespace MarcusW.VncClient.Avalonia
         /// Gets or sets the connection that is shown in this VNC view.
         /// </summary>
         /// <remarks>
-        /// Interactions with this control will be forwarded to the selected <see cref="RfbConnection"/>.
+        /// Interactions with this <see cref="VncView"/> will be forwarded to the selected <see cref="RfbConnection"/>.
         /// In case this property is set to <see langword="null"/>, no connection will be attached to this view.
         /// </remarks>
         public RfbConnection? Connection
@@ -63,6 +63,11 @@ namespace MarcusW.VncClient.Avalonia
 
                 SetAndRaise(ConnectionProperty, ref _connection, value);
             }
+        }
+
+        public VncView()
+        {
+            InitSizing();
         }
 
         /// <inheritdoc />

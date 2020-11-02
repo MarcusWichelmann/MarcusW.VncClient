@@ -155,6 +155,12 @@ namespace MarcusW.VncClient.Protocol
             public void SetDesktopName(string? desktopName) => _connection.DesktopName = desktopName;
 
             /// <summary>
+            /// Sets the value of the <seealso cref="RfbConnection.DesktopIsResizable"/> property on the <see cref="RfbConnection"/> object.
+            /// </summary>
+            /// <param name="desktopIsResizable">The new state.</param>
+            public void SetDesktopIsResizable(bool desktopIsResizable) => _connection.DesktopIsResizable = desktopIsResizable;
+
+            /// <summary>
             /// Sets the value of the <seealso cref="RfbConnection.ContinuousUpdatesEnabled"/> property on the <see cref="RfbConnection"/> object.
             /// </summary>
             /// <param name="continuousUpdatesEnabled">The new state.</param>

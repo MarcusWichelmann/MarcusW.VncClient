@@ -162,7 +162,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public bool ServerSupportsExtendedDesktopSize
         {
             get => _serverSupportsExtendedDesktopSizeValue.Value;
-            set => _serverSupportsExtendedDesktopSizeValue.Value = value;
+            set
+            {
+                _serverSupportsExtendedDesktopSizeValue.Value = value;
+                _context.ConnectionDetails.SetDesktopIsResizable(value);
+            }
         }
 
         /// <summary>

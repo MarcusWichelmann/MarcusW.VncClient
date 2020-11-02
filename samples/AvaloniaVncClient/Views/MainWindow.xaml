@@ -42,7 +42,7 @@
             </Grid>
         </Border>
 
-        <Border DockPanel.Dock="Right" BorderBrush="LightGray" BorderThickness="1,0,0,0">
+        <Border DockPanel.Dock="Right" BorderBrush="LightGray" BorderThickness="1,0,0,0" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
             <Grid RowDefinitions="Auto,*,Auto,*" Margin="10">
                 <TextBlock Grid.Row="0" Margin="0,0,0,10" FontWeight="Bold" Text="Used Message Types:" />
                 <ListBox Grid.Row="1" Margin="0,0,0,10" Items="{Binding RfbConnection.UsedMessageTypes}" BorderThickness="0">
@@ -63,18 +63,19 @@
             </Grid>
         </Border>
 
-        <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
-            <Grid ColumnDefinitions="3*,*">
-                <TextBox Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
-                <TextBox Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
+        <Border DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="0,0,0,1">
+            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="3*,*" Margin="10">
+                <TextBox Grid.Row="0" Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
+                <TextBox Grid.Row="0" Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="ConnectButton" Command="{Binding ConnectCommand}" Margin="0,10,0,0" IsDefault="True" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Red" Text="{Binding ErrorMessage}"
+                           IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,10,0,0" />
             </Grid>
+        </Border>
 
-            <Button Name="ConnectButton" Command="{Binding ConnectCommand}" IsDefault="True" />
-            <TextBlock Foreground="Red" Text="{Binding ErrorMessage}"
-                       IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" />
-
-            <vnc:VncView Connection="{Binding RfbConnection, Mode=OneWay}" />
-        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <vnc:VncView Connection="{Binding RfbConnection}" OptimalSize="{Binding $parent[ScrollViewer].Viewport}" />
+        </ScrollViewer>
     </DockPanel>
 
 </Window>

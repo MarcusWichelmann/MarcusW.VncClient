@@ -146,7 +146,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new EnableContinuousUpdatesMessageType();
             yield return new PointerEventMessageType();
             yield return new KeyEventMessageType();
-            yield return new SetDesktopSizeMessageType();
+            yield return new SetDesktopSizeMessageType(context);
         }
 
         /// <summary>

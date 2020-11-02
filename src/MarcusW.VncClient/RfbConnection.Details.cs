@@ -37,6 +37,9 @@ namespace MarcusW.VncClient
         private readonly object _desktopNameLock = new object();
         private string? _desktopName;
 
+        private readonly object _desktopIsResizableLock = new object();
+        private bool _desktopIsResizable = false;
+
         private readonly object _continuousUpdatesEnabledLock = new object();
         private bool _continuousUpdatesEnabled = false;
 
@@ -118,6 +121,16 @@ namespace MarcusW.VncClient
         {
             get => GetWithLock(ref _desktopName, _desktopNameLock);
             internal set => RaiseAndSetIfChangedWithLock(ref _desktopName, value, _desktopNameLock);
+        }
+
+        /// <summary>
+        /// Gets whether the connection allows client-side desktop size changes.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        public bool DesktopIsResizable
+        {
+            get => GetWithLock(ref _desktopIsResizable, _desktopIsResizableLock);
+            internal set => RaiseAndSetIfChangedWithLock(ref _desktopIsResizable, value, _desktopIsResizableLock);
         }
 
         /// <summary>
