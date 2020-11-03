@@ -59,6 +59,8 @@ namespace MarcusW.VncClient.Avalonia
                 {
                     value.RenderTarget = this;
                     value.OutputHandler = this;
+
+                    SendInitialSizeUpdate();
                 }
 
                 SetAndRaise(ConnectionProperty, ref _connection, value);

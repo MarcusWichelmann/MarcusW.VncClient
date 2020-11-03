@@ -83,6 +83,28 @@ namespace MarcusW.VncClient.Avalonia
             SetSizeSource(SizeSource.OwnBounds);
         }
 
+        private void SendInitialSizeUpdate()
+        {
+            global::Avalonia.Size size;
+
+            switch (_sizeSource)
+            {
+                case SizeSource.OwnBounds:
+                    size = Bounds.Size;
+                    break;
+
+                case SizeSource.OptimalSizeProperty:
+                    if (!OptimalSize.HasValue)
+                        return;
+                    size = OptimalSize.Value;
+                    break;
+
+                default: return;
+            }
+
+            SendSetDesktopSize(size);
+        }
+
         private void SetSizeSource(SizeSource newSizeSource)
         {
             if (newSizeSource == _sizeSource)
@@ -103,10 +125,10 @@ namespace MarcusW.VncClient.Avalonia
             IObservable<global::Avalonia.Size> observable = _sizeSource == SizeSource.OptimalSizeProperty
                 ? this.GetObservable(OptimalSizeProperty).Where(s => s.HasValue).Select(s => s!.Value)
                 : this.GetObservable(BoundsProperty).Select(bounds => bounds.Size);
-            _sizeSubscription = observable.DistinctUntilChanged().Throttle(ThrottleTime).Subscribe(HandleResize);
+            _sizeSubscription = observable.DistinctUntilChanged().Throttle(ThrottleTime).Subscribe(SendSetDesktopSize);
         }
 
-        private void HandleResize(global::Avalonia.Size size)
+        private void SendSetDesktopSize(global::Avalonia.Size size)
         {
             RfbConnection? connection = Connection;
             if (connection == null)
