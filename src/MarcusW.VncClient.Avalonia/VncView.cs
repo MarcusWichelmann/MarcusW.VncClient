@@ -1,4 +1,5 @@
 using System;
+using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Input;
 using Avalonia.Threading;
@@ -20,6 +21,9 @@ namespace MarcusW.VncClient.Avalonia
             AvaloniaProperty.RegisterDirect<VncView, RfbConnection?>(nameof(Connection), o => o.Connection, (o, v) => o.Connection = v);
 
         private RfbConnection? _connection;
+
+        // Disposable for cleaning up after connection detaches
+        private CompositeDisposable _connectionDetachDisposable = new CompositeDisposable();
 
         /// <summary>
         /// Initializes static members of the <see cref="VncView"/> class.
@@ -51,16 +55,22 @@ namespace MarcusW.VncClient.Avalonia
                         _connection.OutputHandler = null;
                 }
 
+                _connectionDetachDisposable.Dispose();
+
                 // Clear key input state
                 ResetKeyPresses();
 
                 // Attach view to new connection
                 if (value != null)
                 {
+                    _connectionDetachDisposable = new CompositeDisposable();
+
                     value.RenderTarget = this;
                     value.OutputHandler = this;
 
-                    SendInitialSizeUpdate();
+                    // Make sure the connection is resized to fit the view, if enabled
+                    // Dispatch this to make sure the Connection property has been updated
+                    Dispatcher.UIThread.Post(SendInitialSizeUpdate);
                 }
 
                 SetAndRaise(ConnectionProperty, ref _connection, value);

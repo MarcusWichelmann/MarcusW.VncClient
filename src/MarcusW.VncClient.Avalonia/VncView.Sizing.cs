@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Immutable;
+using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
@@ -84,6 +85,39 @@ namespace MarcusW.VncClient.Avalonia
         }
 
         private void SendInitialSizeUpdate()
+        {
+            RfbConnection? connection = Connection;
+            if (connection == null)
+                return;
+
+            // Do we know already, that resizing is supported?
+            if (connection.DesktopIsResizable)
+            {
+                SendManualSizeUpdate();
+                return;
+            }
+
+            // Maybe we can send the initial size later when we know the server supports it
+            void PropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+            {
+                if (e.PropertyName != nameof(connection.DesktopIsResizable))
+                    return;
+
+                if (!connection.DesktopIsResizable)
+                    return;
+
+                connection.PropertyChanged -= PropertyChangedHandler;
+
+                SendManualSizeUpdate();
+            }
+
+            connection.PropertyChanged += PropertyChangedHandler;
+            _connectionDetachDisposable.Add(Disposable.Create(() => {
+                connection.PropertyChanged -= PropertyChangedHandler;
+            }));
+        }
+
+        private void SendManualSizeUpdate()
         {
             global::Avalonia.Size size;
 
