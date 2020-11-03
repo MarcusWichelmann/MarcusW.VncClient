@@ -103,7 +103,7 @@ namespace MarcusW.VncClient.Avalonia
             IObservable<global::Avalonia.Size> observable = _sizeSource == SizeSource.OptimalSizeProperty
                 ? this.GetObservable(OptimalSizeProperty).Where(s => s.HasValue).Select(s => s!.Value)
                 : this.GetObservable(BoundsProperty).Select(bounds => bounds.Size);
-            _sizeSubscription = observable.Distinct().Throttle(ThrottleTime).Subscribe(HandleResize);
+            _sizeSubscription = observable.DistinctUntilChanged().Throttle(ThrottleTime).Subscribe(HandleResize);
         }
 
         private void HandleResize(global::Avalonia.Size size)

@@ -16,7 +16,7 @@
         <Title>High-performance cross-platform VNC-Client library for C#</Title>
         <Authors>Marcus Wichelmann</Authors>
         <Company>Marcus Wichelmann</Company>
-        <Copyright>Copyright 2020 &amp;#169; Marcus Wichelmann</Copyright>
+        <Copyright>Copyright 2020 © Marcus Wichelmann</Copyright>
         <PackageTags>VNC;RFB;Client;Library;Performance;Modular;Cross-Plattform;Avalonia;WPF</PackageTags>
         <PackageProjectUrl>http://vnc-client.marcusw.de</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
