@@ -9,100 +9,88 @@ namespace Benchmarks
         private readonly byte[] _buffer = new byte[1920 * 1080 * 4];
 
         [Benchmark]
-        public unsafe void UnsafeWithPointers()
+        public void ArrayIndexer()
+        {
+            for (int i = 0; i < _buffer.Length; i += 4)
+                SetPixelArrayIndexer(_buffer, i, 0xffffffff);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void SetPixelArrayIndexer(byte[] buffer, int i, uint color)
+        {
+            buffer[i] = (byte)(color & 0xff);
+            buffer[i + 1] = (byte)((color >> 8) & 0xff);
+            buffer[i + 2] = (byte)((color >> 16) & 0xff);
+            buffer[i + 3] = (byte)((color >> 24) & 0xff);
+        }
+
+        [Benchmark]
+        public void Span()
+        {
+            Span<byte> buffer = _buffer;
+
+            for (int i = 0; i < _buffer.Length; i += 4)
+                SetPixelSpan(buffer.Slice(i, 4), 0xffffffff);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void SetPixelSpan(in Span<byte> span, uint color)
+        {
+            span[0] = (byte)(color & 0xff);
+            span[1] = (byte)((color >> 8) & 0xff);
+            span[2] = (byte)((color >> 16) & 0xff);
+            span[3] = (byte)((color >> 24) & 0xff);
+        }
+
+        [Benchmark]
+        public unsafe void Pointer()
         {
             fixed (byte* ptr = &_buffer[0])
             {
                 for (int i = 0; i < _buffer.Length; i += 4)
-                    SetColor(i, ptr + i);
+                    SetPixelPointer(ptr + i, 0xffffffff);
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private unsafe void SetPixelPointer(byte* ptr, uint color)
+        {
+            *ptr++ = (byte)(color & 0xff);
+            *ptr++ = (byte)((color >> 8) & 0xff);
+            *ptr++ = (byte)((color >> 16) & 0xff);
+            *ptr = (byte)((color >> 24) & 0xff);
+        }
+
         [Benchmark]
-        public unsafe void UnsafeWithPointersWithoutInlining()
+        public unsafe void PointerReinterpretCast()
         {
             fixed (byte* ptr = &_buffer[0])
             {
                 for (int i = 0; i < _buffer.Length; i += 4)
-                    SetColorNotInlined(i, ptr + i);
+                    SetPixelPointerReinterpretCast(ptr + i, 0xffffffff);
             }
         }
 
-        [Benchmark]
-        public void SafeWithSpans()
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private unsafe void SetPixelPointerReinterpretCast(byte* ptr, uint color)
         {
-            Span<byte> span = _buffer;
-
-            for (int i = 0; i < _buffer.Length; i += 4)
-                SetColor(i, span.Slice(i));
+            *(uint*)ptr = color;
         }
 
         [Benchmark]
-        public void SafeWithSpansWithoutInlining()
+        public unsafe void PointerMemcopy()
         {
-            Span<byte> span = _buffer;
-
-            for (int i = 0; i < _buffer.Length; i += 4)
-                SetColorNotInlined(i, span.Slice(i));
-        }
-
-        [Benchmark]
-        public void SafeWithSpansWithoutInliningSpanByRef()
-        {
-            Span<byte> span = _buffer;
-
-            for (int i = 0; i < _buffer.Length; i += 4)
-                SetColorNotInlinedSpanByRef(i, span.Slice(i));
+            fixed (byte* ptr = &_buffer[0])
+            {
+                for (int i = 0; i < _buffer.Length; i += 4)
+                    SetPixelPointerMemcopy(ptr + i, 0xffffffff);
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private unsafe void SetColor(int i, byte* position)
+        private unsafe void SetPixelPointerMemcopy(byte* ptr, uint color)
         {
-            // Some random operations
-            *position++ = (byte)(i & 0xff);
-            *position++ = (byte)((i >> 8) & 0xff);
-            *position++ = (byte)((i >> 16) & 0xff);
-            *position = (byte)((i >> 24) & 0xff);
-        }
-
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private unsafe void SetColorNotInlined(int i, byte* position)
-        {
-            // Some random operations
-            *position++ = (byte)(i & 0xff);
-            *position++ = (byte)((i >> 8) & 0xff);
-            *position++ = (byte)((i >> 16) & 0xff);
-            *position = (byte)((i >> 24) & 0xff);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void SetColor(int i, in Span<byte> position)
-        {
-            // Some random operations
-            position[0] = (byte)(i & 0xff);
-            position[1] = (byte)((i >> 8) & 0xff);
-            position[2] = (byte)((i >> 16) & 0xff);
-            position[3] = (byte)((i >> 24) & 0xff);
-        }
-
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private void SetColorNotInlined(int i, Span<byte> position)
-        {
-            // Some random operations
-            position[0] = (byte)(i & 0xff);
-            position[1] = (byte)((i >> 8) & 0xff);
-            position[2] = (byte)((i >> 16) & 0xff);
-            position[3] = (byte)((i >> 24) & 0xff);
-        }
-
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private void SetColorNotInlinedSpanByRef(int i, in Span<byte> position)
-        {
-            // Some random operations
-            position[0] = (byte)(i & 0xff);
-            position[1] = (byte)((i >> 8) & 0xff);
-            position[2] = (byte)((i >> 16) & 0xff);
-            position[3] = (byte)((i >> 24) & 0xff);
+            Unsafe.CopyBlock(ptr, &color, sizeof(uint));
         }
     }
 }
