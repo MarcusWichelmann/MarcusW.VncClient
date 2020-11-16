@@ -20861,30 +20861,30 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync
   nameWithType: IAuthenticationHandler.ProvideAuthenticationInputAsync
-- uid: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync``1(MarcusW.VncClient.RfbConnection,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,``0)
-  name: ProvideAuthenticationInputAsync<TRequest>(RfbConnection, ISecurityType, TRequest)
-  href: api/MarcusW.VncClient.Security.IAuthenticationHandler.html#MarcusW_VncClient_Security_IAuthenticationHandler_ProvideAuthenticationInputAsync__1_MarcusW_VncClient_RfbConnection_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType___0_
-  commentId: M:MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync``1(MarcusW.VncClient.RfbConnection,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,``0)
-  name.vb: ProvideAuthenticationInputAsync(Of TRequest)(RfbConnection, ISecurityType, TRequest)
-  fullName: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync<TRequest>(MarcusW.VncClient.RfbConnection, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, TRequest)
-  fullName.vb: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync(Of TRequest)(MarcusW.VncClient.RfbConnection, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, TRequest)
-  nameWithType: IAuthenticationHandler.ProvideAuthenticationInputAsync<TRequest>(RfbConnection, ISecurityType, TRequest)
-  nameWithType.vb: IAuthenticationHandler.ProvideAuthenticationInputAsync(Of TRequest)(RfbConnection, ISecurityType, TRequest)
-- uid: MarcusW.VncClient.Security.IAuthenticationInput`1
-  name: IAuthenticationInput<TRequest>
-  href: api/MarcusW.VncClient.Security.IAuthenticationInput-1.html
-  commentId: T:MarcusW.VncClient.Security.IAuthenticationInput`1
-  name.vb: IAuthenticationInput(Of TRequest)
-  fullName: MarcusW.VncClient.Security.IAuthenticationInput<TRequest>
-  fullName.vb: MarcusW.VncClient.Security.IAuthenticationInput(Of TRequest)
-  nameWithType: IAuthenticationInput<TRequest>
-  nameWithType.vb: IAuthenticationInput(Of TRequest)
-- uid: MarcusW.VncClient.Security.IAuthenticationInputRequest
-  name: IAuthenticationInputRequest
-  href: api/MarcusW.VncClient.Security.IAuthenticationInputRequest.html
-  commentId: T:MarcusW.VncClient.Security.IAuthenticationInputRequest
-  fullName: MarcusW.VncClient.Security.IAuthenticationInputRequest
-  nameWithType: IAuthenticationInputRequest
+- uid: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync``1(MarcusW.VncClient.RfbConnection,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,MarcusW.VncClient.Security.IAuthenticationInputRequest{``0})
+  name: ProvideAuthenticationInputAsync<TInput>(RfbConnection, ISecurityType, IAuthenticationInputRequest<TInput>)
+  href: api/MarcusW.VncClient.Security.IAuthenticationHandler.html#MarcusW_VncClient_Security_IAuthenticationHandler_ProvideAuthenticationInputAsync__1_MarcusW_VncClient_RfbConnection_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_MarcusW_VncClient_Security_IAuthenticationInputRequest___0__
+  commentId: M:MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync``1(MarcusW.VncClient.RfbConnection,MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType,MarcusW.VncClient.Security.IAuthenticationInputRequest{``0})
+  name.vb: ProvideAuthenticationInputAsync(Of TInput)(RfbConnection, ISecurityType, IAuthenticationInputRequest(Of TInput))
+  fullName: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync<TInput>(MarcusW.VncClient.RfbConnection, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, MarcusW.VncClient.Security.IAuthenticationInputRequest<TInput>)
+  fullName.vb: MarcusW.VncClient.Security.IAuthenticationHandler.ProvideAuthenticationInputAsync(Of TInput)(MarcusW.VncClient.RfbConnection, MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType, MarcusW.VncClient.Security.IAuthenticationInputRequest(Of TInput))
+  nameWithType: IAuthenticationHandler.ProvideAuthenticationInputAsync<TInput>(RfbConnection, ISecurityType, IAuthenticationInputRequest<TInput>)
+  nameWithType.vb: IAuthenticationHandler.ProvideAuthenticationInputAsync(Of TInput)(RfbConnection, ISecurityType, IAuthenticationInputRequest(Of TInput))
+- uid: MarcusW.VncClient.Security.IAuthenticationInput
+  name: IAuthenticationInput
+  href: api/MarcusW.VncClient.Security.IAuthenticationInput.html
+  commentId: T:MarcusW.VncClient.Security.IAuthenticationInput
+  fullName: MarcusW.VncClient.Security.IAuthenticationInput
+  nameWithType: IAuthenticationInput
+- uid: MarcusW.VncClient.Security.IAuthenticationInputRequest`1
+  name: IAuthenticationInputRequest<TInput>
+  href: api/MarcusW.VncClient.Security.IAuthenticationInputRequest-1.html
+  commentId: T:MarcusW.VncClient.Security.IAuthenticationInputRequest`1
+  name.vb: IAuthenticationInputRequest(Of TInput)
+  fullName: MarcusW.VncClient.Security.IAuthenticationInputRequest<TInput>
+  fullName.vb: MarcusW.VncClient.Security.IAuthenticationInputRequest(Of TInput)
+  nameWithType: IAuthenticationInputRequest<TInput>
+  nameWithType.vb: IAuthenticationInputRequest(Of TInput)
 - uid: MarcusW.VncClient.Security.PasswordAuthenticationInput
   name: PasswordAuthenticationInput
   href: api/MarcusW.VncClient.Security.PasswordAuthenticationInput.html
