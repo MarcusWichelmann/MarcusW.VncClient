@@ -5,7 +5,7 @@ namespace MarcusW.VncClient.Security
     /// <summary>
     /// Contains the input data that was requested for a password authentication.
     /// </summary>
-    public class PasswordAuthenticationInput : IAuthenticationInput<PasswordAuthenticationInputRequest>
+    public class PasswordAuthenticationInput : IAuthenticationInput
     {
         /// <summary>
         /// Gets the requested password.

@@ -50,7 +50,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
             ReadOnlyMemory<byte> challengeBytes = await transport.Stream.ReadAllAsync(16, cancellationToken).ConfigureAwait(false);
 
             // Request password input
-            PasswordAuthenticationInput input = (PasswordAuthenticationInput)await authenticationHandler
+            PasswordAuthenticationInput input = await authenticationHandler
                 .ProvideAuthenticationInputAsync(_context.Connection, this, new PasswordAuthenticationInputRequest()).ConfigureAwait(false);
             ReadOnlyMemory<byte> passwordBytes = Encoding.UTF8.GetBytes(input.Password);
 

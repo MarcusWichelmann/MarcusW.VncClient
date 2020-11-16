@@ -3,5 +3,6 @@ namespace MarcusW.VncClient.Security
     /// <summary>
     /// Represents a request for input data needed for authentication.
     /// </summary>
-    public interface IAuthenticationInputRequest { }
+    /// <typeparam name="TInput">The type of the requested input.</typeparam>
+    public interface IAuthenticationInputRequest<TInput> where TInput : class, IAuthenticationInput { }
 }

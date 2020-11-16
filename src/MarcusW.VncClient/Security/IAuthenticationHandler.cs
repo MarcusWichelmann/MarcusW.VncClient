@@ -14,9 +14,9 @@ namespace MarcusW.VncClient.Security
         /// <param name="connection">The connection which this request belongs to.</param>
         /// <param name="securityType">The security type which raised the request.</param>
         /// <param name="request">The input request.</param>
-        /// <typeparam name="TRequest">The type of the input request.</typeparam>
+        /// <typeparam name="TInput">The type of the requested input.</typeparam>
         /// <returns>The input response.</returns>
-        Task<IAuthenticationInput<TRequest>> ProvideAuthenticationInputAsync<TRequest>(RfbConnection connection, ISecurityType securityType, TRequest request)
-            where TRequest : class, IAuthenticationInputRequest;
+        Task<TInput> ProvideAuthenticationInputAsync<TInput>(RfbConnection connection, ISecurityType securityType, IAuthenticationInputRequest<TInput> request)
+            where TInput : class, IAuthenticationInput;
     }
 }
