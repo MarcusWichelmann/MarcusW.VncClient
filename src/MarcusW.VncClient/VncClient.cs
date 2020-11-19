@@ -19,7 +19,7 @@ namespace MarcusW.VncClient
         /// Initializes a new instance of the <see cref="VncClient"/>.
         /// </summary>
         /// <param name="loggerFactory">The logger factory implementation that should be used for creating new loggers.</param>
-        public VncClient(ILoggerFactory loggerFactory):this(loggerFactory,new DefaultImplementation()){}
+        public VncClient(ILoggerFactory loggerFactory) : this(loggerFactory, new DefaultImplementation()) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VncClient"/>.
@@ -38,8 +38,7 @@ namespace MarcusW.VncClient
         /// <param name="parameters">The connect parameters.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>An initialized <see cref="RfbConnection"/> instance.</returns>
-        public async Task<RfbConnection> ConnectAsync(ConnectParameters parameters,
-            CancellationToken cancellationToken = default)
+        public async Task<RfbConnection> ConnectAsync(ConnectParameters parameters, CancellationToken cancellationToken = default)
         {
             if (parameters == null)
                 throw new ArgumentNullException(nameof(parameters));

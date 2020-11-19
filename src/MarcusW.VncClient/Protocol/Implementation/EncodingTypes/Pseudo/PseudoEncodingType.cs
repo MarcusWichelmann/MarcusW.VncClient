@@ -15,7 +15,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
         public abstract string Name { get; }
 
         /// <inheritdoc />
-        public virtual int Priority => int.MinValue; // Doesn't really matter for pseudo encodings.
+        public virtual int Priority => int.MinValue; // Doesn't really matter for pseudo encoding types.
 
         /// <inheritdoc />
         public abstract bool GetsConfirmed { get; }
