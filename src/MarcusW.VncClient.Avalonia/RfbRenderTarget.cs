@@ -6,7 +6,6 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Threading;
-using JetBrains.Annotations;
 using MarcusW.VncClient.Avalonia.Adapters;
 using MarcusW.VncClient.Avalonia.Adapters.Rendering;
 using MarcusW.VncClient.Rendering;
@@ -74,7 +73,7 @@ namespace MarcusW.VncClient.Avalonia
         }
 
         /// <inheritdoc />
-        public override void Render([NotNull] DrawingContext context)
+        public override void Render(DrawingContext context)
         {
             if (context == null)
                 throw new ArgumentNullException(nameof(context));

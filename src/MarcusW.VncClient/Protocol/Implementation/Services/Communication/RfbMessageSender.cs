@@ -142,7 +142,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                     }
                     catch (Exception ex)
                     {
-                        // If something went wrong during sending, tell the waiting task about it (so for example the GUI doesn't block).
+                        // If something went wrong during sending, tell the waiting tasks about it (so for example the GUI doesn't wait forever).
                         queueItem.CompletionSource?.TrySetException(ex);
 
                         // Send-thread should still fail

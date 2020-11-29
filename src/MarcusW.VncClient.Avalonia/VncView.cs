@@ -3,7 +3,6 @@ using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Input;
 using Avalonia.Threading;
-using JetBrains.Annotations;
 using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 

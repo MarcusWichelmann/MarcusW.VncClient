@@ -78,17 +78,17 @@ namespace Benchmarks
         }
 
         [Benchmark]
-        public unsafe void PointerMemcopy()
+        public unsafe void PointerMemcpy()
         {
             fixed (byte* ptr = &_buffer[0])
             {
                 for (int i = 0; i < _buffer.Length; i += 4)
-                    SetPixelPointerMemcopy(ptr + i, 0xffffffff);
+                    SetPixelPointerMemcpy(ptr + i, 0xffffffff);
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private unsafe void SetPixelPointerMemcopy(byte* ptr, uint color)
+        private unsafe void SetPixelPointerMemcpy(byte* ptr, uint color)
         {
             Unsafe.CopyBlock(ptr, &color, sizeof(uint));
         }

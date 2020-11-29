@@ -74,7 +74,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                 {
                     int expectedBufferSize = unprocessedBytesInBuffer + bytesToRead;
 
-                    // Calculate the remainder of a modulo with the bytes per pixel and optimize for the two most common pixel formats.
+                    // Calculate the remainder of a modulo with the bytes per pixel and optimize for the most common pixel formats.
                     int remainder = bytesPerPixel switch {
                         2 => expectedBufferSize & 0b1,
                         4 => expectedBufferSize & 0b11,
@@ -91,29 +91,32 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
 
                 // Process all available bytes that are sufficient to form full pixels
                 int availableBytes = unprocessedBytesInBuffer + read;
-                int processedBytes = 0;
+                int bytesToProcess = availableBytes;
                 unsafe
                 {
                     fixed (byte* bufferPtr = buffer)
                     {
+                        byte* pixelPtr = bufferPtr;
+
                         // Process, while there are enough bytes available for the next full pixel
-                        while (processedBytes + bytesPerPixel <= availableBytes)
+                        while (bytesToProcess >= bytesPerPixel)
                         {
                             // Set the pixel
-                            framebufferCursor.SetPixel(bufferPtr + processedBytes, remoteFramebufferFormat);
+                            framebufferCursor.SetPixel(pixelPtr, remoteFramebufferFormat);
                             if (!framebufferCursor.GetEndReached())
                                 framebufferCursor.MoveNext();
 
                             // Move forward in buffer
-                            processedBytes += bytesPerPixel;
+                            pixelPtr += bytesPerPixel;
+                            bytesToProcess -= bytesPerPixel;
                         }
                     }
                 }
 
                 // Copy all bytes that could not be processed yet to the start of the buffer so we can process them later when more bytes have been received.
-                unprocessedBytesInBuffer = availableBytes - processedBytes;
+                unprocessedBytesInBuffer = bytesToProcess;
                 if (unprocessedBytesInBuffer > 0)
-                    buffer.Slice(processedBytes, unprocessedBytesInBuffer).CopyTo(buffer);
+                    buffer.Slice(availableBytes - unprocessedBytesInBuffer, unprocessedBytesInBuffer).CopyTo(buffer);
 
                 remainingBytesToRead -= read;
             }
