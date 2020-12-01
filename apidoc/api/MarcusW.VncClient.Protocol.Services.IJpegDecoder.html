@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IImageDecoder
+    <title>Interface IJpegDecoder
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IImageDecoder
+    <meta name="title" content="Interface IJpegDecoder
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,21 +68,21 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.IImageDecoder">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Services.IJpegDecoder">
   
   
-  <h1 id="MarcusW_VncClient_Protocol_Services_IImageDecoder" data-uid="MarcusW.VncClient.Protocol.Services.IImageDecoder" class="text-break">Interface IImageDecoder
+  <h1 id="MarcusW_VncClient_Protocol_Services_IJpegDecoder" data-uid="MarcusW.VncClient.Protocol.Services.IJpegDecoder" class="text-break">Interface IJpegDecoder
   </h1>
-  <div class="markdown level0 summary"><p>Provides methods for decoding some image compression formats used by the RFB protocol.</p>
+  <div class="markdown level0 summary"><p>Provides methods for decoding JPEG images.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Services.html">MarcusW.VncClient.Protocol.Services</a></h6>
   <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Protocol_Services_IImageDecoder_syntax">Syntax</h5>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IJpegDecoder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IImageDecoder : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IJpegDecoder : IDisposable</code></pre>
   </div>
-  <h5 id="MarcusW_VncClient_Protocol_Services_IImageDecoder_remarks"><strong>Remarks</strong></h5>
+  <h5 id="MarcusW_VncClient_Protocol_Services_IJpegDecoder_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>It's not necessary that implementations of this interface are thread-safe because the processing of received frames always happens synchronously in a single thread.
 Because of this, calls to methods of such implementations should never come from multiple threads.</p>
 </div>
@@ -90,19 +90,19 @@ Because of this, calls to methods of such implementations should never come from
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IImageDecoder_DecodeJpegTo32Bit_Span_System_Byte__Span_System_Byte__MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IImageDecoder.DecodeJpegTo32Bit(Span%7BSystem.Byte%7D%2CSpan%7BSystem.Byte%7D%2CMarcusW.VncClient.PixelFormat%2CMarcusW.VncClient.PixelFormat%40%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IJpegDecoder_DecodeJpegTo32Bit_Span_System_Byte__Span_System_Byte__System_Int32_System_Int32_MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat__CancellationToken_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IJpegDecoder.DecodeJpegTo32Bit(Span%7BSystem.Byte%7D%2CSpan%7BSystem.Byte%7D%2CSystem.Int32%2CSystem.Int32%2CMarcusW.VncClient.PixelFormat%2CMarcusW.VncClient.PixelFormat%40%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IImageDecoder.cs/#L23">View Source</a>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IJpegDecoder.cs/#L25">View Source</a>
   </span>
-  <a id="MarcusW_VncClient_Protocol_Services_IImageDecoder_DecodeJpegTo32Bit_" data-uid="MarcusW.VncClient.Protocol.Services.IImageDecoder.DecodeJpegTo32Bit*"></a>
-  <h4 id="MarcusW_VncClient_Protocol_Services_IImageDecoder_DecodeJpegTo32Bit_Span_System_Byte__Span_System_Byte__MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat__CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IImageDecoder.DecodeJpegTo32Bit(Span{System.Byte},Span{System.Byte},MarcusW.VncClient.PixelFormat,MarcusW.VncClient.PixelFormat@,CancellationToken)">DecodeJpegTo32Bit(Span&lt;Byte&gt;, Span&lt;Byte&gt;, PixelFormat, out PixelFormat, CancellationToken)</h4>
+  <a id="MarcusW_VncClient_Protocol_Services_IJpegDecoder_DecodeJpegTo32Bit_" data-uid="MarcusW.VncClient.Protocol.Services.IJpegDecoder.DecodeJpegTo32Bit*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Services_IJpegDecoder_DecodeJpegTo32Bit_Span_System_Byte__Span_System_Byte__System_Int32_System_Int32_MarcusW_VncClient_PixelFormat_MarcusW_VncClient_PixelFormat__CancellationToken_" data-uid="MarcusW.VncClient.Protocol.Services.IJpegDecoder.DecodeJpegTo32Bit(Span{System.Byte},Span{System.Byte},System.Int32,System.Int32,MarcusW.VncClient.PixelFormat,MarcusW.VncClient.PixelFormat@,CancellationToken)">DecodeJpegTo32Bit(Span&lt;Byte&gt;, Span&lt;Byte&gt;, Int32, Int32, PixelFormat, out PixelFormat, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Decompresses a JPEG encoded image to a 32bit <see cref="!:pixelsBuffer"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void DecodeJpegTo32Bit(Span&lt;byte&gt; jpegBuffer, Span&lt;byte&gt; pixelsBuffer, PixelFormat preferredPixelFormat, out PixelFormat usedPixelFormat, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">void DecodeJpegTo32Bit(Span&lt;byte&gt; jpegBuffer, Span&lt;byte&gt; pixelsBuffer, int expectedWidth, int expectedHeight, PixelFormat preferredPixelFormat, out PixelFormat usedPixelFormat, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -124,6 +124,18 @@ Because of this, calls to methods of such implementations should never come from
         <td><span class="xref">Span</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
         <td><span class="parametername">pixelsBuffer</span></td>
         <td><p>The 32bit target buffer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">expectedWidth</span></td>
+        <td><p>The expected width of the decompressed image.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">expectedHeight</span></td>
+        <td><p>The expected height of the decompressed image.</p>
 </td>
       </tr>
       <tr>
@@ -154,10 +166,10 @@ Because of this, calls to methods of such implementations should never come from
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IImageDecoder.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IImageDecoder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Services_IJpegDecoder.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Services.IJpegDecoder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IImageDecoder.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Services/IJpegDecoder.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
