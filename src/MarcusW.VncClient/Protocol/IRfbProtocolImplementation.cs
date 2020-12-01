@@ -94,10 +94,10 @@ namespace MarcusW.VncClient.Protocol
         IZLibInflater CreateZLibInflater(RfbConnectionContext context);
 
         /// <summary>
-        /// Creates a new <see cref="IImageDecoder"/>.
+        /// Creates a new <see cref="IJpegDecoder"/>.
         /// </summary>
         /// <param name="context">Details about the associated connection.</param>
-        /// <returns>A new instance of the image decoder.</returns>
-        IImageDecoder CreateImageDecoder(RfbConnectionContext context);
+        /// <returns>A new instance of the jpeg decoder.</returns>
+        IJpegDecoder CreateJpegDecoder(RfbConnectionContext context);
     }
 }

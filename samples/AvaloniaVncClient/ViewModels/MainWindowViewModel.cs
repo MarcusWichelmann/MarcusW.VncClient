@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AvaloniaVncClient.Services;
 using MarcusW.VncClient;
+using MarcusW.VncClient.Protocol.Implementation;
 using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using MarcusW.VncClient.Rendering;
 using ReactiveUI;
@@ -23,6 +24,8 @@ namespace AvaloniaVncClient.ViewModels
         private string? _errorMessage;
 
         private readonly ObservableAsPropertyHelper<bool> _parametersValidProperty;
+
+        public bool IsTightAvailable => DefaultImplementation.IsTightAvailable;
 
         public string Host
         {

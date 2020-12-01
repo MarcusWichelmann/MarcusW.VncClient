@@ -1,6 +1,7 @@
 using System;
 using System.Buffers.Binary;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Rendering;
 
@@ -146,6 +147,7 @@ namespace MarcusW.VncClient
         /// <param name="other">The other pixel format.</param>
         /// <param name="ignoreAlpha">If true, the presence and encoding of the alpha channel will be ignored during this check.</param>
         /// <returns>True if they are binary compatible, otherwise false.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public bool IsBinaryCompatibleTo(PixelFormat other, bool ignoreAlpha = false)
         {
             if (BitsPerPixel != other.BitsPerPixel || BigEndian != other.BigEndian || TrueColor != other.TrueColor)

@@ -16,9 +16,9 @@
 
     <DockPanel>
         <Border DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
-            <Grid>
-                <TextBlock Text="Not connected." Margin="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
-                <StackPanel Orientation="Vertical" Margin="10" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
+                <TextBlock Text="Not connected." IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
+                <StackPanel Orientation="Vertical" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
                     <TextBlock Foreground="Red" Text="{Binding RfbConnection.InterruptionCause, StringFormat=Error: \{0\}}"
                                IsVisible="{Binding RfbConnection.InterruptionCause, Converter={x:Static ObjectConverters.IsNotNull}}" />
                     <StackPanel Orientation="Horizontal" Spacing="10">
@@ -39,7 +39,9 @@
                             Text="{Binding RfbConnection.ContinuousUpdatesEnabled, StringFormat=Continuous Updates: \{0\}}" />
                     </StackPanel>
                 </StackPanel>
-            </Grid>
+                <TextBlock Foreground="Red" TextWrapping="Wrap" IsVisible="{Binding !IsTightAvailable}"
+                           Text="The TurboJPEG library is not installed on the current system, therefore the Tight encoding type is unavailable. Please install it and restart the application to get better performance." />
+            </StackPanel>
         </Border>
 
         <Border DockPanel.Dock="Right" BorderBrush="LightGray" BorderThickness="1,0,0,0" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">

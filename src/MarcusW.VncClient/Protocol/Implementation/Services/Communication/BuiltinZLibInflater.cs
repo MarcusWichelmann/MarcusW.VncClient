@@ -9,8 +9,11 @@ using MarcusW.VncClient.Protocol.Services;
 
 namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 {
-    /// <inhertitdoc />
-    public sealed class ZLibInflater : IZLibInflater
+    /// <summary>
+    /// A <see cref="IZLibInflater"/> implementation using the builtin System.IO.Compression implementation of zlib.
+    /// Provides methods for inflating (decompressing) received data using per-connection zlib streams.
+    /// </summary>
+    public sealed class BuiltinZLibInflater : IZLibInflater
     {
         private readonly Dictionary<int, Inflater> _inflaters = new Dictionary<int, Inflater>();
 
@@ -23,7 +26,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                 throw new ArgumentNullException(nameof(source));
 
             if (_disposed)
-                throw new ObjectDisposedException(nameof(ZLibInflater));
+                throw new ObjectDisposedException(nameof(BuiltinZLibInflater));
 
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -75,7 +78,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         public void ResetZlibStream(int id)
         {
             if (_disposed)
-                throw new ObjectDisposedException(nameof(ZLibInflater));
+                throw new ObjectDisposedException(nameof(BuiltinZLibInflater));
 
             if (_inflaters.TryGetValue(id, out Inflater? inflater))
                 inflater.Dispose();

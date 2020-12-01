@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
 using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame;
 using MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo;
@@ -15,6 +14,7 @@ using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using MarcusW.VncClient.Protocol.MessageTypes;
 using MarcusW.VncClient.Protocol.SecurityTypes;
 using MarcusW.VncClient.Protocol.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Protocol.Implementation
 {
@@ -41,6 +41,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
     /// </summary>
     public class DefaultImplementation : IRfbProtocolImplementation
     {
+        /// <summary>
+        /// Gets whether the Tight encoding type is available. If it's not, consider installing the TurboJPEG library on your system.
+        /// </summary>
+        public static bool IsTightAvailable => TurboJpegDecoder.IsAvailable;
+
         private readonly SecurityTypesCollectionBuilderDelegate _securityTypesCollectionBuilder;
         private readonly MessagesCollectionBuilderDelegate _messagesCollectionBuilder;
         private readonly EncodingTypesCollectionBuilderDelegate _encodingTypesCollectionBuilder;
@@ -100,10 +105,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public virtual IRfbMessageSender CreateMessageSender(RfbConnectionContext context) => new RfbMessageSender(context);
 
         /// <inheritdoc />
-        public virtual IZLibInflater CreateZLibInflater(RfbConnectionContext context) => new ZLibInflater();
+        public virtual IZLibInflater CreateZLibInflater(RfbConnectionContext context) => new BuiltinZLibInflater();
 
         /// <inheritdoc />
-        public virtual IImageDecoder CreateImageDecoder(RfbConnectionContext context) => new ImageDecoder();
+        public virtual IJpegDecoder CreateJpegDecoder(RfbConnectionContext context) => new TurboJpegDecoder();
 
         /// <summary>
         /// Builds a collection with all RFB security types that are officially supported by this protocol implementation.
@@ -165,7 +170,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new CopyRectEncodingType();
             yield return new ZLibEncodingType(context);
             yield return new ZrleEncodingType(context);
-            yield return new TightEncodingType(context);
+            if (IsTightAvailable)
+                yield return new TightEncodingType(context);
+            else
+                context.Connection.LoggerFactory.CreateLogger<DefaultImplementation>().LogWarning(
+                    "The TurboJPEG library is not installed on the current system. Please expect a performance drop, because the Tight encoding type is not available.");
 
             // Pseudo
             yield return new FenceEncodingType();

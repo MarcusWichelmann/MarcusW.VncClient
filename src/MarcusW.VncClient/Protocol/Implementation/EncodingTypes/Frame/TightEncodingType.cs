@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using MarcusW.VncClient.Protocol.EncodingTypes;
 using MarcusW.VncClient.Protocol.Services;
 using MarcusW.VncClient.Rendering;
-using TurboJpegWrapper;
 
 namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
 {
@@ -311,8 +310,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         private void ReadJpegCompressedRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle)
         {
-            Debug.Assert(_context.ImageDecoder != null, "_context.ImageDecoder != null");
-            IImageDecoder imageDecoder = _context.ImageDecoder;
+            Debug.Assert(_context.JpegDecoder != null, "_context.JpegDecoder != null");
+            IJpegDecoder jpegDecoder = _context.JpegDecoder;
 
             // Read length of compressed data
             var jpegDataLength = (int)ReadCompactNumber(stream);
@@ -339,7 +338,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                 stream.ReadAll(jpegSpan);
 
                 // Decompress image to a 32bit pixel format that's compatible to the framebuffer format, if possible.
-                imageDecoder.DecodeJpegTo32Bit(jpegSpan, pixelsSpan, framebufferCursor.FramebufferFormat, out PixelFormat pixelFormat);
+                jpegDecoder.DecodeJpegTo32Bit(jpegSpan, pixelsSpan, rectangle.Size.Width, rectangle.Size.Height, framebufferCursor.FramebufferFormat, out PixelFormat pixelFormat);
 
                 // Write pixels to the target framebuffer
                 unsafe
