@@ -31,10 +31,5 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Indicates that this is a new request and that a response is expected. If this bit is cleared then this message is a response to an earlier request.
         /// </summary>
         Request = 1U << 31,
-
-        /// <summary>
-        /// A bit mask for all supported flags.
-        /// </summary>
-        SupportedFlagsMask = BlockBefore | BlockAfter | SyncNext | Request
     }
 }

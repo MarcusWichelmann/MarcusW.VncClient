@@ -24,7 +24,7 @@ namespace Benchmarks
         }
 
         [Benchmark]
-        public void MemCopy()
+        public void MemCpy()
         {
             Unsafe.CopyBlock(_dstPtr, _srcPtr, 4);
         }

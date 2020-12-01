@@ -78,6 +78,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                 if (payloadLength > 64)
                     throw new UnexpectedDataException("Payload size in fence messages is limited to 64 bytes.");
 
+                // Allocate a new array on the heap, because we have to pass it to the send queue
                 payload = new byte[payloadLength];
                 transportStream.ReadAll(payload, cancellationToken);
             }
@@ -96,17 +97,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                     _logger.LogDebug("Received server fence ({flags}) with no payload.", flags.ToString());
             }
 
-            // Clear unsupported bits
-            flags &= FenceFlags.SupportedFlagsMask;
+            // Leave only supported bits and clear the request bit
+            // TODO: Implement SyncNext flag as soon as I find a server that uses it.
+            flags &= FenceFlags.BlockBefore | FenceFlags.BlockAfter;
 
-            // Clear request bit
-            flags &= ~FenceFlags.Request;
-
-            // NOTE: The BlockBefore flag can be ignored here, because the processing of incoming messages is sequential.
-
-            // TODO: Implement SyncNext flag as soon as I find a place where it's used by the server.
-            if ((flags & FenceFlags.SyncNext) != 0)
-                throw new NotImplementedException();
+            // NOTE: The BlockBefore flag can be ignored here, because the processing of incoming messages is sequential anyway.
 
             // Create the fence response message
             var responseMessage = new ClientFenceMessage(flags, payload);

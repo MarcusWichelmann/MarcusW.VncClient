@@ -45,7 +45,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
                     // Is the binary representation the same?
                     if (pixelFormat.IsBinaryCompatibleTo(targetFormat))
                     {
-                        // Do a memcopy and call it a day.
+                        // Do a memcpy and call it a day.
                         Unsafe.CopyBlock(targetPtr, pixelPtr, pixelFormat.BytesPerPixel);
                         return true;
                     }
@@ -59,7 +59,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
                     // Is the binary representation the same when ignoring the alpha channel?
                     if (pixelFormat.IsBinaryCompatibleTo(targetFormat, true))
                     {
-                        // This will memcopy all bits (bpp), even though only depth-bits are actually relevant.
+                        // This will memcpy all bits (bpp), even though only depth-bits are actually relevant.
                         // But in case there were left bits for the alpha channel, they will get overwritten now, anyway.
                         Unsafe.CopyBlock(targetPtr, pixelPtr, pixelFormat.BytesPerPixel);
 
