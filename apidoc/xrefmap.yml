@@ -15914,12 +15914,6 @@ references:
   commentId: F:MarcusW.VncClient.Protocol.Implementation.FenceFlags.Request
   fullName: MarcusW.VncClient.Protocol.Implementation.FenceFlags.Request
   nameWithType: FenceFlags.Request
-- uid: MarcusW.VncClient.Protocol.Implementation.FenceFlags.SupportedFlagsMask
-  name: SupportedFlagsMask
-  href: api/MarcusW.VncClient.Protocol.Implementation.FenceFlags.html#MarcusW_VncClient_Protocol_Implementation_FenceFlags_SupportedFlagsMask
-  commentId: F:MarcusW.VncClient.Protocol.Implementation.FenceFlags.SupportedFlagsMask
-  fullName: MarcusW.VncClient.Protocol.Implementation.FenceFlags.SupportedFlagsMask
-  nameWithType: FenceFlags.SupportedFlagsMask
 - uid: MarcusW.VncClient.Protocol.Implementation.FenceFlags.SyncNext
   name: SyncNext
   href: api/MarcusW.VncClient.Protocol.Implementation.FenceFlags.html#MarcusW_VncClient_Protocol_Implementation_FenceFlags_SyncNext
