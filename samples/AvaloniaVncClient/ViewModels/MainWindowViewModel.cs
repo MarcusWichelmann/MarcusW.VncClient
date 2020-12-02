@@ -25,6 +25,8 @@ namespace AvaloniaVncClient.ViewModels
 
         private readonly ObservableAsPropertyHelper<bool> _parametersValidProperty;
 
+        public InteractiveAuthenticationHandler InteractiveAuthenticationHandler { get; }
+
         public bool IsTightAvailable => DefaultImplementation.IsTightAvailable;
 
         public string Host
@@ -56,9 +58,11 @@ namespace AvaloniaVncClient.ViewModels
 
         public bool ParametersValid => _parametersValidProperty.Value;
 
-        public MainWindowViewModel(ConnectionManager? connectionManager = null)
+        public MainWindowViewModel(ConnectionManager? connectionManager = null, InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
         {
             _connectionManager = connectionManager ?? Locator.Current.GetService<ConnectionManager>() ?? throw new ArgumentNullException(nameof(connectionManager));
+            InteractiveAuthenticationHandler = interactiveAuthenticationHandler ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()
+                ?? throw new ArgumentNullException(nameof(interactiveAuthenticationHandler));
 
             IObservable<bool> parametersValid = this.WhenAnyValue(vm => vm.Host, vm => vm.Port, (host, port) => {
                 // Is it an IP Address or a valid DNS/hostname?
@@ -79,10 +83,10 @@ namespace AvaloniaVncClient.ViewModels
             {
                 // TODO: Configure connect parameters
                 var parameters = new ConnectParameters {
-                   TransportParameters = new TcpTransportParameters {
-                       Host = Host,
-                       Port = Port
-                   }
+                    TransportParameters = new TcpTransportParameters {
+                        Host = Host,
+                        Port = Port
+                    }
                 };
 
                 // Try to connect and set the connection
