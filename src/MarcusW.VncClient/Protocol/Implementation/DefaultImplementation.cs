@@ -28,7 +28,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
     /// Represents the method that builds a new <see cref="IMessageType"/> collection.
     /// </summary>
     /// <param name="context">Details about the associated connection.</param>
-    public delegate IEnumerable<IMessageType> MessagesCollectionBuilderDelegate(RfbConnectionContext context);
+    public delegate IEnumerable<IMessageType> MessageTypesCollectionBuilderDelegate(RfbConnectionContext context);
 
     /// <summary>
     /// Represents the method that builds a new <see cref="IEncodingType"/> collection.
@@ -47,7 +47,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public static bool IsTightAvailable => TurboJpegDecoder.IsAvailable;
 
         private readonly SecurityTypesCollectionBuilderDelegate _securityTypesCollectionBuilder;
-        private readonly MessagesCollectionBuilderDelegate _messagesCollectionBuilder;
+        private readonly MessageTypesCollectionBuilderDelegate _messageTypesCollectionBuilder;
         private readonly EncodingTypesCollectionBuilderDelegate _encodingTypesCollectionBuilder;
 
         /// <summary>
@@ -59,9 +59,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Initializes a new instance of the <see cref="DefaultImplementation"/>.
         /// </summary>
         /// <param name="securityTypesCollectionBuilder">A method that newly creates all the security types that are supported by this protocol instance. See <see cref="GetDefaultSecurityTypes"/>.</param>
-        /// <param name="messagesCollectionBuilder">A method that newly creates all the messages that are supported by this protocol instance. See <see cref="GetDefaultMessageTypes"/>.</param>
+        /// <param name="messageTypesCollectionBuilder">A method that newly creates all the message types that are supported by this protocol instance. See <see cref="GetDefaultMessageTypes"/>.</param>
         /// <param name="encodingTypesCollectionBuilder">A method that newly creates all the encoding types that are supported by this protocol instance. See <see cref="GetDefaultEncodingTypes"/>.</param>
-        public DefaultImplementation(SecurityTypesCollectionBuilderDelegate securityTypesCollectionBuilder, MessagesCollectionBuilderDelegate messagesCollectionBuilder,
+        public DefaultImplementation(SecurityTypesCollectionBuilderDelegate securityTypesCollectionBuilder, MessageTypesCollectionBuilderDelegate messageTypesCollectionBuilder,
             EncodingTypesCollectionBuilderDelegate encodingTypesCollectionBuilder)
         {
             // Implementation has currently only been tested on little-endian systems. I'm sure something will blow up when running with big-endian.
@@ -71,7 +71,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
                     "This protocol implementation does not yet fully support big-endian systems. Please contact me over the issue tracker, if you're interested.");
 
             _securityTypesCollectionBuilder = securityTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(securityTypesCollectionBuilder));
-            _messagesCollectionBuilder = messagesCollectionBuilder ?? throw new ArgumentNullException(nameof(messagesCollectionBuilder));
+            _messageTypesCollectionBuilder = messageTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(messageTypesCollectionBuilder));
             _encodingTypesCollectionBuilder = encodingTypesCollectionBuilder ?? throw new ArgumentNullException(nameof(encodingTypesCollectionBuilder));
         }
 
@@ -83,7 +83,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             => _securityTypesCollectionBuilder.Invoke(context).ToImmutableHashSet();
 
         /// <inhertitdoc />
-        public virtual IImmutableSet<IMessageType> CreateMessageTypesCollection(RfbConnectionContext context) => _messagesCollectionBuilder.Invoke(context).ToImmutableHashSet();
+        public virtual IImmutableSet<IMessageType> CreateMessageTypesCollection(RfbConnectionContext context) => _messageTypesCollectionBuilder.Invoke(context).ToImmutableHashSet();
 
         /// <inhertitdoc />
         public virtual IImmutableSet<IEncodingType> CreateEncodingTypesCollection(RfbConnectionContext context)
