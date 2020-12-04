@@ -14510,12 +14510,12 @@ references:
   commentId: M:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor
   fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.DefaultImplementation()
   nameWithType: DefaultImplementation.DefaultImplementation()
-- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.EncodingTypesCollectionBuilderDelegate)
-  name: DefaultImplementation(SecurityTypesCollectionBuilderDelegate, MessagesCollectionBuilderDelegate, EncodingTypesCollectionBuilderDelegate)
-  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_MarcusW_VncClient_Protocol_Implementation_SecurityTypesCollectionBuilderDelegate_MarcusW_VncClient_Protocol_Implementation_MessagesCollectionBuilderDelegate_MarcusW_VncClient_Protocol_Implementation_EncodingTypesCollectionBuilderDelegate_
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.EncodingTypesCollectionBuilderDelegate)
-  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.DefaultImplementation(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate, MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate, MarcusW.VncClient.Protocol.Implementation.EncodingTypesCollectionBuilderDelegate)
-  nameWithType: DefaultImplementation.DefaultImplementation(SecurityTypesCollectionBuilderDelegate, MessagesCollectionBuilderDelegate, EncodingTypesCollectionBuilderDelegate)
+- uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.EncodingTypesCollectionBuilderDelegate)
+  name: DefaultImplementation(SecurityTypesCollectionBuilderDelegate, MessageTypesCollectionBuilderDelegate, EncodingTypesCollectionBuilderDelegate)
+  href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_MarcusW_VncClient_Protocol_Implementation_SecurityTypesCollectionBuilderDelegate_MarcusW_VncClient_Protocol_Implementation_MessageTypesCollectionBuilderDelegate_MarcusW_VncClient_Protocol_Implementation_EncodingTypesCollectionBuilderDelegate_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate,MarcusW.VncClient.Protocol.Implementation.EncodingTypesCollectionBuilderDelegate)
+  fullName: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.DefaultImplementation(MarcusW.VncClient.Protocol.Implementation.SecurityTypesCollectionBuilderDelegate, MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate, MarcusW.VncClient.Protocol.Implementation.EncodingTypesCollectionBuilderDelegate)
+  nameWithType: DefaultImplementation.DefaultImplementation(SecurityTypesCollectionBuilderDelegate, MessageTypesCollectionBuilderDelegate, EncodingTypesCollectionBuilderDelegate)
 - uid: MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.#ctor*
   name: DefaultImplementation
   href: api/MarcusW.VncClient.Protocol.Implementation.DefaultImplementation.html#MarcusW_VncClient_Protocol_Implementation_DefaultImplementation__ctor_
@@ -16257,12 +16257,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.FramebufferCursor.SetPixelsSolid
   nameWithType: FramebufferCursor.SetPixelsSolid
-- uid: MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate
-  name: MessagesCollectionBuilderDelegate
-  href: api/MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate.html
-  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate
-  fullName: MarcusW.VncClient.Protocol.Implementation.MessagesCollectionBuilderDelegate
-  nameWithType: MessagesCollectionBuilderDelegate
 - uid: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
   name: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
   href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming.html
@@ -17533,6 +17527,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing.SetEncodingsMessageType.WriteToTransport
   nameWithType: SetEncodingsMessageType.WriteToTransport
+- uid: MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate
+  name: MessageTypesCollectionBuilderDelegate
+  href: api/MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate
+  fullName: MarcusW.VncClient.Protocol.Implementation.MessageTypesCollectionBuilderDelegate
+  nameWithType: MessageTypesCollectionBuilderDelegate
 - uid: MarcusW.VncClient.Protocol.Implementation.Native
   name: MarcusW.VncClient.Protocol.Implementation.Native
   href: api/MarcusW.VncClient.Protocol.Implementation.Native.html
