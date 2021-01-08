@@ -162,8 +162,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
             if (srcMax != dstMax)
             {
                 // Calculate channel depth
-                byte srcDepth = GetChannelDepth(srcMax);
-                byte dstDepth = GetChannelDepth(dstMax);
+                byte srcDepth = PixelUtils.GetChannelDepth(srcMax);
+                byte dstDepth = PixelUtils.GetChannelDepth(dstMax);
 
                 // Reduction: Shift the value right so only the most significant bits remain
                 if (srcDepth > dstDepth)
@@ -176,20 +176,6 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // Add the value to the result
             dstValue |= value << dstShift;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-        private static byte GetChannelDepth(ushort maxValue)
-        {
-            // If the hardware instruction is available, use this one, because it's WAY faster...
-            if (Popcnt.IsSupported)
-                return (byte)Popcnt.PopCount(maxValue);
-
-            // Fallback: https://en.wikichip.org/wiki/population_count#Implementations
-            byte depth = 0;
-            for (; maxValue != 0; maxValue &= (ushort)(maxValue - 1))
-                depth++;
-            return depth;
         }
     }
 }

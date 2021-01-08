@@ -114,21 +114,38 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             if (!trueColor)
                 throw new UnsupportedProtocolFeatureException("Color maps are currently not supported by this client.");
 
-            // Some clients like libvncserver advertise RGB888/BGR888 with 32 bit depth, but we just interpret it as 24 bit here
-            // because the protocol doesn't specify anything like AlphaShift and AlphaMax anyway.
-            if (bitsPerPixel == 32 && depth == 32)
-                depth = 24;
+            // Check bits per pixel
+            if (bitsPerPixel > 32)
+                throw new UnexpectedDataException("The bits per pixel value of the received pixel format is too high. The maximum is 32bpp.");
+
+            // Get the used bits per channel
+            byte redBits = PixelUtils.GetChannelDepth(redMax);
+            byte greenBits = PixelUtils.GetChannelDepth(greenMax);
+            byte blueBits = PixelUtils.GetChannelDepth(blueMax);
+
+            // Check the depth value
+            if (redBits + greenBits + blueBits > depth)
+                throw new UnexpectedDataException("The received pixel format is invalid. The depth value must not be smaller than the sum of the used bits per channel.");
+
+            // Check the shift values
+            if (redBits + redShift > bitsPerPixel || greenBits + greenShift > bitsPerPixel || blueBits + blueShift > bitsPerPixel)
+                throw new UnexpectedDataException("The color shift values in the received pixel format are invalid.");
+
+            // Check for overlaps
+            uint redMask = (uint)redMax << redShift;
+            uint greenMask = (uint)greenMax << greenShift;
+            uint blueMask = (uint)blueMax << blueShift;
+            if (((redMask & greenMask) | (greenMask & blueMask) | (blueMask & redMask)) != 0)
+                throw new UnexpectedDataException("The bits of the color channels in the received pixel format must not overlap.");
 
             // Generate a short name for this pixel format while following the RFB naming scheme (name describes the native byte order, e.g. 0xRGB).
             string name;
-            if (blueShift == 0 && redShift > greenShift && greenShift > blueShift && blueMax == (1 << greenShift) - 1 && greenMax == (1 << (redShift - greenShift)) - 1
-                && redMax == (1 << (depth - redShift)) - 1)
-                name = $"RGB{depth - redShift}{redShift - greenShift}{greenShift}";
-            else if (redShift == 0 && blueShift > greenShift && greenShift > redShift && redMax == (1 << greenShift) - 1 && greenMax == (1 << (blueShift - greenShift)) - 1
-                && blueMax == (1 << (depth - blueShift)) - 1)
-                name = $"BGR{depth - blueShift}{blueShift - greenShift}{greenShift}";
+            if (redShift > greenShift && greenShift > blueShift)
+                name = $"RGB{redBits}{greenBits}{blueBits}";
+            else if (blueShift > greenShift && greenShift > redShift)
+                name = $"BGR{blueBits}{greenBits}{redBits}";
             else
-                throw new UnexpectedDataException("Received pixel format description is invalid.");
+                throw new UnexpectedDataException("The received pixel format is not in RGB or BGR order.");
 
             // Create pixel format without alpha support.
             // For some pixel formats, servers will send alpha values anyway, but we ignore them because that's how it's described in the protocol.
