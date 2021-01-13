@@ -80,6 +80,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
                 });
             }
 
+            // The size of the pseudo rectangle is the new size
+            Size newSize = rectangle.Size;
+
             // Common buffer for the following read operations
             Span<byte> readBuffer = stackalloc byte[sizeof(uint) + 4 * sizeof(ushort) + sizeof(uint)];
 
@@ -106,7 +109,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
             if (screens.Select(s => s.Id).Distinct().Count() != numberOfScreens)
                 throw new UnexpectedDataException("At least two of the received framebuffer screens have conflicting IDs. This is not allowed.");
 
-            Size newSize = rectangle.Size;
+            // Check if all screens are contained by the framebuffer size
+            if (screens.Any(s => !s.Rectangle.FitsInside(newSize)))
+                throw new UnexpectedDataException("At least one of the received framebuffer screens lies (partially) outside of the framebuffer area.");
+
             if (newSize == _state.RemoteFramebufferSize && screens.SequenceEqual(_state.RemoteFramebufferLayout))
                 return;
 

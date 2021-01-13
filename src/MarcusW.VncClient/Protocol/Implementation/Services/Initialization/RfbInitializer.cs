@@ -1,5 +1,6 @@
 using System;
 using System.Buffers.Binary;
+using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -54,6 +55,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             // Update state
             _state.RemoteFramebufferSize = framebufferSize;
             _state.RemoteFramebufferFormat = pixelFormat;
+            _state.RemoteFramebufferLayout = new[] { new Screen(1, new Rectangle(Position.Origin, framebufferSize), 0) }.ToImmutableHashSet();
             _state.DesktopName = desktopName;
 
             // Some security types extend the ServerInit response and now have the chance to continue reading
