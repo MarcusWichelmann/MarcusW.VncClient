@@ -33,8 +33,6 @@ namespace AvaloniaVncClient.Views
         private void InitializeComponent()
         {
             this.WhenActivated(disposable => {
-                // Bind window design to fullscreen state
-
                 // Bind connect button text to connect command execution
                 ConnectButton.Bind(Button.ContentProperty, ViewModel.ConnectCommand.IsExecuting.Select(executing => executing ? "Connecting..." : "Connect"))
                     .DisposeWith(disposable);
