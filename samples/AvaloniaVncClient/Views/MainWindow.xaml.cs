@@ -2,7 +2,10 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
 using Avalonia.ReactiveUI;
 using AvaloniaVncClient.ViewModels;
 using AvaloniaVncClient.Views.Dialogs;
@@ -13,6 +16,10 @@ namespace AvaloniaVncClient.Views
     public class MainWindow : ReactiveWindow<MainWindowViewModel>
     {
         private Button ConnectButton => this.FindControl<Button>("ConnectButton");
+
+        private Border TopDockPanel => this.FindControl<Border>("TopDockPanel");
+        private Border BottomDockPanel => this.FindControl<Border>("BottomDockPanel");
+        private Border RightDockPanel => this.FindControl<Border>("RightDockPanel");
 
         public MainWindow()
         {
@@ -26,6 +33,8 @@ namespace AvaloniaVncClient.Views
         private void InitializeComponent()
         {
             this.WhenActivated(disposable => {
+                // Bind window design to fullscreen state
+
                 // Bind connect button text to connect command execution
                 ConnectButton.Bind(Button.ContentProperty, ViewModel.ConnectCommand.IsExecuting.Select(executing => executing ? "Connecting..." : "Connect"))
                     .DisposeWith(disposable);
@@ -37,7 +46,26 @@ namespace AvaloniaVncClient.Views
                 }).DisposeWith(disposable);
             });
 
+            // Register keybinding for exiting fullscreen
+            KeyBindings.Add(new KeyBinding {
+                Gesture = new KeyGesture(Key.Escape, KeyModifiers.Control),
+                Command = ReactiveCommand.Create(() => SetFullscreenMode(false))
+            });
+
             AvaloniaXamlLoader.Load(this);
+        }
+
+        private void OnEnableFullscreenButtonClicked(object? sender, RoutedEventArgs e) => SetFullscreenMode(true);
+
+        private void SetFullscreenMode(bool fullscreen)
+        {
+            // TODO: Do a proper fullscreen when the new Avalonia release is out
+            WindowState = fullscreen ? WindowState.Maximized : WindowState.Normal;
+            HasSystemDecorations = !fullscreen;
+
+            TopDockPanel.IsVisible = !fullscreen;
+            BottomDockPanel.IsVisible = !fullscreen;
+            RightDockPanel.IsVisible = !fullscreen;
         }
     }
 }
