@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using Avalonia.Logging;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Logging
@@ -20,13 +21,16 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
         }
 
         /// <inheritdoc />
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, [NotNull] Func<TState, Exception?, string> formatter)
         {
+            if (formatter == null)
+                throw new ArgumentNullException(nameof(formatter));
+
             LogEventLevel? logEventLevel = GetLogEventLevel(logLevel);
             if (logEventLevel == null)
                 return;
 
-            if (!Logger.TryGet(logEventLevel.Value, out ParametrizedLogger outLogger))
+            if (!Logger.TryGet(logEventLevel.Value, AreaName, out ParametrizedLogger outLogger))
                 return;
 
             string message = $"{_categoryName}: {formatter(state, exception)}";
@@ -34,14 +38,14 @@ namespace MarcusW.VncClient.Avalonia.Adapters.Logging
             if (exception != null)
                 message += Environment.NewLine + exception + Environment.NewLine;
 
-            outLogger.Log(AreaName, this, message);
+            outLogger.Log(this, message);
         }
 
         /// <inheritdoc />
         public bool IsEnabled(LogLevel logLevel)
         {
             LogEventLevel? logEventLevel = GetLogEventLevel(logLevel);
-            return logEventLevel != null && Logger.IsEnabled(logEventLevel.Value);
+            return logEventLevel != null && Logger.IsEnabled(logEventLevel.Value, AreaName);
         }
 
         /// <inheritdoc />

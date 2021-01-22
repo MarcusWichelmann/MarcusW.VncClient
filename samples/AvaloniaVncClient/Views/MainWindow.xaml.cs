@@ -5,7 +5,6 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Avalonia.Media;
 using Avalonia.ReactiveUI;
 using AvaloniaVncClient.ViewModels;
 using AvaloniaVncClient.Views.Dialogs;
@@ -57,9 +56,7 @@ namespace AvaloniaVncClient.Views
 
         private void SetFullscreenMode(bool fullscreen)
         {
-            // TODO: Do a proper fullscreen when the new Avalonia release is out
-            WindowState = fullscreen ? WindowState.Maximized : WindowState.Normal;
-            HasSystemDecorations = !fullscreen;
+            WindowState = fullscreen ? WindowState.FullScreen : WindowState.Normal;
 
             TopDockPanel.IsVisible = !fullscreen;
             BottomDockPanel.IsVisible = !fullscreen;

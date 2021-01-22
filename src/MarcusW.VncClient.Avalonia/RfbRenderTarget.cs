@@ -85,7 +85,7 @@ namespace MarcusW.VncClient.Avalonia
                     return;
 
                 var rect = new Rect(_bitmap.Size);
-                context.DrawImage(_bitmap, 1, rect, rect);
+                context.DrawImage(_bitmap, rect);
             }
         }
 

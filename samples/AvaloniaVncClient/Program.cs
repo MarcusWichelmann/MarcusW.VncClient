@@ -1,7 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Logging;
-using Avalonia.Logging.Serilog;
 using Avalonia.ReactiveUI;
 
 namespace AvaloniaVncClient
@@ -23,7 +22,7 @@ namespace AvaloniaVncClient
             LogEventLevel logLevel = LogEventLevel.Warning;
 #endif
 
-            return AppBuilder.Configure<App>().UsePlatformDetect().LogToDebug(logLevel).UseReactiveUI();
+            return AppBuilder.Configure<App>().UsePlatformDetect().LogToTrace(logLevel).UseReactiveUI();
         }
     }
 }
