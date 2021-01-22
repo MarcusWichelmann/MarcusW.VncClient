@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum WellKnownSecurityType
+    <title>Class PixelUtils
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum WellKnownSecurityType
+    <meta name="title" content="Class PixelUtils
    ">
     <meta name="generator" content="docfx 2.56.6.0">
     
@@ -68,88 +68,77 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.SecurityTypes.WellKnownSecurityType">
+            <article class="content wrap" id="_content" data-uid="MarcusW.VncClient.Protocol.Implementation.PixelUtils">
   
   
-  <h1 id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType" data-uid="MarcusW.VncClient.Protocol.SecurityTypes.WellKnownSecurityType" class="text-break">Enum WellKnownSecurityType
+  <h1 id="MarcusW_VncClient_Protocol_Implementation_PixelUtils" data-uid="MarcusW.VncClient.Protocol.Implementation.PixelUtils" class="text-break">Class PixelUtils
   </h1>
-  <div class="markdown level0 summary"><p>The well known security types and their IDs.</p>
+  <div class="markdown level0 summary"><p>Provides some useful methods for working with pixel values and formats.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.SecurityTypes.html">MarcusW.VncClient.Protocol.SecurityTypes</a></h6>
-  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
-  <h5 id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum WellKnownSecurityType : byte</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">PixelUtils</span></div>
   </div>
-  <h3 id="fields">Fields
+  <h6><strong>Namespace</strong>: <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.html">MarcusW.VncClient.Protocol.Implementation</a></h6>
+  <h6><strong>Assembly</strong>: MarcusW.VncClient.dll</h6>
+  <h5 id="MarcusW_VncClient_Protocol_Implementation_PixelUtils_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class PixelUtils : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_PixelUtils_GetChannelDepth_System_UInt16_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth(System.UInt16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/PixelUtils.cs/#L16">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Implementation_PixelUtils_GetChannelDepth_" data-uid="MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_PixelUtils_GetChannelDepth_System_UInt16_" data-uid="MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth(System.UInt16)">GetChannelDepth(UInt16)</h4>
+  <div class="markdown level1 summary"><p>Counts the number of high bits in the maximum value for a color channel to retrieve how many bits a channel occupies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte GetChannelDepth(ushort maxValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
+        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_IntegratedSSH">IntegratedSSH</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_Invalid">Invalid</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_MD5">MD5</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_None">None</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_RA2">RA2</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_RA2ne">RA2ne</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_SASL">SASL</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_SecureTunnel">SecureTunnel</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_Tight">Tight</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_TLS">TLS</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_Ultra">Ultra</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_VeNCrypt">VeNCrypt</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_VncAuthentication">VncAuthentication</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType_XVP">XVP</td>
-        <td></td>
+        <td><span class="xref">System.UInt16</span></td>
+        <td><span class="parametername">maxValue</span></td>
+        <td><p>The maximum value for the color channel.</p>
+</td>
       </tr>
     </tbody>
-  </thead></thead></table>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><p>The channel depth.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -158,10 +147,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_SecurityTypes_WellKnownSecurityType.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.SecurityTypes.WellKnownSecurityType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_PixelUtils.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.PixelUtils%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/SecurityTypes/WellKnownSecurityType.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/PixelUtils.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

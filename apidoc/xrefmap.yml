@@ -70,6 +70,38 @@ references:
   fullName.vb: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, System.Nullable(Of Exception), Func(Of TState, System.Nullable(Of Exception), System.String))
   nameWithType: AvaloniaLogger.Log<TState>(LogLevel, EventId, TState, Nullable<Exception>, Func<TState, Nullable<Exception>, String>)
   nameWithType.vb: AvaloniaLogger.Log(Of TState)(LogLevel, EventId, TState, Nullable(Of Exception), Func(Of TState, Nullable(Of Exception), String))
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope
+  name: AvaloniaLogger.NullScope
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.html
+  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope
+  nameWithType: AvaloniaLogger.NullScope
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Dispose
+  name: Dispose()
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_NullScope_Dispose
+  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Dispose
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Dispose()
+  nameWithType: AvaloniaLogger.NullScope.Dispose()
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Dispose*
+  name: Dispose
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_NullScope_Dispose_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Dispose
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Dispose
+  nameWithType: AvaloniaLogger.NullScope.Dispose
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Instance
+  name: Instance
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_NullScope_Instance
+  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Instance
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Instance
+  nameWithType: AvaloniaLogger.NullScope.Instance
+- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Instance*
+  name: Instance
+  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_AvaloniaLogger_NullScope_Instance_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Instance
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLogger.NullScope.Instance
+  nameWithType: AvaloniaLogger.NullScope.Instance
 - uid: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider
   name: AvaloniaLoggerProvider
   href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.html
@@ -102,38 +134,6 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.AvaloniaLoggerProvider.Dispose
   nameWithType: AvaloniaLoggerProvider.Dispose
-- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope
-  name: NullScope
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html
-  commentId: T:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope
-  nameWithType: NullScope
-- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
-  name: Dispose()
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Dispose
-  commentId: M:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose()
-  nameWithType: NullScope.Dispose()
-- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose*
-  name: Dispose
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Dispose_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Dispose
-  nameWithType: NullScope.Dispose
-- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
-  name: Instance
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Instance
-  commentId: P:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
-  nameWithType: NullScope.Instance
-- uid: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance*
-  name: Instance
-  href: api/MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.html#MarcusW_VncClient_Avalonia_Adapters_Logging_NullScope_Instance_
-  commentId: Overload:MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
-  isSpec: "True"
-  fullName: MarcusW.VncClient.Avalonia.Adapters.Logging.NullScope.Instance
-  nameWithType: NullScope.Instance
 - uid: MarcusW.VncClient.Avalonia.Adapters.Rendering
   name: MarcusW.VncClient.Avalonia.Adapters.Rendering
   href: api/MarcusW.VncClient.Avalonia.Adapters.Rendering.html
@@ -256,6 +256,19 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Avalonia.Conversions.GetPixelSize
   nameWithType: Conversions.GetPixelSize
+- uid: MarcusW.VncClient.Avalonia.Conversions.GetPosition(Point)
+  name: GetPosition(Point)
+  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetPosition_Point_
+  commentId: M:MarcusW.VncClient.Avalonia.Conversions.GetPosition(Point)
+  fullName: MarcusW.VncClient.Avalonia.Conversions.GetPosition(Point)
+  nameWithType: Conversions.GetPosition(Point)
+- uid: MarcusW.VncClient.Avalonia.Conversions.GetPosition*
+  name: GetPosition
+  href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetPosition_
+  commentId: Overload:MarcusW.VncClient.Avalonia.Conversions.GetPosition
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.Conversions.GetPosition
+  nameWithType: Conversions.GetPosition
 - uid: MarcusW.VncClient.Avalonia.Conversions.GetSize(PixelSize)
   name: GetSize(PixelSize)
   href: api/MarcusW.VncClient.Avalonia.Conversions.html#MarcusW_VncClient_Avalonia_Conversions_GetSize_PixelSize_
@@ -293,6 +306,19 @@ references:
   commentId: T:MarcusW.VncClient.Avalonia.KeyMapping
   fullName: MarcusW.VncClient.Avalonia.KeyMapping
   nameWithType: KeyMapping
+- uid: MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromChar(System.Char)
+  name: GetSymbolFromChar(Char)
+  href: api/MarcusW.VncClient.Avalonia.KeyMapping.html#MarcusW_VncClient_Avalonia_KeyMapping_GetSymbolFromChar_System_Char_
+  commentId: M:MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromChar(System.Char)
+  fullName: MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromChar(System.Char)
+  nameWithType: KeyMapping.GetSymbolFromChar(Char)
+- uid: MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromChar*
+  name: GetSymbolFromChar
+  href: api/MarcusW.VncClient.Avalonia.KeyMapping.html#MarcusW_VncClient_Avalonia_KeyMapping_GetSymbolFromChar_
+  commentId: Overload:MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromChar
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromChar
+  nameWithType: KeyMapping.GetSymbolFromChar
 - uid: MarcusW.VncClient.Avalonia.KeyMapping.GetSymbolFromKey(Key,System.Boolean)
   name: GetSymbolFromKey(Key, Boolean)
   href: api/MarcusW.VncClient.Avalonia.KeyMapping.html#MarcusW_VncClient_Avalonia_KeyMapping_GetSymbolFromKey_Key_System_Boolean_
@@ -14251,15 +14277,15 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType
   fullName: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType
   nameWithType: IFrameEncodingType
-- uid: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IFrameEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: IFrameEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: IFrameEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IFrameEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: IFrameEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: IFrameEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.EncodingTypes.IFrameEncodingType.html#MarcusW_VncClient_Protocol_EncodingTypes_IFrameEncodingType_ReadFrameEncoding_
@@ -14782,15 +14808,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.Priority
   nameWithType: CopyRectEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_CopyRectEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: CopyRectEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: CopyRectEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_CopyRectEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: CopyRectEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: CopyRectEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.CopyRectEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_CopyRectEncodingType_ReadFrameEncoding_
@@ -14869,15 +14895,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.Priority
   nameWithType: FrameEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: FrameEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: FrameEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: FrameEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: FrameEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.FrameEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_FrameEncodingType_ReadFrameEncoding_
@@ -14956,15 +14982,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.Priority
   nameWithType: RawEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_RawEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: RawEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: RawEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_RawEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: RawEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: RawEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.RawEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_RawEncodingType_ReadFrameEncoding_
@@ -15056,15 +15082,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.Priority
   nameWithType: TightEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_TightEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: TightEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: TightEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_TightEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: TightEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: TightEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.TightEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_TightEncodingType_ReadFrameEncoding_
@@ -15156,15 +15182,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.Priority
   nameWithType: ZLibEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: ZLibEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: ZLibEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: ZLibEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: ZLibEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZLibEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZLibEncodingType_ReadFrameEncoding_
@@ -15256,15 +15282,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.Priority
   nameWithType: ZrleEncodingType.Priority
-- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name: ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZrleEncodingType_ReadFrameEncoding_Stream_System_Nullable_MarcusW_VncClient_Rendering_IFramebufferReference__MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream,System.Nullable{MarcusW.VncClient.Rendering.IFramebufferReference},MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
-  name.vb: ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
-  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream, System.Nullable<MarcusW.VncClient.Rendering.IFramebufferReference>, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream, System.Nullable(Of MarcusW.VncClient.Rendering.IFramebufferReference), ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
-  nameWithType: ZrleEncodingType.ReadFrameEncoding(Stream, Nullable<IFramebufferReference>, Rectangle, Size, PixelFormat)
-  nameWithType.vb: ZrleEncodingType.ReadFrameEncoding(Stream, Nullable(Of IFramebufferReference), ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+- uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name: ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZrleEncodingType_ReadFrameEncoding_Stream_MarcusW_VncClient_Rendering_IFramebufferReference_MarcusW_VncClient_Rectangle__MarcusW_VncClient_Size__MarcusW_VncClient_PixelFormat__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream,MarcusW.VncClient.Rendering.IFramebufferReference,MarcusW.VncClient.Rectangle@,MarcusW.VncClient.Size@,MarcusW.VncClient.PixelFormat@)
+  name.vb: ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
+  fullName: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, MarcusW.VncClient.Rectangle, MarcusW.VncClient.Size, MarcusW.VncClient.PixelFormat)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding(Stream, MarcusW.VncClient.Rendering.IFramebufferReference, ByRef MarcusW.VncClient.Rectangle, ByRef MarcusW.VncClient.Size, ByRef MarcusW.VncClient.PixelFormat)
+  nameWithType: ZrleEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, Rectangle, Size, PixelFormat)
+  nameWithType.vb: ZrleEncodingType.ReadFrameEncoding(Stream, IFramebufferReference, ByRef Rectangle, ByRef Size, ByRef PixelFormat)
 - uid: MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.ReadFrameEncoding*
   name: ReadFrameEncoding
   href: api/MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame.ZrleEncodingType.html#MarcusW_VncClient_Protocol_Implementation_EncodingTypes_Frame_ZrleEncodingType_ReadFrameEncoding_
@@ -17545,6 +17571,19 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg
   fullName: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg
   nameWithType: TurboJpeg
+- uid: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress(IntPtr,IntPtr,System.UInt64,IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Decompress(IntPtr, IntPtr, UInt64, IntPtr, Int32, Int32, Int32, Int32, Int32)
+  href: api/MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_Decompress_IntPtr_IntPtr_System_UInt64_IntPtr_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress(IntPtr,IntPtr,System.UInt64,IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  fullName: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress(IntPtr, IntPtr, System.UInt64, IntPtr, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: TurboJpeg.Decompress(IntPtr, IntPtr, UInt64, IntPtr, Int32, Int32, Int32, Int32, Int32)
+- uid: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress*
+  name: Decompress
+  href: api/MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_Decompress_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress
+  nameWithType: TurboJpeg.Decompress
 - uid: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.DecompressHeader(IntPtr,IntPtr,System.UInt64,System.Int32@,System.Int32@,System.Int32@,System.Int32@)
   name: DecompressHeader(IntPtr, IntPtr, UInt64, out Int32, out Int32, out Int32, out Int32)
   href: api/MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_DecompressHeader_IntPtr_IntPtr_System_UInt64_System_Int32__System_Int32__System_Int32__System_Int32__
@@ -17573,6 +17612,18 @@ references:
   commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.DestroyInstance
   fullName: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.DestroyInstance
   nameWithType: TurboJpeg.DestroyInstance
+- uid: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError
+  name: GetLastError()
+  href: api/MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError
+  fullName: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError()
+  nameWithType: TurboJpeg.GetLastError()
+- uid: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError*
+  name: GetLastError
+  href: api/MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError
+  fullName: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError
+  nameWithType: TurboJpeg.GetLastError
 - uid: MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.InitDecompressorInstance
   name: InitDecompressorInstance()
   href: api/MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_InitDecompressorInstance
@@ -17740,6 +17791,25 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.PixelConversions.WritePixel
   nameWithType: PixelConversions.WritePixel
+- uid: MarcusW.VncClient.Protocol.Implementation.PixelUtils
+  name: PixelUtils
+  href: api/MarcusW.VncClient.Protocol.Implementation.PixelUtils.html
+  commentId: T:MarcusW.VncClient.Protocol.Implementation.PixelUtils
+  fullName: MarcusW.VncClient.Protocol.Implementation.PixelUtils
+  nameWithType: PixelUtils
+- uid: MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth(System.UInt16)
+  name: GetChannelDepth(UInt16)
+  href: api/MarcusW.VncClient.Protocol.Implementation.PixelUtils.html#MarcusW_VncClient_Protocol_Implementation_PixelUtils_GetChannelDepth_System_UInt16_
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth(System.UInt16)
+  fullName: MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth(System.UInt16)
+  nameWithType: PixelUtils.GetChannelDepth(UInt16)
+- uid: MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth*
+  name: GetChannelDepth
+  href: api/MarcusW.VncClient.Protocol.Implementation.PixelUtils.html#MarcusW_VncClient_Protocol_Implementation_PixelUtils_GetChannelDepth_
+  commentId: Overload:MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.Implementation.PixelUtils.GetChannelDepth
+  nameWithType: PixelUtils.GetChannelDepth
 - uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState
   name: ProtocolState
   href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html
@@ -17792,15 +17862,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed
   nameWithType: ProtocolState.EnsureEncodingTypeIsMarkedAsUsed
-- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed``1(System.Nullable{``0},System.Nullable{System.Int32})
-  name: EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(Nullable<TEncodingType>, Nullable<Int32>)
-  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_EnsureEncodingTypeIsMarkedAsUsed__1_System_Nullable___0__System_Nullable_System_Int32__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed``1(System.Nullable{``0},System.Nullable{System.Int32})
-  name.vb: EnsureEncodingTypeIsMarkedAsUsed(Of TEncodingType)(Nullable(Of TEncodingType), Nullable(Of Int32))
-  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(System.Nullable<TEncodingType>, System.Nullable<System.Int32>)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed(Of TEncodingType)(System.Nullable(Of TEncodingType), System.Nullable(Of System.Int32))
-  nameWithType: ProtocolState.EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(Nullable<TEncodingType>, Nullable<Int32>)
-  nameWithType.vb: ProtocolState.EnsureEncodingTypeIsMarkedAsUsed(Of TEncodingType)(Nullable(Of TEncodingType), Nullable(Of Int32))
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed``1(``0,System.Nullable{System.Int32})
+  name: EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(TEncodingType, Nullable<Int32>)
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_EnsureEncodingTypeIsMarkedAsUsed__1___0_System_Nullable_System_Int32__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed``1(``0,System.Nullable{System.Int32})
+  name.vb: EnsureEncodingTypeIsMarkedAsUsed(Of TEncodingType)(TEncodingType, Nullable(Of Int32))
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(TEncodingType, System.Nullable<System.Int32>)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureEncodingTypeIsMarkedAsUsed(Of TEncodingType)(TEncodingType, System.Nullable(Of System.Int32))
+  nameWithType: ProtocolState.EnsureEncodingTypeIsMarkedAsUsed<TEncodingType>(TEncodingType, Nullable<Int32>)
+  nameWithType.vb: ProtocolState.EnsureEncodingTypeIsMarkedAsUsed(Of TEncodingType)(TEncodingType, Nullable(Of Int32))
 - uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed*
   name: EnsureMessageTypeIsMarkedAsUsed
   href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_EnsureMessageTypeIsMarkedAsUsed_
@@ -17808,15 +17878,15 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed
   nameWithType: ProtocolState.EnsureMessageTypeIsMarkedAsUsed
-- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed``1(System.Nullable{``0},System.Nullable{System.Byte})
-  name: EnsureMessageTypeIsMarkedAsUsed<TMessageType>(Nullable<TMessageType>, Nullable<Byte>)
-  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_EnsureMessageTypeIsMarkedAsUsed__1_System_Nullable___0__System_Nullable_System_Byte__
-  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed``1(System.Nullable{``0},System.Nullable{System.Byte})
-  name.vb: EnsureMessageTypeIsMarkedAsUsed(Of TMessageType)(Nullable(Of TMessageType), Nullable(Of Byte))
-  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed<TMessageType>(System.Nullable<TMessageType>, System.Nullable<System.Byte>)
-  fullName.vb: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed(Of TMessageType)(System.Nullable(Of TMessageType), System.Nullable(Of System.Byte))
-  nameWithType: ProtocolState.EnsureMessageTypeIsMarkedAsUsed<TMessageType>(Nullable<TMessageType>, Nullable<Byte>)
-  nameWithType.vb: ProtocolState.EnsureMessageTypeIsMarkedAsUsed(Of TMessageType)(Nullable(Of TMessageType), Nullable(Of Byte))
+- uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed``1(``0,System.Nullable{System.Byte})
+  name: EnsureMessageTypeIsMarkedAsUsed<TMessageType>(TMessageType, Nullable<Byte>)
+  href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_EnsureMessageTypeIsMarkedAsUsed__1___0_System_Nullable_System_Byte__
+  commentId: M:MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed``1(``0,System.Nullable{System.Byte})
+  name.vb: EnsureMessageTypeIsMarkedAsUsed(Of TMessageType)(TMessageType, Nullable(Of Byte))
+  fullName: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed<TMessageType>(TMessageType, System.Nullable<System.Byte>)
+  fullName.vb: MarcusW.VncClient.Protocol.Implementation.ProtocolState.EnsureMessageTypeIsMarkedAsUsed(Of TMessageType)(TMessageType, System.Nullable(Of System.Byte))
+  nameWithType: ProtocolState.EnsureMessageTypeIsMarkedAsUsed<TMessageType>(TMessageType, Nullable<Byte>)
+  nameWithType.vb: ProtocolState.EnsureMessageTypeIsMarkedAsUsed(Of TMessageType)(TMessageType, Nullable(Of Byte))
 - uid: MarcusW.VncClient.Protocol.Implementation.ProtocolState.Prepare
   name: Prepare()
   href: api/MarcusW.VncClient.Protocol.Implementation.ProtocolState.html#MarcusW_VncClient_Protocol_Implementation_ProtocolState_Prepare
@@ -19478,15 +19548,12 @@ references:
   isSpec: "True"
   fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedMessageTypes
   nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedMessageTypes
-- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable{MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType})
-  name: SetUsedSecurityType(Nullable<ISecurityType>)
-  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetUsedSecurityType_System_Nullable_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType__
-  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable{MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType})
-  name.vb: SetUsedSecurityType(Nullable(Of ISecurityType))
-  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable<MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType>)
-  fullName.vb: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(System.Nullable(Of MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType))
-  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(Nullable<ISecurityType>)
-  nameWithType.vb: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(Nullable(Of ISecurityType))
+- uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType)
+  name: SetUsedSecurityType(ISecurityType)
+  href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetUsedSecurityType_MarcusW_VncClient_Protocol_SecurityTypes_ISecurityType_
+  commentId: M:MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType)
+  fullName: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(MarcusW.VncClient.Protocol.SecurityTypes.ISecurityType)
+  nameWithType: RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType(ISecurityType)
 - uid: MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.SetUsedSecurityType*
   name: SetUsedSecurityType
   href: api/MarcusW.VncClient.Protocol.RfbConnectionContext.ConnectionDetailsAccessor.html#MarcusW_VncClient_Protocol_RfbConnectionContext_ConnectionDetailsAccessor_SetUsedSecurityType_
@@ -19694,6 +19761,38 @@ references:
   commentId: F:MarcusW.VncClient.Protocol.RfbProtocolVersion.Unknown
   fullName: MarcusW.VncClient.Protocol.RfbProtocolVersion.Unknown
   nameWithType: RfbProtocolVersion.Unknown
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions
+  name: RfbProtocolVersionExtensions
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.html
+  commentId: T:MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions
+  nameWithType: RfbProtocolVersionExtensions
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.GetStringRepresentation(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  name: GetStringRepresentation(RfbProtocolVersion)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.html#MarcusW_VncClient_Protocol_RfbProtocolVersionExtensions_GetStringRepresentation_MarcusW_VncClient_Protocol_RfbProtocolVersion_
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.GetStringRepresentation(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.GetStringRepresentation(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  nameWithType: RfbProtocolVersionExtensions.GetStringRepresentation(RfbProtocolVersion)
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.GetStringRepresentation*
+  name: GetStringRepresentation
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.html#MarcusW_VncClient_Protocol_RfbProtocolVersionExtensions_GetStringRepresentation_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.GetStringRepresentation
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.GetStringRepresentation
+  nameWithType: RfbProtocolVersionExtensions.GetStringRepresentation
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.ToReadableString(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  name: ToReadableString(RfbProtocolVersion)
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.html#MarcusW_VncClient_Protocol_RfbProtocolVersionExtensions_ToReadableString_MarcusW_VncClient_Protocol_RfbProtocolVersion_
+  commentId: M:MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.ToReadableString(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.ToReadableString(MarcusW.VncClient.Protocol.RfbProtocolVersion)
+  nameWithType: RfbProtocolVersionExtensions.ToReadableString(RfbProtocolVersion)
+- uid: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.ToReadableString*
+  name: ToReadableString
+  href: api/MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.html#MarcusW_VncClient_Protocol_RfbProtocolVersionExtensions_ToReadableString_
+  commentId: Overload:MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.ToReadableString
+  isSpec: "True"
+  fullName: MarcusW.VncClient.Protocol.RfbProtocolVersionExtensions.ToReadableString
+  nameWithType: RfbProtocolVersionExtensions.ToReadableString
 - uid: MarcusW.VncClient.Protocol.RfbProtocolVersions
   name: RfbProtocolVersions
   href: api/MarcusW.VncClient.Protocol.RfbProtocolVersions.html
@@ -19731,15 +19830,12 @@ references:
   commentId: T:MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult
   fullName: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult
   nameWithType: AuthenticationResult
-- uid: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.#ctor(System.Nullable{MarcusW.VncClient.Protocol.ITransport},System.Boolean)
-  name: AuthenticationResult(Nullable<ITransport>, Boolean)
-  href: api/MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.html#MarcusW_VncClient_Protocol_SecurityTypes_AuthenticationResult__ctor_System_Nullable_MarcusW_VncClient_Protocol_ITransport__System_Boolean_
-  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.#ctor(System.Nullable{MarcusW.VncClient.Protocol.ITransport},System.Boolean)
-  name.vb: AuthenticationResult(Nullable(Of ITransport), Boolean)
-  fullName: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.AuthenticationResult(System.Nullable<MarcusW.VncClient.Protocol.ITransport>, System.Boolean)
-  fullName.vb: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.AuthenticationResult(System.Nullable(Of MarcusW.VncClient.Protocol.ITransport), System.Boolean)
-  nameWithType: AuthenticationResult.AuthenticationResult(Nullable<ITransport>, Boolean)
-  nameWithType.vb: AuthenticationResult.AuthenticationResult(Nullable(Of ITransport), Boolean)
+- uid: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.#ctor(MarcusW.VncClient.Protocol.ITransport,System.Boolean)
+  name: AuthenticationResult(ITransport, Boolean)
+  href: api/MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.html#MarcusW_VncClient_Protocol_SecurityTypes_AuthenticationResult__ctor_MarcusW_VncClient_Protocol_ITransport_System_Boolean_
+  commentId: M:MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.#ctor(MarcusW.VncClient.Protocol.ITransport,System.Boolean)
+  fullName: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.AuthenticationResult(MarcusW.VncClient.Protocol.ITransport, System.Boolean)
+  nameWithType: AuthenticationResult.AuthenticationResult(ITransport, Boolean)
 - uid: MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.#ctor*
   name: AuthenticationResult
   href: api/MarcusW.VncClient.Protocol.SecurityTypes.AuthenticationResult.html#MarcusW_VncClient_Protocol_SecurityTypes_AuthenticationResult__ctor_

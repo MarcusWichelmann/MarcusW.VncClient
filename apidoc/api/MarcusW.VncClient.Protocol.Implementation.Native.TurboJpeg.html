@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TurboJpeg
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -122,6 +122,112 @@
   </table>
   <h3 id="methods">Methods
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_Decompress_IntPtr_IntPtr_System_UInt64_IntPtr_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress(IntPtr%2CIntPtr%2CSystem.UInt64%2CIntPtr%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/blob/master/src/MarcusW.VncClient/Protocol/Implementation/Native/TurboJpeg.cs/#L93">View Source</a>
+  </span>
+  <a id="MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_Decompress_" data-uid="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_Decompress_IntPtr_IntPtr_System_UInt64_IntPtr_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.Decompress(IntPtr,IntPtr,System.UInt64,IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">Decompress(IntPtr, IntPtr, UInt64, IntPtr, Int32, Int32, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Decompress a JPEG image to an RGB, grayscale, or CMYK image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Decompress(IntPtr handle, IntPtr jpegBuf, ulong jpegSize, IntPtr dstBuf, int width, int pitch, int height, int pixelFormat, int flags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IntPtr</span></td>
+        <td><span class="parametername">handle</span></td>
+        <td><p>A handle to a TurboJPEG decompressor or transformer instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IntPtr</span></td>
+        <td><span class="parametername">jpegBuf</span></td>
+        <td><p>Pointer to a buffer containing the JPEG image to decompress. This buffer is not modified.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td><span class="parametername">jpegSize</span></td>
+        <td><p>Size of the JPEG image (in bytes).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IntPtr</span></td>
+        <td><span class="parametername">dstBuf</span></td>
+        <td><p>Pointer to an image buffer that will receive the decompressed image.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>Desired width (in pixels) of the destination image.
+If this is different than the width of the JPEG image being decompressed, then TurboJPEG will use scaling in the JPEG decompressor to generate the largest possible
+image that will fit within the desired width. If <code data-dev-comment-type="paramref" class="paramref">width</code> is set to 0, then only the height will be considered when determining the scaled image size.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">pitch</span></td>
+        <td><p>Bytes per line in the destination image.
+Normally, this is <code>scaledWidth * tjPixelSize[pixelFormat]</code> if the decompressed image is unpadded, else <code>TJPAD(scaledWidth * tjPixelSize[pixelFormat])</code> if each
+line of the decompressed image is padded to the nearest 32-bit boundary, as is the case for Windows bitmaps.
+You can also be clever and use the pitch parameter to skip lines, etc.
+Setting this parameter to 0 is the equivalent of setting it to <code>scaledWidth* tjPixelSize[pixelFormat]</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>Desired height (in pixels) of the destination image.
+If this is different than the height of the JPEG image being decompressed, then TurboJPEG will use scaling in the JPEG decompressor to generate the largest possible
+image that will fit within the desired height. If <code data-dev-comment-type="paramref" class="paramref">height</code> is set to 0, then only the width will be considered when determining the scaled image size.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">pixelFormat</span></td>
+        <td><p>Pixel format of the destination image (see <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpegPixelFormat.html">TurboJpegPixelFormat</a>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">flags</span></td>
+        <td><p>The bitwise OR of one or more of the <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpegFlags.html">TurboJpegFlags</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>0 if successful, or -1 if an error occurred (see <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError">GetLastError()</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MarcusWichelmann/MarcusW.VncClient/new/master/apiSpec/new?filename=MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_DecompressHeader_IntPtr_IntPtr_System_UInt64_System_Int32__System_Int32__System_Int32__System_Int32__.md&amp;value=---%0Auid%3A%20MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.DecompressHeader(IntPtr%2CIntPtr%2CSystem.UInt64%2CSystem.Int32%40%2CSystem.Int32%40%2CSystem.Int32%40%2CSystem.Int32%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -248,7 +354,34 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
-        <td><p>0 if successful, or -1 if an error occurred (see <see cref="!:GetLastError"></see>).</p>
+        <td><p>0 if successful, or -1 if an error occurred (see <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError">GetLastError()</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError_" data-uid="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError*"></a>
+  <h4 id="MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError" data-uid="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.GetLastError">GetLastError()</h4>
+  <div class="markdown level1 summary"><p>Returns a descriptive error message explaining why the last command failed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IntPtr GetLastError()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IntPtr</span></td>
+        <td><p>An error message.</p>
 </td>
       </tr>
     </tbody>
@@ -275,7 +408,7 @@
     <tbody>
       <tr>
         <td><span class="xref">IntPtr</span></td>
-        <td><p>A handle to the newly created instance, or <span class="xref">null</span> if an error occurred (see <see cref="!:GetLastError"></see>).</p>
+        <td><p>A handle to the newly created instance, or <span class="xref">null</span> if an error occurred (see <a class="xref" href="MarcusW.VncClient.Protocol.Implementation.Native.TurboJpeg.html#MarcusW_VncClient_Protocol_Implementation_Native_TurboJpeg_GetLastError">GetLastError()</a>).</p>
 </td>
       </tr>
     </tbody>
@@ -296,7 +429,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
