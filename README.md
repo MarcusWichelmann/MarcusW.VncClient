@@ -9,8 +9,8 @@ This project provides a fully managed C#-Library that implements the RFB protoco
 ### [Website](https://vnc-client.marcusw.de/)
 ### [API Documentation](https://vnc-client.marcusw.de/apidoc/api/index.html)
 
-**This library is currently in alpha state, but has proven to be quite stable and is ready for daily use. A stable release will follow, as soon as it's
-feature-complete.**
+_This library is currently in alpha state, but has proven to be quite stable and is ready for daily use. A stable release will follow, as soon as it's
+feature-complete._
 
 ### Sample Application
 
@@ -155,4 +155,4 @@ But before you spend a lot of time working on a Pull Request, please create an I
 
 Here is a very great community-maintained protocol specification that I used and which is probably also useful to you: [rfbproto](https://github.com/rfbproto/rfbproto/blob/master/rfbproto.rst)
 
-## 🎉 Happy coding! 🎉
+### 🎉 Happy coding! 🎉
