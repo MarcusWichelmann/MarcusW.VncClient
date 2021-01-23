@@ -52,7 +52,7 @@ jobs:
 
   nuget:
     name: Publish NuGet Packages
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Runs only on commits to master or when creating a tag
     if: github.ref == 'refs/heads/master' || contains(github.ref, 'refs/tags/')
@@ -66,12 +66,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ matrix.dotnet }}
-          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Create Packages
         if: github.ref == 'refs/heads/master'
@@ -86,9 +80,8 @@ jobs:
           dotnet pack src/MarcusW.VncClient -c Release -o packages
           dotnet pack src/MarcusW.VncClient.Avalonia -c Release -o packages
 
-      # Use Windows to push using nuget.exe because GitHub Packages is broken: https://stackoverflow.com/a/63935703/5495384
       - name: Push to GitHub Packages
-        run: nuget.exe push packages\*.nupkg -SkipDuplicate
+        run: dotnet nuget push packages\*.nupkg -s https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
 
       - name: Push to nuget.org
         if: contains(github.ref, 'refs/tags/')
