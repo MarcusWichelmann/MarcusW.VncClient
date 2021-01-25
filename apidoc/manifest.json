@@ -1893,7 +1893,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "rdfBGgAJdI/XnhOnXOfLBA=="
+          "hash": "t9ws/MqVFwvPBAJwZFoThA=="
         }
       },
       "is_incremental": false,
@@ -1906,6 +1906,18 @@
         ".html": {
           "relative_path": "api/toc.html",
           "hash": "GBSMWGgAInNLRSKJbh0YlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "09DXsi4K6HM0WF0XqaHGkA=="
         }
       },
       "is_incremental": false,
@@ -1938,7 +1950,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 1,
+          "total_file_count": 2,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
