@@ -25,7 +25,7 @@ jobs:
         run: dotnet test -c Release --verbosity normal
 
   apidoc:
-    name: Publish API Documentation
+    name: Publish Documentation
     runs-on: ubuntu-latest
 
     # Runs only on commits to master
@@ -41,13 +41,19 @@ jobs:
         with:
           args: docs/docfx.json
 
+      - name: Build directory structure
+        run: |
+          mkdir docs/pages
+          mv docs/_site docs/pages/apidoc
+          cp README.md docs/pages/index.md
+          cp -r images docs/pages/
+
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: docs/_site
-          TARGET_FOLDER: apidoc
+          FOLDER: docs/pages
           CLEAN: true
 
   nuget:

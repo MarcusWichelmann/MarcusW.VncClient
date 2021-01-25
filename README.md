@@ -1,16 +1,15 @@
 # VNC-Client Library for C#
 
-This project provides a fully managed C#-Library that implements the RFB protocol for easy integration of VNC-Client features into own applications.
-
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MarcusWichelmann/MarcusW.VncClient/Build?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/MarcusWichelmann/MarcusW.VncClient?style=for-the-badge)
 ![Nuget](https://img.shields.io/nuget/v/MarcusW.VncClient?style=for-the-badge)
 
-### [Website](https://vnc-client.marcusw.de/)
+This project provides a very performant, fully managed C#-Library that implements the RFB protocol for easy integration of VNC-Client features into own applications. It's also cross-platform and runs every where .NET Core (or .NET 5 and so on...) runs.
+
 ### [API Documentation](https://vnc-client.marcusw.de/apidoc/api/index.html)
 
-_This library is currently in alpha state, but has proven to be quite stable and is ready for daily use. A stable release will follow, as soon as it's
-feature-complete._
+-- _This library is currently in alpha state, but has proven to be quite stable and is ready for daily use. A stable release will follow, as soon as it's
+feature-complete._ --
 
 ### Sample Application
 
