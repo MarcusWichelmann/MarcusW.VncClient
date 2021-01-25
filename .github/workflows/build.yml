@@ -55,6 +55,7 @@ jobs:
           BRANCH: gh-pages
           FOLDER: docs/pages
           CLEAN: true
+          CLEAN_EXCLUDE: '["_config.yml", "CNAME"]'
 
   nuget:
     name: Publish NuGet Packages
