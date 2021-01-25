@@ -45,7 +45,7 @@ jobs:
         run: |
           mkdir docs/pages
           cp -r docs/_site docs/pages/apidoc
-          cp -r images docs/pages/
+          cp -r img docs/pages/
           cp README.md docs/pages/index.md
 
       - name: Deploy to GitHub pages
