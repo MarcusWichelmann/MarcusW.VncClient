@@ -61,6 +61,8 @@ This is library contains the main protocol implementation and is completely plat
 
 These libraries provide platform specific implementations for the mentioned interfaces and provide e.g. user controls that can just be dropped into an UI application to make use of the VNC library very easily. These libraries depend on the core VNC library as well as the corresponding UI library.
 
+**You can find the latest packages for every commit that's pushed to master on [GitHub Packages](https://github.com/MarcusWichelmann?tab=packages&repo_name=MarcusW.VncClient).**
+
 ## Support me!
 
 Developing a VNC client implementation is hell a lot of work. Months of my spare time went into this. So if you use this library in a commercial context, please consider giving something back - and of course let me know about where you used it 😀.
@@ -69,17 +71,9 @@ Developing a VNC client implementation is hell a lot of work. Months of my spare
 
 ## Usage
 
-### Avalonia User Control
+### Creating Connections
 
-In case you're building an Avalonia UI application, extending it with VNC support is very easy, because a ready-to-use adapter implementation for this UI framework is already there. Just add the NuGet-Package `MarcusW.VncClient.Avalonia` to your project and add a `<VncView />`-control to your application window. This is the place where the VNC connection will be shown.
-
-```xaml
-<vnc:VncView Connection="{Binding RfbConnection}" />
-```
-
-The connection that is shown in this view can be specified by setting the value of the `Connection`-property, either through code-behind or using a view model binding.
-
-To create a new connection object, do the following:
+Let's prepare some objects which you can later use to start as many new connections as you want:
 
 ```c#
 // Create and populate a default logger factory for logging to Avalonia logging sinks.
@@ -91,24 +85,9 @@ var vncClient = new VncClient(loggerFactory);
 
 // Create a new authentication handler to handle authentication requests from the server
 var authenticationHandler = new DemoAuthenticationHandler(); // see below
-
-// Configure the connect parameters
-var parameters = new ConnectParameters {
-    TransportParameters = new TcpTransportParameters {
-        Host = "hostname or ip address",
-        Port = 5900
-    },
-    AuthenticationHandler = authenticationHandler
-    // There are many more parameters to explore...
-};
-
-// Start a new connection and save the new connection object
-RfbConnection = await vncClient.ConnectAsync(parameters, cancellationToken).ConfigureAwait(true);
 ```
 
-As soon as you set a `VncView` to show this connection object, you will see the remote session on your screen and should be able to interact with it. The view will register itself as the render target of the connection object. If you don't want to use the prebuilt `VncView` control, you can also set the `parameters.InitialRenderTarget` and `parameters.InitialOutputHandler` to your custom implementation. Please consult the [API documentation](https://vnc-client.marcusw.de/apidoc/api/MarcusW.VncClient.Rendering.IRenderTarget.html) for details.
-
-The provided `AuthenticationHandler` gets called by the protocol implementation when the server requires the connection to be secured with e.g. the `VNC Authentication` security type. In this case the server requests a password input from the authentication handler which in turn could then show an input-dialog to the user.
+The provided `DemoAuthenticationHandler` gets called by the protocol implementation when the server requires newly established connections to be secured with e.g. the `VNC Authentication` security type. In this case the server requests a password input from the authentication handler which in turn could then show an input-dialog to the user.
 
 ```c#
 public class DemoAuthenticationHandler : IAuthenticationHandler
@@ -129,17 +108,59 @@ public class DemoAuthenticationHandler : IAuthenticationHandler
 }
 ```
 
+Now you can use the `vncClient`  and `authenticationHandler` objects to connect to a VNC server by doing the following in the code:
+
+```c#
+// Configure the connect parameters
+var parameters = new ConnectParameters {
+    TransportParameters = new TcpTransportParameters {
+        Host = "hostname or ip address",
+        Port = 5900
+    },
+    AuthenticationHandler = authenticationHandler
+    // There are many more parameters to explore...
+};
+
+// Start a new connection and save the returned connection object
+RfbConnection = await vncClient.ConnectAsync(parameters, cancellationToken).ConfigureAwait(true);
+```
+
+You will receive an instance of the `RfbConnection` class which represents the active connection, exposes properties for the connection status and has methods to interact with it.
+
+But probably, you also want to make the connection somehow visible on your screen. There are multiple ways to achieve this, depending on the application framework you use:
+
+### Avalonia User Control
+
+In case of the Avalonia UI framework, there is a ready-to-use user control which can be added to applications to view connections and interact with them.
+
+Extending an Avalonia application with VNC support is very easy, just add the NuGet-Package `MarcusW.VncClient.Avalonia` to your project and add a `<VncView />`-control to your application window. This is the place where the VNC connection will be shown.
+
+```xaml
+<vnc:VncView Connection="{Binding RfbConnection}" />
+```
+
+The connection that is shown inside this view can be specified by setting the value of the `Connection`-property, either in code-behind or through a view model binding. As soon as you set a `VncView` to show a connection object, you will see the remote session on your screen and should be able to interact with it.
+
+This works, because the view will register itself as the `RenderTarget` and `OutputHandler` of the connection object.
+
+### Manual Integration
+
+If you don't want to use the prebuilt `VncView` control or there is none available for your used application framework, you can also manually implement the required interfaces:
+
+- **IRenderTarget:** Implement this interface to give the protocol implementation a place to render its frames to. Each time the client receives a new framebuffer update, it will call the `GrabFramebufferReference` method and pass the framebuffer size as an argument. Your implementation should then use some APIs of your application framework to create a bitmap of the given size or **re-use** the previous one, if the size didn't change (very important for performance reasons!). Now return a new object that implements `IFramebufferReference` to tell the protocol implementation about the memory location and the format of your bitmap. The protocol implementation will access the memory of the bitmap directly and will change its contents to render the received framebuffer update. After everything is rendered, `Dispose()` will be called on that framebuffer reference and your `IRenderTarget` implementation should ensure that the contents of the bitmap are rendered to the application window. Please take a look into the corresponding implementations for Avalonia UI as an example of how things should work: [RfbRenderTarget](src/MarcusW.VncClient.Avalonia/RfbRenderTarget.cs), [AvaloniaFramebufferReference](src/MarcusW.VncClient.Avalonia/Adapters/Rendering/AvaloniaFramebufferReference.cs)
+- **IOutputHandler:** Implement this interface to handle some other types of output from the server. For example, `HandleServerClipboardUpdate` will be called by the protocol implementation, when the server notified the client about a change of the server-side clipboard content. You can then call some method of your application framework to set the client-side clipboard to the same content.
+
+After you have implemented these interfaces, you can make the connection use them by setting the `RfbConnection.RenderTarget` and `RfbConnection.OutputHandler` properties. You can also detatch the connection form your render target by setting `RfbConnection.RenderTarget` to `null`. When doing this, the client implementation will render it's frames to nowhere, which is a useful feature to keep a connection alive in the background without wasting CPU resources on rendering the received frames.
+
+There are also two connection parameters called `InitialRenderTarget` and `InitialOutputHandler` which allow you to attach render target and output handler right from the beginning.
+
+To send messages for keyboard or mouse input, you can call the `EnqueueMessage` or `SendMessageAsync` method on the connection object. Again, please take a look at the [Avalonia-specific implementation](src/MarcusW.VncClient.Avalonia/VncView.MouseInput.cs) for details on this.
+
 ### TurboJPEG Requirement
 
 For maximum performance, this VNC client supports the `Tight` frame encoding type. But what makes this encoding type so efficient is mainly the use of a extremely optimized JPEG decoder called "TurboJPEG" [(or libjpeg-turbo)](https://libjpeg-turbo.org/About/TurboJPEG). Because of this, `Tight` is only available, if your application or the used operating system ships with some version of this native library. If it doesn't, this encoding type will be automatically disabled and the sample application will show a warning. Your application should probably do this, too.
 
-### Manually sending Messages
-
-_Documentation follows..._
-
-### Manually implementing `IRenderTarget`
-
-_Documentation follows..._
+In future, maybe, I'll extend my CI builds to ship precompiled TurboJPEG-binaries for the most common operating systems directly in the NuGet package. Please vote on [this issue](https://github.com/MarcusWichelmann/MarcusW.VncClient/issues/5) if you want this. 😀
 
 ## Contributing
 
