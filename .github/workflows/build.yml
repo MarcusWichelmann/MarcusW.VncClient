@@ -44,9 +44,9 @@ jobs:
       - name: Build directory structure
         run: |
           mkdir docs/pages
-          mv docs/_site docs/pages/apidoc
-          cp README.md docs/pages/index.md
+          cp -r docs/_site docs/pages/apidoc
           cp -r images docs/pages/
+          cp README.md docs/pages/index.md
 
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
