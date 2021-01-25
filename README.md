@@ -51,21 +51,15 @@ Source Code: [AvaloniaVncClient](samples/AvaloniaVncClient)
 
 Most of these features are demonstrated by the included sample applications.
 
-### Projects & Libraries
+### NuGet-Packages
 
-This repository consists of multiple C# projects:
+**Core library:** [MarcusW.VncClient](https://www.nuget.org/packages/MarcusW.VncClient)
 
-**Core library:** `MarcusW.VncClient`
+This is library contains the main protocol implementation and is completely platform-agnostic thanks to some abstractions using C# interfaces. It has no external dependencies.
 
-This is project contains the main protocol implementation and is completely platform-agnostic thanks to some abstractions using C# interfaces. It has no external dependencies.
-
-**Adapter libraries:** `MarcusW.VncClient.Avalonia`, more may follow...
+**Adapter libraries:** [MarcusW.VncClient.Avalonia](https://www.nuget.org/packages/MarcusW.VncClient.Avalonia), more may follow...
 
 These libraries provide platform specific implementations for the mentioned interfaces and provide e.g. user controls that can just be dropped into an UI application to make use of the VNC library very easily. These libraries depend on the core VNC library as well as the corresponding UI library.
-
-**Sample applications:** `AvaloniaVncClient`, more may follow...
-
-Demonstrates the use of an adapter library for a given UI framework. You get the point...
 
 ## Support me!
 
