@@ -152,6 +152,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new PointerEventMessageType();
             yield return new KeyEventMessageType();
             yield return new SetDesktopSizeMessageType(context);
+            yield return new ClientCutTextMessageType();
         }
 
         /// <summary>
