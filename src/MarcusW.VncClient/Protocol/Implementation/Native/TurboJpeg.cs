@@ -21,10 +21,22 @@ namespace MarcusW.VncClient.Protocol.Implementation.Native
         /// </summary>
         public static bool IsAvailable { get; }
 
+#if NETSTANDARD2_0
+        [DllImport("kernel32", SetLastError = true)]
+        private static extern IntPtr LoadLibrary(string dllToLoad);
+#endif
+
         // Static constructor to check for library availability.
         static TurboJpeg()
         {
+#if NETSTANDARD2_0
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                IsAvailable = LoadLibrary(LibraryName + ".dll") != IntPtr.Zero;
+            }
+#else
             IsAvailable = NativeLibrary.TryLoad(LibraryName, typeof(TurboJpeg).Assembly, null, out _);
+#endif
         }
 
         /// <summary>

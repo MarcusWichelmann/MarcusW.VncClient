@@ -104,7 +104,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             return remoteFramebufferFormat;
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadBasicCompressedRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle,
             in PixelFormat tPixelFormat, int zlibStreamId, bool readFilterId)
         {
@@ -136,7 +140,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadBasicCompressedCopyFilterRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle,
             in PixelFormat tPixelFormat, int zlibStreamId)
         {
@@ -184,7 +192,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadBasicCompressedPaletteFilterRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle,
             in PixelFormat tPixelFormat, int zlibStreamId)
         {
@@ -272,7 +284,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private Stream GetBasicCompressedPixelDataStream(Stream baseStream, int expectedLength, int zlibStreamId)
         {
             // No zlib compression is used for small data chunks
@@ -287,7 +303,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             return _context.ZLibInflater.ReadAndInflate(baseStream, zlibDataLength, zlibStreamId);
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadFillCompressedRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle,
             in PixelFormat tPixelFormat)
         {
@@ -307,7 +327,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadJpegCompressedRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle)
         {
             Debug.Assert(_context.JpegDecoder != null, "_context.JpegDecoder != null");
@@ -354,7 +378,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private uint ReadCompactNumber(Stream stream)
         {
             uint number = 0; // 0x zzzzzzzz yyyyyyy xxxxxxx

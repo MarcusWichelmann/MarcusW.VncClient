@@ -55,7 +55,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
             try
             {
                 // Close (equals Dispose) the client on cancellation to cancel connect attempt
+#if NETSTANDARD2_0
+                using (linkedToken.Register(() => tcpClient.Close()))
+#else
                 await using (linkedToken.Register(() => tcpClient.Close()))
+#endif
                 {
                     linkedToken.ThrowIfCancellationRequested();
 

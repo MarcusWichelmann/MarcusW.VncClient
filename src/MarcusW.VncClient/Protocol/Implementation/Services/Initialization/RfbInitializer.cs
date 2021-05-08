@@ -68,7 +68,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
             bool shared = _context.Connection.Parameters.AllowSharedConnection;
             _logger.LogDebug("Sending shared-flag ({shared})...", shared);
 
-            await transport.Stream.WriteAsync(new[] { (byte)(shared ? 1 : 0) }, cancellationToken).ConfigureAwait(false);
+            await transport.Stream.WriteAsync(new[] { (byte)(shared ? 1 : 0) }, 0, 1, cancellationToken).ConfigureAwait(false);
         }
 
         private async Task<(Size framebufferSize, PixelFormat pixelFormat, string desktopName)> ReadServerInitAsync(ITransport transport,
@@ -84,7 +84,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Initialization
 
             // Read desktop name
             ReadOnlyMemory<byte> desktopNameBytes = await transport.Stream.ReadAllAsync((int)desktopNameLength, cancellationToken).ConfigureAwait(false);
+#if NETSTANDARD2_0
+            string desktopName = Encoding.UTF8.GetString(desktopNameBytes.Span.ToArray());
+#else
             string desktopName = Encoding.UTF8.GetString(desktopNameBytes.Span);
+#endif
 
             return (framebufferSize, pixelFormat, desktopName);
         }

@@ -154,5 +154,47 @@ namespace MarcusW.VncClient.Protocol.Implementation
                 ArrayPool<byte>.Shared.Return(buffer);
             }
         }
+
+#if NETSTANDARD2_0
+        public static int Read(this Stream stream, Span<byte> buffer)
+        {
+            byte[] sharedBuffer = ArrayPool<byte>.Shared.Rent(buffer.Length);
+
+            try
+            {
+                int numRead = stream.Read(sharedBuffer, 0, buffer.Length);
+
+                if (numRead > buffer.Length)
+                {
+                    throw new IOException("Bytes read from the stream exceed the size of the buffer");
+                }
+
+                new Span<byte>(sharedBuffer, 0, numRead).CopyTo(buffer);
+
+                return numRead;
+            }
+
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(sharedBuffer);
+            }
+        }
+
+        public static void Write(this Stream stream, ReadOnlySpan<byte> buffer)
+        {
+            byte[] sharedBuffer = ArrayPool<byte>.Shared.Rent(buffer.Length);
+
+            try
+            {
+                buffer.CopyTo(sharedBuffer);
+                stream.Write(sharedBuffer, 0, buffer.Length);
+            }
+
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(sharedBuffer);
+            }
+        }
+#endif
     }
 }

@@ -75,13 +75,21 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <summary>
         /// Gets whether the cursor reached the last pixel of the rectangle.
         /// </summary>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public bool GetEndReached() => _currentY == LastY && _currentX == LastX;
 
         /// <summary>
         /// Moves the cursor to the next pixel of the rectangle.
         /// </summary>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void MoveNext()
         {
             // Return to line start when line end is reached
@@ -107,7 +115,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Moves the cursor a few pixels forward in the current line.
         /// </summary>
         /// <param name="count">The amount of pixels to move the cursor forward.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void MoveForwardInLine(int count)
         {
             // Check for line overflow
@@ -123,7 +135,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Sets the pixel color on the current position in the rectangle.
         /// </summary>
         /// <param name="color">The desired color.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void SetPixel(Color color)
         {
             uint pixelData = color.ToPlainPixel();
@@ -135,7 +151,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// </summary>
         /// <param name="pixelData">A pointer to a memory location where the color data is stored.</param>
         /// <param name="pixelFormat">The format of the pixel data.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void SetPixel(byte* pixelData, in PixelFormat pixelFormat)
         {
             PixelConversions.WritePixel(pixelData, pixelFormat, _positionPtr, FramebufferFormat);
@@ -146,7 +166,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// </summary>
         /// <param name="color">The desired color.</param>
         /// <param name="numPixels">The number of pixels to set.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void SetPixelsSolid(Color color, int numPixels)
         {
             uint pixelData = color.ToPlainPixel();
@@ -159,7 +183,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <param name="pixelData">A pointer to a memory location where the color data is stored.</param>
         /// <param name="pixelFormat">The format of the pixel data.</param>
         /// <param name="numPixels">The number of pixels to set.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void SetPixelsSolid(byte* pixelData, in PixelFormat pixelFormat, int numPixels)
         {
             // Convert the pixel once
@@ -181,7 +209,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <param name="pixelData">A pointer to a memory location where the data for <see cref="numPixels"/> is stored.</param>
         /// <param name="pixelFormat">The format of the pixel data.</param>
         /// <param name="numPixels">The number of pixels to set.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void SetPixels(byte* pixelData, in PixelFormat pixelFormat, int numPixels)
         {
             // Fast path: When no conversion is necessary, we can copy the data line by line
@@ -246,7 +278,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// Both cursors must point to the start of their rectangle.
         /// The current cursor position is advanced by the written pixels, the other cursor won't be touched.
         /// </remarks>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public void CopyAllFrom(ref FramebufferCursor otherCursor)
         {
             Rectangle otherRectangle = otherCursor.Rectangle;

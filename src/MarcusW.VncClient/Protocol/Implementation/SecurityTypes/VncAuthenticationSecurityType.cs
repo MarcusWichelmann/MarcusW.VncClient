@@ -59,7 +59,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.SecurityTypes
 
             // Send response
             Debug.Assert(response.Length == 16, "response.Length == 16");
+#if NETSTANDARD2_0
+            byte[] responseBuffer = response.ToArray();
+            await transport.Stream.WriteAsync(responseBuffer, 0, responseBuffer.Length, cancellationToken).ConfigureAwait(false);
+#else
             await transport.Stream.WriteAsync(response, cancellationToken).ConfigureAwait(false);
+#endif
 
             return new AuthenticationResult();
         }
