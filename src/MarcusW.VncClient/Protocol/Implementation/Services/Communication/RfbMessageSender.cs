@@ -150,11 +150,15 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                     }
                 }
             }
-            catch
+            catch (Exception e)
             {
                 // When the loop was canceled or failed, cancel all remaining queue items
                 SetQueueCancelled();
-                throw;
+
+                if (!(e is OperationCanceledException))
+                {
+                    throw;
+                }
             }
         }
 

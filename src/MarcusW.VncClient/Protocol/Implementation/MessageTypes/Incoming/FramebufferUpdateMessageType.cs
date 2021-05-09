@@ -71,7 +71,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             if (transport == null)
                 throw new ArgumentNullException(nameof(transport));
 
-            cancellationToken.ThrowIfCancellationRequested();
+            if (cancellationToken.IsCancellationRequested)
+            {
+                return;
+            }
 
             Stream transportStream = transport.Stream;
             Span<byte> buffer = _buffer.AsSpan();
