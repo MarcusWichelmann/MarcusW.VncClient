@@ -46,7 +46,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         }
 
         /// <inheritdoc />
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public override void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat)
         {
@@ -134,11 +138,16 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             return remoteFramebufferFormat;
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadTile(Stream stream, IFramebufferReference? targetFramebuffer, in Rectangle tile, in PixelFormat cPixelFormat)
         {
             // Read one byte for the subencoding type
             Span<byte> subencodingTypeBuffer = stackalloc byte[1];
+
             if (stream.Read(subencodingTypeBuffer) == 0)
                 throw new UnexpectedEndOfStreamException("Stream reached its end while reading tile subencoding type.");
             byte subencodingType = subencodingTypeBuffer[0];
@@ -192,7 +201,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadRawTile(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle tile, in PixelFormat cPixelFormat)
         {
             // Calculate how many bytes we're going to receive
@@ -226,7 +239,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadSolidTile(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle tile, in PixelFormat cPixelFormat)
         {
             // Read a single color value
@@ -245,7 +262,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadPackedPaletteTile(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle tile, in PixelFormat cPixelFormat,
             int paletteSize)
         {
@@ -316,7 +337,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadRleTile(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle tile, in PixelFormat cPixelFormat)
         {
             Span<byte> buffer = _tileBuffer.AsSpan();
@@ -358,7 +383,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private void ReadPaletteRleTile(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle tile, in PixelFormat cPixelFormat,
             int paletteSize)
         {

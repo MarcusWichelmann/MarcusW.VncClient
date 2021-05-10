@@ -33,7 +33,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
         public override Color VisualizationColor => new Color(0, 0, 255);
 
         /// <inheritdoc />
-        [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public override void ReadFrameEncoding(Stream transportStream, IFramebufferReference? targetFramebuffer, in Rectangle rectangle, in Size remoteFramebufferSize,
             in PixelFormat remoteFramebufferFormat)
         {

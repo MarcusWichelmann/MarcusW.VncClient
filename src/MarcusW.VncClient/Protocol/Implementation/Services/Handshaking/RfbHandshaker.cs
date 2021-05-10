@@ -164,7 +164,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // Tell the server, which security type was chosen
             _logger.LogDebug("Informing server about chosen security type: {name}({id})", usedSecurityType.Name, usedSecurityType.Id);
-            await transport.Stream.WriteAsync(new[] { usedSecurityType.Id }, cancellationToken).ConfigureAwait(false);
+            await transport.Stream.WriteAsync(new[] { usedSecurityType.Id }, 0, 1, cancellationToken).ConfigureAwait(false);
 
             return usedSecurityType;
         }
@@ -175,7 +175,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
             // The protocol version info always consists of 12 bytes
             ReadOnlyMemory<byte> bytes = await transport.Stream.ReadAllAsync(12, cancellationToken).ConfigureAwait(false);
+#if NETSTANDARD2_0
+            string protocolVersionString = Encoding.ASCII.GetString(bytes.Span.ToArray()).TrimEnd('\n');
+#else
             string protocolVersionString = Encoding.ASCII.GetString(bytes.Span).TrimEnd('\n');
+#endif
 
             RfbProtocolVersion protocolVersion = RfbProtocolVersions.GetFromStringRepresentation(protocolVersionString);
             if (protocolVersion == RfbProtocolVersion.Unknown)
@@ -192,7 +196,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             byte[] bytes = Encoding.ASCII.GetBytes(protocolVersionString);
             Debug.Assert(bytes.Length == 12, "bytes.Length == 12");
 
-            await transport.Stream.WriteAsync(bytes, cancellationToken).ConfigureAwait(false);
+            await transport.Stream.WriteAsync(bytes, 0, bytes.Length, cancellationToken).ConfigureAwait(false);
         }
 
         private async Task<string> ReadFailureReasonAsync(ITransport transport, CancellationToken cancellationToken = default)
@@ -201,7 +205,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             uint reasonLength = BinaryPrimitives.ReadUInt32BigEndian(reasonLengthBytes.Span);
 
             ReadOnlyMemory<byte> reasonStringBytes = await transport.Stream.ReadAllAsync((int)reasonLength, cancellationToken).ConfigureAwait(false);
+#if NETSTANDARD2_0
+            string reasonString = Encoding.UTF8.GetString(reasonStringBytes.Span.ToArray());
+#else
             string reasonString = Encoding.UTF8.GetString(reasonStringBytes.Span);
+#endif
 
             return reasonString;
         }

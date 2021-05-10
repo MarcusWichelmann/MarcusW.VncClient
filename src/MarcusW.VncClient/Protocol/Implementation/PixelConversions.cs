@@ -2,7 +2,7 @@ using System;
 using System.Buffers.Binary;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics.X86;
+
 
 namespace MarcusW.VncClient.Protocol.Implementation
 {
@@ -18,7 +18,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <param name="pixelFormat">The format of the source pixel data.</param>
         /// <param name="targetPtr">The position for the target pixel data.</param>
         /// <param name="targetFormat">The format for the target pixel data.</param>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public static unsafe void WritePixel(byte* pixelPtr, in PixelFormat pixelFormat, byte* targetPtr, in PixelFormat targetFormat)
         {
             if (!pixelFormat.TrueColor || !targetFormat.TrueColor)
@@ -34,7 +38,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
             WritePixelGenericPath(pixelPtr, pixelFormat, targetPtr, targetFormat);
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private static unsafe bool WritePixelFastPath(byte* pixelPtr, in PixelFormat pixelFormat, byte* targetPtr, in PixelFormat targetFormat)
         {
             if (pixelFormat.BigEndian == targetFormat.BigEndian)
@@ -91,7 +99,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
             return false;
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private static unsafe void WritePixelGenericPath(byte* pixelPtr, in PixelFormat pixelFormat, byte* targetPtr, in PixelFormat targetFormat)
         {
             // Read the corresponding bits, ensure it's LE and put them to the right (of the native representation) of a 32bit uint so we can easier work with it.
@@ -152,7 +164,11 @@ namespace MarcusW.VncClient.Protocol.Implementation
             }
         }
 
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         private static void CopyChannelValue(uint srcValue, ref uint dstValue, ushort srcMax, byte srcShift, ushort dstMax, byte dstShift)
         {
             // Retrieve channel value from the source

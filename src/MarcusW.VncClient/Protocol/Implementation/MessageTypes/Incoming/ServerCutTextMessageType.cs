@@ -94,7 +94,11 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                         if (read == 0)
                             throw new UnexpectedEndOfStreamException("Stream reached its end while trying to read the server cut text.");
 
+#if NETSTANDARD2_0
+                        stringBuilder.Append(latin1Encoding.GetString(bufferSpan.Slice(0, read).ToArray()));
+#else
                         stringBuilder.Append(latin1Encoding.GetString(bufferSpan.Slice(0, read)));
+#endif
 
                         bytesToRead -= read;
                     }

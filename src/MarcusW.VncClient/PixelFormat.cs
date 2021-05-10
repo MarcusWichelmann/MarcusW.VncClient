@@ -147,7 +147,11 @@ namespace MarcusW.VncClient
         /// <param name="other">The other pixel format.</param>
         /// <param name="ignoreAlpha">If true, the presence and encoding of the alpha channel will be ignored during this check.</param>
         /// <returns>True if they are binary compatible, otherwise false.</returns>
+#if NETSTANDARD2_0
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#else
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+#endif
         public bool IsBinaryCompatibleTo(PixelFormat other, bool ignoreAlpha = false)
         {
             if (BitsPerPixel != other.BitsPerPixel || BigEndian != other.BigEndian || TrueColor != other.TrueColor)
