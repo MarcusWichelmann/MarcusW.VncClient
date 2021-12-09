@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Custom;
 using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Rendering;
@@ -23,6 +24,9 @@ namespace MarcusW.VncClient
 
         private readonly object _outputHandlerLock = new object();
         private IOutputHandler? _outputHandler;
+
+        private readonly object _messageHandlerLock = new object();
+        private ICustomMessageHandler? _messageHandler;
 
         private readonly object _interruptionCauseLock = new object();
         private Exception? _interruptionCause;
@@ -72,6 +76,16 @@ namespace MarcusW.VncClient
         {
             get => GetWithLock(ref _outputHandler, _outputHandlerLock);
             set => RaiseAndSetIfChangedWithLock(ref _outputHandler, value, _outputHandlerLock);
+        }
+
+        /// <summary>
+        /// Gets or sets the handler for custom messages from the server.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        public ICustomMessageHandler? CustomMessageHandler
+        {
+            get => GetWithLock(ref _messageHandler, _messageHandlerLock);
+            set => RaiseAndSetIfChangedWithLock(ref _messageHandler, value, _messageHandlerLock);
         }
 
         /// <summary>
