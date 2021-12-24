@@ -1,0 +1,112 @@
+<Window x:Class="WpfVncClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:MarcusW.VncClient.Wpf;assembly=MarcusW.VncClient.Wpf"
+        xmlns:wpfVncClient="clr-namespace:WpfVncClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000">
+    <Window.Resources>
+        <wpfVncClient:BooleanVisibilityConverterInvertable x:Key="BoolToVisInv" IsInverted="True" />
+        <wpfVncClient:BooleanToScrollbarVisibilityConverter x:Key="BoolToBarVis" />
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <Label Content="Host" />
+                <TextBox Text="{Binding Host}" />
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <Label Content="Port" />
+                <TextBox Text="{Binding Port}" />
+            </StackPanel>
+            <Button x:Name="Connect" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Connect"
+                    Command="{Binding ConnectCommand}" />
+        </Grid>
+        <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+            <Border Name="BottomDockPanel" DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
+                <Border.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0,0,10,0" />
+                    </Style>
+                </Border.Resources>
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Foreground="Red"
+                                   Text="{Binding RfbConnection.InterruptionCause, StringFormat=Error: \{0\}}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
+                            <TextBlock
+                                Text="{Binding RfbConnection.ProtocolVersion}" />
+                            <TextBlock
+                                Text="{Binding RfbConnection.UsedSecurityType.Name, StringFormat=Security Type: \{0\}}" />
+                            <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
+                            <TextBlock
+                                Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
+                            <TextBlock
+                                Text="{Binding RfbConnection.RemoteFramebufferLayout.Count, StringFormat=Screens: \{0\}}" />
+                            <TextBlock
+                                Text="{Binding RfbConnection.ContinuousUpdatesEnabled, StringFormat=Continuous Updates: \{0\}}" />
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBlock Foreground="Red" TextWrapping="Wrap"
+                               Visibility="{Binding IsTightAvailable, Converter={StaticResource BoolToVisInv}}"
+                               Text="The TurboJPEG library is not installed on the current system, therefore the Tight encoding type is unavailable. Please install it and restart the application to get better performance." />
+                </StackPanel>
+            </Border>
+            <ListBox DockPanel.Dock="Bottom" ItemsSource="{Binding LogList}" Height="100" Background="Black"
+                     Foreground="Gray" />
+        </UniformGrid>
+        <Border Name="RightDockPanel" DockPanel.Dock="Right" BorderBrush="LightGray" BorderThickness="1,0,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="0,0,0,10" FontWeight="Bold" Text="Used Message Types:" />
+                <ListBox Grid.Row="1" Margin="0,0,0,10" ItemsSource="{Binding RfbConnection.UsedMessageTypes}"
+                         BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <TextBlock Grid.Row="2" Margin="0,0,0,10" FontWeight="Bold" Text="Used Encoding Types:" />
+                <ListBox Grid.Row="3" ItemsSource="{Binding RfbConnection.UsedEncodingTypes}" BorderThickness="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Row="4">
+                    <CheckBox Content="Auto Resize" IsChecked="{Binding AutoResize}" />
+                    <Button x:Name="Fullscreen" Click="Fullscreen_Click">Enable Fullscreen</Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <ScrollViewer HorizontalScrollBarVisibility="{Binding AutoResize, Converter={StaticResource BoolToBarVis}}"
+                      VerticalScrollBarVisibility="{Binding AutoResize, Converter={StaticResource BoolToBarVis}}"
+                      Focusable="False">
+            <wpf:VncView RfbConnection="{Binding RfbConnection}" AutoResize="{Binding AutoResize}" />
+        </ScrollViewer>
+    </DockPanel>
+</Window>
