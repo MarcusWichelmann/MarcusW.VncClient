@@ -135,6 +135,12 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
         return rc;
     }
 
+    protected override SystemSize ArrangeOverride(SystemSize arrangeBounds)
+    {
+        //_resizeEvents.OnNext(arrangeBounds);
+        return base.ArrangeOverride(arrangeBounds);
+    }
+
     protected override void OnKeyDown(KeyEventArgs e)
     {
         base.OnKeyDown(e);
@@ -250,12 +256,6 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
     {
         _resizeEvents.OnNext(sizeInfo.NewSize);
         base.OnRenderSizeChanged(sizeInfo);
-    }
-
-    protected override SystemSize ArrangeOverride(SystemSize arrangeBounds)
-    {
-        //_resizeEvents.OnNext(arrangeBounds);
-        return base.ArrangeOverride(arrangeBounds);
     }
 
     protected override void OnTextInput(TextCompositionEventArgs e)
@@ -426,9 +426,10 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
         }
         else
         {
-            SetValue(WidthProperty, (double)_width/_scaling);
-            SetValue(HeightProperty, (double)_height/_scaling);
+            Width = _width / _scaling;
+            Height = _height / _scaling;
         }
+
         UpdateSize();
     }
 
@@ -481,8 +482,8 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
             InvalidateVisual();
             if (!_autoResize)
             {
-                SetValue(WidthProperty, (double)_width / _scaling);
-                SetValue(HeightProperty, (double)_height / _scaling);
+                Width = _width / _scaling;
+                Height = _height / _scaling;
             }
         }, null);
     }
