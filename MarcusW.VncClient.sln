@@ -26,11 +26,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaVncClient", "sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "benchmarks\Benchmarks\Benchmarks.csproj", "{73A59C77-A920-476C-B4E2-07437E2C971D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vnc", "..\vnc\vnc\vnc.csproj", "{C685EA46-7502-44D4-BAA2-17309F64018F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarcusW.VncClient.Wpf", "src\MarcusW.VncClient.Wpf\MarcusW.VncClient.Wpf.csproj", "{A454F5D1-713D-49B1-B9A3-7B490A635826}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcusW.VncClient.Wpf", "src\MarcusW.VncClient.Wpf\MarcusW.VncClient.Wpf.csproj", "{A454F5D1-713D-49B1-B9A3-7B490A635826}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfVncClient", "samples\WpfVncClient\WpfVncClient.csproj", "{23277D61-F815-4339-AE74-03BE39E36D2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfVncClient", "samples\WpfVncClient\WpfVncClient.csproj", "{23277D61-F815-4339-AE74-03BE39E36D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,10 +56,6 @@ Global
 		{73A59C77-A920-476C-B4E2-07437E2C971D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A59C77-A920-476C-B4E2-07437E2C971D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73A59C77-A920-476C-B4E2-07437E2C971D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C685EA46-7502-44D4-BAA2-17309F64018F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C685EA46-7502-44D4-BAA2-17309F64018F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C685EA46-7502-44D4-BAA2-17309F64018F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C685EA46-7502-44D4-BAA2-17309F64018F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A454F5D1-713D-49B1-B9A3-7B490A635826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A454F5D1-713D-49B1-B9A3-7B490A635826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A454F5D1-713D-49B1-B9A3-7B490A635826}.Release|Any CPU.ActiveCfg = Release|Any CPU
