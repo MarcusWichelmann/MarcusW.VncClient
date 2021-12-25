@@ -313,12 +313,12 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
 
     private static void OnAutoResizePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not VncView v)
+        if (d is not VncView vncView)
         {
             return;
         }
 
-        v.OnAutoResizeChanged((bool)e.NewValue);
+        vncView.OnAutoResizeChanged((bool)e.NewValue);
     }
 
     private static void OnRfbConnectionPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -544,7 +544,7 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
 
     private void UpdateSize()
     {
-        if (RfbConnection == null)
+        if (_rfbConnection == null)
         {
             return;
         }
