@@ -135,12 +135,6 @@ public class VncView : Control, IRenderTarget, IOutputHandler, IDisposable
         return rc;
     }
 
-    protected override SystemSize ArrangeOverride(SystemSize arrangeBounds)
-    {
-        //_resizeEvents.OnNext(arrangeBounds);
-        return base.ArrangeOverride(arrangeBounds);
-    }
-
     protected override void OnKeyDown(KeyEventArgs e)
     {
         base.OnKeyDown(e);
