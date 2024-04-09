@@ -1,8 +1,11 @@
 using System;
+using System.Buffers;
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -54,7 +57,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
         // This method will not catch exceptions so the BackgroundThread base class will receive them,
         // raise a "Failure" and trigger a reconnect.
-        protected override void ThreadWorker(CancellationToken cancellationToken)
+        protected override async Task ThreadWorker(CancellationToken cancellationToken)
         {
             // Get the transport stream so we don't have to call the getter every time
             Debug.Assert(_context.Transport != null, "_context.Transport != null");
@@ -65,12 +68,12 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             ImmutableDictionary<byte, IIncomingMessageType> incomingMessageLookup =
                 _context.SupportedMessageTypes.OfType<IIncomingMessageType>().ToImmutableDictionary(mt => mt.Id);
 
-            Span<byte> messageTypeBuffer = stackalloc byte[1];
+            var messageTypeBuffer = new byte[1];
 
             while (!cancellationToken.IsCancellationRequested)
             {
                 // Read message type
-                if (transportStream.Read(messageTypeBuffer) == 0)
+                if (await transportStream.ReadAsync(messageTypeBuffer, 0, messageTypeBuffer.Length).ConfigureAwait(false) == 0)
                     throw new UnexpectedEndOfStreamException("Stream reached its end while reading next message type.");
                 byte messageTypeId = messageTypeBuffer[0];
 

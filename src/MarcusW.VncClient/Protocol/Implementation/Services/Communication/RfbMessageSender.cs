@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 using MarcusW.VncClient.Protocol.MessageTypes;
@@ -21,7 +22,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
         private readonly ProtocolState _state;
         private readonly ILogger<RfbMessageSender> _logger;
 
-        private readonly BlockingCollection<QueueItem> _queue = new BlockingCollection<QueueItem>(new ConcurrentQueue<QueueItem>());
+        private readonly Channel<QueueItem> _queue = Channel.CreateUnbounded<QueueItem>();
 
         private volatile bool _disposed;
 
@@ -80,7 +81,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             TMessageType messageType = GetAndCheckMessageType<TMessageType>();
 
             // Add message to queue
-            _queue.Add(new QueueItem(message, messageType), cancellationToken);
+            _queue.Writer.TryWrite(new QueueItem(message, messageType));
         }
 
         /// <inheritdoc />
@@ -108,14 +109,14 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             var completionSource = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
 
             // Add message to queue
-            _queue.Add(new QueueItem(message, messageType, completionSource), cancellationToken);
+            _queue.Writer.TryWrite(new QueueItem(message, messageType, completionSource));
 
             return completionSource.Task;
         }
 
         // This method will not catch exceptions so the BackgroundThread base class will receive them,
         // raise a "Failure" and trigger a reconnect.
-        protected override void ThreadWorker(CancellationToken cancellationToken)
+        protected override async Task ThreadWorker(CancellationToken cancellationToken)
         {
             try
             {
@@ -123,8 +124,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
                 ITransport transport = _context.Transport;
 
                 // Iterate over all queued items (will block if the queue is empty)
-                foreach (QueueItem queueItem in _queue.GetConsumingEnumerable(cancellationToken))
+                while (await _queue.Reader.WaitToReadAsync(cancellationToken).ConfigureAwait(false))
                 {
+                    var queueItem = await _queue.Reader.ReadAsync().ConfigureAwait(false);
                     IOutgoingMessage<IOutgoingMessageType> message = queueItem.Message;
                     IOutgoingMessageType messageType = queueItem.MessageType;
 
@@ -167,7 +169,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
             if (disposing)
             {
                 SetQueueCancelled();
-                _queue.Dispose();
+                _queue.Writer.TryComplete();
             }
 
             _disposed = true;
@@ -191,8 +193,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Communication
 
         private void SetQueueCancelled()
         {
-            _queue.CompleteAdding();
-            foreach (QueueItem queueItem in _queue)
+            while (_queue.Reader.TryRead(out var queueItem))
                 queueItem.CompletionSource?.TrySetCanceled();
         }
 

@@ -64,10 +64,10 @@ namespace MarcusW.VncClient.Tests.Utils
 
             public new Task StopAndWaitAsync() => base.StopAndWaitAsync();
 
-            protected override void ThreadWorker(CancellationToken cancellationToken)
+            protected override async Task ThreadWorker(CancellationToken cancellationToken)
             {
                 while (!cancellationToken.IsCancellationRequested)
-                    Thread.Sleep(10);
+                    await Task.Delay(10);
             }
         }
     }
