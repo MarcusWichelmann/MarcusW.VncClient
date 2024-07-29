@@ -324,6 +324,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             {
                 fixed (byte* bufferPtr = buffer)
                 {
+                    int bytesPerPixel = cPixelFormat.BytesPerPixel;
+
                     // We need to read on demand, because we cannot tell the number of bytes to read in advance
                     Span<byte> runLengthReadBuffer = stackalloc byte[1];
 
@@ -331,10 +333,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                     while (pixelsRemaining > 0)
                     {
                         // Read pixel data and first run-length byte
-                        stream.ReadAll(buffer.Slice(0, 4));
+                        stream.ReadAll(buffer.Slice(0, bytesPerPixel + 1));
 
                         // Calculate run-length
-                        byte runLengthByte = buffer[3];
+                        byte runLengthByte = buffer[bytesPerPixel];
                         int runLength = runLengthByte + 1;
                         while (runLengthByte == 255)
                         {
