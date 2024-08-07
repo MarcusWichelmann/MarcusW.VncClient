@@ -3,38 +3,37 @@ using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient;
 using MarcusW.VncClient.Avalonia.Adapters.Logging;
-using MarcusW.VncClient.Rendering;
 using Microsoft.Extensions.Logging;
 using Splat;
 
-namespace AvaloniaVncClient.Services
+namespace AvaloniaVncClient.Services;
+
+public class ConnectionManager
 {
-    public class ConnectionManager
+    private readonly InteractiveAuthenticationHandler _interactiveAuthenticationHandler;
+
+    private readonly VncClient _vncClient;
+
+    public ConnectionManager(InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
     {
-        private readonly InteractiveAuthenticationHandler _interactiveAuthenticationHandler;
+        _interactiveAuthenticationHandler = interactiveAuthenticationHandler
+            ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()
+            ?? throw new ArgumentNullException(nameof(interactiveAuthenticationHandler));
 
-        private readonly VncClient _vncClient;
+        // Create and populate default logger factory for logging to Avalonia logging sinks
+        var loggerFactory = new LoggerFactory();
+        loggerFactory.AddProvider(new AvaloniaLoggerProvider());
 
-        public ConnectionManager(InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
-        {
-            _interactiveAuthenticationHandler = interactiveAuthenticationHandler ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()
-                ?? throw new ArgumentNullException(nameof(interactiveAuthenticationHandler));
+        _vncClient = new(loggerFactory);
+    }
 
-            // Create and populate default logger factory for logging to Avalonia logging sinks
-            var loggerFactory = new LoggerFactory();
-            loggerFactory.AddProvider(new AvaloniaLoggerProvider());
+    public Task<RfbConnection> ConnectAsync(ConnectParameters parameters, CancellationToken cancellationToken = default)
+    {
+        parameters.AuthenticationHandler = _interactiveAuthenticationHandler;
 
-            _vncClient = new VncClient(loggerFactory);
-        }
+        // Uncomment for debugging/visualization purposes
+        //parameters.RenderFlags |= RenderFlags.VisualizeRectangles;
 
-        public Task<RfbConnection> ConnectAsync(ConnectParameters parameters, CancellationToken cancellationToken = default)
-        {
-            parameters.AuthenticationHandler = _interactiveAuthenticationHandler;
-
-            // Uncomment for debugging/visualization purposes
-            //parameters.RenderFlags |= RenderFlags.VisualizeRectangles;
-
-            return _vncClient.ConnectAsync(parameters, cancellationToken);
-        }
+        return _vncClient.ConnectAsync(parameters, cancellationToken);
     }
 }

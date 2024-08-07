@@ -1,148 +1,108 @@
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 
-namespace MarcusW.VncClient.Utils
+namespace MarcusW.VncClient.Utils;
+
+/// <summary>
+///     Base class for easier creation and clean cancellation of a background thread.
+/// </summary>
+[PublicAPI]
+public abstract class BackgroundThread : IBackgroundThread
 {
+    private readonly object _lock = new();
+    private readonly CancellationTokenSource _stopCts = new();
+
+    private volatile bool _disposed;
+    private Task? _task;
+
     /// <summary>
-    /// Base class for easier creation and clean cancellation of a background thread.
+    ///     Initializes a new instance of the <see cref="BackgroundThread" />.
     /// </summary>
-    public abstract class BackgroundThread : IBackgroundThread
+    /// <param name="name">The thread name.</param>
+    [Obsolete("The name field is no longer used")]
+    protected BackgroundThread(string name) : this() { }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="BackgroundThread" />.
+    /// </summary>
+    protected BackgroundThread() { }
+
+    /// <inheritdoc />
+    public event EventHandler<BackgroundThreadFailedEventArgs>? Failed;
+
+    /// <inheritdoc />
+    public void Dispose() => Dispose(true);
+
+    protected virtual void Dispose(bool disposing)
     {
-        private readonly Thread _thread;
-
-        private bool _started;
-        private readonly object _startLock = new object();
-
-        private readonly CancellationTokenSource _stopCts = new CancellationTokenSource();
-        private readonly TaskCompletionSource<object?> _completedTcs = new TaskCompletionSource<object?>();
-
-        private volatile bool _disposed;
-
-        /// <inheritdoc />
-        public event EventHandler<BackgroundThreadFailedEventArgs>? Failed;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BackgroundThread"/>.
-        /// </summary>
-        /// <param name="name">The thread name.</param>
-        protected BackgroundThread(string name)
+        if (_disposed)
         {
-            if (name == null)
-                throw new ArgumentNullException(nameof(name));
-
-            _thread = new Thread(ThreadStart) {
-                Name = name,
-                IsBackground = true
-            };
+            return;
         }
 
-        /// <summary>
-        /// Starts the thread.
-        /// </summary>
-        /// <remarks>
-        /// The thread can only be started once.
-        /// </remarks>
-        protected void Start()
+        if (disposing)
         {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(BackgroundThread));
-
-            lock (_startLock)
-            {
-                if (_started)
-                    throw new InvalidOperationException("Thread already started.");
-
-                _thread.Start(_stopCts.Token);
-                _started = true;
-            }
-        }
-
-        /// <summary>
-        /// Stops the thread and waits for completion.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to call this method multiple times.
-        /// </remarks>
-        protected Task StopAndWaitAsync()
-        {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(BackgroundThread));
-
-            lock (_startLock)
-            {
-                if (!_started)
-                    throw new InvalidOperationException("Thread has not been started.");
-            }
-
-            // Tell the thread to stop
             _stopCts.Cancel();
-
-            // Wait for completion
-            return _completedTcs.Task;
+            _stopCts.Dispose();
         }
 
-        /// <summary>
-        /// Executes the work that should happen in the background.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token that tells the method implementation when to complete.</param>
-        protected abstract void ThreadWorker(CancellationToken cancellationToken);
+        _disposed = true;
+    }
 
-        private void ThreadStart(object? parameter)
+    /// <summary>
+    ///     Starts the thread.
+    /// </summary>
+    /// <remarks>
+    ///     The thread can only be started once.
+    /// </remarks>
+    protected void Start()
+    {
+        ObjectDisposedException.ThrowIf(_disposed, typeof(BackgroundThread));
+
+        // Do your work...
+        try
         {
-            Debug.Assert(parameter != null, nameof(parameter) + " != null");
-            var cancellationToken = (CancellationToken)parameter;
+            lock (_lock)
+                _task ??= ThreadWorker(_stopCts.Token);
+        }
+        catch (Exception exception) when (exception is not (OperationCanceledException or ThreadAbortException))
+        {
+            Failed?.Invoke(this, new BackgroundThreadFailedEventArgs(exception));
+        }
+    }
 
+    /// <summary>
+    ///     Stops the thread and waits for completion.
+    /// </summary>
+    /// <remarks>
+    ///     It is safe to call this method multiple times.
+    /// </remarks>
+    protected async Task StopAndWaitAsync()
+    {
+        ObjectDisposedException.ThrowIf(_disposed, typeof(BackgroundThread));
+
+        // Tell the thread to stop
+        await _stopCts.CancelAsync();
+
+        // Wait for completion
+        if (_task is not null)
+        {
             try
             {
-                // Do your work...
-                ThreadWorker(cancellationToken);
+                await _task.ConfigureAwait(false);
             }
-            catch (Exception exception) when (!(exception is OperationCanceledException || exception is ThreadAbortException))
+            catch (Exception exception) when (exception is not (OperationCanceledException or ThreadAbortException))
             {
                 Failed?.Invoke(this, new BackgroundThreadFailedEventArgs(exception));
             }
-            finally
-            {
-                // Notify stop method that thread has completed
-                _completedTcs.TrySetResult(null);
-            }
-        }
-
-        /// <inheritdoc />
-        public void Dispose() => Dispose(true);
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (_disposed)
-                return;
-
-            if (disposing)
-            {
-                try
-                {
-                    // Ensure the thread is stopped
-                    _stopCts.Cancel();
-                    if (_thread.IsAlive)
-                    {
-                        // Block and wait for completion or hard-kill the thread after 1 second
-                        if (!_thread.Join(TimeSpan.FromSeconds(1)))
-                            _thread.Abort();
-                    }
-                }
-                catch
-                {
-                    // Ignore
-                }
-
-                // Just to be sure...
-                _completedTcs.TrySetResult(null);
-
-                _stopCts.Dispose();
-            }
-
-            _disposed = true;
         }
     }
+
+    /// <summary>
+    ///     Executes the work that should happen in the background.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token that tells the method implementation when to complete.</param>
+    protected abstract Task ThreadWorker(CancellationToken cancellationToken);
 }

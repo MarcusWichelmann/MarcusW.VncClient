@@ -1,34 +1,36 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MarcusW.VncClient
+namespace MarcusW.VncClient;
+
+public partial class RfbConnection
 {
-    public partial class RfbConnection
+    private T GetWithLock<T>(ref T backingField, object lockObject)
     {
-        private T GetWithLock<T>(ref T backingField, object lockObject)
-        {
-            lock (lockObject)
-                return backingField;
-        }
+        lock (lockObject)
+            return backingField;
+    }
 
-        private void RaiseAndSetIfChangedWithLock<T>(ref T backingField, T newValue, object lockObject, [CallerMemberName] string propertyName = "")
-        {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(RfbConnection));
+    private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        => PropertyChanged?.Invoke(this, new(propertyName));
 
-            lock (lockObject)
+    private void RaiseAndSetIfChangedWithLock<T>(ref T backingField, T newValue, object lockObject,
+        [CallerMemberName] string propertyName = "")
+    {
+        ObjectDisposedException.ThrowIf(_disposed, typeof(RfbConnection));
+
+        lock (lockObject)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingField, newValue))
             {
-                if (EqualityComparer<T>.Default.Equals(backingField, newValue))
-                    return;
-                backingField = newValue;
+                return;
             }
 
-            // Raise event outside of the lock to ensure that synchronous handlers don't deadlock when calling methods in this class.
-            NotifyPropertyChanged(propertyName);
+            backingField = newValue;
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        // Raise event outside of the lock to ensure that synchronous handlers don't deadlock when calling methods in this class.
+        NotifyPropertyChanged(propertyName);
     }
 }

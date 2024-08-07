@@ -1,43 +1,29 @@
 using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks
+namespace Benchmarks;
+
+public class PropertiesVsFields
 {
-    public class PropertiesVsFields
+    private readonly StructWithFields _structWithFields = new(100, 200);
+    private readonly StructWithProperties _structWithProperties = new(100, 200);
+
+    [Benchmark]
+    public int MultipliedFields() => _structWithFields.A * _structWithFields.B;
+
+    [Benchmark]
+    public int MultipliedProperties() => _structWithProperties.A * _structWithProperties.B;
+
+    public readonly struct StructWithProperties(int a, int b)
     {
-        private StructWithProperties _structWithProperties = new StructWithProperties(100,200);
-        private StructWithFields _structWithFields = new StructWithFields(100,200);
+        public int A { get; } = a;
 
-        public struct StructWithProperties
-        {
-            public int A { get; }
+        public int B { get; } = b;
+    }
 
-            public int B { get; }
+    public struct StructWithFields(int a, int b)
+    {
+        public readonly int A = a;
 
-            public StructWithProperties(int a, int b)
-            {
-                A = a;
-                B = b;
-            }
-        }
-
-        public struct StructWithFields
-        {
-            public int A;
-
-            public int B;
-
-            public StructWithFields(int a, int b)
-            {
-                A = a;
-                B = b;
-            }
-        }
-
-
-        [Benchmark]
-        public int MultipliedProperties() => _structWithProperties.A * _structWithProperties.B;
-
-        [Benchmark]
-        public int MultipliedFields() => _structWithFields.A * _structWithFields.B;
+        public readonly int B = b;
     }
 }

@@ -1,13 +1,12 @@
-namespace MarcusW.VncClient.Protocol
+namespace MarcusW.VncClient.Protocol;
+
+/// <summary>
+///     Represents a class that holds all the variable state information for the RFB protocol implementation.
+/// </summary>
+public interface IRfbProtocolState
 {
     /// <summary>
-    /// Represents a class that holds all the variable state information for the RFB protocol implementation.
+    ///     Prepares the state object for first use.
     /// </summary>
-    public interface IRfbProtocolState
-    {
-        /// <summary>
-        /// Prepares the state object for first use.
-        /// </summary>
-        void Prepare();
-    }
+    void Prepare();
 }

@@ -1,24 +1,16 @@
-using System;
+namespace MarcusW.VncClient.Security;
 
-namespace MarcusW.VncClient.Security
+/// <summary>
+///     Contains the input data that was requested for a password authentication.
+/// </summary>
+/// <remarks>
+///     Initializes a new instance of <see cref="PasswordAuthenticationInput" />.
+/// </remarks>
+/// <param name="password">The requested password.</param>
+public class PasswordAuthenticationInput(string password) : IAuthenticationInput
 {
     /// <summary>
-    /// Contains the input data that was requested for a password authentication.
+    ///     Gets the requested password.
     /// </summary>
-    public class PasswordAuthenticationInput : IAuthenticationInput
-    {
-        /// <summary>
-        /// Gets the requested password.
-        /// </summary>
-        public string Password { get; }
-
-        /// <summary>
-        /// Initializes a new instance of <see cref="PasswordAuthenticationInput"/>.
-        /// </summary>
-        /// <param name="password">The requested password.</param>
-        public PasswordAuthenticationInput(string password)
-        {
-            Password = password ?? throw new ArgumentNullException(nameof(password));
-        }
-    }
+    public string Password { get; } = password;
 }

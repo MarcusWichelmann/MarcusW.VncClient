@@ -3,90 +3,90 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
+using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using Microsoft.Extensions.Logging.Abstractions;
 using Xunit;
 
-namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports
+namespace MarcusW.VncClient.Tests.Protocol.Implementation.Services.Transports;
+
+public class TcpConnectorTests : IDisposable
 {
-    public class TcpConnectorTests : IDisposable
+    // Some endpoint which always drops the SYNs (Sorry Google :P)
+    private readonly TcpTransportParameters _droppingEndpoint = new() {
+        Host = "8.8.8.8",
+        Port = 1,
+    };
+
+    private readonly TcpTransportParameters _testEndpoint;
+    private readonly TcpListener _testServer;
+
+    public TcpConnectorTests()
     {
-        private readonly TcpListener _testServer;
-        private readonly TcpTransportParameters _testEndpoint;
+        // Create a testing server (Port is chosen automatically)
+        _testServer = new(IPAddress.IPv6Loopback, 0);
+        _testServer.Start();
 
-        // Some endpoint which always drops the SYNs (Sorry Google :P)
-        private readonly TcpTransportParameters _droppingEndpoint = new TcpTransportParameters {
-            Host = "8.8.8.8",
-            Port = 1
+        // Get the chosen port
+        var serverEndpoint = (IPEndPoint)_testServer.LocalEndpoint;
+        _testEndpoint = new() {
+            Host = IPAddress.IPv6Loopback.ToString(),
+            Port = serverEndpoint.Port,
         };
+    }
 
-        public TcpConnectorTests()
-        {
-            // Create a testing server (Port is chosen automatically)
-            _testServer = new TcpListener(IPAddress.IPv6Loopback, 0);
-            _testServer.Start();
+    public void Dispose()
+    {
+        _testServer.Stop();
+    }
 
-            // Get the chosen port
-            IPEndPoint serverEndpoint = (IPEndPoint)_testServer.LocalEndpoint;
-            _testEndpoint = new TcpTransportParameters {
-                Host = IPAddress.IPv6Loopback.ToString(),
-                Port = serverEndpoint.Port
-            };
-        }
+    [Fact]
+    public async Task Connects_Successfully()
+    {
+        var connector = new TransportConnector(new() {
+            TransportParameters = _testEndpoint,
+            ConnectTimeout = Timeout.InfiniteTimeSpan,
+        }, new NullLogger<TransportConnector>());
+        Task<ITransport> connectTask = connector.ConnectAsync();
 
-        [Fact]
-        public async Task Connects_Successfully()
-        {
-            var connector = new TransportConnector(new ConnectParameters {
-                TransportParameters = _testEndpoint,
-                ConnectTimeout = Timeout.InfiniteTimeSpan
-            }, new NullLogger<TransportConnector>());
-            var connectTask = connector.ConnectAsync();
+        // Accept client
+        using TcpClient client = await _testServer.AcceptTcpClientAsync();
 
-            // Accept client
-            using var client = await _testServer.AcceptTcpClientAsync();
+        // Connect should succeed
+        (await connectTask).Dispose();
+    }
 
-            // Connect should succeed
-            (await connectTask).Dispose();
-        }
+    [Fact]
+    public async Task Throws_On_Cancel()
+    {
+        using var cts = new CancellationTokenSource();
 
-        [Fact]
-        public async Task Throws_On_Timeout()
-        {
-            var connector = new TransportConnector(new ConnectParameters {
-                TransportParameters = _droppingEndpoint,
-                ConnectTimeout = TimeSpan.FromSeconds(1)
-            }, new NullLogger<TransportConnector>());
-            var connectTask = connector.ConnectAsync();
+        var connector = new TransportConnector(new() {
+            TransportParameters = _droppingEndpoint,
+            ConnectTimeout = Timeout.InfiniteTimeSpan,
+        }, new NullLogger<TransportConnector>());
+        Task<ITransport> connectTask = connector.ConnectAsync(cts.Token);
 
-            // Connect should throw
-            await Assert.ThrowsAsync<TimeoutException>(() => connectTask);
-        }
+        // Task should still be alive
+        Assert.False(connectTask.IsCompleted);
 
-        [Fact]
-        public async Task Throws_On_Cancel()
-        {
-            using var cts = new CancellationTokenSource();
+        // Cancel connect
+        cts.CancelAfter(100);
 
-            var connector = new TransportConnector(new ConnectParameters {
-                TransportParameters = _droppingEndpoint,
-                ConnectTimeout = Timeout.InfiniteTimeSpan
-            }, new NullLogger<TransportConnector>());
-            var connectTask = connector.ConnectAsync(cts.Token);
+        // Connect should throw
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() => connectTask);
+    }
 
-            // Task should still be alive
-            Assert.False(connectTask.IsCompleted);
+    [Fact]
+    public async Task Throws_On_Timeout()
+    {
+        var connector = new TransportConnector(new() {
+            TransportParameters = _droppingEndpoint,
+            ConnectTimeout = TimeSpan.FromSeconds(1),
+        }, new NullLogger<TransportConnector>());
+        Task<ITransport> connectTask = connector.ConnectAsync();
 
-            // Cancel connect
-            cts.CancelAfter(100);
-
-            // Connect should throw
-            await Assert.ThrowsAnyAsync<OperationCanceledException>(() => connectTask);
-        }
-
-        public void Dispose()
-        {
-            _testServer.Stop();
-        }
+        // Connect should throw
+        await Assert.ThrowsAsync<TimeoutException>(() => connectTask);
     }
 }

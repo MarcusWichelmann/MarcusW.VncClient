@@ -2,106 +2,142 @@ using Avalonia;
 using Avalonia.Input;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 
-namespace MarcusW.VncClient.Avalonia
+namespace MarcusW.VncClient.Avalonia;
+
+public partial class VncView
 {
-    public partial class VncView
+    /// <inheritdoc />
+    protected override void OnPointerMoved(PointerEventArgs e)
     {
-        /// <inheritdoc />
-        protected override void OnPointerMoved(PointerEventArgs e)
+        base.OnPointerMoved(e);
+        if (ViewOnly || e.Handled)
         {
-            base.OnPointerMoved(e);
-            if (e.Handled)
-                return;
-
-            PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, Vector.Zero))
-                e.Handled = true;
+            return;
         }
 
-        /// <inheritdoc />
-        protected override void OnPointerPressed(PointerPressedEventArgs e)
+        PointerPoint point = e.GetCurrentPoint(this);
+        if (HandlePointerEvent(point, Vector.Zero))
         {
-            base.OnPointerPressed(e);
-            if (e.Handled)
-                return;
+            e.Handled = true;
+        }
+    }
 
-            PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, Vector.Zero))
-                e.Handled = true;
+    /// <inheritdoc />
+    protected override void OnPointerPressed(PointerPressedEventArgs e)
+    {
+        base.OnPointerPressed(e);
+        if (ViewOnly || e.Handled)
+        {
+            return;
         }
 
-        /// <inheritdoc />
-        protected override void OnPointerReleased(PointerReleasedEventArgs e)
+        PointerPoint point = e.GetCurrentPoint(this);
+        if (HandlePointerEvent(point, Vector.Zero))
         {
-            base.OnPointerReleased(e);
-            if (e.Handled)
-                return;
+            e.Handled = true;
+        }
+    }
 
-            PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, Vector.Zero))
-                e.Handled = true;
+    /// <inheritdoc />
+    protected override void OnPointerReleased(PointerReleasedEventArgs e)
+    {
+        base.OnPointerReleased(e);
+        if (ViewOnly || e.Handled)
+        {
+            return;
         }
 
-        /// <inheritdoc />
-        protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
+        PointerPoint point = e.GetCurrentPoint(this);
+        if (HandlePointerEvent(point, Vector.Zero))
         {
-            base.OnPointerWheelChanged(e);
-            if (e.Handled)
-                return;
+            e.Handled = true;
+        }
+    }
 
-            PointerPoint point = e.GetCurrentPoint(this);
-            if (HandlePointerEvent(point, e.Delta))
-                e.Handled = true;
+    /// <inheritdoc />
+    protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
+    {
+        base.OnPointerWheelChanged(e);
+        if (ViewOnly || e.Handled)
+        {
+            return;
         }
 
-        private bool HandlePointerEvent(PointerPoint pointerPoint, Vector wheelDelta)
+        PointerPoint point = e.GetCurrentPoint(this);
+        if (HandlePointerEvent(point, e.Delta))
         {
-            RfbConnection? connection = Connection;
-            if (connection == null)
-                return false;
+            e.Handled = true;
+        }
+    }
 
-            Position position = Conversions.GetPosition(pointerPoint.Position);
+    private MouseButtons GetButtonsMask(PointerPointProperties pointProperties)
+    {
+        var mask = MouseButtons.None;
 
-            MouseButtons buttonsMask = GetButtonsMask(pointerPoint.Properties);
-            MouseButtons wheelMask = GetWheelMask(wheelDelta);
-
-            // For scrolling, set the wheel buttons and remove them quickly after that.
-            if (wheelMask != MouseButtons.None)
-                connection.EnqueueMessage(new PointerEventMessage(position, buttonsMask | wheelMask));
-            connection.EnqueueMessage(new PointerEventMessage(position, buttonsMask));
-
-            return true;
+        if (pointProperties.IsLeftButtonPressed)
+        {
+            mask |= MouseButtons.Left;
         }
 
-        private MouseButtons GetButtonsMask(PointerPointProperties pointProperties)
+        if (pointProperties.IsMiddleButtonPressed)
         {
-            var mask = MouseButtons.None;
-
-            if (pointProperties.IsLeftButtonPressed)
-                mask |= MouseButtons.Left;
-            if (pointProperties.IsMiddleButtonPressed)
-                mask |= MouseButtons.Middle;
-            if (pointProperties.IsRightButtonPressed)
-                mask |= MouseButtons.Right;
-
-            return mask;
+            mask |= MouseButtons.Middle;
         }
 
-        private MouseButtons GetWheelMask(Vector wheelDelta)
+        if (pointProperties.IsRightButtonPressed)
         {
-            var mask = MouseButtons.None;
-
-            if (wheelDelta.X > 0)
-                mask |= MouseButtons.WheelRight;
-            else if (wheelDelta.X < 0)
-                mask |= MouseButtons.WheelLeft;
-
-            if (wheelDelta.Y > 0)
-                mask |= MouseButtons.WheelUp;
-            else if (wheelDelta.Y < 0)
-                mask |= MouseButtons.WheelDown;
-
-            return mask;
+            mask |= MouseButtons.Right;
         }
+
+        return mask;
+    }
+
+    private MouseButtons GetWheelMask(Vector wheelDelta)
+    {
+        var mask = MouseButtons.None;
+
+        if (wheelDelta.X > 0)
+        {
+            mask |= MouseButtons.WheelRight;
+        }
+        else if (wheelDelta.X < 0)
+        {
+            mask |= MouseButtons.WheelLeft;
+        }
+
+        if (wheelDelta.Y > 0)
+        {
+            mask |= MouseButtons.WheelUp;
+        }
+        else if (wheelDelta.Y < 0)
+        {
+            mask |= MouseButtons.WheelDown;
+        }
+
+        return mask;
+    }
+
+    private bool HandlePointerEvent(PointerPoint pointerPoint, Vector wheelDelta)
+    {
+        RfbConnection? connection = Connection;
+        if (connection == null)
+        {
+            return false;
+        }
+
+        Position position = Conversions.GetPosition(pointerPoint.Position);
+
+        MouseButtons buttonsMask = GetButtonsMask(pointerPoint.Properties);
+        MouseButtons wheelMask = GetWheelMask(wheelDelta);
+
+        // For scrolling, set the wheel buttons and remove them quickly after that.
+        if (wheelMask != MouseButtons.None)
+        {
+            connection.EnqueueMessage(new PointerEventMessage(position, buttonsMask | wheelMask));
+        }
+
+        connection.EnqueueMessage(new PointerEventMessage(position, buttonsMask));
+
+        return true;
     }
 }

@@ -3,118 +3,148 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 
-namespace MarcusW.VncClient.Avalonia
+namespace MarcusW.VncClient.Avalonia;
+
+public partial class VncView
 {
-    public partial class VncView
+    private readonly HashSet<KeySymbol> _pressedKeys = [];
+
+    /// <inheritdoc />
+    protected override void OnKeyDown(KeyEventArgs e)
     {
-        private readonly HashSet<KeySymbol> _pressedKeys = new HashSet<KeySymbol>();
-
-        /// <inheritdoc />
-        protected override void OnTextInput(TextInputEventArgs e)
+        base.OnKeyDown(e);
+        if (ViewOnly || e.Handled || e.Key == Key.None)
         {
-            base.OnTextInput(e);
-            if (e.Handled)
-                return;
+            return;
+        }
 
-            // Get connection
-            RfbConnection? connection = Connection;
-            if (connection == null)
-                return;
+        // Send key press
+        if (!HandleKeyEvent(true, e.Key, e.KeyModifiers))
+        {
+            return;
+        }
 
-            // Send chars one by one
-            foreach (char c in e.Text)
+        e.Handled = true;
+    }
+
+    /// <inheritdoc />
+    protected override void OnKeyUp(KeyEventArgs e)
+    {
+        base.OnKeyUp(e);
+        if (ViewOnly || e.Handled || e.Key == Key.None)
+        {
+            return;
+        }
+
+        // Send key release
+        if (!HandleKeyEvent(false, e.Key, e.KeyModifiers))
+        {
+            return;
+        }
+
+        e.Handled = true;
+    }
+
+    /// <inheritdoc />
+
+    // TODO: Is not called when window looses focus: https://github.com/AvaloniaUI/Avalonia/issues/1458
+    protected override void OnLostFocus(RoutedEventArgs e)
+    {
+        base.OnLostFocus(e);
+
+        if (ViewOnly)
+        {
+            return;
+        }
+
+        ResetKeyPresses();
+    }
+
+    /// <inheritdoc />
+    protected override void OnTextInput(TextInputEventArgs e)
+    {
+        base.OnTextInput(e);
+        if (ViewOnly || e.Handled)
+        {
+            return;
+        }
+
+        // Get connection
+        RfbConnection? connection = Connection;
+        if (connection == null)
+        {
+            return;
+        }
+
+        // Send chars one by one
+        foreach (char c in e.Text ?? "")
+        {
+            KeySymbol keySymbol = KeyMapping.GetSymbolFromChar(c);
+
+            // Press and release key
+            if (!connection.EnqueueMessage(new KeyEventMessage(true, keySymbol)))
             {
-                KeySymbol keySymbol = KeyMapping.GetSymbolFromChar(c);
-
-                // Press and release key
-                if (!connection.EnqueueMessage(new KeyEventMessage(true, keySymbol)))
-                    break;
-                connection.EnqueueMessage(new KeyEventMessage(false, keySymbol));
+                break;
             }
 
-            e.Handled = true;
+            connection.EnqueueMessage(new KeyEventMessage(false, keySymbol));
         }
 
-        /// <inheritdoc />
-        protected override void OnKeyDown(KeyEventArgs e)
+        e.Handled = true;
+    }
+
+    private bool HandleKeyEvent(bool downFlag, Key key, KeyModifiers keyModifiers)
+    {
+        // Get connection
+        RfbConnection? connection = Connection;
+        if (connection == null)
         {
-            base.OnKeyDown(e);
-            if (e.Handled || e.Key == Key.None)
-                return;
-
-            // Send key press
-            if (!HandleKeyEvent(true, e.Key, e.KeyModifiers))
-                return;
-
-            e.Handled = true;
+            return false;
         }
 
-        /// <inheritdoc />
-        protected override void OnKeyUp(KeyEventArgs e)
+        // Might this key be part of a shortcut? When modifies are present, OnTextInput doesn't get called,
+        // so we have to handle printable characters here now, too.
+        bool includePrintable = (keyModifiers & KeyModifiers.Control) != 0;
+
+        // Get key symbol
+        KeySymbol keySymbol = KeyMapping.GetSymbolFromKey(key, includePrintable);
+        if (keySymbol == KeySymbol.Null)
         {
-            base.OnKeyUp(e);
-            if (e.Handled || e.Key == Key.None)
-                return;
-
-            // Send key release
-            if (!HandleKeyEvent(false, e.Key, e.KeyModifiers))
-                return;
-
-            e.Handled = true;
+            return false;
         }
 
-        /// <inheritdoc />
+        // Send key event to server
+        bool queued = connection.EnqueueMessage(new KeyEventMessage(downFlag, keySymbol));
 
-        // TODO: Is not called when window looses focus: https://github.com/AvaloniaUI/Avalonia/issues/1458
-        protected override void OnLostFocus(RoutedEventArgs e)
+        if (downFlag && queued)
         {
-            base.OnLostFocus(e);
-            ResetKeyPresses();
+            _pressedKeys.Add(keySymbol);
+        }
+        else if (!downFlag)
+        {
+            _pressedKeys.Remove(keySymbol);
         }
 
-        private bool HandleKeyEvent(bool downFlag, Key key, KeyModifiers keyModifiers)
+        return queued;
+    }
+
+    private void ResetKeyPresses()
+    {
+        // (Still) conneced?
+        RfbConnection? connection = Connection;
+        if (connection != null)
         {
-            // Get connection
-            RfbConnection? connection = Connection;
-            if (connection == null)
-                return false;
-
-            // Might this key be part of a shortcut? When modifies are present, OnTextInput doesn't get called,
-            // so we have to handle printable characters here now, too.
-            bool includePrintable = (keyModifiers & KeyModifiers.Control) != 0;
-
-            // Get key symbol
-            KeySymbol keySymbol = KeyMapping.GetSymbolFromKey(key, includePrintable);
-            if (keySymbol == KeySymbol.Null)
-                return false;
-
-            // Send key event to server
-            bool queued = connection.EnqueueMessage(new KeyEventMessage(downFlag, keySymbol));
-
-            if (downFlag && queued)
-                _pressedKeys.Add(keySymbol);
-            else if (!downFlag)
-                _pressedKeys.Remove(keySymbol);
-
-            return queued;
-        }
-
-        private void ResetKeyPresses()
-        {
-            // (Still) conneced?
-            RfbConnection? connection = Connection;
-            if (connection != null)
+            // Clear pressed keys
+            foreach (KeySymbol keySymbol in _pressedKeys)
             {
-                // Clear pressed keys
-                foreach (KeySymbol keySymbol in _pressedKeys)
+                // If the connection is already dead, don't care about clearing them.
+                if (!connection.EnqueueMessage(new KeyEventMessage(false, keySymbol)))
                 {
-                    // If the connection is already dead, don't care about clearing them.
-                    if (!connection.EnqueueMessage(new KeyEventMessage(false, keySymbol)))
-                        break;
+                    break;
                 }
             }
-
-            _pressedKeys.Clear();
         }
+
+        _pressedKeys.Clear();
     }
 }

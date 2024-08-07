@@ -1,35 +1,36 @@
 using System;
+using JetBrains.Annotations;
 
-namespace MarcusW.VncClient.Rendering
+namespace MarcusW.VncClient.Rendering;
+
+/// <summary>
+///     A reference to the native framebuffer of the target device. Should be disposed after rendering is finished.
+/// </summary>
+[PublicAPI]
+public interface IFramebufferReference : IDisposable
 {
     /// <summary>
-    /// A reference to the native framebuffer of the target device. Should be disposed after rendering is finished.
+    ///     Gets the address of the first pixel.
     /// </summary>
-    public interface IFramebufferReference : IDisposable
-    {
-        /// <summary>
-        /// Gets the address of the first pixel.
-        /// </summary>
-        IntPtr Address { get; }
+    IntPtr Address { get; }
 
-        /// <summary>
-        /// Gets the framebuffer size in device pixels.
-        /// </summary>
-        Size Size { get; }
+    /// <summary>
+    ///     Gets the framebuffer size in device pixels.
+    /// </summary>
+    Size Size { get; }
 
-        /// <summary>
-        /// Gets the format of how the pixels are represented in memory.
-        /// </summary>
-        PixelFormat Format { get; }
+    /// <summary>
+    ///     Gets the format of how the pixels are represented in memory.
+    /// </summary>
+    PixelFormat Format { get; }
 
-        /// <summary>
-        /// Gets the horizontal DPI of the underlying screen.
-        /// </summary>
-        double HorizontalDpi { get; }
+    /// <summary>
+    ///     Gets the horizontal DPI of the underlying screen.
+    /// </summary>
+    double HorizontalDpi { get; }
 
-        /// <summary>
-        /// Gets the vertical DPI of the underlying screen.
-        /// </summary>
-        double VerticalDpi { get; }
-    }
+    /// <summary>
+    ///     Gets the vertical DPI of the underlying screen.
+    /// </summary>
+    double VerticalDpi { get; }
 }

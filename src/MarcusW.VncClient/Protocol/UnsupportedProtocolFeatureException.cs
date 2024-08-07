@@ -1,13 +1,15 @@
 using System;
+using JetBrains.Annotations;
 
-namespace MarcusW.VncClient.Protocol
+namespace MarcusW.VncClient.Protocol;
+
+[PublicAPI]
+public class UnsupportedProtocolFeatureException : RfbProtocolException
 {
-    public class UnsupportedProtocolFeatureException : RfbProtocolException
-    {
-        public UnsupportedProtocolFeatureException() { }
+    public UnsupportedProtocolFeatureException() { }
 
-        public UnsupportedProtocolFeatureException(string? message) : base(message) { }
+    public UnsupportedProtocolFeatureException(string? message) : base(message) { }
 
-        public UnsupportedProtocolFeatureException(string? message, Exception? innerException) : base(message, innerException) { }
-    }
+    public UnsupportedProtocolFeatureException(string? message, Exception? innerException) : base(message,
+        innerException) { }
 }

@@ -1,23 +1,22 @@
 using BenchmarkDotNet.Attributes;
 
-namespace Benchmarks
+namespace Benchmarks;
+
+public class LockOverhead
 {
-    public class LockOverhead
+    private readonly object _lock = new();
+    private int _value;
+
+    [Benchmark]
+    public void IncreaseWithLock()
     {
-        private int _value;
-        private object _lock = new object();
-
-        [Benchmark]
-        public void IncreaseWithoutLock()
-        {
+        lock (_lock)
             _value++;
-        }
+    }
 
-        [Benchmark]
-        public void IncreaseWithLock()
-        {
-            lock (_lock)
-                _value++;
-        }
+    [Benchmark]
+    public void IncreaseWithoutLock()
+    {
+        _value++;
     }
 }

@@ -1,27 +1,21 @@
-using System;
 using System.Collections.Concurrent;
 using Microsoft.Extensions.Logging;
 
-namespace MarcusW.VncClient.Avalonia.Adapters.Logging
+namespace MarcusW.VncClient.Avalonia.Adapters.Logging;
+
+/// <summary>
+///     Provider for the <see cref="AvaloniaLogger" /> logging adapter.
+/// </summary>
+public class AvaloniaLoggerProvider : ILoggerProvider
 {
-    /// <summary>
-    /// Provider for the <see cref="AvaloniaLogger"/> logging adapter.
-    /// </summary>
-    public class AvaloniaLoggerProvider : ILoggerProvider
+    private readonly ConcurrentDictionary<string, AvaloniaLogger> _loggers = new();
+
+    /// <inheritdoc />
+    public ILogger CreateLogger(string categoryName)
     {
-        private readonly ConcurrentDictionary<string, AvaloniaLogger> _loggers =
-            new ConcurrentDictionary<string, AvaloniaLogger>();
-
-        /// <inheritdoc />
-        public ILogger CreateLogger(string categoryName)
-        {
-            if (categoryName == null)
-                throw new ArgumentNullException(nameof(categoryName));
-
-            return _loggers.GetOrAdd(categoryName, loggerName => new AvaloniaLogger(categoryName));
-        }
-
-        /// <inheritdoc />
-        public void Dispose() { }
+        return _loggers.GetOrAdd(categoryName, _ => new(categoryName));
     }
+
+    /// <inheritdoc />
+    public void Dispose() { }
 }

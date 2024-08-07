@@ -1,19 +1,18 @@
-namespace MarcusW.VncClient.Output
+namespace MarcusW.VncClient.Output;
+
+/// <summary>
+///     Provides methods for handling output events from the server.
+/// </summary>
+public interface IOutputHandler
 {
     /// <summary>
-    /// Provides methods for handling output events from the server.
+    ///     Handles when the clipboard content of the server changed.
     /// </summary>
-    public interface IOutputHandler
-    {
-        /// <summary>
-        /// Handles when the server rings the bell.
-        /// </summary>
-        void RingBell();
+    /// <param name="text">The text in the clipboard buffer.</param>
+    void HandleServerClipboardUpdate(string text);
 
-        /// <summary>
-        /// Handles when the clipboard content of the server changed.
-        /// </summary>
-        /// <param name="text">The text in the clipboard buffer.</param>
-        void HandleServerClipboardUpdate(string text);
-    }
+    /// <summary>
+    ///     Handles when the server rings the bell.
+    /// </summary>
+    void RingBell();
 }

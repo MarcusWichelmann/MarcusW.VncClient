@@ -1,32 +1,30 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
-namespace AvaloniaVncClient.Views.Dialogs
+namespace AvaloniaVncClient.Views.Dialogs;
+
+public class EnterPasswordDialog : Window
 {
-    public class EnterPasswordDialog : Window
+    public EnterPasswordDialog()
     {
-        private TextBox PasswordTextBox => this.FindControl<TextBox>("PasswordTextBox");
+        InitializeComponent();
+    }
 
-        public EnterPasswordDialog()
-        {
-            InitializeComponent();
-        }
+    private TextBox PasswordTextBox => this.FindControl<TextBox>("PasswordTextBox")!;
 
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
+    public void OnCancelClick(object? sender, RoutedEventArgs e)
+    {
+        Close(null);
+    }
 
-        public void OnCancelClick(object sender, RoutedEventArgs e)
-        {
-            Close(null);
-        }
+    public void OnOkClick(object? sender, RoutedEventArgs e)
+    {
+        Close(PasswordTextBox.Text);
+    }
 
-        public void OnOkClick(object sender, RoutedEventArgs e)
-        {
-            Close(PasswordTextBox.Text);
-        }
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
     }
 }

@@ -1,3 +1,4 @@
+<!-- ReSharper disable Xaml.PossibleNullReferenceException -->
 <reactiveUi:ReactiveWindow x:TypeArguments="vm:MainWindowViewModel"
                            xmlns="https://github.com/avaloniaui"
                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -19,9 +20,12 @@
     <DockPanel>
         <Border Name="BottomDockPanel" DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
             <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
-                <TextBlock Text="Not connected." IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
-                <StackPanel Orientation="Vertical" Spacing="10" IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
-                    <TextBlock Foreground="Red" Text="{Binding RfbConnection.InterruptionCause, StringFormat=Error: \{0\}}"
+                <TextBlock Text="Not connected."
+                           IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNull}}" />
+                <StackPanel Orientation="Vertical" Spacing="10"
+                            IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
+                    <TextBlock Foreground="Red"
+                               Text="{Binding RfbConnection.InterruptionCause, StringFormat=Error: \{0\}}"
                                IsVisible="{Binding RfbConnection.InterruptionCause, Converter={x:Static ObjectConverters.IsNotNull}}" />
                     <StackPanel Orientation="Horizontal" Spacing="10">
                         <TextBlock Text="{Binding RfbConnection.ConnectionState, StringFormat=Status: \{0\}}" />
@@ -32,7 +36,8 @@
                         <TextBlock Text="{Binding RfbConnection.DesktopName, StringFormat=Desktop Name: \{0\}}" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Spacing="10">
-                        <TextBlock Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
+                        <TextBlock
+                            Text="{Binding RfbConnection.RemoteFramebufferSize, StringFormat=Remote Framebuffer Size: \{0\}}" />
                         <TextBlock
                             Text="{Binding RfbConnection.RemoteFramebufferFormat.Name, StringFormat=Remote Framebuffer Format: \{0\}}" />
                         <TextBlock
@@ -50,7 +55,8 @@
                 IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
             <Grid RowDefinitions="Auto,*,Auto,*,Auto" Margin="10">
                 <TextBlock Grid.Row="0" Margin="0,0,0,10" FontWeight="Bold" Text="Used Message Types:" />
-                <ListBox Grid.Row="1" Margin="0,0,0,10" Items="{Binding RfbConnection.UsedMessageTypes}" BorderThickness="0">
+                <ListBox Grid.Row="1" Margin="0,0,0,10" ItemsSource="{Binding RfbConnection.UsedMessageTypes}"
+                         BorderThickness="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
@@ -58,7 +64,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <TextBlock Grid.Row="2" Margin="0,0,0,10" FontWeight="Bold" Text="Used Encoding Types:" />
-                <ListBox Grid.Row="3" Items="{Binding RfbConnection.UsedEncodingTypes}" BorderThickness="0">
+                <ListBox Grid.Row="3" ItemsSource="{Binding RfbConnection.UsedEncodingTypes}" BorderThickness="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
@@ -71,11 +77,16 @@
 
         <Border Name="TopDockPanel" DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="0,0,0,1">
             <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="3*,*" Margin="10">
-                <TextBox Grid.Row="0" Grid.Column="0" Watermark="Host" UseFloatingWatermark="True" Text="{Binding Host}" Margin="0,0,10,0" />
-                <TextBox Grid.Row="0" Grid.Column="1" Watermark="Port" UseFloatingWatermark="True" Text="{Binding Port}" />
-                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="ConnectButton" Command="{Binding ConnectCommand}" Margin="0,10,0,0" IsDefault="True" />
-                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Red" Text="{Binding ErrorMessage}"
-                           IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,10,0,0" />
+                <TextBox Grid.Row="0" Grid.Column="0" Watermark="Host" UseFloatingWatermark="True"
+                         Text="{Binding Host}" Margin="0,0,10,0" />
+                <TextBox Grid.Row="0" Grid.Column="1" Watermark="Port" UseFloatingWatermark="True"
+                         Text="{Binding Port}" />
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="ConnectButton"
+                        Command="{Binding ConnectCommand}" Margin="0,10,0,0" IsDefault="True" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Red"
+                           Text="{Binding ErrorMessage}"
+                           IsVisible="{Binding ErrorMessage, Converter={x:Static ObjectConverters.IsNotNull}}"
+                           Margin="0,10,0,0" />
             </Grid>
         </Border>
 

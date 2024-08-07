@@ -1,6 +1,5 @@
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -10,57 +9,61 @@ using AvaloniaVncClient.ViewModels;
 using AvaloniaVncClient.Views.Dialogs;
 using ReactiveUI;
 
-namespace AvaloniaVncClient.Views
+// ReSharper disable once RedundantUsingDirective -- Required for AttachDevTools
+using Avalonia;
+
+namespace AvaloniaVncClient.Views;
+
+public class MainWindow : ReactiveWindow<MainWindowViewModel>
 {
-    public class MainWindow : ReactiveWindow<MainWindowViewModel>
+    public MainWindow()
     {
-        private Button ConnectButton => this.FindControl<Button>("ConnectButton");
-
-        private Border TopDockPanel => this.FindControl<Border>("TopDockPanel");
-        private Border BottomDockPanel => this.FindControl<Border>("BottomDockPanel");
-        private Border RightDockPanel => this.FindControl<Border>("RightDockPanel");
-
-        public MainWindow()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
 #if DEBUG
-            this.AttachDevTools();
+        this.AttachDevTools();
 #endif
-        }
+    }
 
-        private void InitializeComponent()
-        {
-            this.WhenActivated(disposable => {
-                // Bind connect button text to connect command execution
-                ConnectButton.Bind(Button.ContentProperty, ViewModel.ConnectCommand.IsExecuting.Select(executing => executing ? "Connecting..." : "Connect"))
-                    .DisposeWith(disposable);
+    private Button ConnectButton => this.FindControl<Button>("ConnectButton")!;
 
-                // Handle authentication requests
-                ViewModel.InteractiveAuthenticationHandler.EnterPasswordInteraction.RegisterHandler(async context => {
-                    string? password = await new EnterPasswordDialog().ShowDialog<string?>(this).ConfigureAwait(true);
-                    context.SetOutput(password);
-                }).DisposeWith(disposable);
-            });
+    private Border TopDockPanel => this.FindControl<Border>("TopDockPanel")!;
+    private Border BottomDockPanel => this.FindControl<Border>("BottomDockPanel")!;
+    private Border RightDockPanel => this.FindControl<Border>("RightDockPanel")!;
 
-            // Register keybinding for exiting fullscreen
-            KeyBindings.Add(new KeyBinding {
-                Gesture = new KeyGesture(Key.Escape, KeyModifiers.Control),
-                Command = ReactiveCommand.Create(() => SetFullscreenMode(false))
-            });
+    private void InitializeComponent()
+    {
+        this.WhenActivated(disposable => {
+            // Bind connect button text to connect command execution
+            ConnectButton
+                .Bind(ContentProperty,
+                    ViewModel!.ConnectCommand.IsExecuting.Select(executing => executing ? "Connecting..." : "Connect"))
+                .DisposeWith(disposable);
 
-            AvaloniaXamlLoader.Load(this);
-        }
+            // Handle authentication requests
+            ViewModel.InteractiveAuthenticationHandler.EnterPasswordInteraction.RegisterHandler(async context => {
+                string? password = await new EnterPasswordDialog().ShowDialog<string?>(this).ConfigureAwait(true);
+                context.SetOutput(password);
+            }).DisposeWith(disposable);
+        });
 
-        private void OnEnableFullscreenButtonClicked(object? sender, RoutedEventArgs e) => SetFullscreenMode(true);
+        // Register keybinding for exiting fullscreen
+        KeyBindings.Add(new() {
+            Gesture = new(Key.Escape, KeyModifiers.Control),
+            Command = ReactiveCommand.Create(() => SetFullscreenMode(false)),
+        });
 
-        private void SetFullscreenMode(bool fullscreen)
-        {
-            WindowState = fullscreen ? WindowState.FullScreen : WindowState.Normal;
+        AvaloniaXamlLoader.Load(this);
+    }
 
-            TopDockPanel.IsVisible = !fullscreen;
-            BottomDockPanel.IsVisible = !fullscreen;
-            RightDockPanel.IsVisible = !fullscreen;
-        }
+    private void OnEnableFullscreenButtonClicked(object? _1, RoutedEventArgs _2) => SetFullscreenMode(true);
+
+    private void SetFullscreenMode(bool fullscreen)
+    {
+        WindowState = fullscreen ? WindowState.FullScreen : WindowState.Normal;
+
+        TopDockPanel.IsVisible = !fullscreen;
+        BottomDockPanel.IsVisible = !fullscreen;
+        RightDockPanel.IsVisible = !fullscreen;
     }
 }
