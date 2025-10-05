@@ -10,7 +10,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnPointerMoved(PointerEventArgs e)
         {
             base.OnPointerMoved(e);
-            if (e.Handled)
+            if (ViewOnly || e.Handled)
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);
@@ -22,7 +22,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnPointerPressed(PointerPressedEventArgs e)
         {
             base.OnPointerPressed(e);
-            if (e.Handled)
+            if (ViewOnly || e.Handled)
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);
@@ -34,7 +34,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnPointerReleased(PointerReleasedEventArgs e)
         {
             base.OnPointerReleased(e);
-            if (e.Handled)
+            if (ViewOnly || e.Handled)
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);
@@ -46,7 +46,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
         {
             base.OnPointerWheelChanged(e);
-            if (e.Handled)
+            if (ViewOnly || e.Handled)
                 return;
 
             PointerPoint point = e.GetCurrentPoint(this);

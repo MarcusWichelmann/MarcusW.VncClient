@@ -13,7 +13,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnTextInput(TextInputEventArgs e)
         {
             base.OnTextInput(e);
-            if (e.Handled)
+            if (ViewOnly || e.Handled)
                 return;
 
             // Get connection
@@ -39,7 +39,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            if (e.Handled || e.Key == Key.None)
+            if (ViewOnly || e.Handled || e.Key == Key.None)
                 return;
 
             // Send key press
@@ -53,7 +53,7 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnKeyUp(KeyEventArgs e)
         {
             base.OnKeyUp(e);
-            if (e.Handled || e.Key == Key.None)
+            if (ViewOnly|| e.Handled || e.Key == Key.None)
                 return;
 
             // Send key release
@@ -69,6 +69,9 @@ namespace MarcusW.VncClient.Avalonia
         protected override void OnLostFocus(RoutedEventArgs e)
         {
             base.OnLostFocus(e);
+            if (ViewOnly)
+                return;
+
             ResetKeyPresses();
         }
 

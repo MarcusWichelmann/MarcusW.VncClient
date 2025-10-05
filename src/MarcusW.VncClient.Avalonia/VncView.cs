@@ -1,10 +1,8 @@
 using System;
 using System.Reactive.Disposables;
 using Avalonia;
-using Avalonia.Input;
 using Avalonia.Threading;
 using MarcusW.VncClient.Output;
-using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
 
 namespace MarcusW.VncClient.Avalonia
 {
@@ -16,10 +14,15 @@ namespace MarcusW.VncClient.Avalonia
         /// <summary>
         /// Defines the <see cref="Connection"/> property.
         /// </summary>
-        public static readonly DirectProperty<VncView, RfbConnection?> ConnectionProperty =
-            AvaloniaProperty.RegisterDirect<VncView, RfbConnection?>(nameof(Connection), o => o.Connection, (o, v) => o.Connection = v);
+        public static readonly DirectProperty<VncView, RfbConnection?> ConnectionProperty = AvaloniaProperty.RegisterDirect<VncView, RfbConnection?>(nameof(Connection), o => o.Connection, (o, v) => o.Connection = v);
+
+        /// <summary>
+        /// Defines the <see cref="ViewOnly"/> property.
+        /// </summary>
+        public static readonly DirectProperty<VncView, bool> ViewOnlyProperty = AvaloniaProperty.RegisterDirect<VncView, bool>(nameof(ViewOnly), o => o.ViewOnly, (o, v) => o.ViewOnly = v);
 
         private RfbConnection? _connection;
+        private bool _viewOnly;
 
         // Disposable for cleaning up after connection detaches
         private CompositeDisposable _connectionDetachDisposable = new CompositeDisposable();
@@ -76,6 +79,20 @@ namespace MarcusW.VncClient.Avalonia
             }
         }
 
+        /// <summary>
+        /// Gets or sets the view only mode
+        /// </summary>
+        public bool ViewOnly
+        {
+            get => _viewOnly;
+            set
+            {
+                SetAndRaise(ViewOnlyProperty, ref _viewOnly, value);
+                if (_viewOnly)
+                    ResetKeyPresses();
+            }
+        }
+
         public VncView()
         {
             InitSizing();
@@ -91,6 +108,9 @@ namespace MarcusW.VncClient.Avalonia
         /// <inheritdoc />
         public virtual void HandleServerClipboardUpdate(string text)
         {
+            if (ViewOnly)
+                return;
+
             Dispatcher.UIThread.Post(async () => {
                 // Copy the text to the local clipboard
                 await Application.Current.Clipboard.SetTextAsync(text).ConfigureAwait(true);
