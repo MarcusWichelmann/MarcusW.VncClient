@@ -1,7 +1,9 @@
 using System;
+using System.ComponentModel;
+using System.Reactive;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using Avalonia;
-using Avalonia.Input;
 using Avalonia.Threading;
 using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing;
@@ -73,6 +75,18 @@ namespace MarcusW.VncClient.Avalonia
                 }
 
                 SetAndRaise(ConnectionProperty, ref _connection, value);
+
+                // Do a force fullscreen refresh every time the connection state changes or new connection is established
+                if (_connection != null)
+                {
+                    _connectionDetachDisposable.Add(
+                        Observable.FromEventPattern<PropertyChangedEventHandler, PropertyChangedEventArgs>(handler => _connection.PropertyChanged += handler, handler => _connection.PropertyChanged -= handler)
+                            .Where(x => x.EventArgs.PropertyName == nameof(_connection.ConnectionState))
+                            .Select(_ => Unit.Default)
+                            .StartWith(Unit.Default)
+                            .Subscribe(_ => ForceFullscreenUpdate())
+                    );
+                }
             }
         }
 
@@ -95,6 +109,23 @@ namespace MarcusW.VncClient.Avalonia
                 // Copy the text to the local clipboard
                 await Application.Current.Clipboard.SetTextAsync(text).ConfigureAwait(true);
             });
+        }
+
+        public void ForceFullscreenUpdate()
+        {
+            if (_connection == null || _connection.ConnectionState != ConnectionState.Connected)
+                return;
+
+            try
+            {
+                var fullScreenRect = new Rectangle(Position.Origin, _connection.RemoteFramebufferSize);
+                var updateRequest = new FramebufferUpdateRequestMessage(false, fullScreenRect);
+                _connection.EnqueueMessage(updateRequest);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to request framebuffer update: {ex.Message}");
+            }
         }
     }
 }
