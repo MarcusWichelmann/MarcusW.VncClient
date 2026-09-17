@@ -45,8 +45,9 @@ namespace MarcusW.VncClient.Avalonia
             if (sizeChanged)
             {
                 // Create new bitmap with required size and the format that is preferred by the current platform (therefore 'null').
-                // TODO: Detect DPI dynamically
-                bitmap = new WriteableBitmap(requiredPixelSize, new Vector(96.0f, 96.0f), null);
+                // Detect DPI dynamically from the visual tree, falling back to 96 DPI (standard) if unavailable.
+                double dpi = (VisualRoot as TopLevel)?.RenderScaling * 96.0 ?? 96.0;
+                bitmap = new WriteableBitmap(requiredPixelSize, new Vector(dpi, dpi), null);
 
                 // Wait for the rendering being finished before replacing the bitmap
                 lock (_bitmapReplacementLock)
@@ -99,7 +100,8 @@ namespace MarcusW.VncClient.Avalonia
 
             // Has any bitmap been rendered yet?
             if (!bitmapSize.HasValue)
-                return global::Avalonia.Size.Empty;
+                //return global::Avalonia.Size.Empty;
+                return AvaloniaExtensions.EmptySize;
 
             // Request the size of the current bitmap
             return bitmapSize.Value;

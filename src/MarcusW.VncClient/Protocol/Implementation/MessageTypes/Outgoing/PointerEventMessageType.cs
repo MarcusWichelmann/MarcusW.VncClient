@@ -2,6 +2,7 @@ using System;
 using System.Buffers.Binary;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.MessageTypes;
 
 namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
@@ -11,6 +12,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
     /// </summary>
     public class PointerEventMessageType : IOutgoingMessageType
     {
+        private static DateTime _lastPointerEventTime = DateTime.MinValue;
+        private static readonly object _rateLimitLock = new object();
         /// <inheritdoc />
         public byte Id => (byte)WellKnownOutgoingMessageType.PointerEvent;
 
@@ -32,24 +35,70 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
 
             cancellationToken.ThrowIfCancellationRequested();
 
-            // Get pointer position
-            var posX = (ushort)Math.Max(0, pointerEventMessage.PointerPosition.X);
-            var posY = (ushort)Math.Max(0, pointerEventMessage.PointerPosition.Y);
+            // WAYVNC COMPATIBILITY: Rate limit pointer events to prevent server from forcibly closing connection
+            // WayVNC servers are sensitive to rapid pointer event flooding
+            lock (_rateLimitLock)
+            {
+                var now = DateTime.UtcNow;
+                var timeSinceLastEvent = now - _lastPointerEventTime;
+                
+                const int minIntervalMs = 10; // Rate limiting to prevent server flooding
+                if (timeSinceLastEvent.TotalMilliseconds < minIntervalMs)
+                {
+                    var delayMs = minIntervalMs - (int)timeSinceLastEvent.TotalMilliseconds;
+                    Thread.Sleep(delayMs);
+                }
+                
+                _lastPointerEventTime = DateTime.UtcNow;
+            }
+
+            // Validate coordinates
+            var rawX = pointerEventMessage.PointerPosition.X;
+            var rawY = pointerEventMessage.PointerPosition.Y;
+            
+            // Reject clearly invalid coordinates (negative or absurdly large)
+            if (rawX < -1000 || rawX > 100000 || rawY < -1000 || rawY > 100000)
+            {
+                return; // Don't send obviously invalid coordinates
+            }
+            
+            // Clamp to valid ushort range with extra conservative bounds
+            var posX = (ushort)Math.Max(0, Math.Min(32767, rawX)); // Use 32767 instead of 65535 for safety
+            var posY = (ushort)Math.Max(0, Math.Min(32767, rawY));
+            
+            // Validate button mask
+            var buttonMask = (byte)pointerEventMessage.PressedButtons;
+            const byte validButtonMask = 0x7F; // Standard VNC buttons (bits 0-6)
+            buttonMask = (byte)(buttonMask & validButtonMask);
+            
+            // Remove conflicting wheel combinations
+            bool hasWheelUp = (buttonMask & 0x08) != 0;
+            bool hasWheelDown = (buttonMask & 0x10) != 0;
+            if (hasWheelUp && hasWheelDown)
+            {
+                buttonMask = (byte)(buttonMask & ~0x18); // Remove both wheel up and down
+            }
 
             Span<byte> buffer = stackalloc byte[6];
 
             // Message type
             buffer[0] = Id;
 
-            // Pressed buttons mask
-            buffer[1] = (byte)pointerEventMessage.PressedButtons;
+            // Pressed buttons mask (use validated mask)
+            buffer[1] = buttonMask;
 
             // Pointer position
             BinaryPrimitives.WriteUInt16BigEndian(buffer[2..], posX);
             BinaryPrimitives.WriteUInt16BigEndian(buffer[4..], posY);
 
-            // Write message to stream
-            transport.Stream.Write(buffer);
+            try
+            {
+                transport.Stream.Write(buffer);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Failed to send pointer event: {ex.Message}", ex);
+            }
         }
     }
 

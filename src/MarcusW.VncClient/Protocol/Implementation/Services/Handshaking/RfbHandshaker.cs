@@ -36,7 +36,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            _logger.LogDebug("Doing protocol handshake...");
+            // Removed debug logging for production use
 
             ITransport currentTransport = _context.Transport ?? throw new InvalidOperationException("Cannot do handshake before a transport has been created.");
 
@@ -49,9 +49,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             _state.UsedSecurityType = usedSecurityType;
 
             // Execute authentication
-            _logger.LogDebug("Negotiated security type: {name}({id}). Authenticating...", usedSecurityType.Name, usedSecurityType.Id);
+            // Use the connection's caching handler (instead of Parameters.AuthenticationHandler directly)
+            // so automatic reconnects can reuse previously provided credentials without prompting the user again.
             AuthenticationResult authenticationResult = await usedSecurityType
-                .AuthenticateAsync(_context.Connection.Parameters.AuthenticationHandler, cancellationToken).ConfigureAwait(false);
+                .AuthenticateAsync(_context.Connection.AuthenticationHandler, cancellationToken).ConfigureAwait(false);
 
             // When a tunnel was built, use that transport for further communication
             if (authenticationResult.TunnelTransport != null)
@@ -91,20 +92,17 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             if (serverProtocolVersion == RfbProtocolVersion.Unknown)
             {
                 clientProtocolVersion = RfbProtocolVersions.LatestSupported;
-                _logger.LogDebug("Supported server protocol version is unknown, too new? Trying latest protocol version {clientProtocolVersion}.",
-                    clientProtocolVersion.ToReadableString());
+                // Using latest protocol version for unknown server version
             }
             else if (serverProtocolVersion > RfbProtocolVersions.LatestSupported)
             {
                 clientProtocolVersion = RfbProtocolVersions.LatestSupported;
-                _logger.LogDebug("Supported server protocol version {serverProtocolVersion} is too new. Requesting latest version supported by the client.",
-                    serverProtocolVersion.ToReadableString());
+                // Server version too new, using latest client version
             }
             else
             {
                 clientProtocolVersion = serverProtocolVersion;
-                _logger.LogDebug("Server supports protocol version {serverProtocolVersion}. Choosing that as the highest one that's supported by both sides.",
-                    serverProtocolVersion.ToReadableString());
+                // Using server's supported protocol version
             }
 
             // Send selected protocol version
@@ -154,8 +152,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
             Debug.Assert(_context.SupportedSecurityTypes != null, "_context.SupportedSecurityTypes != null");
             IEnumerable<ISecurityType> usableSecurityTypes = _context.SupportedSecurityTypes.Where(st => securityTypeIds.Contains(st.Id));
 
-            if (_logger.IsEnabled(LogLevel.Debug))
-                _logger.LogDebug("Server supports the following security types: {securityTypeIds}", string.Join(", ", securityTypeIds));
+            // Removed debug logging for production use
 
             // Select the one with the hightest priority (hopefully the best one!)
             usedSecurityType = usableSecurityTypes.OrderByDescending(st => st.Priority).FirstOrDefault();
@@ -163,7 +160,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
                 throw new HandshakeFailedException("Could not negotiate any common security types between the server and the client.");
 
             // Tell the server, which security type was chosen
-            _logger.LogDebug("Informing server about chosen security type: {name}({id})", usedSecurityType.Name, usedSecurityType.Id);
+            // Removed debug logging for production use
             await transport.Stream.WriteAsync(new[] { usedSecurityType.Id }, cancellationToken).ConfigureAwait(false);
 
             return usedSecurityType;
@@ -171,7 +168,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
         private async Task<RfbProtocolVersion> ReadProtocolVersionAsync(ITransport transport, CancellationToken cancellationToken = default)
         {
-            _logger.LogDebug("Reading protocol version...");
+            // Removed debug logging for production use
 
             // The protocol version info always consists of 12 bytes
             ReadOnlyMemory<byte> bytes = await transport.Stream.ReadAllAsync(12, cancellationToken).ConfigureAwait(false);
@@ -186,7 +183,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Handshaking
 
         private async Task SendProtocolVersionAsync(ITransport transport, RfbProtocolVersion protocolVersion, CancellationToken cancellationToken = default)
         {
-            _logger.LogDebug("Sending protocol version {protocolVersion}...", protocolVersion.ToReadableString());
+            // Removed debug logging for production use
 
             string protocolVersionString = protocolVersion.GetStringRepresentation() + '\n';
             byte[] bytes = Encoding.ASCII.GetBytes(protocolVersionString);

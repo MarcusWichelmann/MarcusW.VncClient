@@ -43,7 +43,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
 
             cancellationToken.ThrowIfCancellationRequested();
 
-            _logger.LogDebug("Beep! https://www.youtube.com/watch?v=CZlfbep2LdU");
+            // Removed bell debug logging for production use
 
             _context.Connection.OutputHandler?.RingBell();
         }

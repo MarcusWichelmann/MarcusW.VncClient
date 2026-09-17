@@ -1,10 +1,12 @@
-# VNC-Client Library for C#
+# VNC-Client Library for C# (Community Fork)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MarcusWichelmann/MarcusW.VncClient/Build?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/MarcusWichelmann/MarcusW.VncClient?style=for-the-badge)
-![Nuget](https://img.shields.io/nuget/v/MarcusW.VncClient?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/karbonbaron/MarcusW.VncClient/build.yml?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/karbonbaron/MarcusW.VncClient?style=for-the-badge)
+![Nuget](https://img.shields.io/nuget/v/Community.MarcusW.VncClient?style=for-the-badge)
 
-This project provides a very performant, fully managed C#-Library that implements the RFB protocol for easy integration of VNC-Client features into own applications. It's also cross-platform and runs every where .NET Core (or .NET 5 and so on...) runs.
+> **📢 Community Maintained**: This is a community-maintained fork of the original [MarcusW.VncClient](https://github.com/MarcusWichelmann/MarcusW.VncClient) library. Since the original maintainer stopped publishing NuGet packages, this fork continues to provide updated packages and maintenance.
+
+This project provides a very performant, fully managed C#-Library that implements the RFB protocol for easy integration of VNC-Client features into own applications. It's also cross-platform and runs everywhere .NET runs.
 
 ### [API Documentation](https://vnc-client.marcusw.de/apidoc/api/index.html)
 
@@ -25,14 +27,14 @@ Source Code: [AvaloniaVncClient](samples/AvaloniaVncClient)
 - 🌟 **Server compatibility:** Tested with *TigerVNC Server*, *LibVNCServer*, *RealVNC VNC Connect*, *Vino-Server* and *UltraVNC*. This implementation follows the RFB protocol specification very carefully, so it's probably compatible with many more servers.
 - 🌟 **Stability:** Battle-tested and proven to be very reliable.
 - 🌟 **Modular & Extensible:** The very modular API design allows the easy addition of more Security, Message and Encoding Types as well as the replacement of main implementation components.
-- 🌟 **No external dependencies:** The core library does not use any libraries outside of the .NET SDK.
+- 🌟 **Minimal dependencies:** The core library uses only BouncyCastle.Cryptography for advanced security types (RA2/RA2ne) and Microsoft.Extensions.Logging.Abstractions for logging.
 
 ### Features
 
 - Highly configurable and extensible structure
 - Flexible transport layer selection (TCP by default)
 - Automatic reconnects with configurable behaviour
-- Supported security types: `None`, `VNC Authentication`
+- Supported security types: `None`, `VNC Authentication`, `RA2`, `RA2ne`, `Tight`, `Ultra`, `TLS`, `VeNCrypt`, `SASL`, `MD5`, `XVP`, `SecureTunnel`, `IntegratedSSH`
 - Supported message types: `SetEncodings`, `FramebufferUpdateRequest`, `FramebufferUpdate`, `ServerCutText`, `SetDesktopSize`, `ServerFence`, `ClientFence`, `EnableContinuousUpdates`, `EndOfContinuousUpdates`, `PointerEvent`, `KeyEvent`, `Bell`
 - Supported frame encoding types: `Raw`, `CopyRect`, `zLib`, `ZRLE`, `Tight`
 - Supported pseudo encoding types: `Fence`, `ContinuousUpdates`, `LastRect`, `JPEG Quality Level`, `JPEG Fine-Grained Quality Level`, `JPEG Subsampling Level`, `DesktopSize`, `ExtendedDesktopSize`
@@ -50,17 +52,41 @@ Source Code: [AvaloniaVncClient](samples/AvaloniaVncClient)
 
 Most of these features are demonstrated by the included sample applications.
 
+## Troubleshooting Connection Issues
+
+If you're experiencing connection issues with newer VNC servers, try these steps:
+
+1. **Enable Debug Logging**: Set the log level to `Debug` to see detailed protocol negotiation information
+2. **Check Protocol Version**: Verify that the server supports RFB 3.8 or earlier (this client supports 3.3, 3.7, 3.8, 3.9)
+3. **Security Type Mismatch**: Ensure the server offers compatible security types (see supported list above)
+4. **VeNCrypt Issues**: For VeNCrypt authentication, ensure proper TLS certificate configuration
+5. **Network/Firewall**: Verify that the VNC port (default 5900) is accessible
+
+For detailed debugging, check the connection logs which include protocol version negotiation and security type selection details.
+
+## ⚠️ Important: WebAssembly Limitation
+
+**Blazor WebAssembly is NOT supported** by the MarcusW.VncClient.Blazor package. This is a fundamental technical limitation:
+
+- **Why**: VNC protocol requires direct TCP socket connections to VNC servers
+- **Problem**: Web browsers (including WebAssembly) cannot create raw TCP sockets due to security restrictions
+- **Solution**: Use **Blazor Server** instead, where VNC connections run server-side and frames are sent to the browser via SignalR
+
+This is not a bug or limitation of this library - it's an inherent restriction of web browser security models.
+
 ### NuGet-Packages
 
-**Core library:** [MarcusW.VncClient](https://www.nuget.org/packages/MarcusW.VncClient)
+**Core library:** [Community.MarcusW.VncClient](https://www.nuget.org/packages/Community.MarcusW.VncClient)
 
-This is library contains the main protocol implementation and is completely platform-agnostic thanks to some abstractions using C# interfaces. It has no external dependencies.
+This library contains the main protocol implementation and is completely platform-agnostic thanks to some abstractions using C# interfaces. It has minimal dependencies: BouncyCastle.Cryptography for advanced security types (RA2/RA2ne) and Microsoft.Extensions.Logging.Abstractions for logging.
 
-**Adapter libraries:** [MarcusW.VncClient.Avalonia](https://www.nuget.org/packages/MarcusW.VncClient.Avalonia), more may follow...
+**Adapter libraries:** 
+- [Community.MarcusW.VncClient.Avalonia](https://www.nuget.org/packages/Community.MarcusW.VncClient.Avalonia) - Avalonia UI controls
+- [Community.MarcusW.VncClient.Blazor](https://www.nuget.org/packages/Community.MarcusW.VncClient.Blazor) - Blazor Server components (⚠️ Blazor WASM not supported due to TCP limitations)
 
 These libraries provide platform specific implementations for the mentioned interfaces and provide e.g. user controls that can just be dropped into an UI application to make use of the VNC library very easily. These libraries depend on the core VNC library as well as the corresponding UI library.
 
-**You can find the latest packages for every commit that's pushed to master on [GitHub Packages](https://github.com/MarcusWichelmann?tab=packages&repo_name=MarcusW.VncClient).**
+**You can find the latest packages for every commit that's pushed to master on [GitHub Packages](https://github.com/karbonbaron/MarcusW.VncClient/packages).**
 
 ## Support me!
 

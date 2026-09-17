@@ -121,8 +121,28 @@ namespace MarcusW.VncClient.Protocol.Implementation
             if (context == null)
                 throw new ArgumentNullException(nameof(context));
 
+            // Basic security types
             yield return new NoneSecurityType(context);
             yield return new VncAuthenticationSecurityType(context);
+            
+            // RSA-based authentication
+            yield return new Ra2SecurityType(context);
+            yield return new Ra2neSecurityType(context);
+            
+            // Extended authentication with additional features
+            yield return new TightSecurityType(context);
+            yield return new UltraSecurityType(context);
+            
+            // Encrypted transport security types
+            yield return new TlsSecurityType(context);
+            yield return new VeNCryptAuthenticationSecurityType(context);
+            yield return new SecureTunnelSecurityType(context);
+            yield return new IntegratedSshSecurityType(context);
+            
+            // SASL and other authentication methods
+            yield return new SaslSecurityType(context);
+            yield return new Md5SecurityType(context);
+            yield return new XvpSecurityType(context);
         }
 
         /// <summary>
@@ -143,15 +163,20 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new ServerCutTextMessageType(context);
             yield return new ServerFenceMessageType(context);
             yield return new EndOfContinuousUpdatesMessageType(context);
+            yield return new XvpServerMessageType(context);
 
             // Outgoing
+            yield return new SetPixelFormatMessageType();
             yield return new SetEncodingsMessageType();
             yield return new FramebufferUpdateRequestMessageType();
             yield return new ClientFenceMessageType();
             yield return new EnableContinuousUpdatesMessageType();
             yield return new PointerEventMessageType();
             yield return new KeyEventMessageType();
+            yield return new ClientCutTextMessageType();
             yield return new SetDesktopSizeMessageType(context);
+            yield return new XvpClientMessageType();
+            yield return new QemuClientMessageType();
         }
 
         /// <summary>
@@ -168,6 +193,9 @@ namespace MarcusW.VncClient.Protocol.Implementation
             // Frame
             yield return new RawEncodingType();
             yield return new CopyRectEncodingType();
+            yield return new RreEncodingType();
+            yield return new CorreEncodingType();
+            yield return new HextileEncodingType();
             yield return new ZLibEncodingType(context);
             yield return new ZrleEncodingType(context);
             if (IsTightAvailable)
@@ -185,6 +213,17 @@ namespace MarcusW.VncClient.Protocol.Implementation
             yield return new JpegSubsamplingLevelEncodingType(context);
             yield return new DesktopSizeEncodingType(context);
             yield return new ExtendedDesktopSizeEncodingType(context);
+            yield return new DesktopNameEncodingType(context);
+            yield return new CompressionLevelEncodingType(context);
+            yield return new XvpEncodingType();
+            yield return new CursorEncodingType(context);
+            yield return new XCursorEncodingType(context);
+            yield return new CursorWithAlphaEncodingType(context);
+            yield return new QemuExtendedKeyEventEncodingType(context);
+            yield return new QemuPointerMotionChangeEncodingType(context);
+            yield return new QemuLedStateEncodingType(context);
+            yield return new QemuAudioEncodingType(context);
+            yield return new ExtendedClipboardEncodingType(context);
         }
     }
 }

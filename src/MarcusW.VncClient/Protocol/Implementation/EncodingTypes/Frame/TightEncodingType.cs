@@ -68,7 +68,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
 
             // Create a cursor for the target framebuffer, if any framebuffer reference is available
             bool hasTargetFramebuffer = targetFramebuffer != null;
-            FramebufferCursor framebufferCursor = hasTargetFramebuffer ? new FramebufferCursor(targetFramebuffer!, rectangle) : default;
+            FramebufferCursor framebufferCursor = hasTargetFramebuffer ? new FramebufferCursor(targetFramebuffer!, rectangle,
+                remoteFramebufferFormat.TrueColor ? null : _context.GetState<ProtocolState>().RemoteFramebufferColorMap) : default;
 
             // Get the compression type
             if ((compressionControl & 128) == 0) // Basic compression
@@ -129,8 +130,10 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
                     break;
 
                 case 2: // GradientFilter
-                    // TODO: Implement Tight gradient filter
-                    throw new UnsupportedProtocolFeatureException("Tight basic compression gradient filters are not yet supported.");
+                    if (tPixelFormat.BitsPerPixel != 16 && tPixelFormat.BitsPerPixel != 32)
+                        throw new UnsupportedProtocolFeatureException("Tight gradient filter is only supported for 16 and 32 bpp.");
+                    ReadBasicCompressedGradientFilterRectangle(stream, hasTargetFramebuffer, ref framebufferCursor, rectangle, tPixelFormat, zlibStreamId);
+                    break;
 
                 default: throw new UnexpectedDataException($"Tight basic compression filter id of {filterId} is invalid.");
             }
@@ -269,6 +272,140 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             finally
             {
                 ArrayPool<byte>.Shared.Return(buffer);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+        private void ReadBasicCompressedGradientFilterRectangle(Stream stream, bool hasTargetFramebuffer, ref FramebufferCursor framebufferCursor, in Rectangle rectangle,
+            in PixelFormat tPixelFormat, int zlibStreamId)
+        {
+            int bytesPerPixel = tPixelFormat.BytesPerPixel;
+            int width = rectangle.Size.Width;
+            int height = rectangle.Size.Height;
+            int pixelsDataLength = width * height * bytesPerPixel;
+
+            // Get pixel data stream
+            Stream pixelDataStream = GetBasicCompressedPixelDataStream(stream, pixelsDataLength, zlibStreamId);
+
+            // Skip all pixel data if there is nothing to render to.
+            if (!hasTargetFramebuffer)
+            {
+                pixelDataStream.SkipAll(pixelsDataLength);
+                return;
+            }
+
+            // Rent buffers for the compressed data and a row of previous pixel values
+            byte[] pixelsBuffer = ArrayPool<byte>.Shared.Rent(pixelsDataLength);
+            byte[] prevRowBuffer = ArrayPool<byte>.Shared.Rent(width * bytesPerPixel);
+            byte[] currentRowBuffer = ArrayPool<byte>.Shared.Rent(width * bytesPerPixel);
+            Span<byte> pixelsSpan = pixelsBuffer.AsSpan().Slice(0, pixelsDataLength);
+            Span<byte> prevRow = prevRowBuffer.AsSpan().Slice(0, width * bytesPerPixel);
+            Span<byte> currentRow = currentRowBuffer.AsSpan().Slice(0, width * bytesPerPixel);
+
+            try
+            {
+                // Read all gradient-encoded pixel data
+                pixelDataStream.ReadAll(pixelsSpan);
+
+                // Initialize previous row to zero
+                prevRow.Clear();
+
+                // Get max values for each component
+                int redMax = tPixelFormat.RedMax;
+                int greenMax = tPixelFormat.GreenMax;
+                int blueMax = tPixelFormat.BlueMax;
+
+                // Process row by row
+                int pixelIndex = 0;
+                for (int y = 0; y < height; y++)
+                {
+                    // Initialize previous pixel in current row to zero
+                    int prevR = 0, prevG = 0, prevB = 0;
+                    int prevAboveR = 0, prevAboveG = 0, prevAboveB = 0;
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        // Read the gradient-encoded differences
+                        int diffR, diffG, diffB;
+                        if (bytesPerPixel == 3)
+                        {
+                            diffR = pixelsSpan[pixelIndex];
+                            diffG = pixelsSpan[pixelIndex + 1];
+                            diffB = pixelsSpan[pixelIndex + 2];
+                        }
+                        else // bytesPerPixel == 4
+                        {
+                            // For 32bpp TPIXEL format (R, G, B order)
+                            diffR = pixelsSpan[pixelIndex];
+                            diffG = pixelsSpan[pixelIndex + 1];
+                            diffB = pixelsSpan[pixelIndex + 2];
+                        }
+
+                        // Get the pixel above (from previous row)
+                        int aboveR = 0, aboveG = 0, aboveB = 0;
+                        if (y > 0)
+                        {
+                            int aboveIndex = x * bytesPerPixel;
+                            aboveR = prevRow[aboveIndex];
+                            aboveG = prevRow[aboveIndex + 1];
+                            aboveB = prevRow[aboveIndex + 2];
+                        }
+
+                        // Calculate the predicted value: P[i,j] = V[i-1,j] + V[i,j-1] - V[i-1,j-1]
+                        // Clamp to [0, MAX]
+                        int predictedR = Math.Clamp(prevR + aboveR - prevAboveR, 0, redMax);
+                        int predictedG = Math.Clamp(prevG + aboveG - prevAboveG, 0, greenMax);
+                        int predictedB = Math.Clamp(prevB + aboveB - prevAboveB, 0, blueMax);
+
+                        // Recover the original value: V[i,j] = D[i,j] + P[i,j]
+                        int r = (diffR + predictedR) & redMax;
+                        int g = (diffG + predictedG) & greenMax;
+                        int b = (diffB + predictedB) & blueMax;
+
+                        // Store in current row buffer
+                        int currentIndex = x * bytesPerPixel;
+                        currentRow[currentIndex] = (byte)r;
+                        currentRow[currentIndex + 1] = (byte)g;
+                        currentRow[currentIndex + 2] = (byte)b;
+                        if (bytesPerPixel == 4)
+                            currentRow[currentIndex + 3] = 0;
+
+                        // Update previous values for next iteration
+                        prevAboveR = aboveR;
+                        prevAboveG = aboveG;
+                        prevAboveB = aboveB;
+                        prevR = r;
+                        prevG = g;
+                        prevB = b;
+
+                        pixelIndex += bytesPerPixel;
+                    }
+
+                    // Write the decoded row to framebuffer
+                    unsafe
+                    {
+                        fixed (byte* rowPtr = currentRow)
+                        {
+                            for (int x = 0; x < width; x++)
+                            {
+                                framebufferCursor.SetPixel(rowPtr + x * bytesPerPixel, tPixelFormat);
+                                if (!framebufferCursor.GetEndReached())
+                                    framebufferCursor.MoveNext();
+                            }
+                        }
+                    }
+
+                    // Swap row buffers (can't use tuple swap with Span<byte>)
+                    var tempRow = prevRow;
+                    prevRow = currentRow;
+                    currentRow = tempRow;
+                }
+            }
+            finally
+            {
+                ArrayPool<byte>.Shared.Return(pixelsBuffer);
+                ArrayPool<byte>.Shared.Return(prevRowBuffer);
+                ArrayPool<byte>.Shared.Return(currentRowBuffer);
             }
         }
 

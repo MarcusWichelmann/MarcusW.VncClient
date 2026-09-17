@@ -19,6 +19,8 @@ namespace MarcusW.VncClient.Protocol.MessageTypes
         KeepAlive = 13,
         EndOfContinuousUpdates = 150,
         ServerState = 173,
-        ServerFence = 248
+        ServerFence = 248,
+        XvpServer = 250,
+        QemuServer = 255
     }
 }

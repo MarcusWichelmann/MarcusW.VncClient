@@ -1,0 +1,32 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with Avalonia-inspired purple -->
+  <circle cx="64" cy="64" r="60" fill="#8E44AD" stroke="#3498DB" stroke-width="4"/>
+  
+  <!-- Desktop application window frame -->
+  <rect x="15" y="25" width="60" height="45" rx="5" fill="#3498DB" stroke="#2C3E50" stroke-width="2"/>
+  <!-- Title bar -->
+  <rect x="15" y="25" width="60" height="8" rx="5" fill="#2C3E50"/>
+  <!-- Window buttons -->
+  <circle cx="69" cy="29" r="2" fill="#E74C3C"/>
+  <circle cx="63" cy="29" r="2" fill="#F39C12"/>
+  <circle cx="57" cy="29" r="2" fill="#27AE60"/>
+  <!-- Screen content -->
+  <rect x="18" y="36" width="54" height="31" fill="#1A1A1A"/>
+  
+  <!-- Remote screen (smaller) -->
+  <rect x="53" y="58" width="45" height="32" rx="4" fill="#9B59B6" stroke="#8E44AD" stroke-width="2"/>
+  <rect x="56" y="61" width="39" height="26" fill="#1A1A1A"/>
+  
+  <!-- Connection line -->
+  <path d="M50 50 L53 65" stroke="#3498DB" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498DB"/>
+    </marker>
+  </defs>
+  
+  <!-- "A" for Avalonia -->
+  <text x="64" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">A</text>
+</svg>

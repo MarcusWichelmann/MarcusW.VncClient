@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -11,27 +11,38 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Product>MarcusW VNC-Client</Product>
-        <VersionNumber>1.0.0-alpha4</VersionNumber>
-        <Title>High-performance cross-platform VNC-Client library for C#</Title>
-        <Authors>Marcus Wichelmann</Authors>
-        <Company>Marcus Wichelmann</Company>
-        <Copyright>Copyright 2020 © Marcus Wichelmann</Copyright>
-        <PackageTags>VNC;RFB;Client;Library;Performance;Modular;Cross-Plattform;Avalonia;WPF</PackageTags>
-        <PackageProjectUrl>http://vnc-client.marcusw.de</PackageProjectUrl>
+        <Product>MarcusW VNC-Client (Community Fork)</Product>
+        <VersionNumber>2.0.8</VersionNumber>
+        <Title>High-performance cross-platform VNC-Client library for .NET</Title>
+        <Authors>Marcus Wichelmann, Community Contributors</Authors>
+        <Company>Community Maintained</Company>
+        <Copyright>Copyright 2020-2026 © Marcus Wichelmann and Contributors</Copyright>
+        <PackageTags>VNC;RFB;Client;Library;Performance;Modular;Cross-Platform;Remote-Desktop;Protocol</PackageTags>
+        <PackageProjectUrl>https://github.com/karbonbaron/MarcusW.VncClient</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageReleaseNotes>https://github.com/MarcusWichelmann/MarcusW.VncClient/releases</PackageReleaseNotes>
-        <RepositoryUrl>https://github.com/MarcusWichelmann/MarcusW.VncClient</RepositoryUrl>
+        <PackageReleaseNotes>https://github.com/karbonbaron/MarcusW.VncClient/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/karbonbaron/MarcusW.VncClient</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
 
     <PropertyGroup>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Package Validation - disabled for Extended packages (no baseline exists yet) -->
+        <EnablePackageValidation>false</EnablePackageValidation>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
     </PropertyGroup>
 
     <PropertyGroup>
         <Version>$(VersionNumber)</Version>
         <Version Condition=" '$(BuildNumber)' != '' ">$(VersionNumber)-$(BuildNumber)</Version>
+        <AssemblyVersion>$(VersionNumber.Split('-')[0])</AssemblyVersion>
+        <FileVersion>$(VersionNumber.Split('-')[0])</FileVersion>
     </PropertyGroup>
 </Project>

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Protocol.MessageTypes;
@@ -10,6 +11,7 @@ namespace MarcusW.VncClient.Protocol.Services
     /// </summary>
     public interface IRfbMessageSender : IBackgroundThread
     {
+
         /// <summary>
         /// Starts the send loop.
         /// </summary>
@@ -42,6 +44,7 @@ namespace MarcusW.VncClient.Protocol.Services
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <typeparam name="TMessageType">The type of the message.</typeparam>
         /// <remarks>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <see cref="RfbConnection.UsedMessageTypes"/>.</remarks>
+        [Obsolete("Prefer SendMessageAndWaitAsync to avoid sync-over-async blocking. This method exists for backward compatibility.")]
         void SendMessageAndWait<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default) where TMessageType : class, IOutgoingMessageType;
 
         /// <summary>
@@ -52,5 +55,22 @@ namespace MarcusW.VncClient.Protocol.Services
         /// <typeparam name="TMessageType">The type of the message.</typeparam>
         /// <remarks>Please ensure the outgoing message type is marked as being supported by both sides before sending it. See <see cref="RfbConnection.UsedMessageTypes"/>.</remarks>
         Task SendMessageAndWaitAsync<TMessageType>(IOutgoingMessage<TMessageType> message, CancellationToken cancellationToken = default) where TMessageType : class, IOutgoingMessageType;
+
+        /// <summary>
+        /// Enqueues a framebuffer update request with throttling based on <see cref="ConnectParameters.FramebufferUpdateDelay"/>.
+        /// </summary>
+        /// <param name="rectangle">The rectangle to request an update for.</param>
+        /// <param name="incremental">Whether this is an incremental update request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        void EnqueueFramebufferUpdateRequest(Rectangle rectangle, bool incremental, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Enqueues a framebuffer update request with a specific delay, ignoring global throttle settings.
+        /// </summary>
+        /// <param name="rectangle">The rectangle to request an update for.</param>
+        /// <param name="incremental">Whether this is an incremental update request.</param>
+        /// <param name="delay">The delay before sending the request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        void EnqueueFramebufferUpdateRequestDelayed(Rectangle rectangle, bool incremental, TimeSpan delay, CancellationToken cancellationToken = default);
     }
 }

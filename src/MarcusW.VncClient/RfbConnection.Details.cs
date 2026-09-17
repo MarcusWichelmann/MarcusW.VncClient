@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Immutable;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Protocol.EncodingTypes;
@@ -12,36 +13,31 @@ namespace MarcusW.VncClient
         // The properties in this class serve only the purpose to inform the API consumer about some connection details.
         // Classes that are part of the protocol implementation should have their own state somewhere else and not have
         // to use below properties to avoid unnecessary locking.
+        //
+        // Reference types use volatile for lock-free atomic read/write.
+        // Value types (structs, primitives) that are larger than pointer size use per-property locks
+        // to prevent tearing during concurrent reads/writes.
 
         private readonly object _protocolVersionLock = new object();
         private RfbProtocolVersion _protocolVersion = RfbProtocolVersion.Unknown;
 
-        private readonly object _usedSecurityTypeLock = new object();
-        private ISecurityType? _usedSecurityType;
+        // Reference types: volatile is sufficient for atomic read/write
+        private volatile ISecurityType? _usedSecurityType;
+        private volatile IImmutableSet<IMessageType> _usedMessageTypes = ImmutableHashSet<IMessageType>.Empty;
+        private volatile IImmutableSet<IEncodingType> _usedEncodingTypes = ImmutableHashSet<IEncodingType>.Empty;
+        private volatile IImmutableSet<Screen> _remoteFramebufferLayout = ImmutableHashSet<Screen>.Empty;
+        private volatile string? _desktopName;
 
-        private readonly object _usedMessageTypesLock = new object();
-        private IImmutableSet<IMessageType> _usedMessageTypes = ImmutableHashSet<IMessageType>.Empty;
-
-        private readonly object _usedEncodingTypesLock = new object();
-        private IImmutableSet<IEncodingType> _usedEncodingTypes = ImmutableHashSet<IEncodingType>.Empty;
-
+        // Value types: require locks for atomic read/write (structs may be larger than pointer size)
         private readonly object _remoteFramebufferSizeLock = new object();
         private Size _remoteFramebufferSize = Size.Zero;
 
         private readonly object _remoteFramebufferFormatLock = new object();
         private PixelFormat _remoteFramebufferFormat = PixelFormat.Unknown;
 
-        private readonly object _remoteFramebufferLayoutLock = new object();
-        private IImmutableSet<Screen> _remoteFramebufferLayout = ImmutableHashSet<Screen>.Empty;
-
-        private readonly object _desktopNameLock = new object();
-        private string? _desktopName;
-
-        private readonly object _desktopIsResizableLock = new object();
-        private bool _desktopIsResizable = false;
-
-        private readonly object _continuousUpdatesEnabledLock = new object();
-        private bool _continuousUpdatesEnabled = false;
+        // bool is atomically accessible, but we use volatile for memory ordering
+        private volatile bool _desktopIsResizable;
+        private volatile bool _continuousUpdatesEnabled;
 
         /// <summary>
         /// Gets the version of the protocol used for remote communication.
@@ -59,8 +55,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public ISecurityType? UsedSecurityType
         {
-            get => GetWithLock(ref _usedSecurityType, _usedSecurityTypeLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _usedSecurityType, value, _usedSecurityTypeLock);
+            get => _usedSecurityType;
+            internal set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_usedSecurityType, value)) return;
+                _usedSecurityType = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -69,8 +71,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public IImmutableSet<IMessageType> UsedMessageTypes
         {
-            get => GetWithLock(ref _usedMessageTypes, _usedMessageTypesLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _usedMessageTypes, value, _usedMessageTypesLock);
+            get => _usedMessageTypes;
+            internal set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_usedMessageTypes, value)) return;
+                _usedMessageTypes = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -79,8 +87,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public IImmutableSet<IEncodingType> UsedEncodingTypes
         {
-            get => GetWithLock(ref _usedEncodingTypes, _usedEncodingTypesLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _usedEncodingTypes, value, _usedEncodingTypesLock);
+            get => _usedEncodingTypes;
+            internal set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_usedEncodingTypes, value)) return;
+                _usedEncodingTypes = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -109,8 +123,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public IImmutableSet<Screen> RemoteFramebufferLayout
         {
-            get => GetWithLock(ref _remoteFramebufferLayout, _remoteFramebufferLayoutLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _remoteFramebufferLayout, value, _remoteFramebufferLayoutLock);
+            get => _remoteFramebufferLayout;
+            internal set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_remoteFramebufferLayout, value)) return;
+                _remoteFramebufferLayout = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -119,8 +139,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public string? DesktopName
         {
-            get => GetWithLock(ref _desktopName, _desktopNameLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _desktopName, value, _desktopNameLock);
+            get => _desktopName;
+            internal set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (string.Equals(_desktopName, value, StringComparison.Ordinal)) return;
+                _desktopName = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -129,8 +155,16 @@ namespace MarcusW.VncClient
         /// </summary>
         public bool DesktopIsResizable
         {
-            get => GetWithLock(ref _desktopIsResizable, _desktopIsResizableLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _desktopIsResizable, value, _desktopIsResizableLock);
+            get => _desktopIsResizable;
+            internal set
+            {
+                if (_disposed)
+                    throw new ObjectDisposedException(nameof(RfbConnection));
+                if (_desktopIsResizable == value)
+                    return;
+                _desktopIsResizable = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -139,8 +173,16 @@ namespace MarcusW.VncClient
         /// </summary>
         public bool ContinuousUpdatesEnabled
         {
-            get => GetWithLock(ref _continuousUpdatesEnabled, _continuousUpdatesEnabledLock);
-            internal set => RaiseAndSetIfChangedWithLock(ref _continuousUpdatesEnabled, value, _continuousUpdatesEnabledLock);
+            get => _continuousUpdatesEnabled;
+            internal set
+            {
+                if (_disposed)
+                    throw new ObjectDisposedException(nameof(RfbConnection));
+                if (_continuousUpdatesEnabled == value)
+                    return;
+                _continuousUpdatesEnabled = value;
+                NotifyPropertyChanged();
+            }
         }
     }
 }

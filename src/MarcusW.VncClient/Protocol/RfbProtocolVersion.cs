@@ -32,7 +32,12 @@ namespace MarcusW.VncClient.Protocol
         /// <summary>
         /// RFB 3.8
         /// </summary>
-        RFB_3_8 = 38
+        RFB_3_8 = 38,
+
+        /// <summary>
+        /// RFB 3.9 (forward compatibility)
+        /// </summary>
+        RFB_3_9 = 39
     }
 
     /// <summary>
@@ -56,6 +61,7 @@ namespace MarcusW.VncClient.Protocol
                 "RFB 003.005" => RfbProtocolVersion.RFB_3_3, // Interpret as 3.3
                 "RFB 003.007" => RfbProtocolVersion.RFB_3_7,
                 "RFB 003.008" => RfbProtocolVersion.RFB_3_8,
+                "RFB 003.009" => RfbProtocolVersion.RFB_3_9,
                 _             => RfbProtocolVersion.Unknown
             };
     }
@@ -76,6 +82,7 @@ namespace MarcusW.VncClient.Protocol
                 RfbProtocolVersion.RFB_3_3 => "RFB 003.003",
                 RfbProtocolVersion.RFB_3_7 => "RFB 003.007",
                 RfbProtocolVersion.RFB_3_8 => "RFB 003.008",
+                RfbProtocolVersion.RFB_3_9 => "RFB 003.009",
                 _                          => throw new InvalidEnumArgumentException(nameof(protocolVersion), (int)protocolVersion, typeof(RfbProtocolVersion))
             };
 
@@ -90,6 +97,7 @@ namespace MarcusW.VncClient.Protocol
                 RfbProtocolVersion.RFB_3_3 => "RFB 3.3",
                 RfbProtocolVersion.RFB_3_7 => "RFB 3.7",
                 RfbProtocolVersion.RFB_3_8 => "RFB 3.8",
+                RfbProtocolVersion.RFB_3_9 => "RFB 3.9",
                 _                          => throw new InvalidEnumArgumentException(nameof(protocolVersion), (int)protocolVersion, typeof(RfbProtocolVersion))
             };
     }

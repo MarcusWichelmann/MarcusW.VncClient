@@ -5,9 +5,9 @@ using Avalonia.Markup.Xaml;
 
 namespace AvaloniaVncClient.Views.Dialogs
 {
-    public class EnterPasswordDialog : Window
+    public partial class EnterPasswordDialog : Window
     {
-        private TextBox PasswordTextBox => this.FindControl<TextBox>("PasswordTextBox");
+        private TextBox _PasswordTextBox => this.FindControl<TextBox>("PasswordTextBox");
 
         public EnterPasswordDialog()
         {
@@ -26,7 +26,7 @@ namespace AvaloniaVncClient.Views.Dialogs
 
         public void OnOkClick(object sender, RoutedEventArgs e)
         {
-            Close(PasswordTextBox.Text);
+            Close(_PasswordTextBox.Text);
         }
     }
 }

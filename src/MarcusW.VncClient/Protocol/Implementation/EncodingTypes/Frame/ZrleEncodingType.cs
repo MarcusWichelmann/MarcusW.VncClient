@@ -149,7 +149,8 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
 
             // Create a cursor for this tile on the target framebuffer, if any framebuffer reference is available
             bool hasTargetFramebuffer = targetFramebuffer != null;
-            FramebufferCursor framebufferCursor = hasTargetFramebuffer ? new FramebufferCursor(targetFramebuffer!, tile) : default;
+            FramebufferCursor framebufferCursor = hasTargetFramebuffer ? new FramebufferCursor(targetFramebuffer!, tile,
+                cPixelFormat.TrueColor ? null : _context.GetState<ProtocolState>().RemoteFramebufferColorMap) : default;
 
             // Read tile based on the subencoding type
             if (!isRunLengthEncoded)

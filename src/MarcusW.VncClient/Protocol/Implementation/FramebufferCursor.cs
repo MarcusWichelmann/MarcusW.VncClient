@@ -13,6 +13,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         public PixelFormat FramebufferFormat { get; }
         public Rectangle Rectangle { get; }
         public byte BytesPerPixel { get; }
+        public ColorMap? ColorMap { get; }
 
         public int FramebufferLineBytes { get; }
 
@@ -31,9 +32,10 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// </summary>
         /// <param name="framebufferReference">The target framebuffer reference.</param>
         /// <param name="rectangle">The target rectangle.</param>
-        public FramebufferCursor(IFramebufferReference framebufferReference, in Rectangle rectangle) : this(
+        /// <param name="colorMap">The color map to use for indexed color conversions (null for true color formats).</param>
+        public FramebufferCursor(IFramebufferReference framebufferReference, in Rectangle rectangle, ColorMap? colorMap = null) : this(
             (byte*)(framebufferReference ?? throw new ArgumentNullException(nameof(framebufferReference))).Address, framebufferReference.Format, framebufferReference.Size,
-            rectangle) { }
+            rectangle, colorMap) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FramebufferCursor"/> structure.
@@ -42,7 +44,8 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <param name="framebufferFormat">The framebuffer format.</param>
         /// <param name="framebufferSize">The framebuffer size.</param>
         /// <param name="rectangle">The target rectangle.</param>
-        public FramebufferCursor(byte* framebufferPtr, in PixelFormat framebufferFormat, in Size framebufferSize, in Rectangle rectangle)
+        /// <param name="colorMap">The color map to use for indexed color conversions (null for true color formats).</param>
+        public FramebufferCursor(byte* framebufferPtr, in PixelFormat framebufferFormat, in Size framebufferSize, in Rectangle rectangle, ColorMap? colorMap = null)
         {
             // Rectangle size must not be zero
             if (rectangle.IsEmpty())
@@ -55,6 +58,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             FramebufferFormat = framebufferFormat;
             Rectangle = rectangle;
             BytesPerPixel = framebufferFormat.BytesPerPixel;
+            ColorMap = colorMap;
 
             FramebufferLineBytes = framebufferSize.Width * BytesPerPixel;
 
@@ -138,7 +142,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public void SetPixel(byte* pixelData, in PixelFormat pixelFormat)
         {
-            PixelConversions.WritePixel(pixelData, pixelFormat, _positionPtr, FramebufferFormat);
+            PixelConversions.WritePixel(pixelData, pixelFormat, _positionPtr, FramebufferFormat, ColorMap);
         }
 
         /// <summary>
@@ -164,7 +168,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         {
             // Convert the pixel once
             uint targetPixel;
-            PixelConversions.WritePixel(pixelData, pixelFormat, (byte*)&targetPixel, FramebufferFormat);
+            PixelConversions.WritePixel(pixelData, pixelFormat, (byte*)&targetPixel, FramebufferFormat, ColorMap);
 
             // Set all the pixels to the same color
             for (var i = 0; i < numPixels; i++)

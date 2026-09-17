@@ -27,6 +27,8 @@ namespace MarcusW.VncClient.Protocol.MessageTypes
         NotifyPluginStreaming = 80,
         EnableContinuousUpdates = 150,
         ClientFence = 248,
-        SetDesktopSize = 251
+        XvpClient = 250,
+        SetDesktopSize = 251,
+        QemuClient = 255
     }
 }

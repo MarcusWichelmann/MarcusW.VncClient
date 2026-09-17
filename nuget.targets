@@ -1,0 +1,23 @@
+<Project>
+  <!-- NuGet Packaging Targets for MarcusW.VncClient -->
+  
+  <Target Name="ValidatePackaging" BeforeTargets="Pack">
+    <Message Text="Validating NuGet package configuration..." Importance="high" />
+    <Warning Text="PackageIcon is not set for project $(MSBuildProjectName)" Condition="'$(PackageIcon)' == ''" />
+    <Warning Text="PackageReadmeFile is not set for project $(MSBuildProjectName)" Condition="'$(PackageReadmeFile)' == ''" />
+    <Warning Text="Description is not set for project $(MSBuildProjectName)" Condition="'$(Description)' == ''" />
+  </Target>
+  
+  <Target Name="EnsurePackageFiles" BeforeTargets="Pack">
+    <ItemGroup>
+      <None Include="$(PackageIcon)" Pack="true" PackagePath="/" Condition="'$(PackageIcon)' != '' AND !Exists('$(PackageIcon)')" />
+      <None Include="$(PackageReadmeFile)" Pack="true" PackagePath="/" Condition="'$(PackageReadmeFile)' != '' AND !Exists('$(PackageReadmeFile)')" />
+    </ItemGroup>
+  </Target>
+  
+  <Target Name="ShowPackageInfo" AfterTargets="Pack">
+    <Message Text="✅ Successfully packed $(PackageId) v$(PackageVersion)" Importance="high" />
+    <Message Text="📁 Package location: $(PackageOutputPath)" Importance="high" />
+  </Target>
+  
+</Project>

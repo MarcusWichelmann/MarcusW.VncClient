@@ -1,0 +1,6 @@
+{
+  "configProperties": {
+    "System.Threading.ThreadPool.UnfairSemaphoreSpinLimit": 6,
+    "System.Threading.ThreadPool.EnableWorkerTracking": false
+  }
+}

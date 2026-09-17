@@ -99,7 +99,12 @@ namespace MarcusW.VncClient.Utils
                 // Do your work...
                 ThreadWorker(cancellationToken);
             }
-            catch (Exception exception) when (!(exception is OperationCanceledException || exception is ThreadAbortException))
+            catch (OperationCanceledException)
+            {
+                // Cancellation is expected during shutdown - don't treat as an error
+                // This prevents unhandled exceptions from terminating the application
+            }
+            catch (Exception exception)
             {
                 Failed?.Invoke(this, new BackgroundThreadFailedEventArgs(exception));
             }
@@ -122,18 +127,24 @@ namespace MarcusW.VncClient.Utils
             {
                 try
                 {
-                    // Ensure the thread is stopped
+                    // Ensure the thread is stopped via cooperative cancellation
                     _stopCts.Cancel();
                     if (_thread.IsAlive)
                     {
-                        // Block and wait for completion or hard-kill the thread after 1 second
-                        if (!_thread.Join(TimeSpan.FromSeconds(1)))
-                            _thread.Abort();
+                        // Wait for the thread to complete gracefully.
+                        // Thread.Abort() is not supported in .NET Core/.NET 5+.
+                        // The thread is marked IsBackground=true, so it will be
+                        // terminated automatically when the process exits.
+                        if (!_thread.Join(TimeSpan.FromSeconds(3)))
+                        {
+                            Debug.WriteLine($"Background thread '{_thread.Name}' did not stop within the timeout. " +
+                                "It will be terminated when the process exits (IsBackground=true).");
+                        }
                     }
                 }
                 catch
                 {
-                    // Ignore
+                    // Ignore exceptions during shutdown
                 }
 
                 // Just to be sure...

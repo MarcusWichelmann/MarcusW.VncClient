@@ -7,21 +7,25 @@ namespace AvaloniaVncClient
 {
     public class ViewLocator : IDataTemplate
     {
-        public bool SupportsRecycling => false;
-
-        public IControl Build(object data)
+        public Control? Build(object? param)
         {
-            var viewName = data.GetType().FullName?.Replace("ViewModel", "View");
-            if (viewName == null)
-                return new TextBlock { Text = "Not Found" };
+            if (param is null)
+                return null;
 
-            var viewType = Type.GetType(viewName);
-            if (viewType == null)
-                return new TextBlock { Text = "Not Found: " + viewName };
+            var name = param.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
+            var type = Type.GetType(name);
 
-            return (Control)Activator.CreateInstance(viewType)!;
+            if (type != null)
+            {
+                return (Control)Activator.CreateInstance(type)!;
+            }
+
+            return new TextBlock { Text = "Not Found: " + name };
         }
 
-        public bool Match(object data) => data is ViewModelBase;
+        public bool Match(object? data)
+        {
+            return data is ViewModelBase;
+        }
     }
 }

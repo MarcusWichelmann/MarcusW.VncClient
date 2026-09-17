@@ -1,4 +1,5 @@
-<reactiveUi:ReactiveWindow x:TypeArguments="vm:MainWindowViewModel"
+<reactiveUi:ReactiveUserControl x:TypeArguments="vm:MainWindowViewModel"
+                           x:Class="AvaloniaVncClient.Views.MainView"
                            xmlns="https://github.com/avaloniaui"
                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                            xmlns:vm="clr-namespace:AvaloniaVncClient.ViewModels;assembly=AvaloniaVncClient"
@@ -7,11 +8,7 @@
                            xmlns:vnc="clr-namespace:MarcusW.VncClient.Avalonia;assembly=MarcusW.VncClient.Avalonia"
                            xmlns:vncconverters="clr-namespace:MarcusW.VncClient.Avalonia.Converters;assembly=MarcusW.VncClient.Avalonia"
                            xmlns:reactiveUi="http://reactiveui.net"
-                           mc:Ignorable="d" Width="1400" Height="1000"
-                           x:Class="AvaloniaVncClient.Views.MainWindow"
-                           Icon="/Assets/avalonia-logo.ico"
-                           Title="Avalonia VNC Client">
-
+                           mc:Ignorable="d" Width="1400" Height="1000">
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
@@ -50,7 +47,7 @@
                 IsVisible="{Binding RfbConnection, Converter={x:Static ObjectConverters.IsNotNull}}">
             <Grid RowDefinitions="Auto,*,Auto,*,Auto" Margin="10">
                 <TextBlock Grid.Row="0" Margin="0,0,0,10" FontWeight="Bold" Text="Used Message Types:" />
-                <ListBox Grid.Row="1" Margin="0,0,0,10" Items="{Binding RfbConnection.UsedMessageTypes}" BorderThickness="0">
+                <ListBox Grid.Row="1" Margin="0,0,0,10" ItemsSource="{Binding RfbConnection.UsedMessageTypes}" BorderThickness="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
@@ -58,7 +55,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <TextBlock Grid.Row="2" Margin="0,0,0,10" FontWeight="Bold" Text="Used Encoding Types:" />
-                <ListBox Grid.Row="3" Items="{Binding RfbConnection.UsedEncodingTypes}" BorderThickness="0">
+                <ListBox Grid.Row="3" ItemsSource="{Binding RfbConnection.UsedEncodingTypes}" BorderThickness="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
@@ -84,4 +81,4 @@
         </ScrollViewer>
     </DockPanel>
 
-</reactiveUi:ReactiveWindow>
+</reactiveUi:ReactiveUserControl>

@@ -21,10 +21,38 @@ namespace MarcusW.VncClient.Protocol.Implementation
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static unsafe void WritePixel(byte* pixelPtr, in PixelFormat pixelFormat, byte* targetPtr, in PixelFormat targetFormat)
         {
-            if (!pixelFormat.TrueColor || !targetFormat.TrueColor)
-                throw new InvalidOperationException("Pixel formats with color maps cannot be converted.");
-            if (pixelFormat.BitsPerPixel > 32 || targetFormat.BitsPerPixel > 32)
-                throw new InvalidOperationException("This conversion algorithm doesn't support pixel formats with more than 32bpp.");
+            WritePixel(pixelPtr, pixelFormat, targetPtr, targetFormat, null);
+        }
+
+        /// <summary>
+        /// Reads pixel data from <paramref name="pixelPtr"/>, converts it to <paramref name="targetFormat"/> and writes it to the target buffer.
+        /// </summary>
+        /// <param name="pixelPtr">The position of the source pixel data.</param>
+        /// <param name="pixelFormat">The format of the source pixel data.</param>
+        /// <param name="targetPtr">The position for the target pixel data.</param>
+        /// <param name="targetFormat">The format for the target pixel data.</param>
+        /// <param name="colorMap">The color map to use for indexed color conversion (required if source format is not true color).</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+        public static unsafe void WritePixel(byte* pixelPtr, in PixelFormat pixelFormat, byte* targetPtr, in PixelFormat targetFormat, ColorMap? colorMap)
+        {
+            // Handle indexed color source format
+            if (!pixelFormat.TrueColor)
+            {
+                if (colorMap == null)
+                    throw new InvalidOperationException("Color map is required for indexed color pixel formats.");
+                if (!targetFormat.TrueColor)
+                    throw new InvalidOperationException("Cannot convert between indexed color formats.");
+
+                WriteIndexedPixel(pixelPtr, pixelFormat, targetPtr, targetFormat, colorMap);
+                return;
+            }
+
+            // Handle indexed color target format (not supported)
+            if (!targetFormat.TrueColor)
+                throw new InvalidOperationException("Converting to indexed color formats is not supported.");
+
+            if (pixelFormat.BitsPerPixel > 64 || targetFormat.BitsPerPixel > 64)
+                throw new InvalidOperationException("This conversion algorithm doesn't support pixel formats with more than 64bpp.");
 
             // Try the fast path for 1:1 conversions
             if (WritePixelFastPath(pixelPtr, pixelFormat, targetPtr, targetFormat))
@@ -176,6 +204,57 @@ namespace MarcusW.VncClient.Protocol.Implementation
 
             // Add the value to the result
             dstValue |= value << dstShift;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
+        private static unsafe void WriteIndexedPixel(byte* pixelPtr, in PixelFormat pixelFormat, byte* targetPtr, in PixelFormat targetFormat, ColorMap colorMap)
+        {
+            // Read the index value from the source pixel
+            uint indexValue;
+            switch (pixelFormat.BitsPerPixel)
+            {
+                case 8:
+                    indexValue = *pixelPtr;
+                    break;
+                case 16:
+                    var u16 = Unsafe.AsRef<ushort>(pixelPtr);
+                    if (pixelFormat.BigEndian)
+                        u16 = BinaryPrimitives.ReverseEndianness(u16);
+                    indexValue = u16;
+                    break;
+                case 32:
+                    var u32 = Unsafe.AsRef<uint>(pixelPtr);
+                    if (pixelFormat.BigEndian)
+                        u32 = BinaryPrimitives.ReverseEndianness(u32);
+                    indexValue = u32;
+                    break;
+                default:
+                    throw new InvalidOperationException($"Indexed pixel conversion doesn't support {pixelFormat.BitsPerPixel}bpp.");
+            }
+
+            // Convert the indexed pixel to true color using the color map
+            uint trueColorPixel = colorMap.ConvertIndexedPixel(indexValue, targetFormat);
+
+            // Write the true color pixel to the target buffer
+            switch (targetFormat.BitsPerPixel)
+            {
+                case 32:
+                    if (targetFormat.BigEndian)
+                        trueColorPixel = BinaryPrimitives.ReverseEndianness(trueColorPixel);
+                    Unsafe.Write(targetPtr, trueColorPixel);
+                    break;
+                case 16:
+                    var targetU16 = (ushort)trueColorPixel;
+                    if (targetFormat.BigEndian)
+                        targetU16 = BinaryPrimitives.ReverseEndianness(targetU16);
+                    Unsafe.Write(targetPtr, targetU16);
+                    break;
+                case 8:
+                    Unsafe.Write(targetPtr, (byte)trueColorPixel);
+                    break;
+                default:
+                    throw new InvalidOperationException($"Indexed pixel conversion doesn't support target {targetFormat.BitsPerPixel}bpp.");
+            }
         }
     }
 }

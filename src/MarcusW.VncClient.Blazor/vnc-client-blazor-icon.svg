@@ -1,0 +1,39 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with Blazor-inspired colors -->
+  <circle cx="64" cy="64" r="60" fill="#512BD4" stroke="#FF6600" stroke-width="4"/>
+  
+  <!-- Browser window frame -->
+  <rect x="12" y="25" width="65" height="50" rx="6" fill="#FF6600" stroke="#E55A00" stroke-width="2"/>
+  <!-- Browser address bar -->
+  <rect x="12" y="25" width="65" height="10" rx="6" fill="#E55A00"/>
+  <!-- Address bar content -->
+  <rect x="16" y="28" width="25" height="4" rx="2" fill="white"/>
+  <!-- Browser buttons -->
+  <circle cx="68" cy="30" r="2" fill="#FF4444"/>
+  <circle cx="62" cy="30" r="2" fill="#FFAA44"/>
+  <circle cx="56" cy="30" r="2" fill="#44AA44"/>
+  <!-- Web content area -->
+  <rect x="15" y="38" width="59" height="34" fill="#1A1A1A"/>
+  
+  <!-- Remote VNC screen -->
+  <rect x="55" y="55" width="45" height="32" rx="4" fill="#6F42C1" stroke="#512BD4" stroke-width="2"/>
+  <rect x="58" y="58" width="39" height="26" fill="#1A1A1A"/>
+  
+  <!-- Network/web connection indicator -->
+  <path d="M45 55 L55 65" stroke="#FF6600" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Connection dots (network) -->
+  <circle cx="35" cy="50" r="2" fill="#FF6600"/>
+  <circle cx="41" cy="48" r="2" fill="#FF6600"/>
+  <circle cx="47" cy="52" r="2" fill="#FF6600"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF6600"/>
+    </marker>
+  </defs>
+  
+  <!-- "B" for Blazor -->
+  <text x="64" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">B</text>
+</svg>

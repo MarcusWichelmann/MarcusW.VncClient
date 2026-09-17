@@ -53,7 +53,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
 
             var wholeScreenRectangle = new Rectangle(Position.Origin, newSize);
 
-            _logger.LogDebug("Remote framebuffer size updated to {newSize}.", newSize);
+            // Removed desktop size update debug logging for production use
 
             // Set the new framebuffer size
             _state.RemoteFramebufferSize = newSize;
@@ -68,8 +68,9 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
             if (_state.ServerSupportsContinuousUpdates && _state.ContinuousUpdatesEnabled)
                 _context.MessageSender.EnqueueMessage(new EnableContinuousUpdatesMessage(true, wholeScreenRectangle));
 
-            // Request a whole-screen non-incremental update just to be sure. The protocol explicitly allows this.
-            _context.MessageSender.EnqueueMessage(new FramebufferUpdateRequestMessage(false, wholeScreenRectangle));
+            // Use centralized throttled request - respects DesktopResizeUpdateDelay from ConnectParameters
+            var delay = _context.Connection.Parameters.DesktopResizeUpdateDelay;
+            _context.MessageSender.EnqueueFramebufferUpdateRequestDelayed(wholeScreenRectangle, incremental: false, delay);
         }
     }
 }

@@ -1,12 +1,12 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using MarcusW.VncClient.Output;
 using MarcusW.VncClient.Protocol;
 using MarcusW.VncClient.Rendering;
+using MarcusW.VncClient.Security;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient
@@ -18,16 +18,15 @@ namespace MarcusW.VncClient
     {
         private readonly ILogger<RfbConnection> _logger;
 
-        private readonly object _renderTargetLock = new object();
-        private IRenderTarget? _renderTarget;
+        // For reference-type properties, volatile is sufficient for atomic read/write.
+        // The RaiseAndSetIfChanged helper uses Interlocked.CompareExchange for the compare-and-swap pattern.
+        private volatile IRenderTarget? _renderTarget;
+        private volatile IOutputHandler? _outputHandler;
+        private volatile ICursorHandler? _cursorHandler;
+        private volatile Exception? _interruptionCause;
 
-        private readonly object _outputHandlerLock = new object();
-        private IOutputHandler? _outputHandler;
-
-        private readonly object _interruptionCauseLock = new object();
-        private Exception? _interruptionCause;
-
-        private ConnectionState _connectionState = ConnectionState.Uninitialized;
+        // Stored as int for safe use with Interlocked operations (avoids Unsafe.As<ConnectionState, int>).
+        private int _connectionStateValue = (int)ConnectionState.Uninitialized;
 
         private readonly object _startedLock = new object();
         private bool _started;
@@ -38,6 +37,11 @@ namespace MarcusW.VncClient
         private Task? _reconnectTask;
 
         private volatile bool _disposed;
+
+        /// <summary>
+        /// Tracks the number of reconnect attempts (1-based).
+        /// </summary>
+        private int _reconnectAttemptCount;
 
         /// <summary>
         /// Gets the used RFB protocol implementation.
@@ -55,13 +59,34 @@ namespace MarcusW.VncClient
         public ConnectParameters Parameters { get; }
 
         /// <summary>
+        /// Gets the authentication handler that should be used for handshakes on this connection.
+        /// Wraps the user-provided handler and caches inputs for reuse on automatic reconnects,
+        /// if enabled via <see cref="ConnectParameters.ReuseAuthenticationInputOnReconnect"/>.
+        /// </summary>
+        /// <remarks>
+        /// Created lazily because handshakes only happen after the parameters have been validated,
+        /// which guarantees a non-null <see cref="ConnectParameters.AuthenticationHandler"/>.
+        /// Lazy initialization is safe here since handshakes are synchronized by the connection management semaphore.
+        /// </remarks>
+        internal IAuthenticationHandler AuthenticationHandler
+            => _cachingAuthenticationHandler ??= new CachingAuthenticationHandler(Parameters.AuthenticationHandler, Parameters.ReuseAuthenticationInputOnReconnect);
+
+        private CachingAuthenticationHandler? _cachingAuthenticationHandler;
+
+        /// <summary>
         /// Gets or sets the target where received frames should be rendered to.
         /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
         /// </summary>
         public IRenderTarget? RenderTarget
         {
-            get => GetWithLock(ref _renderTarget, _renderTargetLock);
-            set => RaiseAndSetIfChangedWithLock(ref _renderTarget, value, _renderTargetLock);
+            get => _renderTarget;
+            set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_renderTarget, value)) return;
+                _renderTarget = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -70,8 +95,34 @@ namespace MarcusW.VncClient
         /// </summary>
         public IOutputHandler? OutputHandler
         {
-            get => GetWithLock(ref _outputHandler, _outputHandlerLock);
-            set => RaiseAndSetIfChangedWithLock(ref _outputHandler, value, _outputHandlerLock);
+            get => _outputHandler;
+            set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_outputHandler, value)) return;
+                _outputHandler = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the handler for cursor updates from the server.
+        /// Subscribe to <see cref="PropertyChanged"/> to receive change notifications.
+        /// </summary>
+        /// <remarks>
+        /// Implement <see cref="ICursorHandler"/> to support local cursor rendering,
+        /// which significantly improves perceived performance over slow network connections.
+        /// </remarks>
+        public ICursorHandler? CursorHandler
+        {
+            get => _cursorHandler;
+            set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_cursorHandler, value)) return;
+                _cursorHandler = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -80,8 +131,14 @@ namespace MarcusW.VncClient
         /// </summary>
         public Exception? InterruptionCause
         {
-            get => GetWithLock(ref _interruptionCause, _interruptionCauseLock);
-            private set => RaiseAndSetIfChangedWithLock(ref _interruptionCause, value, _interruptionCauseLock);
+            get => _interruptionCause;
+            private set
+            {
+                if (_disposed) throw new ObjectDisposedException(nameof(RfbConnection));
+                if (ReferenceEquals(_interruptionCause, value)) return;
+                _interruptionCause = value;
+                NotifyPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -89,14 +146,22 @@ namespace MarcusW.VncClient
         /// </summary>
         public ConnectionState ConnectionState
         {
-            // We use Interlocked here so we can use the connection state value for some synchronization.
-            get => (ConnectionState)Interlocked.CompareExchange(ref Unsafe.As<ConnectionState, int>(ref _connectionState), 0, 0);
-            private set
-            {
-                if (Interlocked.Exchange(ref Unsafe.As<ConnectionState, int>(ref _connectionState), (int)value) != (int)value)
-                    NotifyPropertyChanged();
-            }
+            // Volatile.Read provides an atomic read with acquire semantics, which is sufficient
+            // for reading the current state. This avoids the previous Unsafe.As<> approach.
+            get => (ConnectionState)Volatile.Read(ref _connectionStateValue);
+            private set => SetConnectionState(value);
         }
+
+        /// <summary>
+        /// Gets the number of reconnect attempts that have been made.
+        /// This is 0 for the initial connection and increments with each reconnect attempt.
+        /// </summary>
+        public int ReconnectAttemptCount => _reconnectAttemptCount;
+
+        /// <summary>
+        /// Raised when the connection state changes.
+        /// </summary>
+        public event EventHandler<ConnectionStateChangedEventArgs>? ConnectionStateChanged;
 
         /// <inheritdoc />
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -119,8 +184,11 @@ namespace MarcusW.VncClient
             try
             {
                 await EstablishNewConnectionAsync(cancellationToken).ConfigureAwait(false);
-                ConnectionState = ConnectionState.Connected;
+                SetConnectionState(ConnectionState.Connected, "Initial connection established");
                 InterruptionCause = null;
+                
+                // Reset reconnect counter on initial connection
+                _reconnectAttemptCount = 0;
             }
             finally
             {
@@ -170,7 +238,7 @@ namespace MarcusW.VncClient
             try
             {
                 await CloseConnectionAsync().ConfigureAwait(false);
-                ConnectionState = ConnectionState.Closed;
+                SetConnectionState(ConnectionState.Closed, "CloseAsync called", isManualAction: true);
             }
             finally
             {
@@ -178,14 +246,68 @@ namespace MarcusW.VncClient
             }
         }
 
+        /// <summary>
+        /// Forces a reconnection to the VNC server, even if the current connection is still active.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A task that completes when the reconnection has been initiated.</returns>
+        public async Task ForceReconnectAsync(CancellationToken cancellationToken = default)
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(RfbConnection));
+
+            // This method must not be called before StartAsync finished.
+            lock (_startedLock)
+            {
+                if (!_started)
+                    throw new InvalidOperationException("Cannot force reconnect before the initial connect has completed. "
+                        + "Please consider using the cancellation token passed to the connect method instead.");
+            }
+
+            _logger.LogInformation("Forcing reconnection to {endpoint}...", Parameters.TransportParameters);
+
+            // Cancel any existing reconnect attempts and start a new one.
+            _reconnectCts.Cancel();
+            if (_reconnectTask != null)
+            {
+                try
+                {
+                    await _reconnectTask.ConfigureAwait(false);
+                }
+                catch
+                {
+                    // Ignored.
+                }
+            }
+
+            // Start a new reconnect task.
+            _reconnectTask = ReconnectAsync(cancellationToken, isManualAction: true);
+        }
+
         // Is called by the other class part to signal us that the running connection has failed in the background.
         private void OnRunningConnectionFailed(Exception exception)
         {
             // Mark the connection as interrupted (also avoids that this handler gets called twice per connection)
-            if (Interlocked.CompareExchange(ref Unsafe.As<ConnectionState, int>(ref _connectionState), (int)ConnectionState.Interrupted, (int)ConnectionState.Connected)
-                != (int)ConnectionState.Connected)
+            // Use CompareExchange to ensure we only transition from Connected to Interrupted once
+            var previousState = (ConnectionState)Interlocked.CompareExchange(
+                ref _connectionStateValue, 
+                (int)ConnectionState.Interrupted, 
+                (int)ConnectionState.Connected);
+            
+            if (previousState != ConnectionState.Connected)
                 return;
+
+            // Notify property changed
             NotifyPropertyChanged(nameof(ConnectionState));
+            
+            // Raise the ConnectionStateChanged event
+            var args = new ConnectionStateChangedEventArgs(
+                ConnectionState.Connected,
+                ConnectionState.Interrupted,
+                "Connection interrupted due to failure",
+                exception,
+                _reconnectAttemptCount);
+            ConnectionStateChanged?.Invoke(this, args);
 
             // Remember the interruption cause
             InterruptionCause = exception;
@@ -201,9 +323,10 @@ namespace MarcusW.VncClient
             }
         }
 
-        private async Task ReconnectAsync()
+        private async Task ReconnectAsync(CancellationToken cancellationToken = default, bool isManualAction = false)
         {
-            CancellationToken cancellationToken = _reconnectCts.Token;
+            // Always use the internal reconnect cancellation token
+            cancellationToken = _reconnectCts.Token;
 
             // Synchronize connection management operations.
             await _connectionManagementSemaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
@@ -221,9 +344,13 @@ namespace MarcusW.VncClient
                         // Giving up.
                         _logger.LogInformation("No reconnect attempts to {endpoint} remaining. Giving up.", Parameters.TransportParameters);
                         CleanupPreviousConnection();
-                        ConnectionState = ConnectionState.Closed;
+                        SetConnectionState(ConnectionState.Closed, "Gave up reconnecting after " + failedAttempts + " attempts");
                         return;
                     }
+
+                    // Increment reconnect attempt count
+                    Interlocked.Increment(ref _reconnectAttemptCount);
+                    var currentAttempt = _reconnectAttemptCount;
 
                     // Next try
                     try
@@ -232,12 +359,15 @@ namespace MarcusW.VncClient
                         await Task.Delay(Parameters.ReconnectDelay, cancellationToken).ConfigureAwait(false);
 
                         // Next try...
-                        ConnectionState = ConnectionState.Reconnecting;
+                        SetConnectionState(ConnectionState.Reconnecting, $"Reconnect attempt {currentAttempt} in progress", isManualAction: isManualAction);
                         InterruptionCause = null;
                         await EstablishNewConnectionAsync(cancellationToken).ConfigureAwait(false);
 
                         // This seems to have been successful.
-                        ConnectionState = ConnectionState.Connected;
+                        SetConnectionState(ConnectionState.Connected, $"Reconnect attempt {currentAttempt} successful", isManualAction: isManualAction);
+
+                        // Reset the reconnect counter after successful connection
+                        _reconnectAttemptCount = 0;
 
                         return;
                     }
@@ -245,15 +375,15 @@ namespace MarcusW.VncClient
                     {
                         // Reconnect was canceled
                         CleanupPreviousConnection();
-                        ConnectionState = ConnectionState.Closed;
+                        SetConnectionState(ConnectionState.Closed, "Reconnect canceled", isManualAction: isManualAction);
                         return;
                     }
                     catch
                     {
                         // Reconnect attempt failed (exception has already been logged by EstablishNewConnectionAsync)
-                        _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", failedAttempts, Parameters.TransportParameters);
+                        _logger.LogWarning("Reconnect attempt {attempt} to {endpoint} failed.", currentAttempt, Parameters.TransportParameters);
                         CleanupPreviousConnection();
-                        ConnectionState = ConnectionState.ReconnectFailed;
+                        SetConnectionState(ConnectionState.ReconnectFailed, $"Reconnect attempt {currentAttempt} failed", isManualAction: isManualAction);
 
                         // Next round...
                         failedAttempts++;
@@ -275,10 +405,10 @@ namespace MarcusW.VncClient
             // Cancel reconnects
             _reconnectCts.Cancel();
 
-            ConnectionState = ConnectionState.Closed;
+            SetConnectionState(ConnectionState.Closed, "Dispose called");
 
-            // Acquire the lock to ensure the connection setup is completed before destroying anything.
-            // Also ensures no new connections are set up after this point because the lock is never released.
+            // Acquire the semaphore to ensure any in-flight connection setup completes before cleanup.
+            // The CTS cancellation above should cause reconnect to release the semaphore promptly.
             _connectionManagementSemaphore.Wait();
             try
             {
@@ -290,10 +420,18 @@ namespace MarcusW.VncClient
                 // Should not happen.
                 Debug.Fail("Cleaning up previous connection failed unexpectedly.", ex.ToString());
             }
+            finally
+            {
+                _connectionManagementSemaphore.Release();
+            }
 
             _reconnectCts.Dispose();
             _connectionManagementSemaphore.Dispose();
 
+            // Mark as disposed AFTER all cleanup is complete.
+            // Setting this earlier would cause property setters (InterruptionCause, etc.) to throw
+            // ObjectDisposedException while background threads are still shutting down, leading to
+            // cascading failures during the reconnect/cleanup path.
             _disposed = true;
         }
     }

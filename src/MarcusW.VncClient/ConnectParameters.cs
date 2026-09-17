@@ -29,6 +29,14 @@ namespace MarcusW.VncClient
         private IOutputHandler? _initialOutputHandler;
         private int _jpegQualityLevel = 100;
         private JpegSubsamplingLevel _jpegSubsamplingLevel = JpegSubsamplingLevel.None;
+        private int _preferredCompressionLevel = -1;
+        private TimeSpan _framebufferUpdateDelay = TimeSpan.Zero;
+        private TimeSpan _desktopResizeUpdateDelay = TimeSpan.Zero;
+        private TimeSpan _postInitializationDelay = TimeSpan.FromMilliseconds(200);
+        private TimeSpan _postSetEncodingsDelay = TimeSpan.FromMilliseconds(100);
+        private TimeSpan _tcpKeepAliveTime = TimeSpan.FromSeconds(10);
+        private TimeSpan _tcpKeepAliveInterval = TimeSpan.FromSeconds(3);
+        private bool _reuseAuthenticationInputOnReconnect = true;
 
         /// <summary>
         /// Specifies the transport type and parameters to connect to.
@@ -132,6 +140,99 @@ namespace MarcusW.VncClient
             set => ThrowIfFrozen(() => _jpegSubsamplingLevel = value);
         }
 
+        /// <summary>
+        /// Gets or sets the preferred compression level (0-9).
+        /// Set to -1 for automatic (default: 6).
+        /// Lower values mean less compression (faster, more bandwidth).
+        /// Higher values mean more compression (slower, less bandwidth).
+        /// </summary>
+        public int PreferredCompressionLevel
+        {
+            get => _preferredCompressionLevel;
+            set => ThrowIfFrozen(() => _preferredCompressionLevel = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the minimum delay between framebuffer update requests.
+        /// Set to <see cref="TimeSpan.Zero"/> to disable throttling. Default is Zero.
+        /// For WayVNC compatibility, use 300-500ms.
+        /// </summary>
+        public TimeSpan FramebufferUpdateDelay
+        {
+            get => _framebufferUpdateDelay;
+            set => ThrowIfFrozen(() => _framebufferUpdateDelay = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the delay before requesting a full update after desktop resize.
+        /// Set to <see cref="TimeSpan.Zero"/> to disable. Default is Zero.
+        /// For WayVNC compatibility, use 200-300ms.
+        /// </summary>
+        public TimeSpan DesktopResizeUpdateDelay
+        {
+            get => _desktopResizeUpdateDelay;
+            set => ThrowIfFrozen(() => _desktopResizeUpdateDelay = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the delay after sending initial messages to prevent server flooding.
+        /// Set to <see cref="TimeSpan.Zero"/> to disable. Default is 200ms.
+        /// This is a compatibility workaround for servers (e.g., WayVNC) that need time to process initial messages.
+        /// </summary>
+        public TimeSpan PostInitializationDelay
+        {
+            get => _postInitializationDelay;
+            set => ThrowIfFrozen(() => _postInitializationDelay = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the delay after sending SetEncodings to allow the server to process the encoding change.
+        /// Set to <see cref="TimeSpan.Zero"/> to disable. Default is 100ms.
+        /// This is a compatibility workaround for servers that need time to reconfigure their encoding pipeline.
+        /// </summary>
+        public TimeSpan PostSetEncodingsDelay
+        {
+            get => _postSetEncodingsDelay;
+            set => ThrowIfFrozen(() => _postSetEncodingsDelay = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the idle time after which TCP keepalive probes are sent to detect dead connections
+        /// (e.g. when the server was hard-rebooted without closing the connection).
+        /// Set to <see cref="TimeSpan.Zero"/> to disable TCP keepalive. Default is 10 seconds.
+        /// </summary>
+        public TimeSpan TcpKeepAliveTime
+        {
+            get => _tcpKeepAliveTime;
+            set => ThrowIfFrozen(() => _tcpKeepAliveTime = value);
+        }
+
+        /// <summary>
+        /// Gets or sets the interval between TCP keepalive probes when no response is received. Default is 3 seconds.
+        /// A dead connection is detected after roughly <see cref="TcpKeepAliveTime"/> plus a few probe intervals.
+        /// </summary>
+        public TimeSpan TcpKeepAliveInterval
+        {
+            get => _tcpKeepAliveInterval;
+            set => ThrowIfFrozen(() => _tcpKeepAliveInterval = value);
+        }
+
+        /// <summary>
+        /// Gets or sets whether authentication inputs (e.g. passwords) provided by the <see cref="AuthenticationHandler"/>
+        /// are cached in memory and reused for automatic reconnects, so the user doesn't get prompted again
+        /// every time the connection is re-established. Default is <see langword="true"/>.
+        /// </summary>
+        /// <remarks>
+        /// The cache is cleared automatically when a handshake fails, so the user gets prompted again if the
+        /// cached credentials have become invalid. Note that enabling this keeps the credentials in memory
+        /// for the lifetime of the connection object.
+        /// </remarks>
+        public bool ReuseAuthenticationInputOnReconnect
+        {
+            get => _reuseAuthenticationInputOnReconnect;
+            set => ThrowIfFrozen(() => _reuseAuthenticationInputOnReconnect = value);
+        }
+
         /// <inhertitdoc />
         public override void Validate()
         {
@@ -147,6 +248,20 @@ namespace MarcusW.VncClient
                 throw new ConnectParametersValidationException($"{nameof(JpegQualityLevel)} parameter is not a valid percentage.");
             if (!Enum.IsDefined(typeof(JpegSubsamplingLevel), JpegSubsamplingLevel))
                 throw new ConnectParametersValidationException($"{nameof(JpegSubsamplingLevel)} parameter is invalid.");
+            if (PreferredCompressionLevel < -1 || PreferredCompressionLevel > 9)
+                throw new ConnectParametersValidationException($"{nameof(PreferredCompressionLevel)} parameter must be between -1 and 9.");
+            if (FramebufferUpdateDelay < TimeSpan.Zero)
+                throw new ConnectParametersValidationException($"{nameof(FramebufferUpdateDelay)} parameter must not be negative.");
+            if (DesktopResizeUpdateDelay < TimeSpan.Zero)
+                throw new ConnectParametersValidationException($"{nameof(DesktopResizeUpdateDelay)} parameter must not be negative.");
+            if (PostInitializationDelay < TimeSpan.Zero)
+                throw new ConnectParametersValidationException($"{nameof(PostInitializationDelay)} parameter must not be negative.");
+            if (PostSetEncodingsDelay < TimeSpan.Zero)
+                throw new ConnectParametersValidationException($"{nameof(PostSetEncodingsDelay)} parameter must not be negative.");
+            if (TcpKeepAliveTime < TimeSpan.Zero)
+                throw new ConnectParametersValidationException($"{nameof(TcpKeepAliveTime)} parameter must not be negative.");
+            if (TcpKeepAliveInterval <= TimeSpan.Zero)
+                throw new ConnectParametersValidationException($"{nameof(TcpKeepAliveInterval)} parameter must be positive.");
         }
 
         /// <inheritdoc />

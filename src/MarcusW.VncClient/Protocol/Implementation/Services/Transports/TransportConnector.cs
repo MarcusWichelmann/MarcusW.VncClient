@@ -42,7 +42,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
 
         private async Task<TcpTransport> ConnectTcpTransportAsync(TcpTransportParameters parameters, CancellationToken cancellationToken = default)
         {
-            _logger.LogDebug("Connecting to TCP endpoint {endpoint}...", parameters);
+            // Removed debug logging for production use
 
             // Create a cancellation token source that cancels on timeout or manual cancel
             using var timeoutCts = new CancellationTokenSource(_connectParameters.ConnectTimeout);
@@ -74,7 +74,35 @@ namespace MarcusW.VncClient.Protocol.Implementation.Services.Transports
                 throw new TimeoutException("Connect timeout reached.");
             }
 
+            ConfigureTcpKeepAlive(tcpClient);
+
             return new TcpTransport(tcpClient);
+        }
+
+        private void ConfigureTcpKeepAlive(TcpClient tcpClient)
+        {
+            // Without keepalive, a hard server reboot (no FIN/RST) leaves a half-open connection:
+            // the receive loop blocks indefinitely and the interruption is never detected,
+            // so no reconnect is triggered. Keepalive probes make the OS fail the connection
+            // within roughly TcpKeepAliveTime + a few TcpKeepAliveInterval periods.
+            TimeSpan keepAliveTime = _connectParameters.TcpKeepAliveTime;
+            if (keepAliveTime <= TimeSpan.Zero)
+                return;
+
+            try
+            {
+                Socket socket = tcpClient.Client;
+                socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.KeepAlive, true);
+                socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveTime, (int)keepAliveTime.TotalSeconds);
+                socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveInterval, (int)_connectParameters.TcpKeepAliveInterval.TotalSeconds);
+                socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveRetryCount, 3);
+            }
+            catch (SocketException ex)
+            {
+                // Keepalive is an optimization for dead-connection detection - not being able to set it
+                // (e.g. on exotic platforms) should not prevent the connection from being used.
+                _logger.LogWarning(ex, "Failed to configure TCP keepalive. Dead connections might be detected with a delay.");
+            }
         }
     }
 }

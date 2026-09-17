@@ -1,0 +1,237 @@
+# Cursor Rules for MarcusW.VncClient
+
+## Project Overview
+This is a high-performance, cross-platform VNC client library for .NET with Blazor integration. The codebase follows clean architecture principles with modular design, dependency injection, and comprehensive error handling.
+
+## Code Style & Conventions
+
+### C# Conventions
+- Use **nullable reference types** (`#nullable enable`)
+- Follow **Microsoft C# naming conventions**
+- Use **implicit usings** where beneficial
+- Target **.NET 10.0** for new components
+- Prefer **readonly** fields and **const** values where appropriate
+- Use **pattern matching** and modern C# features
+
+### Naming Patterns
+- **Interfaces**: Prefix with `I` (e.g., `IRfbProtocolImplementation`, `IAuthenticationHandler`)
+- **Services**: Suffix with `Service` (e.g., `FramebufferService`, `RenderingService`)
+- **Exceptions**: Suffix with `Exception` (e.g., `RfbProtocolException`, `HandshakeFailedException`)
+- **Parameters**: Suffix with `Parameters` (e.g., `ConnectParameters`, `TransportParameters`)
+- **Private fields**: Prefix with underscore (e.g., `_logger`, `_connectionState`)
+
+### File Organization
+- **One class per file** rule (except for nested/related classes)
+- **Partial classes** for large components (e.g., `RfbConnection.*.cs`)
+- **Separate concerns** into different files (e.g., `.Connection.cs`, `.Details.cs`)
+- Use **meaningful folder structure** reflecting namespaces
+
+## Architecture Patterns
+
+### Dependency Injection
+- Use **constructor injection** for dependencies
+- Register services in `ServiceCollectionExtensions`
+- Prefer **interfaces over concrete implementations**
+- Use **options pattern** for configuration (`VncClientOptions`)
+
+```csharp
+public static class ServiceCollectionExtensions
+{
+    public static IServiceCollection AddVncClientServices(
+        this IServiceCollection services,
+        Action<VncClientOptions>? configure = null)
+    {
+        // Service registration pattern
+    }
+}
+```
+
+### Error Handling
+- Create **specific exception types** for different error scenarios
+- Use **CancellationToken** for async operations
+- Implement **proper disposal patterns** (`IDisposable`, `using` statements)
+- Log errors with **structured logging** (`ILogger<T>`)
+
+### Async Patterns
+- Use **async/await** consistently
+- Pass **CancellationToken** parameters
+- Handle **OperationCanceledException** appropriately
+- Use **ConfigureAwait(false)** in library code, **ConfigureAwait(true)** in UI code
+
+## Blazor-Specific Rules
+
+### Component Structure
+- Use **@code blocks** at the bottom of Razor files
+- Implement **IDisposable** for components with resources
+- Use **[Parameter]** for route parameters and **[SupplyParameterFromQuery]** for query parameters
+- Consolidate related parameters with **smart properties**
+
+### Parameter Handling
+```csharp
+// Route parameters (required for URL routing)
+[Parameter] public string? Host { get; set; }
+[Parameter] public int? Port { get; set; }
+
+// Query parameters  
+[SupplyParameterFromQuery(Name = "host")] public string? QueryHost { get; set; }
+
+// Consolidated access with fallback chain
+private string? CurrentHost => _currentHost ?? Host ?? QueryHost ?? "default";
+```
+
+### JavaScript Interop
+- Handle **JSDisconnectedException** gracefully
+- Provide **fallback mechanisms** for JS failures
+- Use **try-catch blocks** around JS calls
+- Implement **circuit-safe** operations
+
+### State Management
+- Use **ReactiveUI** for view models and command patterns
+- Implement **INotifyPropertyChanged** for observable properties
+- Use **reactive commands** for user actions
+- Subscribe to property changes for UI updates
+
+## VNC Protocol Implementation
+
+### Connection Management
+- Use **connection state tracking** (`ConnectionState` enum)
+- Implement **automatic reconnection** with configurable behavior
+- Handle **authentication flows** properly (VNC Auth, VeNCrypt)
+- Support **multiple security types**
+
+### Performance Considerations
+- Use **efficient encoding types** (Tight, ZRLE)
+- Implement **dirty rectangle rendering**
+- Use **buffer pooling** to reduce GC pressure
+- Optimize **pixel format conversions**
+
+### Error Recovery
+- Handle **network interruptions** gracefully
+- Implement **connection retry logic**
+- Provide **detailed error information**
+- Log connection events for debugging
+
+## Testing & Debugging
+
+### Logging
+- Use **structured logging** with proper log levels
+- Include **connection details** in log messages
+- Log **performance metrics** for optimization
+- Provide **debug-level** detailed information
+
+### Error Messages
+- Include **specific error contexts**
+- Provide **actionable error messages**
+- Log **stack traces** for unexpected errors
+- Handle **user-facing vs internal** errors differently
+
+## Documentation Standards
+
+### XML Documentation
+- Document **public APIs** thoroughly
+- Include **parameter descriptions**
+- Provide **usage examples** in comments
+- Document **exceptions** that can be thrown
+
+### README Files
+- Include **feature lists** with emojis for readability
+- Provide **usage examples** with code blocks
+- Document **configuration options**
+- Include **architecture diagrams** where helpful
+
+## Security Considerations
+
+### Authentication
+- Handle **credentials securely**
+- Don't log **sensitive information**
+- Support **multiple authentication methods**
+- Validate **input parameters**
+
+### URL Parameters
+- Be **cautious with password in URLs** (mention security implications)
+- Use **HTTPS** for credential transmission
+- Validate **all input parameters**
+- Sanitize **user inputs**
+
+## Performance Guidelines
+
+### Memory Management
+- Dispose **resources properly**
+- Use **using statements** for disposables
+- Implement **proper disposal patterns**
+- Avoid **memory leaks** in event subscriptions
+
+### Async Operations
+- Use **Task-based APIs**
+- Handle **timeouts** appropriately
+- Implement **cancellation support**
+- Avoid **blocking calls** in async contexts
+
+## Platform Support
+
+### Cross-Platform Considerations
+- Abstract **platform-specific components**
+- Use **.NET Standard** APIs where possible
+- Test on **multiple platforms**
+- Handle **platform differences** gracefully
+
+### UI Framework Support
+- Support **Blazor** and **Avalonia** implementations
+- Use **adapter patterns** for UI-specific code
+- Keep **core logic** framework-agnostic
+- Provide **framework-specific extensions**
+
+## Common Patterns to Follow
+
+### Service Registration
+```csharp
+builder.Services.AddVncClientServices(options =>
+{
+    options.EnableDirtyRectangleRendering = true;
+    options.MaxDirtyRectangles = 50;
+});
+```
+
+### Connection Handling
+```csharp
+try
+{
+    var connection = await connectionManager.ConnectAsync(parameters, cancellationToken);
+    // Handle successful connection
+}
+catch (Exception ex)
+{
+    // Handle connection errors
+    logger.LogError(ex, "Failed to connect to VNC server");
+}
+```
+
+### Component Disposal
+```csharp
+public void Dispose()
+{
+    try
+    {
+        // Unsubscribe from events
+        // Dispose resources
+        // Clear references
+    }
+    catch (Exception ex)
+    {
+        // Log disposal errors
+    }
+}
+```
+
+## Anti-Patterns to Avoid
+
+- **Don't** use synchronous calls in async contexts
+- **Don't** ignore CancellationToken parameters
+- **Don't** forget to dispose resources
+- **Don't** log sensitive information (passwords, credentials)
+- **Don't** block UI threads with long-running operations
+- **Don't** create circular dependencies in DI
+- **Don't** mix different async patterns (Task.Wait() with async/await)
+
+Remember: This codebase prioritizes **performance**, **stability**, and **extensibility**. Always consider these factors when making changes or additions.
+

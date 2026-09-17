@@ -1,0 +1,11 @@
+^<svg
+width=128
+height=128^>^<circle
+cx=64
+cy=64
+r=60
+fill=darkblue/^>^<text
+x=64
+y=70
+text-anchor=middle
+fill=white^>BLZ^</text^>^</svg^>

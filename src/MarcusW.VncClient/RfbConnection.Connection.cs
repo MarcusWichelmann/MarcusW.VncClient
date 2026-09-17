@@ -65,6 +65,11 @@ namespace MarcusW.VncClient
             {
                 _logger.LogWarning(ex, "Connecting to VNC-Server on {endpoint} failed: {exception}", Parameters.TransportParameters, ex.Message);
 
+                // If the handshake failed, the cached authentication inputs might be invalid
+                // (e.g. the server password changed), so clear them to re-prompt the user on the next attempt.
+                if (ex is HandshakeFailedException)
+                    _cachingAuthenticationHandler?.Clear();
+
                 // Ensure cleanup on failure
                 context.MessageReceiver?.Dispose();
                 context.MessageSender?.Dispose();

@@ -1,0 +1,159 @@
+@using BlazorVncClient.Services
+@inject IJSRuntime JSRuntime
+
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="authModalLabel">
+                    <i class="fas fa-shield-alt me-2"></i>@Title
+                </h5>
+            </div>
+            <div class="modal-body p-4">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="text-primary me-3 mt-1">
+                        <i class="fas fa-lock fa-2x"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <p class="mb-2 fw-medium">@Message</p>
+                        <div class="badge bg-light text-dark border">
+                            <i class="fas fa-info-circle me-1"></i>
+                            <strong>Security Protocol:</strong> @SecurityTypeName
+                        </div>
+                    </div>
+                </div>
+                
+                @if (IsCredentialsMode)
+                {
+                    <div class="mb-3">
+                        <label for="usernameField" class="form-label fw-medium">
+                            <i class="fas fa-user me-1"></i>Username
+                        </label>
+                        <input type="text" class="form-control form-control-lg" id="usernameField" 
+                               @bind="_username" @onkeypress="OnKeyPress" 
+                               placeholder="Enter your username" autocomplete="username" />
+                    </div>
+                }
+                
+                <div class="mb-3">
+                    <label for="passwordField" class="form-label fw-medium">
+                        <i class="fas fa-key me-1"></i>Password
+                    </label>
+                    <input type="password" class="form-control form-control-lg" id="passwordField" 
+                           @bind="_password" @onkeypress="OnKeyPress" 
+                           placeholder="Enter your password" autocomplete="current-password" />
+                </div>
+                
+                <div class="alert alert-info border-0 bg-light">
+                    <small class="text-muted">
+                        <i class="fas fa-info-circle me-1"></i>
+                        <strong>Tip:</strong> Press Enter to authenticate or Escape to cancel
+                    </small>
+                </div>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-outline-secondary" @onclick="Cancel">
+                    <i class="fas fa-times me-1"></i>Cancel
+                </button>
+                <button type="button" class="btn btn-primary" @onclick="Confirm">
+                    <i class="fas fa-sign-in-alt me-1"></i>Authenticate
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string Message { get; set; } = string.Empty;
+    [Parameter] public string SecurityTypeName { get; set; } = string.Empty;
+    [Parameter] public byte SecurityTypeId { get; set; }
+    [Parameter] public bool IsCredentialsMode { get; set; }
+    [Parameter] public EventCallback<PasswordPromptResponse> OnPasswordResult { get; set; }
+    [Parameter] public EventCallback<CredentialsPromptResponse> OnCredentialsResult { get; set; }
+
+    private string _username = string.Empty;
+    private string _password = string.Empty;
+
+    private async Task OnKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await Confirm();
+        }
+        else if (e.Key == "Escape")
+        {
+            await Cancel();
+        }
+    }
+
+    private async Task Confirm()
+    {
+        if (IsCredentialsMode)
+        {
+            var response = new CredentialsPromptResponse
+            {
+                Username = _username,
+                Password = _password,
+                IsCancelled = false
+            };
+            await OnCredentialsResult.InvokeAsync(response);
+        }
+        else
+        {
+            var response = new PasswordPromptResponse
+            {
+                Password = _password,
+                IsCancelled = false
+            };
+            await OnPasswordResult.InvokeAsync(response);
+        }
+    }
+
+    private async Task Cancel()
+    {
+        if (IsCredentialsMode)
+        {
+            var response = new CredentialsPromptResponse
+            {
+                Username = string.Empty,
+                Password = string.Empty,
+                IsCancelled = true
+            };
+            await OnCredentialsResult.InvokeAsync(response);
+        }
+        else
+        {
+            var response = new PasswordPromptResponse
+            {
+                Password = string.Empty,
+                IsCancelled = true
+            };
+            await OnPasswordResult.InvokeAsync(response);
+        }
+    }
+
+    public void Reset()
+    {
+        _username = string.Empty;
+        _password = string.Empty;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Focus the appropriate field when dialog opens (with error handling)
+            try
+            {
+                await Task.Delay(200); // Small delay to ensure modal is fully shown
+                var fieldId = IsCredentialsMode ? "usernameField" : "passwordField";
+                await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('{fieldId}')?.focus()");
+            }
+            catch
+            {
+                // Ignore focus errors
+            }
+        }
+    }
+}

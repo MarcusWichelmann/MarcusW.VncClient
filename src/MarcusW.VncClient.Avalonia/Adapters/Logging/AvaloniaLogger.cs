@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using Avalonia.Logging;
-using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
 
 namespace MarcusW.VncClient.Avalonia.Adapters.Logging

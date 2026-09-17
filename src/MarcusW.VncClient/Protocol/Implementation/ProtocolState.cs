@@ -25,12 +25,22 @@ namespace MarcusW.VncClient.Protocol.Implementation
         private readonly StateValue<Size> _remoteFramebufferSizeValue = new StateValue<Size>(Size.Zero);
         private readonly StateValue<PixelFormat> _remoteFramebufferFormatValue = new StateValue<PixelFormat>(PixelFormat.Unknown);
         private readonly StateValue<IImmutableSet<Screen>> _remoteFramebufferLayoutValue = new StateValue<IImmutableSet<Screen>>(ImmutableHashSet<Screen>.Empty);
+        private readonly StateValue<ColorMap> _remoteFramebufferColorMapValue = new StateValue<ColorMap>(ColorMap.Empty);
 
         private readonly StateValue<string?> _desktopNameValue = new StateValue<string?>(null);
 
         private readonly StateValue<bool> _serverSupportsFencesValue = new StateValue<bool>(false);
         private readonly StateValue<bool> _serverSupportsContinuousUpdatesValue = new StateValue<bool>(false);
         private readonly StateValue<bool> _serverSupportsExtendedDesktopSizeValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsXvpValue = new StateValue<bool>(false);
+        private readonly StateValue<byte> _xvpVersionValue = new StateValue<byte>(0);
+        private readonly StateValue<bool> _serverSupportsQemuExtendedKeyEventValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsQemuPointerMotionChangeValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsQemuAudioValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsQemuLedStateValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _relativePointerModeValue = new StateValue<bool>(false);
+        private readonly StateValue<bool> _serverSupportsExtendedClipboardValue = new StateValue<bool>(false);
+        private readonly StateValue<ExtendedClipboardCapabilities?> _serverClipboardCapabilitiesValue = new StateValue<ExtendedClipboardCapabilities?>(null);
 
         private readonly StateValue<bool> _continuousUpdatesEnabledValue = new StateValue<bool>(false);
 
@@ -126,6 +136,15 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
+        /// Gets or sets the current remote framebuffer color map for indexed color formats.
+        /// </summary>
+        public ColorMap RemoteFramebufferColorMap
+        {
+            get => _remoteFramebufferColorMapValue.Value;
+            set => _remoteFramebufferColorMapValue.Value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
         /// Gets or sets the current desktop name.
         /// </summary>
         public string? DesktopName
@@ -170,6 +189,87 @@ namespace MarcusW.VncClient.Protocol.Implementation
         }
 
         /// <summary>
+        /// Gets or sets whether the server supports the xvp extension.
+        /// </summary>
+        public bool ServerSupportsXvp
+        {
+            get => _serverSupportsXvpValue.Value;
+            set => _serverSupportsXvpValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the xvp extension version supported by the server.
+        /// </summary>
+        public byte XvpVersion
+        {
+            get => _xvpVersionValue.Value;
+            set => _xvpVersionValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports the QEMU Extended Key Event extension.
+        /// </summary>
+        public bool ServerSupportsQemuExtendedKeyEvent
+        {
+            get => _serverSupportsQemuExtendedKeyEventValue.Value;
+            set => _serverSupportsQemuExtendedKeyEventValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports the QEMU Pointer Motion Change extension.
+        /// </summary>
+        public bool ServerSupportsQemuPointerMotionChange
+        {
+            get => _serverSupportsQemuPointerMotionChangeValue.Value;
+            set => _serverSupportsQemuPointerMotionChangeValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports the QEMU Audio extension.
+        /// </summary>
+        public bool ServerSupportsQemuAudio
+        {
+            get => _serverSupportsQemuAudioValue.Value;
+            set => _serverSupportsQemuAudioValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports the QEMU LED State extension.
+        /// </summary>
+        public bool ServerSupportsQemuLedState
+        {
+            get => _serverSupportsQemuLedStateValue.Value;
+            set => _serverSupportsQemuLedStateValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether relative pointer mode is active.
+        /// </summary>
+        public bool RelativePointerMode
+        {
+            get => _relativePointerModeValue.Value;
+            set => _relativePointerModeValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the server supports the Extended Clipboard extension.
+        /// </summary>
+        public bool ServerSupportsExtendedClipboard
+        {
+            get => _serverSupportsExtendedClipboardValue.Value;
+            set => _serverSupportsExtendedClipboardValue.Value = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the server's extended clipboard capabilities.
+        /// </summary>
+        public ExtendedClipboardCapabilities? ServerClipboardCapabilities
+        {
+            get => _serverClipboardCapabilitiesValue.Value;
+            set => _serverClipboardCapabilitiesValue.Value = value;
+        }
+
+        /// <summary>
         /// Gets or sets whether continuous updates are currently enabled.
         /// </summary>
         public bool ContinuousUpdatesEnabled
@@ -195,7 +295,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
         /// <inheritdoc />
         public virtual void Prepare()
         {
-            _logger.LogDebug("Initializing sets for used message and encoding types...");
+            // Removed debug logging for production use
 
             // Initialize UsedMessageTypes with all standard messages that need to be supported by the server by definition
             Debug.Assert(_context.SupportedMessageTypes != null, "_context.SupportedMessageTypes != null");
@@ -238,7 +338,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             IImmutableSet<IMessageType> usedMessageTypes = UsedMessageTypes;
             if (!usedMessageTypes.Contains(messageType))
             {
-                _logger.LogDebug("Marking message type {messageType} as used...", messageType.Name);
+                // Removed message type usage debug logging for production use
                 UsedMessageTypes = usedMessageTypes.Add(messageType);
             }
         }
@@ -275,7 +375,7 @@ namespace MarcusW.VncClient.Protocol.Implementation
             IImmutableSet<IEncodingType> usedEncodingTypes = UsedEncodingTypes;
             if (!usedEncodingTypes.Contains(encodingType))
             {
-                _logger.LogDebug("Marking encoding type {encodingType} as used...", encodingType.Name);
+                // Removed encoding type usage debug logging for production use
                 UsedEncodingTypes = usedEncodingTypes.Add(encodingType);
             }
         }

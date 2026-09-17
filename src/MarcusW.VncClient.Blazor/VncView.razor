@@ -1,0 +1,1351 @@
+@using MarcusW.VncClient.Blazor.Adapters.Rendering
+@using MarcusW.VncClient.Blazor.Services
+@using MarcusW.VncClient.Output;
+@using MarcusW.VncClient.Rendering
+@using System.Collections.Immutable
+@using MarcusW.VncClient.Protocol.Implementation.MessageTypes.Outgoing
+@using Microsoft.AspNetCore.Components.Web
+@using System.ComponentModel
+@using Microsoft.JSInterop
+
+@implements IRenderTarget
+@implements IOutputHandler
+@implements IDisposable
+
+@inject JsInterop jsInterop
+@inject IFramebufferService framebufferService
+@inject IInputService inputService
+@inject IRenderingService renderingService
+@inject IFullscreenService fullscreenService
+
+@{
+    // Snapshot the canvas size used by THIS render. The VNC thread mutates canvasReference.Size
+    // concurrently, so OnAfterRenderAsync must compare against what this render actually wrote
+    // into the DOM attributes - not the live value, which may already be ahead of the DOM.
+    _renderingCanvasSize = canvasSize;
+}
+<div id="vnc-container-@_canvasId" class="vnc-viewer @(_isFullscreen ? "fullscreen" : "")" style="position: relative; display: inline-block;">
+    <canvas @ref="_canvas" 
+            id="vncCanvas_@_canvasId" 
+            width="@_renderingCanvasSize.Width" 
+            height="@_renderingCanvasSize.Height" 
+            style="border: 1px solid #ddd; background-color: #000; max-width: @(_isFullscreen ? "100vw" : "100%"); max-height: @(_isFullscreen ? "100vh" : "70vh"); outline: none;"
+            @onmousedown="OnMouseDown"
+            @onmouseup="OnMouseUp"
+            @onmousemove="OnMouseMove"
+            @onwheel="OnWheel"
+            @onkeydown="OnKeyDown"
+            @onkeyup="OnKeyUp"
+            @onfocus="OnCanvasFocus"
+            @onblur="OnCanvasBlur"
+            tabindex="0"
+            title="Click to focus for keyboard input">
+    </canvas>
+    
+    @* Special Keys Menu - draggable floating button *@
+    @if (_connection?.ConnectionState == ConnectionState.Connected)
+    {
+        <div class="vnc-special-keys-menu" 
+             id="specialKeysButton_@_canvasId"
+             style="position: absolute; top: @(_menuTop)px; right: @(_menuRight)px; z-index: 10000; cursor: move;"
+             @onmousedown="OnMenuMouseDown"
+             @onmousedown:preventDefault="false">
+            <div class="dropdown">
+                <button class="btn btn-sm @(_showSpecialKeysMenu ? "btn-primary" : "btn-secondary")" 
+                        type="button" 
+                        id="specialKeysMenu"
+                        @onclick="ToggleSpecialKeysMenu"
+                        @onclick:stopPropagation="true"
+                        style="opacity: 0.85; min-width: 40px;"
+                        title="Special Keys Menu (drag to move)">
+                    ⌨️
+                </button>
+                @if (_showSpecialKeysMenu)
+                {
+                    <div class="dropdown-menu show" style="display: block; right: 0; left: auto;">
+                        <div class="dropdown-header d-flex justify-content-between align-items-center">
+                            <span>Windows Shortcuts</span>
+                            <button type="button" class="btn-close btn-close-sm" @onclick="CloseSpecialKeysMenu" style="font-size: 0.7rem;"></button>
+                        </div>
+                        <button class="dropdown-item" @onclick="() => SendCtrlAltDelete()">Ctrl+Alt+Delete</button>
+                        <button class="dropdown-item" @onclick="() => SendCtrlShiftEsc()">Ctrl+Shift+Esc (Task Manager)</button>
+                        <button class="dropdown-item" @onclick="() => SendAltF4()">Alt+F4 (Close Window)</button>
+                        <button class="dropdown-item" @onclick="() => SendAltTab()">Alt+Tab (Switch Window)</button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" @onclick="() => SendWinKey('r')">Win+R (Run Dialog)</button>
+                        <button class="dropdown-item" @onclick="() => SendWinKey('d')">Win+D (Show Desktop)</button>
+                        <button class="dropdown-item" @onclick="() => SendWinKey('e')">Win+E (Explorer)</button>
+                        <button class="dropdown-item" @onclick="() => SendWinKey('l')">Win+L (Lock Screen)</button>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">Linux Shortcuts</h6>
+                        <button class="dropdown-item" @onclick="() => SendCtrlAltKey('t')">Ctrl+Alt+T (Terminal)</button>
+                        <button class="dropdown-item" @onclick="() => SendCtrlAltF(1)">Ctrl+Alt+F1 (TTY1)</button>
+                        <button class="dropdown-item" @onclick="() => SendCtrlAltF(2)">Ctrl+Alt+F2 (TTY2)</button>
+                        <button class="dropdown-item" @onclick="() => SendCtrlAltF(7)">Ctrl+Alt+F7 (GUI)</button>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    
+    @if (_isFullscreen)
+    {
+        <div class="fullscreen-controls" style="position: absolute; top: 10px; left: 10px; z-index: 10000;">
+            <button class="btn btn-outline-light btn-sm" @onclick="ExitFullscreenAsync" style="opacity: 0.8;">
+                <i class="fas fa-compress"></i> Exit Fullscreen (ESC)
+            </button>
+        </div>
+    }
+    
+    @if (_connection == null)
+    {
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #666; text-align: center;">
+            <p>No VNC connection</p>
+        </div>
+    }
+    else if (_connection.ConnectionState is ConnectionState.Interrupted or ConnectionState.Reconnecting or ConnectionState.ReconnectFailed)
+    {
+        <div class="vnc-connection-overlay">
+            <div class="vnc-connection-overlay-content">
+                <div class="spinner-border text-light mb-2" role="status" aria-hidden="true"></div>
+                <p class="mb-1">
+                    @(_connection.ConnectionState switch
+                    {
+                        ConnectionState.Interrupted => "Connection lost",
+                        ConnectionState.Reconnecting => "Reconnecting…",
+                        _ => "Reconnect failed, retrying…"
+                    })
+                </p>
+                @if (_connection.ReconnectAttemptCount > 0)
+                {
+                    <small>Attempt @_connection.ReconnectAttemptCount</small>
+                }
+            </div>
+        </div>
+    }
+    else if (_connection.ConnectionState == ConnectionState.Closed)
+    {
+        <div class="vnc-connection-overlay">
+            <div class="vnc-connection-overlay-content">
+                <p class="mb-0">Connection closed</p>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .vnc-viewer canvas {
+        cursor: default;
+    }
+    
+    .vnc-connection-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+        /* Above the canvas and menu, but below application dialogs/modals
+           (e.g. Bootstrap modals use ~1055), so credential prompts stay visible. */
+        z-index: 100;
+        pointer-events: all;
+    }
+    
+    .vnc-connection-overlay-content {
+        color: #fff;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .vnc-viewer canvas:focus {
+        border-color: #007bff !important;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    
+    .vnc-special-keys-menu {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    
+    .vnc-special-keys-menu .dropdown-menu {
+        max-height: 400px;
+        overflow-y: auto;
+        cursor: default;
+    }
+    
+    .vnc-special-keys-menu .dropdown-item {
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .vnc-special-keys-menu .dropdown-item:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .vnc-special-keys-menu .dropdown-header {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #6c757d;
+        padding: 0.5rem 1rem;
+    }
+    
+    .vnc-special-keys-menu button.btn {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    
+    .vnc-special-keys-menu button.btn:hover {
+        opacity: 1 !important;
+    }
+    
+    .vnc-viewer.fullscreen {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: black !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .vnc-viewer.fullscreen canvas {
+        border: none !important;
+        object-fit: contain !important;
+    }
+</style>
+
+<script>
+    window.vncClipboardHelper = window.vncClipboardHelper || {
+        // Copy text to browser clipboard
+        copyToClipboard: async function(text) {
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                }
+                return false;
+            } catch (err) {
+                console.error('VNC: Failed to copy to clipboard:', err);
+                return false;
+            }
+        },
+
+        // Check if a key combination should be intercepted and sent to VNC
+        shouldInterceptKeyCombination: function(e) {
+            // Intercept key combinations that CAN be captured by the browser
+            // NOTE: OS-protected shortcuts (Ctrl+Alt+Delete, Win+R, Alt+F4, Alt+Tab)
+            // cannot be intercepted - the OS handles them before the browser sees them
+            
+            // Ctrl+Shift+Esc - Task Manager (can work in some browsers)
+            if (e.ctrlKey && e.shiftKey && e.key === 'Escape') {
+                return true;
+            }
+            
+            // Ctrl+Alt combinations (Linux shortcuts, may work)
+            if (e.ctrlKey && e.altKey) {
+                // Ctrl+Alt+T - Terminal (Linux)
+                if (e.key === 't' || e.key === 'T') return true;
+                
+                // Ctrl+Alt+Arrow keys - Virtual desktops (Linux)
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || 
+                    e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                    return true;
+                }
+                
+                // Ctrl+Alt+Function keys (various system functions)
+                if (e.key.startsWith('F') && e.key.length <= 3) {
+                    return true;
+                }
+            }
+            
+            // Alt+Function keys (may work)
+            if (e.altKey && !e.ctrlKey && !e.metaKey) {
+                if (e.key === 'F1' || e.key === 'F2' || e.key === 'F3') {
+                    return true;
+                }
+            }
+            
+            // F11 - Fullscreen toggle (send to remote instead of browser)
+            if (e.key === 'F11' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                return true;
+            }
+            
+            return false;
+        },
+
+        // Set up clipboard monitoring on canvas
+        setupClipboardMonitoring: function(canvasId, dotNetRef) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) {
+                return false;
+            }
+
+            // Ensure canvas is focusable and focus it on click
+            if (!canvas._vncClickHandler) {
+                canvas._vncClickHandler = function() {
+                    canvas.focus();
+                };
+                canvas.addEventListener('click', canvas._vncClickHandler);
+            }
+
+            // Paste event handler
+            if (!canvas._vncPasteHandler) {
+                canvas._vncPasteHandler = async function(e) {
+                    e.preventDefault();
+                    try {
+                        const text = (e.clipboardData || window.clipboardData).getData('text');
+                        if (text && dotNetRef) {
+                            await dotNetRef.invokeMethodAsync('OnClipboardPaste', text);
+                        }
+                    } catch (err) {
+                        console.error('VNC: Paste error:', err);
+                    }
+                };
+                canvas.addEventListener('paste', canvas._vncPasteHandler);
+            }
+
+            // Keyboard shortcut handler for Ctrl+V / Cmd+V and special key combinations
+            if (!canvas._vncKeyHandler) {
+                canvas._vncKeyHandler = function(e) {
+                    // Handle clipboard paste (Ctrl+V / Cmd+V) FIRST
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
+                        e.preventDefault();
+                        // Handle paste asynchronously after preventing default
+                        (async () => {
+                            try {
+                                if (navigator.clipboard && navigator.clipboard.readText) {
+                                    const text = await navigator.clipboard.readText();
+                                    if (text && dotNetRef) {
+                                        await dotNetRef.invokeMethodAsync('OnClipboardPaste', text);
+                                    }
+                                }
+                            } catch (err) {
+                                // Clipboard read may fail due to permissions - silently ignore
+                            }
+                        })();
+                        // Don't let this event reach the remote - we handled it
+                        return false;
+                    }
+                    
+                    // Intercept special key combinations to send to VNC
+                    const shouldIntercept = window.vncClipboardHelper.shouldInterceptKeyCombination(e);
+                    if (shouldIntercept) {
+                        e.preventDefault();
+                        // Let the event propagate to Blazor's onkeydown handler
+                        // which will send it to the VNC server
+                    }
+                };
+                // Use capture phase to intercept events early
+                canvas.addEventListener('keydown', canvas._vncKeyHandler, true);
+            }
+            
+            return true;
+        },
+
+        // Clean up clipboard monitoring
+        cleanupClipboardMonitoring: function(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if (canvas) {
+                if (canvas._vncPasteHandler) {
+                    canvas.removeEventListener('paste', canvas._vncPasteHandler);
+                    delete canvas._vncPasteHandler;
+                }
+                if (canvas._vncKeyHandler) {
+                    // Remove with capture flag to match how it was added
+                    canvas.removeEventListener('keydown', canvas._vncKeyHandler, true);
+                    delete canvas._vncKeyHandler;
+                }
+                if (canvas._vncClickHandler) {
+                    canvas.removeEventListener('click', canvas._vncClickHandler);
+                    delete canvas._vncClickHandler;
+                }
+            }
+        }
+    };
+    
+    // Special Keys Menu drag functionality
+    window.vncMenuDrag = {
+        setup: function(menuId, dotNetRef) {
+            const menu = document.getElementById(menuId);
+            if (!menu) return;
+            
+            let isDragging = false;
+            let startX, startY, startTop, startRight;
+            let currentTop, currentRight;
+            
+            const button = menu.querySelector('button');
+            
+            const onMouseDown = function(e) {
+                // Only drag when clicking the button, not the dropdown
+                if (e.target === button || button.contains(e.target)) {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    
+                    const rect = menu.getBoundingClientRect();
+                    const containerRect = menu.parentElement.getBoundingClientRect();
+                    
+                    startTop = rect.top - containerRect.top;
+                    startRight = containerRect.right - rect.right;
+                    
+                    e.preventDefault();
+                    document.addEventListener('mousemove', onMouseMove);
+                    document.addEventListener('mouseup', onMouseUp);
+                }
+            };
+            
+            const onMouseMove = function(e) {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - startX;
+                const deltaY = e.clientY - startY;
+                
+                currentTop = Math.max(0, startTop + deltaY);
+                currentRight = Math.max(0, startRight - deltaX);
+                
+                menu.style.top = currentTop + 'px';
+                menu.style.right = currentRight + 'px';
+            };
+            
+            const onMouseUp = function(e) {
+                if (isDragging) {
+                    isDragging = false;
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                    
+                    // Save position back to Blazor component
+                    if (dotNetRef && currentTop !== undefined) {
+                        dotNetRef.invokeMethodAsync('UpdateMenuPosition', Math.round(currentTop), Math.round(currentRight));
+                    }
+                }
+            };
+            
+            menu.addEventListener('mousedown', onMouseDown);
+            
+            // Cleanup function
+            menu._vncDragCleanup = function() {
+                menu.removeEventListener('mousedown', onMouseDown);
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            };
+        },
+        
+        cleanup: function(menuId) {
+            const menu = document.getElementById(menuId);
+            if (menu && menu._vncDragCleanup) {
+                menu._vncDragCleanup();
+                delete menu._vncDragCleanup;
+            }
+        }
+    };
+</script>
+
+@code {
+    [Parameter]
+    public RfbConnection? Connection 
+    { 
+        get => _connection;
+        set
+        {
+            if (_connection != value && !_disposed)
+            {
+                DetachFromConnection();
+                _connection = value;
+                AttachToConnection();
+                StateHasChanged();
+            }
+        }
+    }
+    
+    // Fullscreen properties
+    public bool IsFullscreen => _isFullscreen;
+    
+    // Fullscreen events
+    [Parameter] public EventCallback<bool> OnFullscreenChange { get; set; }
+
+    private RfbConnection? _connection;
+    private readonly string _canvasId = Guid.NewGuid().ToString();
+    
+    // Persistent framebuffer for incremental updates
+    private byte[]? _persistentFramebuffer;
+    private Size _framebufferSize;
+    private PixelFormat? _framebufferFormat;
+    private bool _disposed;
+    
+    // Cached RGBA buffer to avoid repeated allocations
+
+    
+    // Immediate rendering for maximum responsiveness
+    
+    // Rectangle-based rendering for dirty region updates
+    private readonly List<Rectangle> _dirtyRectangles = new List<Rectangle>();
+    private readonly object _dirtyRectanglesLock = new object();
+
+    // True while a render is scheduled on the dispatcher but has not started draining the
+    // dirty rectangles yet. Guarded by _dirtyRectanglesLock.
+    private bool _renderScheduled;
+
+    // When set, the canvas bitmap was reset (by an attribute resize or an explicit clear)
+    // and the next render must repaint the full framebuffer from the persistent buffer,
+    // because dirty-rectangle-only paints would otherwise leave the cleared regions black.
+    private bool _fullRedrawPending;
+
+    // Canvas size whose width/height attributes were last applied to the DOM. Compared in
+    // OnAfterRenderAsync to detect the exact render in which the browser resized (and
+    // thereby wiped) the canvas bitmap, so the full repaint happens strictly after the wipe.
+    private Size _lastRenderedCanvasSize = new Size(800, 600);
+
+    // Canvas size written into the render tree by the most recent render. Set in the markup
+    // during rendering. Unlike canvasSize (mutated live by the VNC thread), this reflects the
+    // attributes the browser actually received, so a size change is never detected before the
+    // render that applies (and thereby wipes) it - which would permanently miss the wipe.
+    private Size _renderingCanvasSize = new Size(800, 600);
+    
+    // Fullscreen functionality
+    private bool _isFullscreen = false;
+    private DotNetObjectReference<VncView>? _dotNetObjectRef;
+    
+    // Clipboard functionality
+    private bool _clipboardMonitoringSetup = false;
+    private DotNetObjectReference<object>? _clipboardDotNetRef;
+    
+    // Special keys menu
+    private bool _showSpecialKeysMenu = false;
+    private int _menuTop = 10;
+    private int _menuRight = 10;
+    private bool _menuDragSetup = false;
+
+    private static PixelFormat _PixelFormat = new PixelFormat(
+        "RGBA", // Assuming the format name is "RGBA"
+        32,     // BitsPerPixel
+        24,     // Depth
+        true,   // BigEndian
+        true,   // TrueColor
+        false,  // HasAlpha
+        255,    // RedMax
+        255,    // GreenMax
+        255,    // BlueMax
+        0,      // AlphaMax
+        0,      // RedShift
+        8,      // GreenShift
+        16,     // BlueShift
+        0       // AlphaShift
+    );
+
+    public CanvasReference canvasReference = new CanvasReference(null, new Size(800, 600), _PixelFormat, 96, 96);
+    private Size canvasSize => canvasReference.Size;
+    private ElementReference? _canvas;
+    private readonly object _canvasReplacementLock = new object();
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _canvas.HasValue)
+        {
+            // Initialize canvas dimensions
+            var dimensions = await jsInterop.GetDimensions();
+            canvasReference = new CanvasReference(_canvas, new Size(800, 600), _PixelFormat, dimensions.Item1, dimensions.Item2);
+            
+            // Set up fullscreen change listener
+            _dotNetObjectRef = DotNetObjectReference.Create(this);
+            await jsInterop.AddFullscreenChangeListener(DotNetObjectReference.Create((object)this), nameof(OnFullscreenChanged));
+            
+            // Clear the canvas to show it's working
+            await jsInterop.ClearCanvas($"vncCanvas_{_canvasId}");
+            
+            if (_connection != null)
+            {
+                AttachToConnection();
+            }
+        }
+        
+        // Detect the render in which new canvas width/height attributes were applied to the
+        // DOM. Applying these attributes resets the canvas bitmap to transparent, wiping
+        // everything painted so far. OnAfterRenderAsync runs only after the browser has
+        // acknowledged the DOM update, so repainting here is guaranteed to happen after the
+        // wipe - unlike a repaint scheduled at grab time, which could race and be wiped again.
+        // Compare against _renderingCanvasSize (what this render wrote to the DOM), NOT the
+        // live canvasSize: the VNC thread can change canvasSize while a render built with the
+        // old size is still in flight, and using the live value would consume the change one
+        // render too early and miss the actual wipe (seen on small/fast screens like 800x480).
+        if (!firstRender && _lastRenderedCanvasSize != _renderingCanvasSize)
+        {
+            _lastRenderedCanvasSize = _renderingCanvasSize;
+            _fullRedrawPending = true;
+            await RenderPersistentFramebuffer();
+        }
+        
+        // Set up drag functionality for special keys menu (once when connected)
+        if (_connection?.ConnectionState == ConnectionState.Connected && !_disposed && !_menuDragSetup)
+        {
+            try
+            {
+                if (_dotNetObjectRef != null)
+                {
+                    await jsInterop.SetupMenuDrag($"specialKeysButton_{_canvasId}", DotNetObjectReference.Create((object)this));
+                    _menuDragSetup = true;
+                }
+            }
+            catch
+            {
+                // Ignore setup errors
+            }
+        }
+    }
+
+    private void AttachToConnection()
+    {
+        if (_connection != null && !_disposed)
+        {
+            _connection.RenderTarget = this;
+            _connection.OutputHandler = this;
+            
+            // Subscribe to property changes to handle connection state changes
+            _connection.PropertyChanged += OnConnectionPropertyChanged;
+            
+            // Clear canvas and framebuffer when attaching to new connection
+            ClearCanvasAndFramebuffer();
+            
+            // If connection is already established, request an incremental framebuffer update
+            // to catch up. In the normal connect flow the component attaches right after the
+            // state turns Connected, i.e. BEFORE the initial full update (requested by the
+            // protocol layer) has arrived, so that full update still paints everything.
+            // Do NOT request a non-incremental update here: it would duplicate the initial
+            // request and force slow servers (e.g. RPi) to encode the entire screen twice,
+            // stalling delta updates for many seconds after connect.
+            if (_connection.ConnectionState == ConnectionState.Connected)
+            {
+                RequestIncrementalFramebufferUpdate();
+
+                // Also set up clipboard monitoring if already connected
+                InvokeAsync(SetupClipboardMonitoringAsync);
+            }
+            
+            // Force initial rendering
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private void OnConnectionPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (_disposed || e.PropertyName != nameof(RfbConnection.ConnectionState))
+            return;
+
+        if (_connection?.ConnectionState == ConnectionState.Connected)
+        {
+            // Do NOT send an extra non-incremental FramebufferUpdateRequest here.
+            // The protocol layer (RfbMessageSender.EnqueueInitialMessages) already sends
+            // the initial non-incremental request when the connection is established.
+            // Sending duplicates forces the server (especially slow devices like RPi 3)
+            // to process multiple full-screen updates, causing a long startup freeze.
+
+            // Set up clipboard monitoring when connected
+            InvokeAsync(SetupClipboardMonitoringAsync);
+        }
+
+        // Re-render on every state change so the reconnect overlay and the special keys
+        // menu reflect the current connection state (Interrupted, Reconnecting, Connected, ...).
+        InvokeAsync(StateHasChanged);
+    }
+    
+    private async Task SetupClipboardMonitoringAsync()
+    {
+        if (_clipboardMonitoringSetup || !_canvas.HasValue)
+            return;
+
+        try
+        {
+            // Create object reference for clipboard callbacks
+            _clipboardDotNetRef = DotNetObjectReference.Create((object)this);
+            var success = await jsInterop.SetupClipboardMonitoring($"vncCanvas_{_canvasId}", _clipboardDotNetRef);
+            
+            if (success)
+            {
+                _clipboardMonitoringSetup = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"VNC: Failed to set up clipboard monitoring: {ex.Message}");
+        }
+    }
+    
+    [JSInvokable]
+    public Task OnClipboardPaste(string text)
+    {
+        if (_connection?.ConnectionState == ConnectionState.Connected && !string.IsNullOrEmpty(text))
+        {
+            _connection.SendClipboardText(text);
+        }
+        return Task.CompletedTask;
+    }
+
+    private void RequestIncrementalFramebufferUpdate()
+    {
+        if (_connection?.ConnectionState == ConnectionState.Connected && !_disposed)
+        {
+            var fullScreenRect = new Rectangle(Position.Origin, _connection.RemoteFramebufferSize);
+            // Use incremental request - the protocol layer already sent the initial
+            // non-incremental request, so this is just to refresh the UI with any
+            // changes since then (e.g. late component attach or reconnect scenarios).
+            _connection.EnqueueFramebufferUpdateRequest(fullScreenRect, incremental: true);
+        }
+    }
+
+    private async void ClearCanvasAndFramebuffer()
+    {
+        try
+        {
+            // Clear the canvas to prevent showing old framebuffer data on reconnect
+            if (_canvas.HasValue)
+            {
+                await jsInterop.ClearCanvas($"vncCanvas_{_canvasId}");
+            }
+            
+            // Clear persistent framebuffer to ensure fresh start
+            if (_persistentFramebuffer != null)
+            {
+                Array.Clear(_persistentFramebuffer, 0, _persistentFramebuffer.Length);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error clearing canvas: {ex.Message}");
+        }
+    }
+
+    private void DetachFromConnection()
+    {
+        if (_connection != null)
+        {
+            try
+            {
+                _connection.PropertyChanged -= OnConnectionPropertyChanged;
+                
+                // Check if connection is still valid before trying to access properties
+                if (ReferenceEquals(_connection.RenderTarget, this))
+                    _connection.RenderTarget = null;
+                if (ReferenceEquals(_connection.OutputHandler, this))
+                    _connection.OutputHandler = null;
+                    
+                // Reset setup flags for reconnection
+                _menuDragSetup = false;
+            }
+            catch (ObjectDisposedException)
+            {
+                // Connection was already disposed - this is fine during cleanup
+                // Just ignore since the connection is already cleaned up
+            }
+            catch (Exception ex)
+            {
+                // Log other unexpected errors but don't throw
+                Console.WriteLine($"Warning: Error during connection detachment: {ex.Message}");
+            }
+        }
+    }
+
+    public virtual void RingBell()
+    {
+        // Ring the system bell - in browser context, we might want to use JavaScript
+        Console.WriteLine("VNC Bell");
+    }
+
+    public IFramebufferReference GrabFramebufferReference(Size size, IImmutableSet<Screen> layout)
+    {
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(VncView));
+
+        if (!_canvas.HasValue)
+            throw new InvalidOperationException("Canvas element is not initialized.");
+
+        bool sizeChanged = canvasSize != size;
+        if (sizeChanged)
+        {
+        canvasReference.Size = size;
+            // The queued render applies new width/height attributes, which resets the canvas
+            // bitmap. OnAfterRenderAsync detects that and forces a full repaint afterwards.
+            InvokeAsync(StateHasChanged);
+        }
+
+        // Initialize persistent framebuffer if needed
+        if (_persistentFramebuffer == null || _framebufferSize != size)
+        {
+            InitializePersistentFramebuffer(size, canvasReference.Format);
+        }
+        
+        return new BlazorFramebufferReference(canvasReference, InvalidateVisual, QueueFramebufferUpdate, _persistentFramebuffer, trackChanges: true);
+    }
+
+    /// <summary>
+    /// Invalidates the visual and queues a repaint.
+    /// </summary>
+    public void InvalidateVisual()
+    {
+        if (!_disposed)
+        {
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    public void QueueFramebufferUpdate(byte[] data, Size size, PixelFormat format, Rectangle? dirtyRect = null)
+    {
+        if (_disposed)
+            return;
+
+        // The VNC library has already written directly to our persistent buffer via the
+        // IFramebufferReference.Address; the 'data' parameter references that same buffer.
+
+        bool scheduleRender;
+        lock (_dirtyRectanglesLock)
+        {
+            if (dirtyRect.HasValue)
+            {
+                _dirtyRectangles.Add(dirtyRect.Value);
+            }
+
+            // Coalesce render scheduling: with per-rectangle updates many QueueFramebufferUpdate
+            // calls can arrive before the first render runs. A single scheduled render drains
+            // all accumulated dirty rectangles, so scheduling more would only produce no-op
+            // (or worse, redundant) renders that stall the circuit's dispatcher.
+            scheduleRender = !_renderScheduled && (dirtyRect.HasValue || _fullRedrawPending);
+            if (scheduleRender)
+                _renderScheduled = true;
+        }
+
+        if (!scheduleRender)
+            return;
+
+        InvokeAsync(async () =>
+        {
+            lock (_dirtyRectanglesLock)
+            {
+                _renderScheduled = false;
+            }
+
+            try
+            {
+                await RenderPersistentFramebuffer();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in immediate render: {ex.Message}");
+            }
+        });
+    }
+
+
+
+    private void InitializePersistentFramebuffer(Size size, PixelFormat format)
+    {
+        int bufferSize = size.Width * size.Height * (format.BitsPerPixel / 8);
+        _persistentFramebuffer = new byte[bufferSize];
+        _framebufferSize = size;
+        _framebufferFormat = format;
+    }
+
+    private async Task RenderPersistentFramebuffer()
+    {
+        // Check if component is disposed
+        if (_disposed || _persistentFramebuffer == null || _framebufferFormat == null)
+        {
+            return;
+        }
+
+        try
+        {
+            List<Rectangle> rectanglesToRender = null;
+            
+            // Get dirty rectangles to render
+            lock (_dirtyRectanglesLock)
+            {
+                if (_dirtyRectangles.Count > 0)
+                {
+                    rectanglesToRender = new List<Rectangle>(_dirtyRectangles);
+                    _dirtyRectangles.Clear();
+                }
+            }
+            
+            // Double-check we're not disposed before rendering
+            if (_disposed)
+                return;
+            
+            // A full redraw is required when the canvas bitmap was reset (resize or explicit
+            // clear). Drop any dirty rectangles and repaint the entire persistent framebuffer,
+            // since the dirty regions alone cannot restore the cleared areas.
+            bool forceFullRedraw = false;
+            if (_fullRedrawPending)
+            {
+                forceFullRedraw = true;
+                _fullRedrawPending = false;
+                lock (_dirtyRectanglesLock)
+                {
+                    _dirtyRectangles.Clear();
+                }
+                rectanglesToRender = null;
+            }
+            
+            if (forceFullRedraw)
+            {
+                await renderingService.RenderFullFramebufferAsync($"vncCanvas_{_canvasId}", _persistentFramebuffer, _framebufferSize, _framebufferFormat.Value);
+            }
+            else if (rectanglesToRender != null && rectanglesToRender.Count > 0)
+            {
+                // Render only dirty rectangles for better performance
+                await renderingService.RenderDirtyRectanglesAsync($"vncCanvas_{_canvasId}", _persistentFramebuffer, _framebufferSize, _framebufferFormat.Value, rectanglesToRender);
+            }
+            // Nothing to draw: this render was scheduled redundantly (another render already
+            // drained the dirty rectangles). Doing a full-frame paint here - the old fallback -
+            // amplified every multi-rectangle update into repeated 8 MB transfers over SignalR,
+            // which is what caused multi-second catch-up lag after connecting.
+        }
+        catch (ObjectDisposedException)
+        {
+            // Component was disposed during rendering - this is normal
+            return;
+        }
+        catch (Exception ex)
+        {
+            // Log only critical errors, not every render
+            Console.WriteLine($"Error rendering persistent framebuffer: {ex.Message}");
+        }
+    }
+
+    public virtual void HandleServerClipboardUpdate(string text)
+    {
+        // Copy text to browser clipboard using JavaScript interop
+        InvokeAsync(async () =>
+        {
+            try
+            {
+                await jsInterop.CopyToClipboard(text);
+            }
+            catch
+            {
+                // Silently ignore clipboard errors
+            }
+        });
+    }
+    
+    private async Task DrawTestPattern()
+    {
+        if (_canvas.HasValue && !_disposed)
+        {
+            try
+            {
+                // Create a simple test pattern to verify canvas is working
+                var testData = new byte[800 * 600 * 4]; // RGBA
+                for (int y = 0; y < 600; y++)
+                {
+                    for (int x = 0; x < 800; x++)
+                    {
+                        int index = (y * 800 + x) * 4;
+                        testData[index] = (byte)(x % 256);     // Red
+                        testData[index + 1] = (byte)(y % 256); // Green
+                        testData[index + 2] = 128;             // Blue
+                        testData[index + 3] = 255;             // Alpha
+                    }
+                }
+                
+                await jsInterop.DrawRectangle($"vncCanvas_{_canvasId}", testData, 0, 0, 800, 600);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Test pattern error: {ex.Message}");
+            }
+        }
+    }
+
+    // Input event handlers - PERFORMANCE CRITICAL: Direct inline implementation
+    // IMPORTANT: These are "async void" event handlers. Any exception escaping them is rethrown
+    // on the renderer synchronization context and kills the whole Blazor circuit (frozen UI).
+    // Because the connection can fail concurrently (e.g. server reboot) between the state check
+    // and the enqueue call, all input handlers must never let exceptions escape.
+    private async void OnMouseDown(MouseEventArgs e)
+    {
+        try
+        {
+            if (_connection?.ConnectionState == ConnectionState.Connected)
+            {
+                var buttons = GetMouseButtons(e);
+                var position = await ConvertCanvasToVncCoordinatesAsync(e.OffsetX, e.OffsetY);
+                _connection.EnqueueMessage(new PointerEventMessage(position, buttons));
+            }
+        }
+        catch (Exception ex)
+        {
+            LogInputError(nameof(OnMouseDown), ex);
+        }
+    }
+
+    private async void OnMouseUp(MouseEventArgs e)
+    {
+        try
+        {
+            if (_connection?.ConnectionState == ConnectionState.Connected)
+            {
+                var position = await ConvertCanvasToVncCoordinatesAsync(e.OffsetX, e.OffsetY);
+                _connection.EnqueueMessage(new PointerEventMessage(position, MouseButtons.None));
+            }
+        }
+        catch (Exception ex)
+        {
+            LogInputError(nameof(OnMouseUp), ex);
+        }
+    }
+
+    private async void OnMouseMove(MouseEventArgs e)
+    {
+        try
+        {
+            if (_connection?.ConnectionState == ConnectionState.Connected)
+            {
+                // Important: Track button state during move for text selection and drag operations
+                var buttons = GetMouseButtons(e);
+                var position = await ConvertCanvasToVncCoordinatesAsync(e.OffsetX, e.OffsetY);
+                _connection.EnqueueMessage(new PointerEventMessage(position, buttons));
+            }
+        }
+        catch (Exception ex)
+        {
+            LogInputError(nameof(OnMouseMove), ex);
+        }
+    }
+
+    private async void OnWheel(WheelEventArgs e)
+    {
+        try
+        {
+            if (_connection?.ConnectionState == ConnectionState.Connected)
+            {
+                var position = await ConvertCanvasToVncCoordinatesAsync(e.OffsetX, e.OffsetY);
+                var button = e.DeltaY > 0 ? MouseButtons.WheelUp : MouseButtons.WheelDown;
+                
+                // Send wheel press and release
+                _connection.EnqueueMessage(new PointerEventMessage(position, button));
+                _connection.EnqueueMessage(new PointerEventMessage(position, MouseButtons.None));
+            }
+        }
+        catch (Exception ex)
+        {
+            LogInputError(nameof(OnWheel), ex);
+        }
+    }
+
+    // Keyboard event handlers - delegated to InputService
+    private async void OnKeyDown(KeyboardEventArgs e)
+    {
+        try
+        {
+            await inputService.HandleKeyDownAsync(e, _connection, ExitFullscreenAsync, _isFullscreen);
+        }
+        catch (Exception ex)
+        {
+            LogInputError(nameof(OnKeyDown), ex);
+        }
+    }
+
+    private async void OnKeyUp(KeyboardEventArgs e)
+    {
+        try
+        {
+            await inputService.HandleKeyUpAsync(e, _connection, _isFullscreen);
+        }
+        catch (Exception ex)
+        {
+            LogInputError(nameof(OnKeyUp), ex);
+        }
+    }
+
+    private static void LogInputError(string handlerName, Exception ex)
+    {
+        // Input events during a connection interruption are expendable - never crash the circuit over them.
+        Console.WriteLine($"VNC: Ignored input error in {handlerName}: {ex.Message}");
+    }
+    
+    // Focus handlers to provide visual feedback
+    private void OnCanvasFocus(FocusEventArgs e)
+    {
+        // Canvas has focus - keyboard input will be captured
+        Console.WriteLine("VNC Canvas focused - keyboard input active");
+    }
+    
+    private void OnCanvasBlur(FocusEventArgs e)
+    {
+        // Canvas lost focus - keyboard input may not work
+        Console.WriteLine("VNC Canvas blurred - click canvas to activate keyboard");
+    }
+
+    // Cached canvas dimensions to avoid repeated JS interop calls
+    private CanvasDimensions? _cachedCanvasDimensions;
+    private DateTime _lastDimensionsUpdate = DateTime.MinValue;
+    private static readonly TimeSpan DimensionsCacheTimeout = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Converts canvas coordinates to VNC framebuffer coordinates with intelligent caching
+    /// This method handles responsive scaling and CSS transformations properly
+    /// PERFORMANCE CRITICAL: Kept inline to avoid service overhead during rapid mouse events
+    /// </summary>
+    private async Task<Position> ConvertCanvasToVncCoordinatesAsync(double canvasX, double canvasY)
+    {
+        if (_connection?.RemoteFramebufferSize == null || _connection.RemoteFramebufferSize == Size.Zero)
+        {
+            // Fallback to direct coordinates if no framebuffer size is available
+            return new Position((int)canvasX, (int)canvasY);
+        }
+
+        try
+        {
+            // Use cached dimensions if they're recent (performance optimization)
+            var now = DateTime.UtcNow;
+            if (_cachedCanvasDimensions == null || (now - _lastDimensionsUpdate) > DimensionsCacheTimeout)
+            {
+                _cachedCanvasDimensions = await jsInterop.GetCanvasDimensions($"vncCanvas_{_canvasId}");
+                _lastDimensionsUpdate = now;
+            }
+
+            var actualCanvasWidth = _cachedCanvasDimensions.Width;
+            var actualCanvasHeight = _cachedCanvasDimensions.Height;
+            var vncFramebufferSize = _connection.RemoteFramebufferSize;
+
+            // Calculate scaling factors based on actual rendered canvas size
+            // This handles CSS scaling (max-width, max-height, responsive design)
+            double scaleX = (double)vncFramebufferSize.Width / actualCanvasWidth;
+            double scaleY = (double)vncFramebufferSize.Height / actualCanvasHeight;
+
+            // Convert canvas coordinates to VNC coordinates with proper rounding
+            int vncX = (int)Math.Round(canvasX * scaleX);
+            int vncY = (int)Math.Round(canvasY * scaleY);
+
+            // Clamp coordinates to valid range (critical for edge cases)
+            vncX = Math.Max(0, Math.Min(vncX, vncFramebufferSize.Width - 1));
+            vncY = Math.Max(0, Math.Min(vncY, vncFramebufferSize.Height - 1));
+
+            return new Position(vncX, vncY);
+        }
+        catch (Exception ex)
+        {
+            // Log the error for debugging but don't crash
+            Console.WriteLine($"Warning: Coordinate conversion failed, using fallback: {ex.Message}");
+            
+            // Fallback to simple scaling using initial canvas size
+            var vncFramebufferSize = _connection.RemoteFramebufferSize;
+            var fallbackCanvasSize = canvasSize; // Initial canvas size from component
+
+            double scaleX = (double)vncFramebufferSize.Width / fallbackCanvasSize.Width;
+            double scaleY = (double)vncFramebufferSize.Height / fallbackCanvasSize.Height;
+
+            int vncX = (int)Math.Round(canvasX * scaleX);
+            int vncY = (int)Math.Round(canvasY * scaleY);
+
+            // Clamp to valid range
+            vncX = Math.Max(0, Math.Min(vncX, vncFramebufferSize.Width - 1));
+            vncY = Math.Max(0, Math.Min(vncY, vncFramebufferSize.Height - 1));
+
+            return new Position(vncX, vncY);
+        }
+    }
+
+    /// <summary>
+    /// Converts browser MouseEventArgs.Buttons to VNC MouseButtons enum
+    /// Browser uses bitmask: 1=Left, 2=Right, 4=Middle
+    /// This is critical for proper text selection and drag operations
+    /// </summary>
+    private static MouseButtons GetMouseButtons(MouseEventArgs e)
+    {
+        var buttons = MouseButtons.None;
+
+        // Use bitwise AND operations to check which buttons are pressed
+        // This allows multiple buttons to be pressed simultaneously
+        if ((e.Buttons & 1) == 1) buttons |= MouseButtons.Left;   // Left mouse button
+        if ((e.Buttons & 2) == 2) buttons |= MouseButtons.Right;  // Right mouse button  
+        if ((e.Buttons & 4) == 4) buttons |= MouseButtons.Middle; // Middle mouse button/wheel
+
+        return buttons;
+    }
+
+    // ConvertToKeySymbol method moved to InputService
+
+    public void Dispose() => Dispose(true);
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed)
+            return;
+
+        if (disposing)
+        {
+            DetachFromConnection();
+            lock (_canvasReplacementLock)
+            {
+                canvasReference?.Dispose();
+            }
+        }
+
+        // Clean up fullscreen listener and clipboard monitoring
+        if (_dotNetObjectRef != null)
+        {
+            _ = Task.Run(async () =>
+            {
+                try
+                {
+                    await jsInterop.RemoveFullscreenChangeListener();
+                    
+                    // Clean up clipboard monitoring
+                    if (_clipboardMonitoringSetup)
+                    {
+                        await jsInterop.CleanupClipboardMonitoring($"vncCanvas_{_canvasId}");
+                    }
+                    
+                    // Clean up menu drag
+                    await jsInterop.CleanupMenuDrag($"specialKeysButton_{_canvasId}");
+                }
+                catch
+                {
+                    // Ignore cleanup errors
+                }
+            });
+            _dotNetObjectRef.Dispose();
+        }
+        
+        // Dispose clipboard reference
+        _clipboardDotNetRef?.Dispose();
+
+        _disposed = true;
+    }
+    
+    // Fullscreen functionality - delegated to FullscreenService
+    public async Task EnterFullscreenAsync()
+    {
+        if (!_disposed && _canvas.HasValue)
+        {
+            var containerId = $"vnc-container-{_canvasId}";
+            await fullscreenService.EnterFullscreenAsync(containerId);
+        }
+    }
+    
+    public async Task ExitFullscreenAsync()
+    {
+        if (!_disposed)
+        {
+            await fullscreenService.ExitFullscreenAsync();
+        }
+    }
+    
+    public async Task ToggleFullscreenAsync()
+    {
+        var containerId = $"vnc-container-{_canvasId}";
+        await fullscreenService.ToggleFullscreenAsync(containerId);
+    }
+    
+    [JSInvokable]
+    public async Task OnFullscreenChanged(bool isFullscreen)
+    {
+        _isFullscreen = isFullscreen;
+        
+        // Invalidate canvas dimensions cache when fullscreen state changes
+        // because the canvas size will change dramatically
+        _cachedCanvasDimensions = null;
+        
+        await OnFullscreenChange.InvokeAsync(isFullscreen);
+        StateHasChanged();
+    }
+    
+    // Special keys menu functionality
+    private void ToggleSpecialKeysMenu()
+    {
+        _showSpecialKeysMenu = !_showSpecialKeysMenu;
+        StateHasChanged();
+    }
+    
+    private void CloseSpecialKeysMenu()
+    {
+        _showSpecialKeysMenu = false;
+        StateHasChanged();
+    }
+    
+    private void OnMenuMouseDown(MouseEventArgs e)
+    {
+        // Allow drag handling by JavaScript
+    }
+    
+    [JSInvokable]
+    public void UpdateMenuPosition(int top, int right)
+    {
+        _menuTop = top;
+        _menuRight = right;
+        StateHasChanged();
+    }
+    
+    /// <summary>
+    /// Sends a key combination directly to the VNC server by programmatically
+    /// creating KeyEventMessages. This bypasses browser keyboard event limitations.
+    /// </summary>
+    private void SendKeyCombo(params KeySymbol[] keys)
+    {
+        if (_connection?.ConnectionState != ConnectionState.Connected)
+            return;
+            
+        // Send all keys down
+        foreach (var key in keys)
+        {
+            _connection.EnqueueMessage(new KeyEventMessage(true, key));
+        }
+        
+        // Send all keys up in reverse order
+        for (int i = keys.Length - 1; i >= 0; i--)
+        {
+            _connection.EnqueueMessage(new KeyEventMessage(false, keys[i]));
+        }
+        
+        // Close menu after sending
+        _showSpecialKeysMenu = false;
+        StateHasChanged();
+    }
+    
+    // Windows shortcuts
+    private void SendCtrlAltDelete() => SendKeyCombo(KeySymbol.Control_L, KeySymbol.Alt_L, KeySymbol.Delete);
+    private void SendCtrlShiftEsc() => SendKeyCombo(KeySymbol.Control_L, KeySymbol.Shift_L, KeySymbol.Escape);
+    private void SendAltF4() => SendKeyCombo(KeySymbol.Alt_L, KeySymbol.F4);
+    private void SendAltTab() => SendKeyCombo(KeySymbol.Alt_L, KeySymbol.Tab);
+    
+    private void SendWinKey(char key)
+    {
+        var keySymbol = (KeySymbol)char.ToLower(key);
+        SendKeyCombo(KeySymbol.Super_L, keySymbol);
+    }
+    
+    // Linux shortcuts
+    private void SendCtrlAltKey(char key)
+    {
+        var keySymbol = (KeySymbol)char.ToLower(key);
+        SendKeyCombo(KeySymbol.Control_L, KeySymbol.Alt_L, keySymbol);
+    }
+    
+    private void SendCtrlAltF(int number)
+    {
+        KeySymbol fKey = number switch
+        {
+            1 => KeySymbol.F1,
+            2 => KeySymbol.F2,
+            3 => KeySymbol.F3,
+            4 => KeySymbol.F4,
+            5 => KeySymbol.F5,
+            6 => KeySymbol.F6,
+            7 => KeySymbol.F7,
+            8 => KeySymbol.F8,
+            9 => KeySymbol.F9,
+            10 => KeySymbol.F10,
+            11 => KeySymbol.F11,
+            12 => KeySymbol.F12,
+            _ => KeySymbol.F1
+        };
+        SendKeyCombo(KeySymbol.Control_L, KeySymbol.Alt_L, fKey);
+    }
+}

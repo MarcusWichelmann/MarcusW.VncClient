@@ -1,0 +1,29 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#2E86AB" stroke="#A23B72" stroke-width="4"/>
+  
+  <!-- Main monitor/screen -->
+  <rect x="20" y="30" width="50" height="35" rx="4" fill="#F18F01" stroke="#C73E1D" stroke-width="2"/>
+  <rect x="24" y="34" width="42" height="27" fill="#1A1A1A"/>
+  
+  <!-- Remote monitor/screen (smaller, offset) -->
+  <rect x="58" y="55" width="40" height="28" rx="3" fill="#A23B72" stroke="#2E86AB" stroke-width="2"/>
+  <rect x="61" y="58" width="34" height="22" fill="#1A1A1A"/>
+  
+  <!-- Connection arrows -->
+  <path d="M45 48 L58 62" stroke="#F18F01" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M70 75 L78 85" stroke="#A23B72" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F18F01"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#A23B72"/>
+    </marker>
+  </defs>
+  
+  <!-- VNC text -->
+  <text x="64" y="105" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">VNC</text>
+</svg>

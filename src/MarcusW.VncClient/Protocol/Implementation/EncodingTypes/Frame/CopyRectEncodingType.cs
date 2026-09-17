@@ -47,6 +47,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Frame
             Rectangle sourceRectangle = rectangle.WithPosition(new Position((int)srcX, (int)srcY));
 
             // Create cursors for finding the source and target positions in the framebuffer
+            // Color map is not needed for CopyRect as it copies raw pixel data
             var sourceCursor = new FramebufferCursor(targetFramebuffer, sourceRectangle);
             var targetCursor = new FramebufferCursor(targetFramebuffer, rectangle);
 

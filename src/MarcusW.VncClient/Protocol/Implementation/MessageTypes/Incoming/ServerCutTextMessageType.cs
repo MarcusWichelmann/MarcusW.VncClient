@@ -106,7 +106,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
                 }
             }
 
-            _logger.LogDebug("Received server cut text of length {length}.", stringBuilder.Length);
+            // Removed server cut text reception debug logging for production use
 
             outputHandler?.HandleServerClipboardUpdate(stringBuilder.ToString());
         }

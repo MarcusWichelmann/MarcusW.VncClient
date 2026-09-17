@@ -53,7 +53,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
             // Did we just learn that the server supports this extension?
             if (!_state.ServerSupportsExtendedDesktopSize)
             {
-                _logger.LogDebug("Server supports the extended desktop size extension.");
+                // Removed extended desktop size extension support debug logging for production use
 
                 // Mark the SetDesktopSize message as used
                 _state.EnsureMessageTypeIsMarkedAsUsed<IOutgoingMessageType>(null, (byte)WellKnownOutgoingMessageType.SetDesktopSize);
@@ -116,8 +116,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.EncodingTypes.Pseudo
             if (newSize == _state.RemoteFramebufferSize && screens.SequenceEqual(_state.RemoteFramebufferLayout))
                 return;
 
-            _logger.LogDebug("Remote framebuffer size updated to {newSize} with a {screenCount}-screen layout: {layout}. Reason: {changeReason}", newSize, numberOfScreens,
-                string.Join(", ", screens), changeReason);
+            // Removed extended desktop size update debug logging for production use
 
             // Set the new framebuffer size and layout
             _state.RemoteFramebufferSize = newSize;

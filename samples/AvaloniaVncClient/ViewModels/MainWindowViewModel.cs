@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Reactive;
-using System.Threading;
-using System.Threading.Tasks;
+using Avalonia.Controls.Shapes;
 using AvaloniaVncClient.Services;
 using MarcusW.VncClient;
 using MarcusW.VncClient.Protocol.Implementation;
@@ -11,6 +6,12 @@ using MarcusW.VncClient.Protocol.Implementation.Services.Transports;
 using MarcusW.VncClient.Rendering;
 using ReactiveUI;
 using Splat;
+using System;
+using System.Linq;
+using System.Net;
+using System.Reactive;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AvaloniaVncClient.ViewModels
 {
@@ -18,8 +19,8 @@ namespace AvaloniaVncClient.ViewModels
     {
         private readonly ConnectionManager _connectionManager;
 
-        private string _host = "fedora-vm";
-        private int _port = 5901;
+        private string _host = "10.203.152.154";
+        private int _port = 5900;
         private RfbConnection? _rfbConnection;
         private string? _errorMessage;
 
@@ -58,7 +59,9 @@ namespace AvaloniaVncClient.ViewModels
 
         public bool ParametersValid => _parametersValidProperty.Value;
 
-        public MainWindowViewModel(ConnectionManager? connectionManager = null, InteractiveAuthenticationHandler? interactiveAuthenticationHandler = null)
+        public MainWindowViewModel() : this(null, null) { }
+
+        public MainWindowViewModel(ConnectionManager? connectionManager, InteractiveAuthenticationHandler? interactiveAuthenticationHandler)
         {
             _connectionManager = connectionManager ?? Locator.Current.GetService<ConnectionManager>() ?? throw new ArgumentNullException(nameof(connectionManager));
             InteractiveAuthenticationHandler = interactiveAuthenticationHandler ?? Locator.Current.GetService<InteractiveAuthenticationHandler>()

@@ -54,7 +54,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             // Did we just learn that the server supports fences?
             if (!_state.ServerSupportsFences)
             {
-                _logger.LogDebug("Server supports the fences extension.");
+                // Removed fence extension support debug logging for production use
 
                 // Mark the encoding and message type as used
                 _state.EnsureEncodingTypeIsMarkedAsUsed<IPseudoEncodingType>(null, (int)WellKnownEncodingType.Fence);
@@ -90,11 +90,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             // Print a nice log message
             if (_logger.IsEnabled(LogLevel.Debug))
             {
-                if (payloadLength > 0)
-                    _logger.LogDebug("Received server fence ({flags}) with {payloadLength} byte(s) of payload: {payload}", flags.ToString(), payloadLength,
-                        BitConverter.ToString(payload));
-                else
-                    _logger.LogDebug("Received server fence ({flags}) with no payload.", flags.ToString());
+                // Removed fence message debug logging for production use
             }
 
             // Leave only supported bits and clear the request bit

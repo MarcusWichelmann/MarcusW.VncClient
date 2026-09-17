@@ -47,7 +47,7 @@ namespace MarcusW.VncClient.Protocol.Implementation.MessageTypes.Incoming
             // Did we just learn that the server supports continuous updates?
             if (!_state.ServerSupportsContinuousUpdates)
             {
-                _logger.LogDebug("Server supports the continuous updates extension.");
+                // Removed continuous updates extension support debug logging for production use
 
                 // Mark the encoding and message type as used
                 _state.EnsureEncodingTypeIsMarkedAsUsed<IPseudoEncodingType>(null, (int)WellKnownEncodingType.ContinuousUpdates);

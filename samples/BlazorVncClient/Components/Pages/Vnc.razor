@@ -1,0 +1,608 @@
+@page "/vnc_view"
+@page "/vnc_view/{host?}"
+@page "/vnc_view/{host?}/{port:int?}"
+@rendermode InteractiveServer
+
+@inject MainWindowViewModel _viewModel
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Navigation
+
+@using BlazorVncClient.ViewModels
+@using MarcusW.VncClient.Blazor
+@using System.ComponentModel
+@using Microsoft.JSInterop
+@using MarcusW.VncClient.Protocol
+@using System.Reactive.Linq
+@using MarcusW.VncClient
+@using BlazorVncClient.Services
+@using BlazorVncClient.Components
+
+<PageTitle>VNC Client</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h3>VNC Connection</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-end">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="hostInput" class="form-label">VNC Server Host</label>
+                                <input type="text" class="form-control" id="hostInput" @bind="CurrentHost" placeholder="Enter VNC server host" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="portInput" class="form-label">Port</label>
+                                <input type="number" class="form-control" id="portInput" @bind="CurrentPort" placeholder="5900" />
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="mb-3">
+                                <label class="form-label">&nbsp;</label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <button type="button" class="btn @(_isConnecting ? "btn-warning" : "btn-primary")" 
+                                            @onclick="ToggleConnection" disabled="@(!_parametersValid || _isConnecting)">
+                                        @if (_isConnecting)
+                                        {
+                                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                            <text>Connecting...</text>
+                                        }
+                                        else if (_viewModel.RfbConnection != null)
+                                        {
+                                            <text>Disconnect</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Connect</text>
+                                        }
+                                    </button>
+                                    @if (!_isConnecting && _viewModel.RfbConnection == null)
+                                    {
+                                        <small class="text-muted">
+                                            <i class="fas fa-info-circle"></i> Authentication prompts will appear automatically
+                                        </small>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-2">
+                        <small class="text-muted">
+                            <i class="fas fa-shield-alt"></i> <strong>Authentication:</strong> Secure modal dialogs will prompt for credentials as needed. 
+                            VNC Authentication requires password only. VeNCrypt may require both username and password.
+                        </small>
+                    </div>
+                    
+                    @if (!string.IsNullOrEmpty(_viewModel.ErrorMessage))
+                    {
+                        <div class="alert alert-danger mt-2">
+                            @_viewModel.ErrorMessage
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (_viewModel.RfbConnection != null)
+    {
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">VNC Display</h5>
+                        @if (_viewModel.RfbConnection?.Connection?.ConnectionState == ConnectionState.Connected)
+                        {
+                            <button type="button" class="btn btn-outline-primary btn-sm" @onclick="ToggleFullscreen">
+                                <i class="fas fa-expand"></i> Fullscreen
+                            </button>
+                        }
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="vnc-container" style="overflow: auto; max-height: 80vh;">
+                            <VncView @ref="_vncView" Connection="_viewModel.RfbConnection?.Connection" 
+                                     OnFullscreenChange="OnFullscreenChanged" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Connection Info</h5>
+                    </div>
+                    <div class="card-body">
+                        <small class="text-muted">
+                            <strong>Status:</strong> @(_viewModel.RfbConnection?.Connection?.ConnectionState ?? ConnectionState.Uninitialized)<br/>
+                            @if (_viewModel.RfbConnection?.Connection?.ProtocolVersion != RfbProtocolVersion.Unknown)
+                            {
+                                <strong>Protocol:</strong> @_viewModel.RfbConnection.Connection.ProtocolVersion.ToReadableString()<br/>
+                            }
+                            @if (_viewModel.RfbConnection?.Connection?.UsedSecurityType != null)
+                            {
+                                <strong>Security:</strong> @_viewModel.RfbConnection.Connection.UsedSecurityType.Name<br/>
+                            }
+                            @if (!string.IsNullOrEmpty(_viewModel.RfbConnection?.Connection?.DesktopName))
+                            {
+                                <strong>Desktop:</strong> @_viewModel.RfbConnection.Connection.DesktopName<br/>
+                            }
+                            @if (_viewModel.RfbConnection?.Connection?.RemoteFramebufferSize != Size.Zero)
+                            {
+                                <strong>Size:</strong> @($"{_viewModel.RfbConnection.Connection.RemoteFramebufferSize.Width}x{_viewModel.RfbConnection.Connection.RemoteFramebufferSize.Height}")<br/>
+                            }
+                            @if (_viewModel.RfbConnection?.Connection?.InterruptionCause != null)
+                            {
+                                <div class="text-danger mt-2">
+                                    <strong>Error:</strong> @_viewModel.RfbConnection.Connection.InterruptionCause
+                                </div>
+                            }
+                        </small>
+                    </div>
+                </div>
+                
+                @if (_viewModel.RfbConnection?.Connection?.UsedEncodingTypes?.Any() == true)
+                {
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h6>Encoding Types</h6>
+                        </div>
+                        <div class="card-body">
+                            <small class="text-muted">
+                                @foreach (var encoding in _viewModel.RfbConnection.Connection.UsedEncodingTypes)
+                                {
+                                    <span class="badge bg-secondary me-1 mb-1">@encoding.Name</span>
+                                }
+                            </small>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <h4>No VNC Connection</h4>
+                    <p>Enter connection details above and click Connect to start a VNC session.</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Authentication Dialog -->
+<AuthenticationDialog @ref="_authDialog"
+                     Title="@_authTitle"
+                     Message="@_authMessage"
+                     SecurityTypeName="@_authSecurityType"
+                     SecurityTypeId="@_authSecurityTypeId"
+                     IsCredentialsMode="@_isCredentialsMode"
+                     OnPasswordResult="OnPasswordAuthResult"
+                     OnCredentialsResult="OnCredentialsAuthResult" />
+
+@code {
+    [Parameter] public string? Host { get; set; }
+    [Parameter] public int? Port { get; set; }
+    
+    [SupplyParameterFromQuery(Name = "host")] public string? QueryHost { get; set; }
+    [SupplyParameterFromQuery(Name = "port")] public int? QueryPort { get; set; }
+    [SupplyParameterFromQuery(Name = "user")] public string? User { get; set; }
+    [SupplyParameterFromQuery(Name = "password")] public string? Password { get; set; }
+    [SupplyParameterFromQuery(Name = "autoconnect")] public bool? AutoConnect { get; set; }
+    
+    // Consolidated connection parameters with proper binding support
+    private string? _currentHost;
+    private int _currentPort;
+    
+    private string? CurrentHost
+    {
+        get => _currentHost ?? QueryHost ?? "raspberrypi.local";
+        set => _currentHost = value;
+    }
+
+    private int CurrentPort
+    {
+        get => _currentPort != 0 ? _currentPort : (QueryPort ?? 5900);
+        set => _currentPort = value;
+    }
+    private bool _isConnecting = false;
+    private bool _parametersValid => !string.IsNullOrWhiteSpace(CurrentHost) && CurrentPort > 0 && CurrentPort <= 65535;
+    private VncView? _vncView;
+    private bool _isFullscreen = false;
+
+    // Authentication dialog state
+    private AuthenticationDialog? _authDialog;
+    private string _authTitle = string.Empty;
+    private string _authMessage = string.Empty;
+    private string _authSecurityType = string.Empty;
+    private byte _authSecurityTypeId = 0;
+    private bool _isCredentialsMode = false;
+    private TaskCompletionSource<PasswordPromptResponse>? _passwordTcs;
+    private TaskCompletionSource<CredentialsPromptResponse>? _credentialsTcs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Set up authentication handlers with modal dialogs
+        _viewModel.InteractiveAuthenticationHandler.EnterPasswordInteraction.RegisterHandler(async context =>
+        {
+            var request = context.Input;
+            
+            // Use provided password if available, otherwise show modal dialog
+            if (!string.IsNullOrWhiteSpace(Password))
+            {
+                var response = new PasswordPromptResponse 
+                { 
+                    Password = Password, 
+                    IsCancelled = false 
+                };
+                context.SetOutput(response);
+            }
+            else
+            {
+                var response = await ShowPasswordDialog(request);
+                context.SetOutput(response);
+            }
+        });
+        
+            _viewModel.InteractiveAuthenticationHandler.EnterCredentialsInteraction.RegisterHandler(async context =>
+                {
+            var request = context.Input;
+            
+            // Use provided credentials if available, otherwise show modal dialog
+            if (!string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(User))
+            {
+                var response = new CredentialsPromptResponse 
+                { 
+                    Username = User, 
+                    Password = Password, 
+                    IsCancelled = false 
+                };
+                context.SetOutput(response);
+            }
+            else if (!string.IsNullOrWhiteSpace(Password))
+            {
+                // Only password provided, use empty username for VNC auth
+                var response = new CredentialsPromptResponse 
+                { 
+                    Username = "", 
+                    Password = Password, 
+                    IsCancelled = false 
+                };
+                context.SetOutput(response);
+            }
+            else
+            {
+                var response = await ShowCredentialsDialog(request);
+                context.SetOutput(response);
+            }
+        });
+
+        // Subscribe to property changes for UI updates
+        _viewModel.PropertyChanged += OnViewModelPropertyChanged;
+        
+        // Auto-connect if specified and parameters are valid
+        if (AutoConnect == true && _parametersValid)
+        {
+            // Small delay to ensure UI is rendered before connecting
+            await Task.Delay(100);
+            await Connect();
+        }
+    }
+
+    private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    private async Task ToggleConnection()
+    {
+        if (_viewModel.RfbConnection != null)
+        {
+            // Disconnect
+            await DisconnectAsync();
+        }
+        else
+        {
+            // Connect
+            await Connect();
+        }
+    }
+
+    private async Task DisconnectAsync()
+    {
+        if (_viewModel.RfbConnection == null)
+            return;
+
+        try
+        {
+            _isConnecting = true;
+            StateHasChanged();
+
+            // Use the wrapper's safe disconnect method
+            var wrapper = _viewModel.RfbConnection;
+            _viewModel.RfbConnection = null;
+            
+            // Trigger UI update immediately after clearing the connection
+            StateHasChanged();
+            
+            // The wrapper handles safe disposal
+            await wrapper.DisconnectAsync();
+            Console.WriteLine("VNC connection wrapper disconnected successfully");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error during disconnect: {ex.Message}");
+        }
+        finally
+        {
+            _isConnecting = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task Connect()
+    {
+        if (_isConnecting || !_parametersValid)
+            return;
+
+        _isConnecting = true;
+        StateHasChanged();
+
+        try
+        {
+            _viewModel.Host = CurrentHost!;
+            _viewModel.Port = CurrentPort;
+            
+            _viewModel.ConnectCommand.Execute().Subscribe();
+        }
+        catch (Exception ex)
+        {
+            _viewModel.ErrorMessage = ex.Message;
+        }
+        finally
+        {
+            _isConnecting = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task<PasswordPromptResponse> ShowPasswordDialog(PasswordPromptRequest request)
+    {
+        _authTitle = request.Title;
+        _authMessage = request.Message;
+        _authSecurityType = request.SecurityTypeName;
+        _authSecurityTypeId = request.SecurityTypeId;
+        _isCredentialsMode = false;
+        
+        _passwordTcs = new TaskCompletionSource<PasswordPromptResponse>();
+        
+        _authDialog?.Reset();
+        await InvokeAsync(StateHasChanged);
+        
+        // Try Bootstrap API first, fallback to direct DOM manipulation
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("eval", "new bootstrap.Modal(document.getElementById('authModal')).show()");
+        }
+        catch (JSDisconnectedException)
+        {
+            // Circuit is disconnected, cannot show modal - return default password immediately
+            Console.WriteLine("Warning: Circuit disconnected during password authentication. Using fallback.");
+            return new PasswordPromptResponse { Password = "password", IsCancelled = false };
+        }
+        catch
+        {
+            try
+            {
+                // Fallback: directly show the modal
+                await JSRuntime.InvokeVoidAsync("eval", @"
+                    const modal = document.getElementById('authModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                        modal.classList.add('show');
+                        modal.setAttribute('aria-hidden', 'false');
+                        document.body.classList.add('modal-open');
+                        
+                        // Create backdrop
+                        const backdrop = document.createElement('div');
+                        backdrop.className = 'modal-backdrop fade show';
+                        backdrop.id = 'modal-backdrop';
+                        document.body.appendChild(backdrop);
+                    }
+                ");
+            }
+            catch (JSDisconnectedException)
+            {
+                // Circuit is disconnected during fallback - return default password
+                Console.WriteLine("Warning: Circuit disconnected during password fallback. Using default.");
+                return new PasswordPromptResponse { Password = "password", IsCancelled = false };
+            }
+        }
+        
+        return await _passwordTcs.Task;
+    }
+
+    private async Task<CredentialsPromptResponse> ShowCredentialsDialog(CredentialsPromptRequest request)
+    {
+        _authTitle = request.Title;
+        _authMessage = request.Message;
+        _authSecurityType = request.SecurityTypeName;
+        _authSecurityTypeId = request.SecurityTypeId;
+        _isCredentialsMode = true;
+        
+        _credentialsTcs = new TaskCompletionSource<CredentialsPromptResponse>();
+        
+        _authDialog?.Reset();
+        await InvokeAsync(StateHasChanged);
+        
+        // Try Bootstrap API first, fallback to direct DOM manipulation
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("eval", "new bootstrap.Modal(document.getElementById('authModal')).show()");
+        }
+        catch (JSDisconnectedException)
+        {
+            // Circuit is disconnected, cannot show modal - return default credentials immediately
+            Console.WriteLine("Warning: Circuit disconnected during credentials authentication. Using fallback.");
+            return new CredentialsPromptResponse { Username = "admin", Password = "password", IsCancelled = false };
+        }
+        catch
+        {
+            try
+            {
+                // Fallback: directly show the modal
+                await JSRuntime.InvokeVoidAsync("eval", @"
+                    const modal = document.getElementById('authModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                        modal.classList.add('show');
+                        modal.setAttribute('aria-hidden', 'false');
+                        document.body.classList.add('modal-open');
+                        
+                        // Create backdrop
+                        const backdrop = document.createElement('div');
+                        backdrop.className = 'modal-backdrop fade show';
+                        backdrop.id = 'modal-backdrop';
+                        document.body.appendChild(backdrop);
+                    }
+                ");
+            }
+            catch (JSDisconnectedException)
+            {
+                // Circuit is disconnected during fallback - return default credentials
+                Console.WriteLine("Warning: Circuit disconnected during credentials fallback. Using default.");
+                return new CredentialsPromptResponse { Username = "admin", Password = "password", IsCancelled = false };
+            }
+        }
+        
+        return await _credentialsTcs.Task;
+    }
+
+    private async Task OnPasswordAuthResult(PasswordPromptResponse response)
+    {
+        // Try Bootstrap API first, fallback to direct DOM manipulation
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("eval", "bootstrap.Modal.getInstance(document.getElementById('authModal')).hide()");
+        }
+        catch (JSDisconnectedException)
+        {
+            // Circuit is disconnected, can't hide modal via JS - just complete the task
+            Console.WriteLine("Warning: Circuit disconnected while hiding password modal.");
+        }
+        catch
+        {
+            try
+            {
+                // Fallback: directly hide the modal
+                await JSRuntime.InvokeVoidAsync("eval", @"
+                    const modal = document.getElementById('authModal');
+                    const backdrop = document.getElementById('modal-backdrop');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        modal.classList.remove('show');
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.body.classList.remove('modal-open');
+                    }
+                    if (backdrop) {
+                        backdrop.remove();
+                    }
+                ");
+            }
+            catch (JSDisconnectedException)
+            {
+                // Circuit is disconnected during fallback - can't hide modal
+                Console.WriteLine("Warning: Circuit disconnected during password modal hiding fallback.");
+            }
+        }
+        _passwordTcs?.SetResult(response);
+    }
+
+    private async Task OnCredentialsAuthResult(CredentialsPromptResponse response)
+    {
+        // Try Bootstrap API first, fallback to direct DOM manipulation
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("eval", "bootstrap.Modal.getInstance(document.getElementById('authModal')).hide()");
+        }
+        catch (JSDisconnectedException)
+        {
+            // Circuit is disconnected, can't hide modal via JS - just complete the task
+            Console.WriteLine("Warning: Circuit disconnected while hiding credentials modal.");
+        }
+        catch
+        {
+            try
+            {
+                // Fallback: directly hide the modal
+                await JSRuntime.InvokeVoidAsync("eval", @"
+                    const modal = document.getElementById('authModal');
+                    const backdrop = document.getElementById('modal-backdrop');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        modal.classList.remove('show');
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.body.classList.remove('modal-open');
+                    }
+                    if (backdrop) {
+                        backdrop.remove();
+                    }
+                ");
+            }
+            catch (JSDisconnectedException)
+            {
+                // Circuit is disconnected during fallback - can't hide modal
+                Console.WriteLine("Warning: Circuit disconnected during credentials modal hiding fallback.");
+            }
+        }
+        _credentialsTcs?.SetResult(response);
+    }
+
+    // Fullscreen functionality
+    private async Task ToggleFullscreen()
+    {
+        if (_vncView != null)
+        {
+            await _vncView.ToggleFullscreenAsync();
+        }
+    }
+    
+    private async Task OnFullscreenChanged(bool isFullscreen)
+    {
+        _isFullscreen = isFullscreen;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        try
+        {
+            _viewModel.PropertyChanged -= OnViewModelPropertyChanged;
+            
+            // Close and dispose VNC connection wrapper gracefully
+            if (_viewModel?.RfbConnection != null)
+            {
+                var wrapper = _viewModel.RfbConnection;
+                _viewModel.RfbConnection = null;
+                
+                // The wrapper handles safe disposal
+                wrapper.Dispose();
+                Console.WriteLine("Component dispose: VNC connection wrapper disposed");
+            }
+            
+            _passwordTcs?.TrySetCanceled();
+            _credentialsTcs?.TrySetCanceled();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error in Dispose: {ex.Message}");
+        }
+    }
+}

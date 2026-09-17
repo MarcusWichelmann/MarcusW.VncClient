@@ -13,6 +13,7 @@ namespace AvaloniaVncClient.Services
     public class InteractiveAuthenticationHandler : IAuthenticationHandler
     {
         public Interaction<Unit, string?> EnterPasswordInteraction { get; } = new Interaction<Unit, string?>();
+        public Interaction<Unit, (string?, string?)> EnterCredentialsInteraction { get; } = new Interaction<Unit, (string?, string?)>();
 
         /// <inhertitdoc />
         public async Task<TInput> ProvideAuthenticationInputAsync<TInput>(RfbConnection connection, ISecurityType securityType, IAuthenticationInputRequest<TInput> request)
@@ -29,7 +30,18 @@ namespace AvaloniaVncClient.Services
                 return (TInput)Convert.ChangeType(new PasswordAuthenticationInput(password), typeof(TInput));
             }
 
+            if (typeof(TInput) == typeof(CredentialsAuthenticationInput))
+            {
+                var (username, password) = await Dispatcher.UIThread.InvokeAsync(async () => await EnterCredentialsInteraction.Handle(Unit.Default)).ConfigureAwait(false);
+
+                // TODO: Implement canceling of authentication input requests instead of passing an empty password!
+                if (password == null)
+                    password = string.Empty;
+
+                return (TInput)Convert.ChangeType(new CredentialsAuthenticationInput(username, password), typeof(TInput));
+            }
             throw new InvalidOperationException("The authentication input request is not supported by the interactive authentication handler.");
         }
     }
+
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Reactive.Disposables;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Threading;
 using MarcusW.VncClient.Output;
@@ -93,7 +94,7 @@ namespace MarcusW.VncClient.Avalonia
         {
             Dispatcher.UIThread.Post(async () => {
                 // Copy the text to the local clipboard
-                await Application.Current.Clipboard.SetTextAsync(text).ConfigureAwait(true);
+                await TopLevel.GetTopLevel(this).Clipboard.SetTextAsync(text).ConfigureAwait(true);
             });
         }
     }
